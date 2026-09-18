@@ -298,7 +298,13 @@ export function buildCanon(project: Project): string {
           iri.run(lesson.originProjectId ?? project.id, lesson.learnedFromAttempt),
         ],
         ["st:originProject", lesson.originProjectId ? iri.project(lesson.originProjectId) : projectNode],
-        ["st:originProjectTitle", lesson.originProjectTitle ? lit(safeText(lesson.originProjectTitle, 160)) : undefined],
+        // Always carry a readable origin, falling back to this project's own title. A lesson that
+        // travels to another studio should arrive saying which production proved it, and a bare id
+        // is attribution nobody can act on.
+        [
+          "st:originProjectTitle",
+          lit(safeText(lesson.originProjectTitle ?? project.title, 160)),
+        ],
         ["st:originAgent", iri.agent(lesson.originAgent ?? project.agentLabel)],
         ["st:curatedBy", lesson.curatedBy ? iri.agent(lesson.curatedBy) : undefined],
         ["st:curatedAt", lesson.curatedAt ? dateLit(lesson.curatedAt) : undefined],
