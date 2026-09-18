@@ -1,6 +1,6 @@
 import { LivepeerAgent } from "@/livepeer/mcp-client";
 import { CAPABILITY, extractJson, think, watchVideo } from "@/livepeer/capabilities";
-import { RawReviewSchema, type Brief, type Finding, type Review } from "./schemas";
+import { RawReviewSchema, type Brief, type CriterionVerdict, type Finding, type Review } from "./schemas";
 import { safeText } from "@/dkg/redact";
 
 /**
@@ -84,9 +84,7 @@ export async function reviewVideo(options: ReviewOptions): Promise<Review> {
           : undefined,
     }));
 
-  const verdicts = value.criteria
-    .filter((c) => brief.criteria.some((bc) => bc.index === c.index))
-    .map((c) => ({ index: c.index, met: c.met, note: safeText(c.note, 200) }));
+  const verdicts = collapseVerdicts(value.criteria, brief);
 
   return {
     score: clamp(value.score, 0, 10),
@@ -99,6 +97,39 @@ export async function reviewVideo(options: ReviewOptions): Promise<Review> {
   };
 }
 
+/**
+ * One verdict per criterion, however many the reviewer returned.
+ *
+ * Observed on a real run: three criteria came back with six verdicts, the model having also scored
+ * the brief's "avoid" rules and reused indices 0–2 for them. Left alone, that doubles every
+ * criterion in the Run Ledger and hands the distiller the same criterion twice.
+ *
+ * Where duplicates disagree, unmet wins. A criterion is only satisfied if nothing the reviewer said
+ * contradicts it, and quietly promoting a flagged criterion to "met" is the failure mode that
+ * matters — it would let a production claim it passed a test a reviewer had just failed it on.
+ */
+function collapseVerdicts(
+  raw: Array<{ index: number; met: boolean; note: string }>,
+  brief: Brief
+): CriterionVerdict[] {
+  const byIndex = new Map<number, CriterionVerdict>();
+
+  for (const candidate of raw) {
+    if (!brief.criteria.some((c) => c.index === candidate.index)) continue;
+    const existing = byIndex.get(candidate.index);
+    const note = safeText(candidate.note, 200);
+
+    if (!existing) {
+      byIndex.set(candidate.index, { index: candidate.index, met: candidate.met, note });
+      continue;
+    }
+    // Keep the note that explains the failure, since that is the one worth learning from.
+    if (existing.met && !candidate.met) byIndex.set(candidate.index, { index: candidate.index, met: false, note });
+  }
+
+  return [...byIndex.values()].sort((a, b) => a.index - b.index);
+}
+
 function buildRubric(brief: Brief, shotIntent?: string): string {
   return [
     "You are a demanding post-production reviewer. Watch this clip and judge it.",
@@ -107,11 +138,17 @@ function buildRubric(brief: Brief, shotIntent?: string): string {
     "",
     "Judge it against each of these criteria, by index:",
     ...brief.criteria.map((c) => `  ${c.index}. ${c.body}`),
-    brief.avoid.length ? `\nThese were to be avoided: ${brief.avoid.join("; ")}` : "",
+    // Stated as context, and explicitly not as scoreable criteria — a reviewer told to judge both
+    // lists tends to reuse the criterion indices for the avoid rules.
+    brief.avoid.length
+      ? `\nThese were to be avoided. Do NOT score them as criteria; mention them under problems if you see one: ${brief.avoid.join("; ")}`
+      : "",
     "",
     "Be specific and visual. Describe what you actually see, not what you assume was intended.",
     "A problem must be something a person could act on: name the element and what is wrong with it.",
     `A score of ${brief.targetScore} or above means it is ready to ship as-is.`,
+    "",
+    `Return exactly ${brief.criteria.length} entries in "criteria" — one per index above, no duplicates and nothing extra.`,
     "",
     "Return ONLY this JSON, no prose:",
     '{"score": <0-10 number>, "summary": "<one sentence>", "criteria": [{"index": <int>, "met": <true|false>, "note": "<short>"}], "strengths": ["<short>"], "problems": ["<short>"]}',
