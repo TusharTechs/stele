@@ -121,6 +121,42 @@ export function GraphTab({ project }: { project: Project }) {
           Read-only: SELECT, ASK, CONSTRUCT and DESCRIBE. A store that accepted updates from a browser
           would let any page rewrite the provenance record.
         </p>
+
+        <div className="mt-6">
+          <SectionTitle hint="the same bytes a DKG node holds">Take it with you</SectionTitle>
+          <p className="mb-2.5 text-xs text-bone-500">
+            Keeping a canon in RDF is only worth something if you can leave with it.
+          </p>
+          <ul className="grid gap-1.5">
+            {(
+              [
+                ["canon", "Canon", "the rules that steer renders"],
+                ["ledger", "Run ledger", "what every attempt did, and cost"],
+              ] as const
+            ).map(([asset, label, hint]) => (
+              <li key={asset} className="flex items-center justify-between gap-2 text-[12px]">
+                <span className="min-w-0">
+                  <span className="text-bone-300">{label}</span>
+                  <span className="block text-[11px] text-bone-500">{hint}</span>
+                </span>
+                <span className="flex shrink-0 gap-1.5 font-mono text-[11px]">
+                  <a
+                    href={`/api/projects/${project.id}/export?asset=${asset}&format=ttl`}
+                    className="rounded border border-basalt-700 px-2 py-1 text-bone-400 transition-colors hover:border-basalt-600 hover:text-bone-200"
+                  >
+                    .ttl
+                  </a>
+                  <a
+                    href={`/api/projects/${project.id}/export?asset=${asset}&format=jsonld`}
+                    className="rounded border border-basalt-700 px-2 py-1 text-bone-400 transition-colors hover:border-basalt-600 hover:text-bone-200"
+                  >
+                    .jsonld
+                  </a>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </aside>
 
       <section className="grid gap-6">

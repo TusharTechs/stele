@@ -157,6 +157,20 @@ export class LivepeerAgent {
     return card;
   }
 
+  /**
+   * Hand the network a local file and get back a URL it can read.
+   *
+   * Separate from `run`, because `upload` is a transport concern rather than a capability: it has no
+   * price, no SLA and no place in the cost ledger, and folding it into the dispatch path would put a
+   * zero-cost housekeeping call in every production's record.
+   */
+  async callUpload(args: Record<string, unknown>): Promise<string | undefined> {
+    const payload = await this.callTool("upload", args);
+    const sc = structured(payload);
+    if (sc.ok === false) throw new Error(str(sc.error) ?? "upload failed");
+    return str(sc.url);
+  }
+
   async listCapabilities(kind?: "ai" | "tool" | "mcp"): Promise<Array<Record<string, unknown>>> {
     const payload = await this.callTool("list_capabilities", kind ? { kind } : {});
     const sc = structured(payload);

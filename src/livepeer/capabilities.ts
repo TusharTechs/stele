@@ -36,6 +36,14 @@ export const CAPABILITY = {
   concat: "ffmpeg-concat",
   mux: "ffmpeg-mux",
   audioMix: "ffmpeg-audio-mix",
+  /**
+   * Burns the production record's address onto the film.
+   *
+   * Requires both `name` and `title` in `inputs`; the network rejects the call before doing any work
+   * if either is missing, and says which. Confirmed legible by asking nemotron-omni-video to read
+   * the finished clip back, which returned the stamped text verbatim.
+   */
+  stamp: "hyperframes-lower-third",
 } as const;
 
 /*
@@ -63,6 +71,7 @@ const TIMEOUT = {
   review: 120,
   audio: 60,
   edit: 60,
+  stamp: 130,
 } as const;
 
 /** ltx-2.5 takes discrete durations only; anything else is rejected or silently coerced. */
@@ -370,6 +379,68 @@ export async function muxAudio(
     persist: true,
   });
   return asMedia(result, CAPABILITY.mux);
+}
+
+/**
+ * Give the network something it can actually fetch.
+ *
+ * A capability cannot read this machine's disk, so a cut served from `/seed/` or any other local
+ * path is invisible to it. The seeded demo productions are exactly that: their media was vendored
+ * into the repo so the demo works offline, which is right for viewing and useless for any capability
+ * that takes the cut as input.
+ *
+ * Uploading the bytes fixes it. The transport caps inline uploads around 3 MB, and a 6-second 720p
+ * cut runs 2.5 to 3.6 MB, so most fit and the ones that don't say so plainly rather than failing
+ * somewhere further in.
+ */
+export async function ensureFetchable(
+  agent: LivepeerAgent,
+  stage: string,
+  url: string,
+  readLocal: (path: string) => Promise<Buffer>
+): Promise<string> {
+  if (/^https?:\/\//.test(url)) return url;
+
+  const bytes = await readLocal(url);
+  const megabytes = bytes.byteLength / 1e6;
+  if (megabytes > 3) {
+    throw new Error(
+      `This cut is ${megabytes.toFixed(1)} MB and lives on this machine, which is past the ${3} MB inline upload limit. Capabilities that take the cut as input need a production this instance rendered itself.`
+    );
+  }
+
+  const payload = await agent.callUpload({
+    data: bytes.toString("base64"),
+    mime_type: "video/mp4",
+    filename: url.split("/").pop() ?? "cut.mp4",
+  });
+  if (!payload) throw new Error("The cut could not be uploaded for the network to read.");
+  void stage;
+  return payload;
+}
+
+/**
+ * Stamp a film with where its record lives.
+ *
+ * The claim this project makes is that a generated film can carry its provenance. A record nobody
+ * can find from the file is a weaker version of that claim, so the address goes on the picture.
+ */
+export async function stampRecord(
+  agent: LivepeerAgent,
+  stage: string,
+  videoUrl: string,
+  name: string,
+  recordUrl: string
+): Promise<MediaOutput> {
+  const result = await agent.runOrThrow({
+    capability: CAPABILITY.stamp,
+    stage,
+    sourceUrl: videoUrl,
+    inputs: { name, title: recordUrl },
+    timeout: TIMEOUT.stamp,
+    persist: true,
+  });
+  return asMedia(result, CAPABILITY.stamp);
 }
 
 /** Reads a public page so a scripted claim can carry the URL it came from. */

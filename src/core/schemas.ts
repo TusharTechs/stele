@@ -228,6 +228,8 @@ export const RunSchema = z.object({
   reviewError: z.string().optional(),
   /** Set when the shots could not be cut together and the film fell back to a single shot. */
   assemblyNote: z.string().optional(),
+  /** The cut with its production record's address burned onto it. */
+  stampedUrl: z.string().optional(),
   lessonIds: z.array(z.string()).default([]),
   costUSD: z.number().default(0),
   calls: z.array(LivepeerCallRecordSchema).default([]),
