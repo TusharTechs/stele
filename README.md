@@ -42,22 +42,18 @@ Give it a brief and the criteria it must satisfy. Then, per attempt:
 Everything above runs on Livepeer Agent. There is no second AI vendor anywhere in the system.
 
 ```mermaid
-%%{init: {"flowchart": {"htmlLabels": true}}}%%
-flowchart TB
-    CANON[("<b>Canon</b> · in the DKG<br/>constraints, accepted lessons,<br/>and who approved each")]
-    COMPILE["<b>Compile the prompt</b><br/>every clause keeps the row it came from"]
-    RENDER["<b>Render and review, shot by shot</b><br/>flux-schnell · kontext-edit · ltx-25-i2v-fast<br/>nemotron-omni-video watches each clip and sends failures back"]
-    CUT["<b>Assemble, judge, distil</b><br/>ffmpeg-concat · one verdict per criterion<br/>findings become candidate rules"]
-    HUMAN{{"<b>You decide</b> · accept · pin · edit · reject"}}
+flowchart LR
+    CANON[("<b>Canon</b> · in the DKG<br/>constraints and accepted<br/>lessons, and who approved each")]
+    ATTEMPT["<b>One attempt</b> · every call on Livepeer Agent<br/>compile the prompt, clause by clause<br/>flux-schnell · kontext-edit · ltx-25-i2v-fast<br/>nemotron-omni-video reviews and sends failures back<br/>ffmpeg-concat, then one verdict per criterion"]
+    HUMAN{{"<b>You decide</b><br/>accept · pin<br/>edit · reject"}}
     OTHER[("Another studio's<br/>shared memory")]
-    LEDGER[("<b>Run ledger, and the production record</b><br/>capability · cost · hashes · verdicts · every clause<br/>sealed to Verifiable Memory as a UAL")]
+    LEDGER[("<b>Run ledger, and the record</b><br/>capability · cost · hashes · verdicts<br/>sealed to Verifiable Memory as a UAL")]
 
-    CANON -->|"the rows that steer this render"| COMPILE
-    COMPILE --> RENDER --> CUT
-    CUT -->|"proposed only"| HUMAN
+    CANON -->|"the rows that steer it"| ATTEMPT
+    ATTEMPT -->|"findings, proposed only"| HUMAN
     OTHER -->|"inherited, attributed"| HUMAN
     HUMAN -->|"accepted only"| CANON
-    CUT -.->|"every call, every clause"| LEDGER
+    ATTEMPT -.->|"every call, every clause"| LEDGER
 
     classDef knowledge stroke:#a8871f,stroke-width:2px
     classDef gate stroke:#2f9d75,stroke-width:2px
@@ -403,6 +399,30 @@ Next.js 16 · React 19 · TypeScript (strict) · Tailwind v4 · zod · oxigraph.
 Runs as a persistent Node process, not serverless: a video render takes minutes and every stage
 persists before the next begins, so an interrupted run re-enters where it stopped rather than paying
 to redo it.
+
+
+## Running the hosted demo
+
+The deployed site is a read-only copy of this record. Every page that reads works: the productions,
+the canon, the gallery, the comparison between two films, and the ledger of what each call cost.
+Nothing that writes works, and it says so rather than pretending: a render takes minutes against a
+serverless function timeout, writes project files to disk, and talks to a DKG node on localhost.
+Producing a film means cloning this repo.
+
+A deployment needs three things set, and no more:
+
+| Variable | Value | Why |
+|---|---|---|
+| `STELE_READ_ONLY` | `1` | Disables the controls that cannot work, with an explanation in place of a dead button. Detected automatically on Vercel, so this is belt and braces. |
+| `STELE_DKG` | `file` | There is no DKG node reachable from a serverless host. The in-process store runs the same SPARQL, and the header says **local RDF store** rather than claiming a node. |
+| `STELE_PUBLIC_URL` | the deployment origin | Used for the URLs burned onto a film and printed in a record. |
+
+Leave `LIVEPEER_API_KEY` and every `DKG_*` variable unset. Nothing on the hosted copy spends money
+or writes to the graph, so a key there would only be a key sitting somewhere it is not needed.
+
+The demo projects travel with the build: `prebuild` loads them out of `demo/` and `next.config.ts`
+traces them into the server bundle. Without both, the deploy is a technically correct site with no
+productions in it.
 
 ## License
 

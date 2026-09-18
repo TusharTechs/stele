@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import type { Lesson, Project } from "@/core/schemas";
 import type { PipelineEvent } from "@/core/pipeline";
 import type { DkgMode } from "@/dkg/client";
+import { READ_ONLY_REASON } from "@/core/deploy";
 import { Badge, Button, Card, Money, Score } from "@/components/ui";
 import { ProductionTab } from "./ProductionTab";
 import { CanonTab } from "./CanonTab";
@@ -26,11 +27,13 @@ export function StudioConsole({
   initialOffers,
   initiallyRunning,
   dkgMode,
+  readOnly,
 }: {
   initialProject: Project;
   initialOffers: Lesson[];
   initiallyRunning: boolean;
   dkgMode: DkgMode;
+  readOnly: boolean;
 }) {
   const [project, setProject] = useState(initialProject);
   const [offers, setOffers] = useState(initialOffers);
@@ -119,10 +122,17 @@ export function StudioConsole({
         activeCount={activeLessons.length}
         running={running}
         dkgMode={dkgMode}
+        readOnly={readOnly}
         onRun={start}
         onSealed={(text, tone) => setNotice({ tone, text })}
         onRefresh={refresh}
       />
+
+      {readOnly ? (
+        <p className="mt-4 rounded border border-bronze-400/30 bg-bronze-900/40 px-3 py-2 text-sm leading-relaxed text-bronze-300">
+          {READ_ONLY_REASON}
+        </p>
+      ) : null}
 
       {notice ? (
         <p
@@ -184,6 +194,7 @@ function Header({
   activeCount,
   running,
   dkgMode,
+  readOnly,
   onRun,
   onSealed,
   onRefresh,
@@ -194,6 +205,7 @@ function Header({
   activeCount: number;
   running: boolean;
   dkgMode: DkgMode;
+  readOnly: boolean;
   onRun: (withholdMemory: boolean) => void;
   onSealed: (text: string, tone: "ok" | "bad") => void;
   onRefresh: () => Promise<void>;
@@ -260,31 +272,40 @@ function Header({
           ) : null}
 
           <div className="flex flex-wrap items-center justify-end gap-2">
-            <Button variant="primary" disabled={running} onClick={() => onRun(false)}>
+            <Button
+              variant="primary"
+              disabled={running || readOnly}
+              title={readOnly ? READ_ONLY_REASON : undefined}
+              onClick={() => onRun(false)}
+            >
               {running ? "Running…" : project.runs.length === 0 ? "Run first attempt" : "Run next attempt"}
             </Button>
             {/* The control condition. Only offered once there is knowledge to withhold — before
                 that it would be identical to an ordinary run and would prove nothing. */}
             <Button
               variant="secondary"
-              disabled={running || activeCount === 0}
+              disabled={running || activeCount === 0 || readOnly}
               onClick={() => onRun(true)}
               title={
-                activeCount === 0
-                  ? "Nothing in the canon yet, so a control run would be identical to a normal one."
-                  : "Run the same brief with every learned lesson withheld, to measure what the canon is worth."
+                readOnly
+                  ? READ_ONLY_REASON
+                  : activeCount === 0
+                    ? "Nothing in the canon yet, so a control run would be identical to a normal one."
+                    : "Run the same brief with every learned lesson withheld, to measure what the canon is worth."
               }
             >
               Run control
             </Button>
             <Button
               variant="ghost"
-              disabled={sealing || running || scored.length === 0 || dkgMode !== "network"}
+              disabled={sealing || running || scored.length === 0 || dkgMode !== "network" || readOnly}
               onClick={seal}
               title={
-                dkgMode === "network"
-                  ? "Publish this production's record to Verifiable Memory and mint a UAL."
-                  : `This instance runs on ${dkgMode === "edge" ? "an edge node" : "a local RDF store"}. Set STELE_DKG=network to seal.`
+                readOnly
+                  ? READ_ONLY_REASON
+                  : dkgMode === "network"
+                    ? "Publish this production's record to Verifiable Memory and mint a UAL."
+                    : `This instance runs on ${dkgMode === "edge" ? "an edge node" : "a local RDF store"}. Set STELE_DKG=network to seal.`
               }
             >
               {sealing ? "Sealing…" : "Seal"}

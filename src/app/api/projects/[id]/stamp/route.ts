@@ -4,6 +4,7 @@ import { knowledgeStore } from "@/dkg/client";
 import { loadProject, updateProject } from "@/core/store";
 import fs from "node:fs/promises";
 import path from "node:path";
+import { isReadOnly, readOnlyResponse } from "@/core/deploy";
 
 export const dynamic = "force-dynamic";
 
@@ -15,6 +16,8 @@ export const dynamic = "force-dynamic";
  * over it: the unstamped cut is what the record's integrity check hashes.
  */
 export async function POST(request: Request, { params }: { params: Promise<{ id: string }> }) {
+  if (isReadOnly()) return readOnlyResponse();
+
   const { id } = await params;
 
   const project = await loadProject(id);

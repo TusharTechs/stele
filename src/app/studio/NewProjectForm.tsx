@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Button, Card } from "@/components/ui";
 import { Select } from "@/components/Select";
+import { READ_ONLY_REASON } from "@/core/deploy";
 
 /**
  * The brief.
@@ -32,7 +33,13 @@ export interface CanonOption {
   constraints: number;
 }
 
-export function NewProjectForm({ canons = [] }: { canons?: CanonOption[] }) {
+export function NewProjectForm({
+  canons = [],
+  readOnly = false,
+}: {
+  canons?: CanonOption[];
+  readOnly?: boolean;
+}) {
   const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string>();
@@ -189,7 +196,19 @@ export function NewProjectForm({ canons = [] }: { canons?: CanonOption[] }) {
         ) : null}
 
         <div>
-          <Button type="submit" variant="primary" disabled={busy} className="w-full">
+          {readOnly ? (
+            <p className="mb-3 rounded border border-bronze-400/30 bg-bronze-900/40 px-3 py-2 text-[13px] leading-relaxed text-bronze-300">
+              {READ_ONLY_REASON}
+            </p>
+          ) : null}
+
+          <Button
+            type="submit"
+            variant="primary"
+            disabled={busy || readOnly}
+            title={readOnly ? READ_ONLY_REASON : undefined}
+            className="w-full"
+          >
             {busy ? "Building the canon…" : forked ? "Create, starting from that canon" : "Create production"}
           </Button>
           <p className="mt-2 text-center font-mono text-[11px] text-bone-500">

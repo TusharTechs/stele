@@ -3,6 +3,7 @@ import { updateProject } from "@/core/store";
 import { knowledgeStore } from "@/dkg/client";
 import { safeText } from "@/dkg/redact";
 import { LessonSchema, type Lesson } from "@/core/schemas";
+import { isReadOnly, readOnlyResponse } from "@/core/deploy";
 
 export const dynamic = "force-dynamic";
 
@@ -28,6 +29,8 @@ const CurateSchema = z.object({
 });
 
 export async function POST(request: Request, { params }: { params: Promise<{ id: string }> }) {
+  if (isReadOnly()) return readOnlyResponse();
+
   const { id } = await params;
   const parsed = CurateSchema.safeParse(await request.json().catch(() => null));
   if (!parsed.success) {

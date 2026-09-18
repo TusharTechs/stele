@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { loadProject } from "@/core/store";
 import { AlreadyRunning, isRunning, startRun } from "@/core/runner";
+import { isReadOnly, readOnlyResponse } from "@/core/deploy";
 
 export const dynamic = "force-dynamic";
 
@@ -17,6 +18,8 @@ const StartSchema = z.object({
  * started it is not what keeps it alive. Nothing here waits for a render.
  */
 export async function POST(request: Request, { params }: { params: Promise<{ id: string }> }) {
+  if (isReadOnly()) return readOnlyResponse();
+
   const { id } = await params;
 
   const project = await loadProject(id);

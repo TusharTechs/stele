@@ -3,6 +3,7 @@ import { listProjects } from "@/core/store";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Ago, Badge, Card, Empty, SectionTitle } from "@/components/ui";
 import { NewProjectForm } from "./NewProjectForm";
+import { isReadOnly } from "@/core/deploy";
 
 export const dynamic = "force-dynamic";
 
@@ -86,6 +87,7 @@ export default async function StudioPage() {
           <aside>
             <SectionTitle>New production</SectionTitle>
             <NewProjectForm
+              readOnly={isReadOnly()}
               canons={projects
                 .filter((p) => p.constraints.length > 0)
                 .map((p) => ({

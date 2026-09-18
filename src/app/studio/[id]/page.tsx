@@ -3,6 +3,7 @@ import { loadProject } from "@/core/store";
 import { offerInheritedLessons } from "@/core/intake";
 import { isRunning } from "@/core/runner";
 import { resolveDkgMode } from "@/dkg/client";
+import { isReadOnly } from "@/core/deploy";
 import { SiteHeader } from "@/components/SiteHeader";
 import { StudioConsole } from "./StudioConsole";
 
@@ -25,6 +26,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
         initialOffers={offers}
         initiallyRunning={isRunning(id)}
         dkgMode={resolveDkgMode()}
+        readOnly={isReadOnly()}
       />
     </>
   );

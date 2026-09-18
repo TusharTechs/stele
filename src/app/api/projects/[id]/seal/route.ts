@@ -1,5 +1,6 @@
 import { knowledgeStore, resolveDkgMode } from "@/dkg/client";
 import { loadProject, updateProject } from "@/core/store";
+import { isReadOnly, readOnlyResponse } from "@/core/deploy";
 
 export const dynamic = "force-dynamic";
 
@@ -14,6 +15,8 @@ export const dynamic = "force-dynamic";
  * and it is not reversible. You seal a cut you are willing to stand behind.
  */
 export async function POST(_request: Request, { params }: { params: Promise<{ id: string }> }) {
+  if (isReadOnly()) return readOnlyResponse();
+
   const { id } = await params;
 
   const project = await loadProject(id);

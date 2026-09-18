@@ -2,6 +2,7 @@ import { z } from "zod";
 import { createProject } from "@/core/intake";
 import { listProjects, loadProject } from "@/core/store";
 import { BriefSchema } from "@/core/schemas";
+import { isReadOnly, readOnlyResponse } from "@/core/deploy";
 
 export const dynamic = "force-dynamic";
 
@@ -34,6 +35,8 @@ const CreateSchema = z.object({
 });
 
 export async function POST(request: Request) {
+  if (isReadOnly()) return readOnlyResponse();
+
   const parsed = CreateSchema.safeParse(await request.json().catch(() => null));
   if (!parsed.success) {
     return Response.json({ error: parsed.error.issues[0]?.message ?? "Invalid brief." }, { status: 400 });
