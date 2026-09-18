@@ -24,12 +24,21 @@ const PLACEHOLDER = {
 const USD_PER_VIDEO_SECOND = 0.0945;
 const USD_PER_SHOT_OVERHEAD = 0.02;
 
-export function NewProjectForm() {
+export interface CanonOption {
+  id: string;
+  title: string;
+  rules: number;
+  constraints: number;
+}
+
+export function NewProjectForm({ canons = [] }: { canons?: CanonOption[] }) {
   const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string>();
   const [shotCount, setShotCount] = useState(3);
   const [shotSeconds, setShotSeconds] = useState(6);
+  const [forkFrom, setForkFrom] = useState("");
+  const forked = canons.find((c) => c.id === forkFrom);
 
   const estimate = shotCount * (shotSeconds * USD_PER_VIDEO_SECOND + USD_PER_SHOT_OVERHEAD);
 
@@ -58,6 +67,7 @@ export function NewProjectForm() {
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
           agentLabel: String(form.get("agentLabel") || "studio-a"),
+          forkFrom: forkFrom || undefined,
           brief: {
             goal: String(form.get("goal") ?? ""),
             audience: String(form.get("audience") ?? ""),
@@ -86,6 +96,25 @@ export function NewProjectForm() {
   return (
     <Card className="p-4">
       <form onSubmit={submit} className="grid gap-4">
+        <Field label="Start from a canon" hint="Optional. Inherits its rules and constraints.">
+          <select value={forkFrom} onChange={(e) => setForkFrom(e.target.value)} className={INPUT}>
+            <option value="">A blank canon</option>
+            {canons.map((c) => (
+              <option key={c.id} value={c.id}>
+                {c.title} ({c.rules} rules, {c.constraints} constraints)
+              </option>
+            ))}
+          </select>
+        </Field>
+        {forked ? (
+          <p className="-mt-1.5 text-[12px] leading-snug text-bronze-300">
+            This production will begin with {forked.rules} rule
+            {forked.rules === 1 ? "" : "s"} and {forked.constraints} constraint
+            {forked.constraints === 1 ? "" : "s"} from {forked.title}, already accepted. That is a house
+            style, carried across.
+          </p>
+        ) : null}
+
         <Field label="The film" hint="One or two sentences.">
           <textarea name="goal" required rows={3} defaultValue={PLACEHOLDER.goal} className={INPUT} />
         </Field>
@@ -159,7 +188,7 @@ export function NewProjectForm() {
 
         <div>
           <Button type="submit" variant="primary" disabled={busy} className="w-full">
-            {busy ? "Building the canon…" : "Create production"}
+            {busy ? "Building the canon…" : forked ? "Create, starting from that canon" : "Create production"}
           </Button>
           <p className="mt-2 text-center font-mono text-[11px] text-bone-500">
             ~${estimate.toFixed(2)} of network spend per attempt · nothing renders until you press Run

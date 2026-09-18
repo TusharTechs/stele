@@ -85,7 +85,16 @@ export default async function StudioPage() {
 
           <aside>
             <SectionTitle>New production</SectionTitle>
-            <NewProjectForm />
+            <NewProjectForm
+              canons={projects
+                .filter((p) => p.constraints.length > 0)
+                .map((p) => ({
+                  id: p.id,
+                  title: p.title,
+                  rules: p.lessons.filter((l) => l.status === "accepted" || l.status === "pinned").length,
+                  constraints: p.constraints.length,
+                }))}
+            />
           </aside>
         </div>
       </main>

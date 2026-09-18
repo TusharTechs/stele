@@ -21,8 +21,10 @@ export function SiteHeader({ children }: { children?: React.ReactNode }) {
         ? "border-bronze-400/40 bg-bronze-900 text-bronze-300"
         : "border-basalt-700 bg-basalt-850 text-bone-500";
 
+  // Solid rather than translucent-and-blurred. At 85% opacity over a near-black page the blur was
+  // invisible, and it cost a compositing layer that repaints on every scroll frame.
   return (
-    <header className="sticky top-0 z-30 border-b border-basalt-800 bg-basalt-950/85 backdrop-blur">
+    <header className="sticky top-0 z-30 border-b border-basalt-800 bg-basalt-950">
       <div className="mx-auto flex h-14 max-w-7xl items-center gap-3 px-4 sm:gap-4 sm:px-6">
         <Link href="/" className="transition-opacity hover:opacity-80">
           <Wordmark />

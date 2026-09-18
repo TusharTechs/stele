@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { createProject } from "@/core/intake";
-import { listProjects } from "@/core/store";
+import { listProjects, loadProject } from "@/core/store";
 import { BriefSchema } from "@/core/schemas";
 
 export const dynamic = "force-dynamic";
@@ -29,6 +29,8 @@ export async function GET() {
 const CreateSchema = z.object({
   brief: BriefSchema,
   agentLabel: z.string().min(1).max(40).optional(),
+  /** Another production whose canon this one should start from. */
+  forkFrom: z.string().min(1).max(64).optional(),
 });
 
 export async function POST(request: Request) {
@@ -38,7 +40,13 @@ export async function POST(request: Request) {
   }
 
   try {
-    const project = await createProject(parsed.data);
+    const { forkFrom, ...rest } = parsed.data;
+    const source = forkFrom ? await loadProject(forkFrom) : undefined;
+    if (forkFrom && !source) {
+      return Response.json({ error: "The production to fork from no longer exists." }, { status: 400 });
+    }
+
+    const project = await createProject({ ...rest, forkFrom: source });
     return Response.json({ project }, { status: 201 });
   } catch (error) {
     return Response.json({ error: message(error) }, { status: 502 });

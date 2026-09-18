@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import type { Clause, Project, Run } from "@/core/schemas";
 import { Badge, Card, Empty, Money, SectionTitle, Score } from "@/components/ui";
+import { ChangesPanel } from "./ChangesPanel";
 
 /**
  * One attempt, in full: what was made, how it scored, and — the part that matters — why the prompt
@@ -33,6 +34,7 @@ export function ProductionTab({
 
       <div className="grid content-start gap-6">
         <WhyThisPrompt run={run} project={project} />
+        <ChangesPanel project={project} run={run} />
         <Ledger run={run} />
       </div>
     </div>

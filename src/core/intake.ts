@@ -35,6 +35,14 @@ const IntakeSchema = z.object({
 export async function createProject(input: {
   brief: Brief;
   agentLabel?: string;
+  /**
+   * Start from another production's canon.
+   *
+   * This is what a house style actually is: a set of rules someone proved on one film and wants on
+   * the next. Copying them at intake, rather than offering them one at a time afterwards, is the
+   * difference between a tool that remembers and a tool a studio can standardise on.
+   */
+  forkFrom?: Project;
 }): Promise<Project> {
   const brief = BriefSchema.parse(input.brief);
   const agent = livepeer();
@@ -75,6 +83,34 @@ export async function createProject(input: {
     createdAt: now,
   }));
 
+  // A forked canon arrives already accepted. The source studio reviewed these rules on their own
+  // production; asking the same human to approve them again would be ceremony, and the graph still
+  // records where each one came from.
+  const inherited: Lesson[] = (input.forkFrom?.lessons ?? [])
+    .filter((l) => l.status === "accepted" || l.status === "pinned")
+    .map((l) => ({
+      ...l,
+      id: `forked-${constraintId(l.body)}`,
+      status: "accepted" as const,
+      originProjectId: l.originProjectId ?? input.forkFrom!.id,
+      originProjectTitle: l.originProjectTitle ?? input.forkFrom!.title,
+      originAgent: l.originAgent ?? input.forkFrom!.agentLabel,
+      curatedBy: input.agentLabel ?? "studio-a",
+      curatedAt: now,
+    }));
+
+  const forkedConstraints: Constraint[] = (input.forkFrom?.constraints ?? []).map((c) => ({
+    ...c,
+    id: `forked-${c.id}`,
+    createdAt: now,
+  }));
+
+  // The new brief's own constraints win where they overlap, since they describe this film.
+  const merged = [...constraints];
+  for (const c of forkedConstraints) {
+    if (!merged.some((m) => normalise(m.body) === normalise(c.body))) merged.push(c);
+  }
+
   const project: Project = {
     id,
     title: safeText(value.title, 80),
@@ -83,12 +119,15 @@ export async function createProject(input: {
     agentLabel: input.agentLabel ?? "studio-a",
     brief,
     canonVersion: 1,
-    constraints,
-    lessons: [],
+    constraints: merged,
+    lessons: inherited,
     runs: [],
     sources: [],
     seals: [],
-    inheritedLessonIds: [],
+    inheritedLessonIds: inherited.map((l) => l.id),
+    note: input.forkFrom
+      ? `Started from the canon of "${input.forkFrom.title}", inheriting ${inherited.length} accepted rule(s) and ${forkedConstraints.length} constraint(s).`
+      : undefined,
   };
 
   const saved = await saveProject(project);

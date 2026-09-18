@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { loadProject } from "@/core/store";
 import { SiteHeader } from "@/components/SiteHeader";
+import { VerifyPanel } from "./VerifyPanel";
 import { Badge, Card, Empty, Money, SectionTitle, Score } from "@/components/ui";
 import type { Clause } from "@/core/schemas";
 
@@ -155,6 +156,8 @@ export default async function RecordPage({ params }: { params: Promise<{ id: str
                 </ul>
               </Row>
             ) : null}
+
+            <VerifyPanel projectId={project.id} />
 
             <Row title="Integrity">
               <dl className="grid gap-2 font-mono text-[11px]">

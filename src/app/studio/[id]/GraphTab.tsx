@@ -3,6 +3,8 @@
 import { useCallback, useEffect, useState } from "react";
 import type { Project } from "@/core/schemas";
 import { Badge, Button, Card, Empty, SectionTitle } from "@/components/ui";
+import { GraphPicture, GraphPictureSection } from "./GraphPicture";
+import { describeNode, projectShape } from "@/dkg/queries";
 
 interface Preset {
   label: string;
@@ -33,6 +35,9 @@ export function GraphTab({ project }: { project: Project }) {
   const [sparql, setSparql] = useState("");
   const [result, setResult] = useState<QueryResult>();
   const [busy, setBusy] = useState(false);
+  // The picture is fed by its own query so that changing the console's text cannot silently redraw
+  // it into something the rows no longer support.
+  const [shape, setShape] = useState<QueryResult>();
 
   const run = useCallback(
     async (query: string) => {
@@ -63,6 +68,14 @@ export function GraphTab({ project }: { project: Project }) {
       setSparql(data.presets[0].sparql);
       // Open on the compiler's own query already answered, rather than an empty box.
       void run(data.presets[0].sparql);
+      void fetch(`/api/projects/${project.id}/query`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ sparql: projectShape(project.id) }),
+      })
+        .then((r) => r.json())
+        .then((d) => { if (!cancelled) setShape(d); })
+        .catch(() => undefined);
     })();
     return () => {
       cancelled = true;
@@ -70,6 +83,17 @@ export function GraphTab({ project }: { project: Project }) {
   }, [project.id, run]);
 
   const columns = result?.bindings.length ? Object.keys(result.bindings[0]) : [];
+
+  // Clicking a node asks the store what it knows about it, and drops the answer into the console —
+  // so the picture always hands you back to the queryable thing rather than ending the trail.
+  const inspect = useCallback(
+    (iri: string) => {
+      const q = describeNode(iri);
+      setSparql(q);
+      void run(q);
+    },
+    [run]
+  );
 
   return (
     <div className="grid gap-6 lg:grid-cols-[280px_1fr]">
@@ -98,7 +122,14 @@ export function GraphTab({ project }: { project: Project }) {
         </p>
       </aside>
 
-      <section>
+      <section className="grid gap-6">
+        {shape ? (
+          <GraphPictureSection>
+            <GraphPicture rows={shape.bindings ?? []} onInspect={inspect} busy={busy} />
+          </GraphPictureSection>
+        ) : null}
+
+        <div>
         <SectionTitle
           hint={
             result ? (
@@ -161,6 +192,7 @@ export function GraphTab({ project }: { project: Project }) {
               ) : null}
             </Card>
           )}
+        </div>
         </div>
       </section>
     </div>

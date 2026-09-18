@@ -161,6 +161,36 @@ WHERE {
 ORDER BY ?criterionIndex ?attempt`;
 }
 
+/**
+ * The project's knowledge as typed nodes and the edges between them.
+ *
+ * Only edges whose object is itself a typed node come back, which quietly drops every literal and
+ * leaves the shape of the graph rather than its contents. That is what makes the result drawable:
+ * a picture of 4,000 string literals is not a picture of anything.
+ */
+export function projectShape(projectId: string, limit = 300): string {
+  const project = iri.project(projectId);
+  return `${SPARQL_PREFIXES}
+SELECT ?s ?sType ?p ?o ?oType ?sBody ?oBody
+WHERE {
+  ?s ?p ?o .
+  ?s a ?sType .
+  ?o a ?oType .
+  ?s st:forProject ${project} .
+  OPTIONAL { ?s st:body ?sBody }
+  OPTIONAL { ?o st:body ?oBody }
+}
+LIMIT ${limit}`;
+}
+
+/** Everything the graph says about one node. The click-through behind the picture. */
+export function describeNode(nodeIri: string): string {
+  return `${SPARQL_PREFIXES}
+SELECT ?predicate ?object
+WHERE { <${nodeIri}> ?predicate ?object }
+ORDER BY ?predicate`;
+}
+
 export const SAMPLE_QUERIES: Array<{ label: string; description: string; build: (projectId: string) => string }> = [
   {
     label: "Knowledge steering the next render",
@@ -184,7 +214,12 @@ export const SAMPLE_QUERIES: Array<{ label: string; description: string; build: 
   },
   {
     label: "Everything about this project",
-    description: "Raw triples — the whole subgraph.",
+    description: "Raw triples. The whole subgraph.",
     build: projectGraph,
+  },
+  {
+    label: "The shape of the graph",
+    description: "Typed nodes and the edges between them. This is what the picture is drawn from.",
+    build: (projectId) => projectShape(projectId),
   },
 ];
