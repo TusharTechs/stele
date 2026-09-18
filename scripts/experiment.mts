@@ -9,7 +9,7 @@
  */
 import { createProject } from "@/core/intake";
 import { runProduction } from "@/core/pipeline";
-import { loadProject, updateProject } from "@/core/store";
+import { updateProject } from "@/core/store";
 import { knowledgeStore } from "@/dkg/client";
 import { BriefSchema, type Run } from "@/core/schemas";
 
