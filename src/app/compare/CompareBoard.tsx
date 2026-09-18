@@ -2,9 +2,10 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import type { ComparableProject } from "@/core/library";
+import type { ComparableProject, CompareRule } from "@/core/library";
 import { Badge, Card, Money, SectionTitle } from "@/components/ui";
 import { Select } from "@/components/Select";
+import { FilmClip } from "@/components/FilmClip";
 
 /**
  * The board.
@@ -20,10 +21,8 @@ export function CompareBoard({ projects }: { projects: ComparableProject[] }) {
   const left = projects.find((p) => p.id === leftId) ?? projects[0];
   const right = projects.find((p) => p.id === rightId) ?? projects[0];
 
-  const shared = useMemo(() => {
-    const a = new Set(left.ruleBodies);
-    return right.ruleBodies.filter((b) => a.has(b));
-  }, [left, right]);
+  const rows = useMemo(() => crossing(left, right), [left, right]);
+  const sharedCount = rows.filter((row) => row.onLeft && row.onRight).length;
 
   const sameProject = left.id === right.id;
 
@@ -46,39 +45,212 @@ export function CompareBoard({ projects }: { projects: ComparableProject[] }) {
       </div>
 
       <Card className="mt-6 p-5">
-        <SectionTitle hint={`${shared.length} of ${Math.max(left.steeringRules, right.steeringRules) || 0} rules in common`}>
+        <SectionTitle
+          hint={
+            sameProject || rows.length === 0
+              ? undefined
+              : `${sharedCount} of ${rows.length} steer both`
+          }
+        >
           Shared knowledge
         </SectionTitle>
 
-        {sameProject ? null : shared.length === 0 ? (
+        {sameProject ? null : sharedCount === 0 ? (
           <p className="text-sm text-bone-400">
             These two productions share no rules. Each learned its own way, which is what you would
             expect until one of them adopts from the other.
           </p>
         ) : (
           <>
-            <p className="mb-3 text-sm text-bone-400">
+            <p className="mb-6 max-w-2xl text-sm text-bone-400">
               {right.inheritedRules > 0 || left.inheritedRules > 0
-                ? "Knowledge has crossed between these productions. The rules below steer renders on both sides."
-                : "Both arrived at these independently, which is its own kind of evidence."}
+                ? "Knowledge has crossed between these productions. A filled node means the rule is steering renders on that side."
+                : "Both arrived at these independently, which is its own kind of evidence. A filled node means the rule is steering renders on that side."}
             </p>
-            <ul className="grid gap-1.5">
-              {shared.slice(0, 8).map((body, i) => (
-                <li
-                  key={i}
-                  className="rounded border border-bronze-400/25 bg-bronze-900/30 px-3 py-2 text-[13px] text-bone-200"
-                >
-                  {body}
-                </li>
-              ))}
-            </ul>
-            {shared.length > 8 ? (
-              <p className="mt-2 font-mono text-[11px] text-bone-500">and {shared.length - 8} more</p>
-            ) : null}
+            <Crossing left={left} right={right} rows={rows} />
           </>
         )}
       </Card>
     </>
+  );
+}
+
+/**
+ * Every rule either production is steering on, and which of them holds it.
+ *
+ * The panel used to print the intersection as a stack of boxes, which answered "what do they have
+ * in common" and silently dropped everything that made them different. Two productions sharing
+ * three rules out of four is a wholly different picture from three out of thirty, and the old panel
+ * rendered both identically.
+ *
+ * Matching happens on the folded key and never on the body, so punctuation and capitalisation
+ * cannot split one rule into two.
+ */
+interface CrossingRow extends CompareRule {
+  onLeft: boolean;
+  onRight: boolean;
+}
+
+function crossing(left: ComparableProject, right: ComparableProject): CrossingRow[] {
+  const byKey = new Map<string, CrossingRow>();
+
+  for (const [rules, side] of [
+    [left.rules, "onLeft"],
+    [right.rules, "onRight"],
+  ] as const) {
+    for (const rule of rules) {
+      const existing = byKey.get(rule.key);
+      if (existing) {
+        existing[side] = true;
+        // Whichever side recorded the provenance wins; a rule that travelled has it on one side only.
+        existing.originProjectTitle ??= rule.originProjectTitle;
+        continue;
+      }
+      byKey.set(rule.key, { ...rule, onLeft: side === "onLeft", onRight: side === "onRight" });
+    }
+  }
+
+  // Shared first, because they are the claim. Then whatever is unique to the left, then the right,
+  // so a reader tracks down one rail at a time rather than zig-zagging.
+  return [...byKey.values()].sort((a, b) => rank(a) - rank(b));
+}
+
+function rank(row: CrossingRow): number {
+  if (row.onLeft && row.onRight) return 0;
+  return row.onLeft ? 1 : 2;
+}
+
+/**
+ * Two rails and the rules strung between them.
+ *
+ * The same figure as the mark in the header: nodes, and the knowledge running between them. It
+ * reads at a glance in a way a list of boxes cannot, since a row crossing both rails and a row
+ * reaching only one are different shapes rather than different wording.
+ */
+function Crossing({
+  left,
+  right,
+  rows,
+}: {
+  left: ComparableProject;
+  right: ComparableProject;
+  rows: CrossingRow[];
+}) {
+  const shown = rows.slice(0, 14);
+
+  return (
+    <div>
+      <div className="mb-3 flex items-baseline justify-between gap-6 font-mono text-[10px] uppercase tracking-[0.16em]">
+        <span className="min-w-0 truncate text-bone-300">{left.title}</span>
+        <span className="min-w-0 truncate text-right text-bone-300">{right.title}</span>
+      </div>
+
+      <div className="relative">
+        {/* The rails, drawn behind the rows and stopped short of the first and last node so the
+            line reads as spanning the rules rather than running off the card. */}
+        <span aria-hidden className="absolute inset-y-4 left-[5px] w-px bg-basalt-700" />
+        <span aria-hidden className="absolute inset-y-4 right-[5px] w-px bg-basalt-700" />
+
+        <ul>
+          {shown.map((row) => {
+            const both = row.onLeft && row.onRight;
+            return (
+              <li
+                key={row.key}
+                className="relative grid grid-cols-[11px_1fr_11px] items-start gap-x-5 py-2.5"
+              >
+                {/* The crossing itself, drawn only in the gutters so it never runs under the type.
+                    Two filled nodes already say "both", but the eye reads a line across a row far
+                    faster than it compares two dots twenty inches apart. */}
+                {both ? (
+                  <>
+                    <span aria-hidden className="absolute top-[20px] left-[11px] h-px w-5 bg-bronze-400/35" />
+                    <span aria-hidden className="absolute top-[20px] right-[11px] h-px w-5 bg-bronze-400/35" />
+                  </>
+                ) : null}
+
+                <Node on={row.onLeft} />
+
+                <div className="min-w-0 text-center">
+                  <p className={`text-[13px] leading-snug ${both ? "text-bone-100" : "text-bone-400"}`}>
+                    {row.body}
+                  </p>
+                  {/* Also the text equivalent of the two nodes, which are decorative to a screen
+                      reader. Provenance is appended rather than substituted: where a rule came from
+                      and who is steering on it are two different facts and the panel owes both. */}
+                  <Provenance row={row} left={left} right={right} />
+                </div>
+
+                <Node on={row.onRight} />
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+
+      {rows.length > shown.length ? (
+        <p className="mt-3 text-center font-mono text-[11px] text-bone-500">
+          and {rows.length - shown.length} more
+        </p>
+      ) : null}
+    </div>
+  );
+}
+
+/**
+ * Where a rule came from, said the shortest true way.
+ *
+ * Also the text equivalent of the two nodes, which are decorative to a screen reader. When the
+ * production that proved a rule is one of the two on screen, the interesting fact is not its name
+ * but the direction: this rule was learned there and is now steering here. When it came from a
+ * third production, the name is the fact, since it is evidence of knowledge travelling further than
+ * one hop.
+ */
+function Provenance({
+  row,
+  left,
+  right,
+}: {
+  row: CrossingRow;
+  left: ComparableProject;
+  right: ComparableProject;
+}) {
+  const both = row.onLeft && row.onRight;
+  const origin = row.originProjectTitle;
+  const held = both ? "held by both" : `only on ${row.onLeft ? left.title : right.title}`;
+
+  if (both && origin && (origin === left.title || origin === right.title)) {
+    const to = origin === left.title ? right.title : left.title;
+    return (
+      <p className="mt-1 font-mono text-[10px] uppercase tracking-wider text-bronze-400">
+        {/* The arrow is the whole sentence to a sighted reader and silence to a screen reader, so
+            the reading is spelled out for one and hidden from the other. */}
+        <span className="sr-only">Held by both. Proved on {origin}, now steering {to}.</span>
+        <span aria-hidden>
+          {origin} → {to}
+        </span>
+      </p>
+    );
+  }
+
+  return (
+    <p className="mt-1 font-mono text-[10px] uppercase tracking-wider text-bone-500">
+      {held}
+      {origin ? <span className="text-bronze-400"> · proved on {origin}</span> : null}
+    </p>
+  );
+}
+
+/** Filled where the rule steers that production, open where it does not. */
+function Node({ on }: { on: boolean }) {
+  return (
+    <span className="mt-[5px] block h-[11px] w-[11px]" aria-hidden>
+      <span
+        className={`block h-full w-full rounded-full border ${
+          on ? "border-bronze-400 bg-bronze-400" : "border-basalt-600 bg-basalt-900"
+        }`}
+      />
+    </span>
   );
 }
 
@@ -119,14 +291,7 @@ function Side({ project }: { project: ComparableProject }) {
   return (
     <Card className="overflow-hidden">
       {project.cutUrl ? (
-        <video
-          src={project.cutUrl}
-          poster={project.posterUrl}
-          controls
-          playsInline
-          preload="metadata"
-          className="aspect-video w-full bg-black"
-        />
+        <FilmClip src={project.cutUrl} poster={project.posterUrl} label={project.title} />
       ) : (
         <div className="flex aspect-video w-full items-center justify-center bg-basalt-850 text-sm text-bone-500">
           no finished cut

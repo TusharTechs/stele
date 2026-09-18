@@ -353,11 +353,32 @@ export interface ComparableProject {
   totalUSD: number;
   cutUrl?: string;
   posterUrl?: string;
-  ruleBodies: string[];
+  rules: CompareRule[];
+}
+
+export interface CompareRule {
+  /**
+   * What a person reads, exactly as the rule was written.
+   *
+   * This used to be the only field, and it held the match key: folded to lower case with the
+   * punctuation stripped out. That is correct for deciding whether two productions hold the same
+   * rule and wrong for putting on a screen, so the compare page was printing two sentences run
+   * together with no capital and no full stop, in the one panel whose whole job is to prove that
+   * knowledge crossed between productions intact.
+   */
+  body: string;
+  /** What the comparison matches on. Never displayed. */
+  key: string;
+  /** The production that proved it, when that was a different one. */
+  originProjectId?: string;
+  originProjectTitle?: string;
 }
 
 export async function buildComparables(): Promise<ComparableProject[]> {
   const projects = await listProjects();
+  // A lesson carries its origin's id reliably and its title only sometimes, so the title is
+  // resolved here rather than trusted off the record.
+  const titles = new Map(projects.map((project) => [project.id, project.title]));
 
   return projects.map((project) => {
     const scored = project.runs.filter((r) => r.review);
@@ -384,7 +405,20 @@ export async function buildComparables(): Promise<ComparableProject[]> {
       totalUSD: project.runs.reduce((sum, r) => sum + r.costUSD, 0),
       cutUrl: latest?.cutUrl,
       posterUrl: latest?.shots.find((s) => s.keyframeUrl)?.keyframeUrl,
-      ruleBodies: steering.map((l) => normalise(l.body)),
+      rules: steering.map((lesson) => {
+        const origin =
+          lesson.originProjectId && lesson.originProjectId !== project.id
+            ? lesson.originProjectId
+            : undefined;
+        return {
+          body: lesson.body,
+          key: normalise(lesson.body),
+          originProjectId: origin,
+          originProjectTitle: origin
+            ? (titles.get(origin) ?? titles.get(origin.split("/").pop() ?? "") ?? lesson.originProjectTitle)
+            : undefined,
+        };
+      }),
     };
   });
 }
