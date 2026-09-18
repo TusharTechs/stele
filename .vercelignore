@@ -1,0 +1,17 @@
+# What a deployment does not need.
+#
+# Only relevant to `vercel` from a terminal, which uploads the working directory rather than cloning
+# the repo. Without this it would ship node_modules and a previous build, which on a project
+# carrying 46MB of demo footage is the difference between an upload that finishes and one that
+# looks hung.
+#
+# Everything the build genuinely needs stays: `demo/` is read by the prebuild seed step, and
+# `public/seed/` is the footage the deployed pages play.
+node_modules
+.next
+.data
+.git
+docs
+tests
+.claude
+*.log
