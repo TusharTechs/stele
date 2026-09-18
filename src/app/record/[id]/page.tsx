@@ -6,6 +6,7 @@ import { VerifyPanel } from "./VerifyPanel";
 import { StampPanel } from "./StampPanel";
 import { Badge, Card, Empty, Money, SectionTitle, Score } from "@/components/ui";
 import type { Clause } from "@/core/schemas";
+import { FilmClip } from "@/components/FilmClip";
 
 export const dynamic = "force-dynamic";
 
@@ -54,13 +55,11 @@ export default async function RecordPage({ params }: { params: Promise<{ id: str
           <>
             <section className="mt-10">
               {run.cutUrl ? (
-                <video
+                <FilmClip
                   src={run.cutUrl}
                   poster={run.shots.find((shot) => shot.keyframeUrl)?.keyframeUrl}
-                  controls
-                  playsInline
-                  preload="metadata"
-                  className="aspect-video w-full rounded-lg border border-basalt-800 bg-black"
+                  label={project.title}
+                  className="rounded-lg border border-basalt-800"
                 />
               ) : null}
               <Card className="mt-3 p-4">

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Button, Card, Money, SectionTitle } from "@/components/ui";
+import { FilmClip } from "@/components/FilmClip";
 
 /**
  * Put the record on the picture.
@@ -58,7 +59,7 @@ export function StampPanel({ projectId, existing }: { projectId: string; existin
 
       {stamped ? (
         <Card className="mt-4 overflow-hidden">
-          <video src={stamped} controls playsInline preload="metadata" className="aspect-video w-full bg-black" />
+          <FilmClip src={stamped} label="the stamped copy" />
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1 border-t border-basalt-800 px-4 py-2.5 font-mono text-[10px] text-bone-500">
             <span>stamped copy, kept beside the original</span>
             {cost !== undefined ? <span><Money usd={cost} /></span> : null}

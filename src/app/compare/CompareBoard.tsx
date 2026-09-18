@@ -15,8 +15,16 @@ import { FilmClip } from "@/components/FilmClip";
  * in the product where you can see one film's knowledge sitting inside another's.
  */
 export function CompareBoard({ projects }: { projects: ComparableProject[] }) {
-  const [leftId, setLeftId] = useState(projects[1]?.id ?? projects[0].id);
-  const [rightId, setRightId] = useState(projects[0].id);
+  // The pair that actually shares something, rather than the two most recent.
+  //
+  // A comparison nobody has configured should still show something true, and "these two have
+  // nothing in common" is true but is the least interesting true thing here: it is the same view a
+  // folder of prompts would give. Opening on the pair with the most knowledge in common puts the
+  // claim the page exists to make on screen before anyone touches a dropdown, and every other pair
+  // is one selection away.
+  const opening = useMemo(() => mostShared(projects), [projects]);
+  const [leftId, setLeftId] = useState(opening.left);
+  const [rightId, setRightId] = useState(opening.right);
 
   const left = projects.find((p) => p.id === leftId) ?? projects[0];
   const right = projects.find((p) => p.id === rightId) ?? projects[0];
@@ -73,6 +81,26 @@ export function CompareBoard({ projects }: { projects: ComparableProject[] }) {
       </Card>
     </>
   );
+}
+
+/**
+ * The pair of productions with the most rules in common, falling back to the two most recent.
+ *
+ * Compares on the folded key, the same way the board does, so the opening view and the panel below
+ * it can never disagree about what counts as the same rule.
+ */
+function mostShared(projects: ComparableProject[]): { left: string; right: string } {
+  let best = { left: projects[1]?.id ?? projects[0].id, right: projects[0].id, count: -1 };
+
+  for (let i = 0; i < projects.length; i++) {
+    for (let j = i + 1; j < projects.length; j++) {
+      const keys = new Set(projects[i].rules.map((rule) => rule.key));
+      const count = projects[j].rules.filter((rule) => keys.has(rule.key)).length;
+      if (count > best.count) best = { left: projects[i].id, right: projects[j].id, count };
+    }
+  }
+
+  return { left: best.left, right: best.right };
 }
 
 /**

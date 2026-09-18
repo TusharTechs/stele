@@ -13,6 +13,10 @@
 
 ---
 
+<img src="docs/shots/gallery.png" alt="A grid of rendered frames, each labelled with the capability, attempt and score behind it" />
+
+<sup>Everything this instance has rendered. Each frame carries the capability that made it, the attempt it belongs to, the score a model gave it after watching, and how many learned clauses were steering at the time. Nothing on the site is stock footage, which for a project about provenance seemed like the minimum.</sup>
+
 ## The problem
 
 You got the shot once. Then you never got it again.
@@ -118,6 +122,14 @@ it was compiled from.
 the loop proposed, each carrying its status, its confidence, the attempt that learned it, the
 criterion it addresses, and who accepted it.
 
+<img src="docs/shots/why-this-prompt.png" alt="The Why this prompt panel, listing five inherited clauses beside the assembled prompt hash" />
+
+<sup>Attempt 2 of *Iron Still*. Five of its twenty prompt clauses came from rules another production proved, each tagged with the attempt that learned it. The sha256 underneath is of the assembled clause list, which is what makes the claim checkable rather than decorative.</sup>
+
+<img src="docs/shots/compare.png" alt="Two productions on parallel rails, with filled nodes where a rule steers that side" />
+
+<sup>Knowledge crossing a boundary. A row spanning both rails is a rule steering both films; a row reaching one is unique to it. Three came from *Indigo Hearth*, and two of those reached *Iron Still* by way of a third production, *Time&rsquo;s Embrace*.</sup>
+
 ### What is local, what is shared, what is published
 
 | Layer | Holds | In this project |
@@ -169,6 +181,14 @@ Two rules the client holds itself to, both mirroring the surface's own design:
 > **Correction to the published docs:** the Get Started page prints the tool-profile header as
 > `X-Livepeer Agent-Tool-Profile`. That contains a space, which is not a legal HTTP field name — a
 > spec-compliant client throws before the request leaves. The hyphenated form works.
+
+<img src="docs/shots/verify.png" alt="Four verification checks, three passed and one not applicable, each with the command that reproduces it" />
+
+<sup>Every claim on a production record re-derived from scratch. Each check prints the command or query that reproduces it without this app, and the fourth reports N/A rather than passing, because this attempt was never sealed to a chain.</sup>
+
+<img src="docs/shots/ledger.png" alt="The ledger: every network call with its capability, latency and cost" />
+
+<sup>Every call the studio has ever made, priced by Livepeer itself rather than estimated here. Failed calls are listed and still billed, because that is what happened.</sup>
 
 ## Evidence
 
@@ -296,6 +316,14 @@ Merkle root:    0xbecfe126d8476907e899e4327434e1d852eb90b0a4c848b50c3bfd767c538b
 
 The prompt compiler, reading that node: **19 clauses, 4 learned** in the normal condition,
 **5 clauses, 0 learned** with memory withheld.
+
+<img src="docs/shots/graph.png" alt="The knowledge graph tab: plain-English questions, and a picture of the typed nodes" />
+
+<sup>Ask the graph in English and read the SPARQL it wrote before you run it. Read-only by construction: a store that accepted updates from a browser would let any page rewrite the provenance record.</sup>
+
+<img src="docs/shots/knowledge.png" alt="The canon: every rule with the production that proved it and how many renders it has steered" />
+
+<sup>The canon across every production. A rule carries the film that proved it, the finding it was written to fix, and how many renders it has actually steered since, so a rule nobody uses cannot hide among rules that work.</sup>
 
 ## Run it
 

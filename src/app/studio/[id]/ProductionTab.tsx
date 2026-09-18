@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import type { Clause, Project, Run } from "@/core/schemas";
 import { Badge, Card, Empty, Money, SectionTitle, Score } from "@/components/ui";
 import { ChangesPanel } from "./ChangesPanel";
+import { FilmClip } from "@/components/FilmClip";
 
 /**
  * One attempt, in full: what was made, how it scored, and — the part that matters — why the prompt
@@ -113,12 +114,12 @@ function Cut({ project, run }: { project: Project; run: Run }) {
       </SectionTitle>
 
       {run.cutUrl ? (
-        <video
+        <FilmClip
           key={run.cutUrl}
           src={run.cutUrl}
-          controls
-          playsInline
-          className="w-full rounded-lg border border-basalt-800 bg-black"
+          poster={run.shots.find((shot) => shot.keyframeUrl)?.keyframeUrl}
+          label={`attempt ${run.attempt}`}
+          className="rounded-lg border border-basalt-800"
         />
       ) : (
         <Empty>{run.error ? run.error : "This attempt produced no cut."}</Empty>
@@ -163,7 +164,7 @@ function Shots({ run, target }: { run: Run; target: number }) {
         {run.shots.map((shot) => (
           <Card key={shot.index} className="overflow-hidden">
             {shot.videoUrl ? (
-              <video src={shot.videoUrl} controls playsInline className="aspect-video w-full bg-black" />
+              <FilmClip src={shot.videoUrl} poster={shot.keyframeUrl} label={`shot ${shot.index + 1}`} />
             ) : shot.keyframeUrl ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img src={shot.keyframeUrl} alt="" className="aspect-video w-full object-cover" />
