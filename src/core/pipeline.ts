@@ -6,6 +6,7 @@ import {
   animateKeyframe,
   concatClips,
   groundFromUrl,
+  deriveKeyframe,
   makeKeyframe,
   muxAudio,
   narrate,
@@ -144,12 +145,19 @@ export async function runProduction(options: RunOptions): Promise<Run> {
       plans = await planShots(ctx, project, basePrompt!.text);
     });
 
-    // 4. Render and gate each shot.
+    // 4. Render and gate each shot, anchored to the first shot's frame.
     run = await stage(ctx, run, "RENDERING", async () => {
       run.shots = [];
+      let anchorUrl: string | undefined;
+
       for (const plan of plans) {
-        const shot = await renderShotWithGate(ctx, project, plan, basePrompt!);
+        const shot = await renderShotWithGate(ctx, project, plan, basePrompt!, anchorUrl);
         run.shots.push(shot);
+        // The first shot that produces a frame becomes the film's visual anchor; every later shot
+        // is an edit of it. Measured before this existed: three independently generated shots gave
+        // three different clock faces and three different lighting setups, and the canon's rules
+        // about consistency could not be obeyed because nothing carried between renders.
+        anchorUrl ??= shot.keyframeUrl;
         await persist(ctx.projectId, run, replaceRun(run));
       }
     });
@@ -328,7 +336,9 @@ async function renderShotWithGate(
   ctx: RunContext,
   project: Project,
   plan: ShotPlan,
-  basePrompt: Parameters<typeof extendForShot>[0]
+  basePrompt: Parameters<typeof extendForShot>[0],
+  /** The film's anchor frame. Absent for the first shot, which establishes it. */
+  anchorUrl?: string
 ): Promise<ShotRecord> {
   const shotPrompt = extendForShot(basePrompt, plan);
   const shot: ShotRecord = {
@@ -355,8 +365,20 @@ async function renderShotWithGate(
       const keyframePrompt = correction ? `${shotPrompt.text} ${correction}` : shotPrompt.text;
       const key = `stele-${ctx.projectId}-${ctx.attempt}-${plan.index}-${tryNumber}`;
 
-      const keyframe = await makeKeyframe(ctx.agent, `keyframe:${ctx.attempt}.${plan.index}`, keyframePrompt, `${key}-kf`);
+      // The first shot is generated; every later one is an edit of it, so the subject, surface and
+      // lighting carry structurally rather than being re-requested and re-invented each time.
+      const keyframe = anchorUrl
+        ? await deriveKeyframe(
+            ctx.agent,
+            `keyframe:${ctx.attempt}.${plan.index}`,
+            editInstruction(plan, correction),
+            anchorUrl,
+            `${key}-kf`
+          )
+        : await makeKeyframe(ctx.agent, `keyframe:${ctx.attempt}.${plan.index}`, keyframePrompt, `${key}-kf`);
       shot.keyframeUrl = keyframe.url;
+      shot.keyframeCapability = keyframe.capability;
+      shot.anchoredTo = anchorUrl;
       ctx.emit({ type: "shot", index: plan.index, status: "rendering", detail: "keyframe ready", url: keyframe.url });
 
       const video = await animateKeyframe(
@@ -567,6 +589,23 @@ function toRecord(call: LivepeerCall) {
     ...call,
     error: call.error ? safeText(call.error, 300) : undefined,
   };
+}
+
+/**
+ * Phrase a shot as an edit of the anchor frame rather than a scene description.
+ *
+ * `kontext-edit` follows instructions about what to change; handed a full scene description it
+ * tends to rebuild the scene and the anchor stops meaning anything. Naming what must not change is
+ * the half that does the work.
+ */
+function editInstruction(plan: ShotPlan, correction: string): string {
+  return [
+    `Keep the same subject, materials, surface, colour palette and lighting setup exactly as in this image.`,
+    `Change only the framing and camera angle: ${plan.keyframeBrief}`,
+    correction,
+  ]
+    .filter(Boolean)
+    .join(" ");
 }
 
 function countSentences(text: string): number {

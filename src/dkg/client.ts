@@ -1,4 +1,5 @@
 import { execFile } from "node:child_process";
+import crypto from "node:crypto";
 import { promisify } from "node:util";
 import fs from "node:fs/promises";
 import path from "node:path";
@@ -247,17 +248,34 @@ export class DkgNodeStore implements KnowledgeStore {
     }
   }
 
+  /**
+   * Write both assets to the node.
+   *
+   * Asset names carry a hash of their own content, and that detail is load-bearing rather than
+   * decorative. A shared assertion is immutable — peers already hold it — so `share` finds an
+   * existing name already promoted and correctly does nothing. Naming the canon after the attempt
+   * number therefore lost every edit made *between* attempts: accepting a lesson updated the project
+   * file, wrote an asset whose name already existed, and silently never reached the graph. The next
+   * render then compiled from a canon the human thought they had changed.
+   *
+   * Hashing the content makes the name change exactly when the knowledge changes. Re-writing
+   * identical content is still a no-op, which is what made the original approach attractive, without
+   * the failure mode.
+   */
   async write(project: Project): Promise<WriteResult> {
     // The mirror always gets the assertion, so the graph views keep working if the node is down.
     await this.mirror.write(project);
 
     const graph = await this.contextGraph();
-    const version = Math.max(1, project.runs.length);
-    const canonFile = await this.stage(project.id, `canon-try-${version}.ttl`, buildCanon(project));
-    const ledgerFile = await this.stage(project.id, `ledger-try-${version}.ttl`, buildRunLedger(project));
+    const canon = buildCanon(project);
+    const ledger = buildRunLedger(project);
+    const attempt = Math.max(1, project.runs.length);
 
-    const canonName = assetName(project.id, "canon", version);
-    const ledgerName = assetName(project.id, "run-ledger", version);
+    const canonName = assetName(project.id, `canon-v${project.canonVersion}`, canon);
+    const ledgerName = assetName(project.id, `run-ledger-try-${attempt}`, ledger);
+
+    const canonFile = await this.stage(project.id, `${canonName}.ttl`, canon);
+    const ledgerFile = await this.stage(project.id, `${ledgerName}.ttl`, ledger);
 
     await this.share(canonName, graph, canonFile);
     await this.share(ledgerName, graph, ledgerFile);
@@ -316,8 +334,10 @@ export class DkgNodeStore implements KnowledgeStore {
       throw new Error("Sealing to Verifiable Memory requires STELE_DKG=network.");
     }
     const graph = await this.contextGraph();
-    const version = Math.max(1, project.runs.length);
-    const ledgerName = assetName(project.id, "run-ledger", version);
+    // Re-derive the name from the same content the caller just wrote. Names are content-addressed,
+    // so anything else would publish a different assertion than the one being sealed — or none.
+    const attempt = Math.max(1, project.runs.length);
+    const ledgerName = assetName(project.id, `run-ledger-try-${attempt}`, buildRunLedger(project));
 
     const out = await this.run(["ka", "publish", ledgerName, "-c", graph]);
     return { ual: parseUal(out), txHash: parseTxHash(out), raw: redactCli(out).slice(0, 2000) };
@@ -441,8 +461,16 @@ export class DkgNodeStore implements KnowledgeStore {
 
 // ---------------------------------------------------------------- helpers
 
-function assetName(projectId: string, kind: string, version: number): string {
-  return `stele-${projectId}-${kind}-try-${version}`.toLowerCase().replace(/[^a-z0-9-]/g, "-").slice(0, 110);
+/**
+ * A name that changes when, and only when, the content does.
+ *
+ * The readable part stays first so an operator listing assets on the node can still tell a canon
+ * from a ledger and see which version it is; the hash is the part that guarantees a changed
+ * assertion gets a new, unshared name to be promoted under.
+ */
+function assetName(projectId: string, label: string, content: string): string {
+  const digest = crypto.createHash("sha256").update(content).digest("hex").slice(0, 10);
+  return `stele-${projectId}-${label}-${digest}`.toLowerCase().replace(/[^a-z0-9-]/g, "-").slice(0, 110);
 }
 
 function isShared(status: Record<string, unknown>): boolean {

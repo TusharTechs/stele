@@ -150,6 +150,10 @@ export const ShotRecordSchema = z.object({
   prompt: CompiledPromptSchema,
   motionPrompt: z.string().default(""),
   keyframeUrl: z.string().optional(),
+  /** Which capability produced the keyframe — generated fresh, or edited from the anchor. */
+  keyframeCapability: z.string().optional(),
+  /** The anchor frame this shot was derived from. Absent on the shot that establishes it. */
+  anchoredTo: z.string().optional(),
   videoUrl: z.string().optional(),
   capability: z.string().default(""),
   costUSD: z.number().default(0),

@@ -17,6 +17,14 @@ export const CAPABILITY = {
   ground: "obscura-extract-text",
   /** Keyframes. Prompt-only — it declares no aspect_ratio, whatever the examples elsewhere suggest. */
   keyframe: "flux-schnell",
+  /**
+   * Derives a shot's keyframe from the film's anchor frame.
+   *
+   * The capability's own description is "instruction image edit that preserves the source subject",
+   * which is precisely the property a multi-shot film needs and which no amount of prompt wording
+   * can supply. See `renderShots` in the pipeline for why this exists.
+   */
+  deriveKeyframe: "kontext-edit",
   /** Animates a keyframe. Conditioning each shot on a still is what holds a look together. */
   animate: "ltx-25-i2v-fast",
   /** Text-to-video, for shots with no keyframe to anchor them. */
@@ -191,6 +199,34 @@ export async function makeKeyframe(
     idempotencyKey,
   });
   return asMedia(result, CAPABILITY.keyframe);
+}
+
+/**
+ * Produce a later shot's keyframe by editing the film's anchor frame.
+ *
+ * Cross-shot consistency is a conditioning problem, not a prompt problem. Rendering each shot from
+ * its own text prompt gives the generator no shared state to hold on to, so a rule like "keep the
+ * lighting identical across all three shots" is an instruction it physically cannot follow — which
+ * is exactly what a measured run showed. Deriving each later keyframe from the first carries the
+ * subject, palette, surface and light structurally.
+ */
+export async function deriveKeyframe(
+  agent: LivepeerAgent,
+  stage: string,
+  instruction: string,
+  anchorUrl: string,
+  idempotencyKey?: string
+): Promise<MediaOutput> {
+  const result = await agent.runOrThrow({
+    capability: CAPABILITY.deriveKeyframe,
+    stage,
+    prompt: instruction,
+    sourceUrl: anchorUrl,
+    timeout: TIMEOUT.keyframe,
+    persist: true,
+    idempotencyKey,
+  });
+  return asMedia(result, CAPABILITY.deriveKeyframe);
 }
 
 export async function animateKeyframe(
