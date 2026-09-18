@@ -117,7 +117,12 @@ function assembleClauses(brief: Brief, rows: Binding[], shot?: ShotPlan): Clause
     const body = row.body?.trim();
     if (!body) continue;
     clauses.push({
-      body: row.kind === "knownFailure" ? `Avoid: ${body}` : body,
+      // Deliberately not prefixed. A lesson is distilled as an imperative rule, so a `knownFailure`
+      // reads "Vary framing significantly across all three shots" — the fix, not the fault.
+      // Prefixing that with "Avoid:" inverts it and instructs the generator to do the opposite of
+      // what was learned. Observed live before this changed. The `kind` classifies why the rule
+      // exists; it does not describe the grammar of its body.
+      body,
       role: row.kind === "knownFailure" ? "avoid" : "lesson",
       sourceKind: "lesson",
       sourceId: row.node,

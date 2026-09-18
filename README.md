@@ -30,7 +30,7 @@ Give it a brief and the criteria it must satisfy. Then, per attempt:
 |---|---|---|
 | 1 | **Compile** | SPARQL over the DKG returns this production's constraints and accepted lessons. Each row becomes one clause of the prompt. |
 | 2 | **Plan** | The shot list is written against the compiled knowledge, not the raw brief. |
-| 3 | **Render** | Keyframe → animated shot, one per beat, each conditioned on its still so the look holds. |
+| 3 | **Render** | The first shot sets the film's anchor frame; every later keyframe is an edit of it, then animated. |
 | 4 | **Gate** | A video-understanding model *watches* each shot and scores it per criterion. A rejected shot is re-rendered with the reason attached. |
 | 5 | **Assemble** | Shots cut together, narration and score laid over, all on the network. |
 | 6 | **Review** | The finished cut is watched and scored against every criterion. |
@@ -121,8 +121,9 @@ generation, **video understanding**, audio and editing all dispatch to it.
 |---|---|---|
 | Reasoning — intake, shot planning, lesson distillation | `gemini-text` | ~$0.0001/call, p50 2.1s. Cheap enough to sit inside a loop |
 | Grounding a brief in a real page | `obscura-extract-text` | Only the URL, time and a content hash are kept |
-| Keyframes | `flux-schnell` | Prompt-only; it declares no `aspect_ratio` |
-| Shots | `ltx-25-i2v-fast` | Animates the keyframe, which is what holds continuity |
+| Anchor keyframe | `flux-schnell` | Prompt-only; it declares no `aspect_ratio` |
+| Later keyframes | `kontext-edit` | Edits the anchor, so subject and light carry structurally |
+| Shots | `ltx-25-i2v-fast` | Animates each keyframe |
 | **Review gate** | `nemotron-omni-video` | Watches the clip. Returns a per-criterion verdict |
 | Narration | `inworld-tts` | |
 | Score | `sonilo-v2m` | |
@@ -143,29 +144,77 @@ Two rules the client holds itself to, both mirroring the surface's own design:
 ## Evidence
 
 Everything below came from real runs against the live network and a real DKG node. Nothing is
-reconstructed.
+reconstructed, and the results that went the wrong way are here too — a project whose central claim
+is "verifiable knowledge improves the output" has no business reporting only the runs that agreed.
 
-### The loop, on one project
+### The experiment that failed, and what it taught
 
-| Attempt | Learned clauses | Score | "The look is consistent across every shot" |
+The first honest test of the core claim was a three-shot product film, target 8.
+
+| Attempt | Learned clauses | Score | Criteria unmet |
 |---|---|---|---|
-| 1 | 0 | **7**/10 | ✕ *"lighting shifts between shots create inconsistency"* |
-| 3 | 4 | **8**/10 | ✓ *"lighting and color grading remain consistent"* |
+| 1 | 0 | **7**/10 | consistency, object identity |
+| 2 | 4 | **5**/10 | consistency, object identity |
 
-The four clauses that came between were distilled from attempt 1's failure and are all about
-lighting consistency — the exact criterion that failed. The causal chain is visible in the studio:
-finding → lesson → clause → criterion now met.
+Memory made it **worse**. The reviewer said why: across the three shots the clock face went from
+black Roman numerals to white Arabic, the surface from wood to walnut to dark wood, the light from
+bronze to sunlit to high-contrast.
 
-Attempt 2 is in the record as `FAILED`. It is left there because a production history that only
-shows the attempts that worked is not a production history.
+Every accepted lesson was about exactly that — *"keep the lighting setup identical across all three
+shots"*, *"depict the clock face with the same design in every shot"*. The lessons were right. The
+pipeline could not obey them, because each shot was an independent text-to-image render followed by
+image-to-video, with nothing carried between them. Told to hold something constant, the generator
+had nothing to hold.
+
+**Consistency turned out to be a conditioning problem, not a prompt problem.** The first shot now
+establishes an anchor frame, and every later keyframe is produced from it with `kontext-edit`, whose
+stated purpose is preserving the source subject. Same brief, run cold again:
+
+| | Learned clauses | Score | Criteria unmet |
+|---|---|---|---|
+| Before the fix | 0 | 7/10 | consistency, object identity |
+| **After the fix** | 0 | **8**/10 | **none** |
+
+The measurement changed the architecture. That is the useful part of having one.
+
+### The experiment that worked
+
+With consistency handled structurally, a harder brief — a four-criterion teaser, target 9 — left the
+loop something a prompt could actually fix.
+
+| Attempt | Learned clauses | Score | Per-criterion |
+|---|---|---|---|
+| 1 | 0 | **7**/10 | hero ✓ · consistency ✓ · **distinct framing ✕** · mood ✓ |
+| 2 | 4 | **8**/10 | hero ✓ · **consistency ✕** · **distinct framing ✓** · mood ✓ |
+
+Attempt 1's reviewer: *"All three shots use nearly the same centered composition, so they feel like
+repeated angles rather than different framings."*
+
+The highest-confidence lesson distilled from it: *"Vary framing significantly across all three shots.
+Do not center the teapot identically in each frame."*
+
+Attempt 2's reviewer, on that same criterion: *"Framing changes from close-up to medium to wide shot,
+clearly distinct angles."*
+
+The lesson that targeted the failure fixed the failure, and the score rose. **It is not a clean win:**
+consistency regressed from met to unmet — *"glaze appears slightly warmer in first shot due to direct
+sunlight"* — and the attempt cost $3.67 against $2.42, because shots needed re-renders. The loop
+trades; it does not monotonically improve. That is worth knowing, and it is the kind of thing a
+provenance record is for.
 
 ### The control
 
 Claiming memory helped is easy when you only publish the runs that improved. So the studio has a
 **Run control** button: the same brief, the same criteria, the same reviewer, with every learned
-lesson deliberately withheld at compile time — one variable changed.
+lesson withheld at compile time — one variable changed.
 
-<!-- CONTROL-RESULT -->
+Run on a **single-shot** project, the control scored **8/10**, exactly matching the memory-steered
+attempt beside it. No effect. The design was too weak to show one either way: with one shot, "the
+look is consistent across every shot" is trivially satisfied, and every lesson in that canon was
+about cross-shot consistency. A control has to exercise the thing it is controlling for.
+
+It is reported here because it ran, and a control you only publish when it flatters you is not a
+control.
 
 ### The DKG node
 
@@ -184,8 +233,8 @@ Assertion URI:  did:dkg:context-graph:0xd4c8…/stele-studio/_shared_memory/0xd4
 Merkle root:    0xbecfe126d8476907e899e4327434e1d852eb90b0a4c848b50c3bfd767c538b2c
 ```
 
-The prompt compiler, reading that node: **18 clauses, 4 learned** in the normal condition,
-**4 clauses, 0 learned** with memory withheld.
+The prompt compiler, reading that node: **19 clauses, 4 learned** in the normal condition,
+**5 clauses, 0 learned** with memory withheld.
 
 ## Run it
 
