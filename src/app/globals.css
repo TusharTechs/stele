@@ -28,8 +28,16 @@
   --color-basalt-700: #2e2e36;
   --color-basalt-600: #3f3f49;
 
+  /* The bone ramp, complete.
+     It shipped with 50, 200, 400 and 500 and no steps between, so a good deal of the product asked
+     for `bone-100` and `bone-300` anyway: names that read as obvious but that Tailwind never
+     generated, leaving 26 places silently inheriting full-brightness body text and every
+     `hover:text-bone-100` doing nothing at all. Filling the ramp is the fix, because the missing
+     steps are the ones a designer reaches for. */
   --color-bone-50: #f4f2ee;
+  --color-bone-100: #eae7e2;
   --color-bone-200: #d6d2ca;
+  --color-bone-300: #b8b5ac;
   --color-bone-400: #9b978e;
   /* Measured against every surface it sits on, not picked. The original (#7a766e) came out at
      3.96:1, below AA, and this is the colour every 10-11px label in the product uses. Lifting the
@@ -159,6 +167,53 @@ summary:focus-visible,
   animation: stele-pulse 1.6s ease-in-out infinite;
 }
 
+/*
+ * Grain.
+ *
+ * A wide flat black surface bands visibly on an 8-bit display, and the gradient behind the hero is
+ * exactly that. A little noise breaks the banding, and it also stops footage sitting on the page
+ * looking like it was pasted on: the whole frame shares one texture. Fixed attachment so it reads as
+ * a property of the screen rather than of the element, and pointer-events-none so it never
+ * intercepts a click.
+ */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/*
+ * Reveal on scroll.
+ *
+ * Driven by `animation-timeline: view()` rather than an intersection observer, so it costs no
+ * JavaScript and cannot leave an element stuck invisible if a listener fails to fire. Browsers
+ * without it simply show the content, which is the correct fallback.
+ */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: stele-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 5% cover 26%;
+    }
+  }
+}
+
+@keyframes stele-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @keyframes stele-sweep {
   from {
     transform: translateX(-100%);
@@ -176,6 +231,62 @@ summary:focus-visible,
   width: 25%;
   background: linear-gradient(90deg, transparent, rgba(109, 220, 176, 0.55), transparent);
   animation: stele-sweep 1.8s ease-in-out infinite;
+}
+
+/*
+ * The mark, inscribed on hover.
+ *
+ * Three nodes set into the slab one at a time with an edge cut between each, which is the project
+ * in one gesture: the record is a graph, and someone has to carve it. The edge path is normalised
+ * to `pathLength="100"` in the component, so the two segments draw in sequence across one run and
+ * the nodes land on the beats where the line reaches them.
+ *
+ * The dash is declared outside the hover so the resting mark is a complete drawing rather than one
+ * that pops into existence on the first pointer move.
+ */
+.inscribe .ins-edge {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .inscribe:hover .ins-edge {
+    animation: stele-cut 720ms cubic-bezier(0.33, 0, 0.2, 1);
+  }
+
+  .inscribe:hover .ins-node {
+    /* Without `fill-box` the origin is the SVG's own corner and the nodes scale in from outside
+       the slab, which reads as debris rather than as carving. */
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: stele-set 340ms cubic-bezier(0.34, 1.4, 0.5, 1) backwards;
+  }
+  .inscribe:hover .ins-node-b {
+    animation-delay: 330ms;
+  }
+  .inscribe:hover .ins-node-c {
+    animation-delay: 660ms;
+  }
+}
+
+@keyframes stele-cut {
+  from {
+    stroke-dashoffset: 100;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes stele-set {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

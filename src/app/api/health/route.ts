@@ -12,16 +12,26 @@ import { CAPABILITY } from "@/livepeer/capabilities";
  */
 export const dynamic = "force-dynamic";
 
-export async function GET() {
+export async function GET(request: Request) {
   const store = knowledgeStore();
+
+  // The header polls this on every page load purely to colour one dot, and the full report reaches
+  // out to Livepeer to do it. `?probe=store` answers the knowledge-store half on its own so that
+  // does not become an outbound request per page view.
+  const storeOnly = new URL(request.url).searchParams.get("probe") === "store";
+
   const [dkg, livepeerStatus] = await Promise.all([
     store.status().catch((error: unknown) => ({
       mode: resolveDkgMode(),
       ready: false,
       detail: `status check failed: ${message(error)}`,
     })),
-    probeLivepeer(),
+    storeOnly ? undefined : probeLivepeer(),
   ]);
+
+  if (storeOnly) {
+    return Response.json({ knowledge: dkg, trackTwoReady: isDkgNode(dkg) });
+  }
 
   return Response.json({
     service: "stele",
@@ -30,8 +40,12 @@ export async function GET() {
     livepeer: livepeerStatus,
     capabilities: CAPABILITY,
     // Named so the difference is impossible to miss: `file` is real SPARQL, but it is not the DKG.
-    trackTwoReady: dkg.ready && (dkg.mode === "edge" || dkg.mode === "network"),
+    trackTwoReady: isDkgNode(dkg),
   });
+}
+
+function isDkgNode(dkg: { mode: string; ready: boolean }): boolean {
+  return dkg.ready && (dkg.mode === "edge" || dkg.mode === "network");
 }
 
 async function probeLivepeer() {

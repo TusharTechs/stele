@@ -13,6 +13,10 @@
  *
  * Drawn on a 24-unit grid in `currentColor`, so it takes the colour of whatever it sits on rather
  * than carrying a palette around.
+ *
+ * On hover the inscription is cut rather than spun: node, edge, node, edge, node, in the order a
+ * mason would work. Rotating a standing stone would contradict the one thing the shape is for.
+ * The classes here are the handles for that; the timing lives in `globals.css`.
  */
 export function LogoMark({ className = "", title }: { className?: string; title?: string }) {
   return (
@@ -33,18 +37,23 @@ export function LogoMark({ className = "", title }: { className?: string; title?
       />
       {/* The plinth. Small line, most of the work. */}
       <path d="M4.6 20.6h14.8" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-      {/* The inscription: two edges… */}
+      {/* The inscription: two edges…
+          `pathLength` normalises both segments to a 100 unit run so the draw-on animation in
+          globals.css can use round numbers instead of the measured geometry, which would otherwise
+          have to be recomputed by hand every time the mark is nudged. */}
       <path
+        className="ins-edge"
+        pathLength="100"
         d="M9.6 10.2l4.7 2.9M14.3 13.1 9.6 16"
         stroke="currentColor"
         strokeWidth="1.3"
         strokeLinecap="round"
         opacity="0.7"
       />
-      {/* …and the three nodes they join. */}
-      <circle cx="9.6" cy="10.2" r="1.45" fill="currentColor" />
-      <circle cx="14.6" cy="13.1" r="1.45" fill="currentColor" />
-      <circle cx="9.6" cy="16" r="1.45" fill="currentColor" />
+      {/* …and the three nodes they join, in the order the edges reach them. */}
+      <circle className="ins-node" cx="9.6" cy="10.2" r="1.45" fill="currentColor" />
+      <circle className="ins-node ins-node-b" cx="14.6" cy="13.1" r="1.45" fill="currentColor" />
+      <circle className="ins-node ins-node-c" cx="9.6" cy="16" r="1.45" fill="currentColor" />
     </svg>
   );
 }
@@ -61,7 +70,7 @@ export function LogoMark({ className = "", title }: { className?: string; title?
  */
 export function Wordmark({ withTagline = false }: { withTagline?: boolean }) {
   return (
-    <span className="inline-flex items-center gap-2.5">
+    <span className="inscribe inline-flex items-center gap-2.5">
       <LogoMark className="h-[22px] w-[22px] shrink-0 text-verdigris-400" title="Stele" />
       <span className="font-mono text-base font-semibold tracking-[0.2em] text-bone-50 uppercase">
         Stele
