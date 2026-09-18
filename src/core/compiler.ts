@@ -95,8 +95,10 @@ function assembleClauses(brief: Brief, rows: Binding[], shot?: ShotPlan): Clause
   }
 
   // 2. Knowledge from the graph: constraints the human set, then lessons the loop proved.
-  const constraints = rows.filter((row) => row.sourceKind === "constraint");
-  const lessons = rows.filter((row) => row.sourceKind === "lesson");
+  //    The row carries its rdf:type rather than a literal tag, because the query that produces it
+  //    has to avoid UNION — see the note in `memoryForCompile`.
+  const constraints = rows.filter((row) => !isLesson(row));
+  const lessons = rows.filter(isLesson);
 
   for (const row of constraints) {
     const body = row.body?.trim();
@@ -159,6 +161,11 @@ function dedupe(clauses: Array<Omit<Clause, "index">>): Array<Omit<Clause, "inde
 
 function normalise(value: string): string {
   return value.toLowerCase().replace(/[^a-z0-9 ]/g, "").replace(/\s+/g, " ").trim();
+}
+
+/** A row is a lesson when its rdf:type says so; everything else in the result set is a constraint. */
+function isLesson(row: Binding): boolean {
+  return (row.type ?? "").endsWith("#Lesson");
 }
 
 function criterionIndexFromIri(value: string): number | undefined {

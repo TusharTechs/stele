@@ -26,32 +26,31 @@ export interface Binding {
  */
 export function memoryForCompile(projectId: string): string {
   const project = iri.project(projectId);
+  // Written without UNION deliberately. The DKG node's query engine returns zero rows for a UNION
+  // that both oxigraph and the spec answer correctly, and in the hot path that failure is silent
+  // and total: the compiler would receive nothing, every prompt would fall back to the brief, and
+  // the run would still report success. `VALUES` over the two types is equivalent, and both stores
+  // answer it identically — which is the property that actually matters here.
   return `${SPARQL_PREFIXES}
-SELECT ?node ?kind ?body ?weight ?status ?fromAttempt ?criterion ?originProject ?originTitle ?sourceKind
+SELECT ?node ?type ?kind ?body ?weight ?status ?fromAttempt ?criterion ?originProject ?originTitle
 WHERE {
-  {
-    ?node a st:Constraint ;
-          st:forProject ${project} ;
-          st:constraintKind ?kind ;
-          st:body ?body ;
-          st:weight ?weight .
-    BIND("constraint" AS ?sourceKind)
-  }
-  UNION
-  {
-    ?node a st:Lesson ;
-          st:forProject ${project} ;
-          st:lessonKind ?kind ;
-          st:body ?body ;
-          st:status ?status ;
-          st:confidence ?weight ;
-          st:fromAttempt ?fromAttempt .
-    FILTER (?status = "accepted" || ?status = "pinned")
-    OPTIONAL { ?node st:addressesCriterion ?criterion }
-    OPTIONAL { ?node st:originProject ?originProject }
-    OPTIONAL { ?node st:originProjectTitle ?originTitle }
-    BIND("lesson" AS ?sourceKind)
-  }
+  VALUES ?type { st:Constraint st:Lesson }
+  ?node a ?type ;
+        st:forProject ${project} ;
+        st:body ?body .
+  OPTIONAL { ?node st:constraintKind ?constraintKind }
+  OPTIONAL { ?node st:lessonKind ?lessonKind }
+  OPTIONAL { ?node st:weight ?constraintWeight }
+  OPTIONAL { ?node st:confidence ?lessonConfidence }
+  OPTIONAL { ?node st:status ?status }
+  OPTIONAL { ?node st:fromAttempt ?fromAttempt }
+  OPTIONAL { ?node st:addressesCriterion ?criterion }
+  OPTIONAL { ?node st:originProject ?originProject }
+  OPTIONAL { ?node st:originProjectTitle ?originTitle }
+  BIND(COALESCE(?constraintKind, ?lessonKind) AS ?kind)
+  BIND(COALESCE(?constraintWeight, ?lessonConfidence) AS ?weight)
+  # A constraint has no status and always applies. A lesson steers nothing until a human accepts it.
+  FILTER (!BOUND(?status) || ?status = "accepted" || ?status = "pinned")
 }
 ORDER BY DESC(?weight)`;
 }
@@ -132,12 +131,14 @@ ORDER BY ?attempt`;
 
 /** Everything the graph holds about one project — the default view in the SPARQL console. */
 export function projectGraph(projectId: string, limit = 500): string {
+  const project = iri.project(projectId);
+  // UNION-free for the same reason as `memoryForCompile`: the node's engine answers it with nothing.
   return `${SPARQL_PREFIXES}
 SELECT ?subject ?predicate ?object
 WHERE {
   ?subject ?predicate ?object .
-  { ?subject st:forProject ${iri.project(projectId)} }
-  UNION { BIND(${iri.project(projectId)} AS ?subject) }
+  OPTIONAL { ?subject st:forProject ?ownedBy }
+  FILTER (?subject = ${project} || (BOUND(?ownedBy) && ?ownedBy = ${project}))
 }
 LIMIT ${limit}`;
 }

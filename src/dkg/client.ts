@@ -2,6 +2,7 @@ import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import fs from "node:fs/promises";
 import path from "node:path";
+import os from "node:os";
 import type { Project } from "@/core/schemas";
 import { buildCanon, buildRunLedger } from "./serialize";
 import type { Binding } from "./queries";
@@ -186,12 +187,20 @@ export class FileKnowledgeStore implements KnowledgeStore {
 // ---------------------------------------------------------------- DKG node store
 
 /**
- * A real DKG node, driven through its CLI.
+ * A real DKG node — writes through its CLI, reads through its local HTTP API.
  *
- * The CLI is used rather than the local HTTP API because it is the surface OriginTrail documents for
- * the Knowledge Asset lifecycle, which makes every operation here reproducible by hand — a judge can
- * paste the same commands and get the same assets. Each call is a separate process, and stdout is
- * parsed rather than trusted, because the CLI writes progress lines alongside its result.
+ * The split is deliberate, and it was arrived at by trying the obvious thing first.
+ *
+ * **Writes go through the CLI** because `dkg ka create … --share` is the surface OriginTrail
+ * documents for the Knowledge Asset lifecycle. Every write this store performs can be reproduced by
+ * hand from a terminal, which is what makes the provenance claim checkable by someone who does not
+ * trust this code.
+ *
+ * **Reads go through `POST /api/query`** because `dkg query` renders its result as a formatted
+ * table for humans, with values truncated to fit the column width. Parsing that would be a silent
+ * data-loss bug of the worst kind: the compiler would receive zero rows — or worse, truncated ones —
+ * and every prompt would quietly fall back to the brief while still reporting success. The daemon's
+ * HTTP API answers the identical SPARQL as JSON bindings.
  *
  * Writes are cumulative and version-scoped: attempt *n* creates a new named asset rather than
  * mutating attempt *n-1*'s. Shared Working Memory does not let you take an assertion back once peers
@@ -199,19 +208,24 @@ export class FileKnowledgeStore implements KnowledgeStore {
  */
 export class DkgNodeStore implements KnowledgeStore {
   private resolvedGraph?: string;
+  private cachedToken?: string;
   private mirror = new FileKnowledgeStore();
 
   constructor(
     readonly mode: "edge" | "network",
     private readonly bin = process.env.DKG_CLI_BIN ?? "dkg",
     private readonly graphName = process.env.DKG_CONTEXT_GRAPH_NAME ?? "stele-studio",
-    private readonly graphId = process.env.DKG_CONTEXT_GRAPH_ID ?? ""
+    private readonly graphId = process.env.DKG_CONTEXT_GRAPH_ID ?? "",
+    private readonly apiUrl = process.env.DKG_API_URL ?? "http://127.0.0.1:9200"
   ) {}
 
   async status(): Promise<StoreStatus> {
     try {
       const version = (await this.run(["--version"])).trim().split(/\s+/).pop();
+      // `--version` only proves the CLI is installed. The daemon has to actually be up, or every
+      // read silently degrades to the mirror and the badge would still claim a DKG integration.
       const graph = await this.contextGraph();
+      await this.query("ASK { ?s ?p ?o }");
       return {
         mode: this.mode,
         ready: true,
@@ -255,12 +269,39 @@ export class DkgNodeStore implements KnowledgeStore {
     };
   }
 
+  /**
+   * Ask the node, over its local HTTP API.
+   *
+   * `includeSharedMemory` is what makes a lesson another agent shared visible here: without it the
+   * query sees only this node's own Working Memory and cross-project inheritance silently returns
+   * nothing.
+   */
   async query(sparql: string): Promise<QueryResult> {
     const started = Date.now();
     try {
-      const graph = await this.contextGraph();
-      const out = await this.run(["query", graph, "--include-shared-memory", "--sparql", sparql]);
-      return { bindings: parseCliBindings(out), servedBy: this.mode, ms: Date.now() - started };
+      const [graph, token] = await Promise.all([this.contextGraph(), this.authToken()]);
+
+      const response = await fetch(`${this.apiUrl}/api/query`, {
+        method: "POST",
+        headers: { "content-type": "application/json", authorization: `Bearer ${token}` },
+        body: JSON.stringify({ sparql, contextGraphId: graph, includeSharedMemory: true }),
+        signal: AbortSignal.timeout(30_000),
+      });
+
+      const payload = (await response.json()) as {
+        result?: { bindings?: Array<Record<string, unknown>> };
+        error?: string;
+      };
+      if (!response.ok || payload.error) {
+        throw new Error(payload.error ?? `node returned HTTP ${response.status}`);
+      }
+
+      const bindings = (payload.result?.bindings ?? []).map((row) => {
+        const out: Binding = {};
+        for (const [key, value] of Object.entries(row)) out[key] = termValue(value);
+        return out;
+      });
+      return { bindings, servedBy: this.mode, ms: Date.now() - started };
     } catch (error) {
       // A read failure must not take the studio down mid-run. Fall back to the mirror and say so —
       // the caller renders `servedBy`, so a degraded read is visible rather than silently accepted.
@@ -286,6 +327,31 @@ export class DkgNodeStore implements KnowledgeStore {
 
   private network(): string {
     return process.env.DKG_NETWORK ?? "testnet";
+  }
+
+  /**
+   * The node's API bearer token.
+   *
+   * Read from the token file rather than `dkg auth show`, which costs a process spawn on every
+   * query. The file leads with a comment line warning that the token is a password, so the first
+   * line that is neither blank nor a comment is the token itself.
+   */
+  private async authToken(): Promise<string> {
+    if (this.cachedToken) return this.cachedToken;
+    if (process.env.DKG_API_TOKEN) {
+      this.cachedToken = process.env.DKG_API_TOKEN;
+      return this.cachedToken;
+    }
+
+    const file = path.join(process.env.DKG_HOME ?? path.join(os.homedir(), ".dkg"), "auth.token");
+    const token = (await fs.readFile(file, "utf8"))
+      .split(/\r?\n/)
+      .map((line) => line.trim())
+      .find((line) => line.length > 0 && !line.startsWith("#"));
+
+    if (!token) throw new Error(`no API token found in ${file}`);
+    this.cachedToken = token;
+    return token;
   }
 
   private async contextGraph(): Promise<string> {
@@ -391,37 +457,6 @@ function isTransient(error: unknown): boolean {
   return /already exists|already finalized|promote|promotion|fan-out|watchdog|timeout|still pending|share operation/i.test(
     message(error)
   );
-}
-
-/**
- * Normalise a SPARQL result set.
- *
- * The CLI may answer in the W3C SPARQL JSON shape (`results.bindings`, each value an object with a
- * `value` key) or in a flatter `{bindings: [...]}` of its own. Both are accepted, and a row is always
- * returned as plain strings so callers never branch on which shape arrived.
- */
-export function parseCliBindings(output: string): Binding[] {
-  const start = output.indexOf("{");
-  if (start === -1) return [];
-
-  let parsed: unknown;
-  try {
-    parsed = JSON.parse(output.slice(start));
-  } catch {
-    return [];
-  }
-
-  const container = parsed as { results?: { bindings?: unknown[] }; bindings?: unknown[] };
-  const rows = container.results?.bindings ?? container.bindings ?? [];
-  if (!Array.isArray(rows)) return [];
-
-  return rows.map((row) => {
-    const out: Binding = {};
-    for (const [key, value] of Object.entries(row as Record<string, unknown>)) {
-      out[key] = termValue(value);
-    }
-    return out;
-  });
 }
 
 function termValue(value: unknown): string | undefined {
