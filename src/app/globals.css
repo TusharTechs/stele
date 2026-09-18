@@ -15,21 +15,27 @@
 @theme {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-mono-face), ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-display: var(--font-display), Georgia, "Times New Roman", serif;
 
+  /* Surfaces, and the steps between them.
+     The first ramp put 900 and 850 within 1.05 of each other, so a chip sitting on a card was a
+     step nobody could see. These are spaced so each surface reads as a surface, which matters more
+     in a dark interface than in a light one where shadow does the same work. */
   --color-basalt-950: #0a0a0b;
-  --color-basalt-900: #111113;
-  --color-basalt-850: #17171a;
-  --color-basalt-800: #1e1e22;
-  --color-basalt-700: #2a2a30;
-  --color-basalt-600: #3a3a42;
+  --color-basalt-900: #111114;
+  --color-basalt-850: #1a1a1e;
+  --color-basalt-800: #232329;
+  --color-basalt-700: #2e2e36;
+  --color-basalt-600: #3f3f49;
 
   --color-bone-50: #f4f2ee;
   --color-bone-200: #d6d2ca;
   --color-bone-400: #9b978e;
-  /* Measured, not picked. The previous value (#7a766e) came out at 3.96:1 on the lighter surfaces —
-     below AA, and this is the colour every 10–11px label in the product uses. This one clears 4.5
-     against basalt-950 through basalt-800 while keeping the same warm grey. */
-  --color-bone-500: #8b8680;
+  /* Measured against every surface it sits on, not picked. The original (#7a766e) came out at
+     3.96:1, below AA, and this is the colour every 10-11px label in the product uses. Lifting the
+     surface ramp cost it another 0.27, so it moved again: this clears 4.5 on all four surfaces
+     while staying the same warm grey. */
+  --color-bone-500: #918c85;
 
   --color-verdigris-400: #6ddcb0;
   --color-verdigris-500: #3fbf92;
@@ -100,6 +106,34 @@ summary:focus-visible,
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-basalt-600);
+}
+
+/*
+ * Headlines are set in the display face, tightened.
+ *
+ * Fraunces is drawn generously, so at display sizes its default tracking reads loose beside the
+ * tight grotesque body text. A small negative letter-spacing and a low optical-size axis bring it
+ * back into the same room as everything else.
+ */
+.display {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 48, "SOFT" 20, "WONK" 0;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+}
+
+/*
+ * The same family at a small size, drawn for it.
+ *
+ * An optical-size axis is the reason to choose a variable serif, and setting one value for every
+ * headline throws that away: a face cut for 48px is too tight and too fine at 20px. This is the
+ * 20px cut, with the tracking let back out to match.
+ */
+.display-sm {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 20, "SOFT" 30, "WONK" 0;
+  letter-spacing: -0.005em;
+  font-weight: 600;
 }
 
 /*

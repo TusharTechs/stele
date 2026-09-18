@@ -50,9 +50,14 @@ export function Select({
     const onPointerDown = (event: MouseEvent) => {
       if (!root.current?.contains(event.target as Node)) setOpen(false);
     };
-    // Closing on scroll rather than repositioning: the list is anchored to the trigger, and a
-    // detached popup floating over unrelated content is worse than one that gets out of the way.
-    const onScroll = () => setOpen(false);
+    // Close when the page moves under the list, since it is anchored to the trigger and would
+    // otherwise float over unrelated content. Scrolling *within* the list is not that: the listener
+    // is on capture, so a wheel inside the options bubbles up here too and was dismissing the menu
+    // the moment anyone tried to reach an option below the fold.
+    const onScroll = (event: Event) => {
+      if (root.current?.contains(event.target as Node)) return;
+      setOpen(false);
+    };
 
     document.addEventListener("mousedown", onPointerDown);
     window.addEventListener("scroll", onScroll, true);

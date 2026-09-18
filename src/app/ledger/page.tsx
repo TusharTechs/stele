@@ -34,7 +34,7 @@ export default async function LedgerPage() {
       <SiteHeader />
       <main className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
         <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-bone-500">Ledger</p>
-        <h1 className="mt-2 text-3xl font-semibold tracking-tight text-bone-50">
+        <h1 className="display mt-2 text-3xl text-bone-50">
           What the network charged
         </h1>
         <p className="mt-3 max-w-2xl text-bone-400">

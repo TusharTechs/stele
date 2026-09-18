@@ -17,7 +17,7 @@ export default async function LandingPage() {
 
       <main>
         <section className="mx-auto max-w-5xl px-4 pt-24 pb-16 sm:px-6">
-          <h1 className="max-w-3xl text-4xl leading-[1.08] font-semibold tracking-tight text-bone-50 sm:text-6xl">
+          <h1 className="display max-w-3xl text-4xl leading-[1.05] text-bone-50 sm:text-6xl">
             You got the shot once.
             <br />
             <span className="text-bone-500">Then you never got it again.</span>
@@ -54,7 +54,7 @@ export default async function LandingPage() {
 
         <section className="carved">
           <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6">
-            <h2 className="max-w-2xl text-3xl leading-tight font-semibold tracking-tight text-bone-50">
+            <h2 className="display max-w-2xl text-3xl leading-tight text-bone-50">
               A score going up proves nothing. So we show our working.
             </h2>
             <p className="mt-5 max-w-2xl text-bone-400">
@@ -65,7 +65,7 @@ export default async function LandingPage() {
             <div className="mt-10 grid gap-4 md:grid-cols-2">
               <Card className="p-6">
                 <Badge tone="knowledge">the control</Badge>
-                <h3 className="mt-4 text-lg font-medium text-bone-50">Run it again, knowing nothing</h3>
+                <h3 className="display-sm mt-4 text-lg text-bone-50">Run it again, knowing nothing</h3>
                 <p className="mt-2.5 text-sm leading-relaxed text-bone-400">
                   One button runs the same brief with every lesson deliberately withheld. Same shot
                   count, same criteria, same reviewer. One variable changed. If the canon is not
@@ -76,7 +76,7 @@ export default async function LandingPage() {
 
               <Card className="p-6">
                 <Badge tone="verified">the console</Badge>
-                <h3 className="mt-4 text-lg font-medium text-bone-50">Ask the graph yourself</h3>
+                <h3 className="display-sm mt-4 text-lg text-bone-50">Ask the graph yourself</h3>
                 <p className="mt-2.5 text-sm leading-relaxed text-bone-400">
                   There is a SPARQL box inside the studio, and the first query in it is the one the
                   prompt compiler runs before every render. Not a diagram of the graph. The graph.
@@ -89,7 +89,7 @@ export default async function LandingPage() {
 
         <section className="carved">
           <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6">
-            <h2 className="text-3xl leading-tight font-semibold tracking-tight text-bone-50">
+            <h2 className="display text-3xl leading-tight text-bone-50">
               How it works
             </h2>
 
@@ -115,7 +115,7 @@ export default async function LandingPage() {
 
         <section className="carved">
           <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-            <h2 className="text-3xl leading-tight font-semibold tracking-tight text-bone-50">
+            <h2 className="display text-3xl leading-tight text-bone-50">
               What a studio actually gets
             </h2>
             <p className="mt-4 max-w-2xl text-bone-400">
@@ -158,7 +158,7 @@ export default async function LandingPage() {
           <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6">
             <div className="grid gap-10 md:grid-cols-2">
               <div>
-                <h2 className="text-3xl leading-tight font-semibold tracking-tight text-bone-50">
+                <h2 className="display text-3xl leading-tight text-bone-50">
                   The part nobody else gives you
                 </h2>
                 <p className="mt-5 text-bone-400">
@@ -191,7 +191,7 @@ export default async function LandingPage() {
               </div>
 
               <div>
-                <h2 className="text-3xl leading-tight font-semibold tracking-tight text-bone-50">
+                <h2 className="display text-3xl leading-tight text-bone-50">
                   Knowledge that outlives the project
                 </h2>
                 <p className="mt-5 text-bone-400">
@@ -253,7 +253,7 @@ function Proof({ showcase }: { showcase: Showcase }) {
     <section className="carved">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <div className="flex flex-wrap items-baseline justify-between gap-3">
-          <h2 className="text-xl font-medium text-bone-50">
+          <h2 className="display-sm text-xl text-bone-50">
             Same brief. Same reviewer.{" "}
             {showcase.inherited
               ? "The second one knew what another production had learned."
@@ -375,7 +375,7 @@ function Surface({
       className="group rounded-lg border border-basalt-800 bg-basalt-900 p-5 transition-colors hover:border-basalt-700"
     >
       <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-bone-500">{label}</span>
-      <h3 className="mt-2.5 font-medium text-bone-50">{headline}</h3>
+      <h3 className="display-sm mt-2.5 text-[15px] text-bone-50">{headline}</h3>
       <p className="mt-2 text-[13px] leading-relaxed text-bone-400">{body}</p>
       {stat ? <p className="mt-2.5 font-mono text-[11px] text-bronze-300">{stat}</p> : null}
       <span className="mt-3 inline-block text-[13px] text-verdigris-400 transition-transform group-hover:translate-x-0.5">
@@ -389,7 +389,7 @@ function Step({ n, title, body }: { n: string; title: string; body: string }) {
   return (
     <li>
       <span className="font-mono text-[11px] tracking-wider text-verdigris-400">{n}</span>
-      <h3 className="mt-2 text-lg font-medium text-bone-50">{title}</h3>
+      <h3 className="display-sm mt-2 text-lg text-bone-50">{title}</h3>
       <p className="mt-2 text-sm leading-relaxed text-bone-400">{body}</p>
     </li>
   );

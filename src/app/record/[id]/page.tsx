@@ -33,7 +33,7 @@ export default async function RecordPage({ params }: { params: Promise<{ id: str
       <SiteHeader />
       <main className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
         <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-bone-500">Production record</p>
-        <h1 className="mt-2 text-3xl font-semibold text-bone-50">{project.title}</h1>
+        <h1 className="display mt-2 text-3xl text-bone-50">{project.title}</h1>
         <p className="mt-2 text-bone-400">{project.brief.goal}</p>
 
         <div className="mt-4 flex flex-wrap gap-2">

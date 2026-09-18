@@ -223,7 +223,7 @@ function Header({
       <div className="flex flex-wrap items-start justify-between gap-6">
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-2">
-            <h1 className="text-xl font-semibold text-bone-50">{project.title}</h1>
+            <h1 className="display-sm text-xl text-bone-50">{project.title}</h1>
             <Badge tone="knowledge">canon v{project.canonVersion}</Badge>
             {activeCount > 0 ? <Badge tone="knowledge">{activeCount} lessons steering</Badge> : null}
             {project.seals.length > 0 ? <Badge tone="verified">sealed</Badge> : null}

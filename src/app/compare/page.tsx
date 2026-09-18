@@ -20,7 +20,7 @@ export default async function ComparePage() {
       <SiteHeader />
       <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
         <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-bone-500">Compare</p>
-        <h1 className="mt-2 text-3xl font-semibold tracking-tight text-bone-50">
+        <h1 className="display mt-2 text-3xl text-bone-50">
           Two productions, and what they share
         </h1>
         <p className="mt-3 max-w-2xl text-bone-400">
