@@ -1,4 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 96" fill="none">
+<!--
+  The wordmark for dark surfaces.
+
+  Two files rather than one, because a README is read on whichever theme the reader chose and a
+  single asset cannot be legible on both: the bone name measured 1.12:1 on GitHub's white, and the
+  verdigris mark 1.68:1, so the banner was a tagline floating beside two ghosts. The viewBox is
+  cropped to the artwork so the image centres on its own content instead of on a box of air.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="10 20 250 66" fill="none" role="img" aria-label="Stele. Every frame, on the record.">
   <g transform="translate(16,20) scale(2.35)">
     <path d="M6.4 20.6 7.6 5.2h8.8l1.2 15.4z" stroke="#6ddcb0" stroke-width="1.7" stroke-linejoin="round"/>
     <path d="M4.6 20.6h14.8" stroke="#6ddcb0" stroke-width="1.7" stroke-linecap="round"/>
@@ -8,5 +16,5 @@
     <circle cx="9.6" cy="16" r="1.45" fill="#6ddcb0"/>
   </g>
   <text x="80" y="52" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="32" font-weight="600" letter-spacing="6.4" fill="#f4f2ee">STELE</text>
-  <text x="82" y="74" font-family="system-ui,-apple-system,sans-serif" font-size="13" fill="#7a766e">every frame, on the record</text>
+  <text x="82" y="74" font-family="system-ui,-apple-system,sans-serif" font-size="13" fill="#918c85">every frame, on the record</text>
 </svg>
