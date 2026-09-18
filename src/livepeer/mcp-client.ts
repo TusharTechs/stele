@@ -229,19 +229,47 @@ export class LivepeerAgent {
     }
 
     const failed = sc.ok === false || Boolean(toolError(payload));
+    const warnings = warningsOf(sc);
+
+    // `persist: true` is a request, not a guarantee. Measured across 103 calls, every
+    // ltx-25-i2v-fast render came back with "a durable copy was requested but none was recorded —
+    // the URL returned inherits the provider's lifetime", and named the remedy. Left alone, every
+    // shot reference written into a production record is a 404 on a delay fuse, which is precisely
+    // the failure this project claims to have solved.
+    let url = str(sc.url);
+    if (!failed && req.persist && url && warnings.some(isEphemeral)) {
+      url = (await this.rehost(url)) ?? url;
+    }
+
     return this.record(req, argsHash, startedAt, {
       ok: !failed,
       jobId,
       outputKind: str(sc.output_kind),
-      url: str(sc.url),
+      url,
       text: extractText(sc, payload),
       modelId: str((sc.result as Record<string, unknown> | undefined)?.model_id),
       costUSD: num(sc.cost_usd_estimated) ?? 0,
       costUnitKind: str(sc.cost_unit_kind),
       costUnits: num(sc.cost_units),
-      warnings: warningsOf(sc),
+      warnings,
       error: failed ? (str(sc.error) ?? toolError(payload) ?? "capability failed") : undefined,
     });
+  }
+
+  /**
+   * Copy a provider-hosted file onto storage that outlives the provider.
+   *
+   * Failure here is deliberately not fatal. A run that has rendered every shot should not be thrown
+   * away because a copy did not take; the original URL still works today, and the warning stays on
+   * the call record so the shortened lifetime is visible rather than assumed away.
+   */
+  private async rehost(url: string): Promise<string | undefined> {
+    try {
+      return await this.callUpload({ source_url: url });
+    } catch (error) {
+      console.warn(`[livepeer] durable copy failed, keeping the provider URL: ${String(error).slice(0, 140)}`);
+      return undefined;
+    }
   }
 
   /** Like `run`, but a failure throws instead of returning `ok: false`. For stages that cannot proceed. */
@@ -441,6 +469,11 @@ function warningsOf(sc: Record<string, unknown>): CapabilityWarning[] {
     kind: String(w.kind ?? "warning"),
     message: String(w.message ?? ""),
   }));
+}
+
+/** The network's own phrasing when a requested durable copy did not happen. */
+function isEphemeral(warning: CapabilityWarning): boolean {
+  return /durable copy|inherits the provider/i.test(warning.message);
 }
 
 function str(value: unknown): string | undefined {

@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import type { ComparableProject } from "@/core/library";
 import { Badge, Card, Money, SectionTitle } from "@/components/ui";
+import { Select } from "@/components/Select";
 
 /**
  * The board.
@@ -95,17 +96,16 @@ function Picker({
   return (
     <label className="grid gap-1.5">
       <span className="font-mono text-[11px] uppercase tracking-wider text-bone-500">{label}</span>
-      <select
+      <Select
         value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="w-full rounded border border-basalt-700 bg-basalt-950 px-2.5 py-1.5 text-sm text-bone-100"
-      >
-        {projects.map((p) => (
-          <option key={p.id} value={p.id}>
-            {p.title} · {p.agentLabel} · {p.attempts} attempt{p.attempts === 1 ? "" : "s"}
-          </option>
-        ))}
-      </select>
+        onChange={onChange}
+        ariaLabel={label}
+        options={projects.map((p) => ({
+          value: p.id,
+          label: p.title,
+          hint: `${p.agentLabel} · ${p.attempts} attempt${p.attempts === 1 ? "" : "s"}`,
+        }))}
+      />
     </label>
   );
 }

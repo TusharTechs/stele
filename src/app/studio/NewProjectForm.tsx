@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Button, Card } from "@/components/ui";
+import { Select } from "@/components/Select";
 
 /**
  * The brief.
@@ -97,14 +98,20 @@ export function NewProjectForm({ canons = [] }: { canons?: CanonOption[] }) {
     <Card className="p-4">
       <form onSubmit={submit} className="grid gap-4">
         <Field label="Start from a canon" hint="Optional. Inherits its rules and constraints.">
-          <select value={forkFrom} onChange={(e) => setForkFrom(e.target.value)} className={INPUT}>
-            <option value="">A blank canon</option>
-            {canons.map((c) => (
-              <option key={c.id} value={c.id}>
-                {c.title} ({c.rules} rules, {c.constraints} constraints)
-              </option>
-            ))}
-          </select>
+          <Select
+            value={forkFrom}
+            onChange={setForkFrom}
+            ariaLabel="Start from a canon"
+            placeholder="A blank canon"
+            options={[
+              { value: "", label: "A blank canon" },
+              ...canons.map((c) => ({
+                value: c.id,
+                label: c.title,
+                hint: `${c.rules} rules · ${c.constraints} constraints`,
+              })),
+            ]}
+          />
         </Field>
         {forked ? (
           <p className="-mt-1.5 text-[12px] leading-snug text-bronze-300">
@@ -148,18 +155,13 @@ export function NewProjectForm({ canons = [] }: { canons?: CanonOption[] }) {
             />
           </Field>
           <Field label="Seconds" hint="each">
-            <select
-              value={shotSeconds}
-              onChange={(e) => setShotSeconds(Number(e.target.value))}
-              className={INPUT}
-            >
-              {/* The video capability accepts these values and no others. */}
-              {[6, 8, 10, 12].map((n) => (
-                <option key={n} value={n}>
-                  {n}
-                </option>
-              ))}
-            </select>
+            {/* The video capability accepts these values and no others. */}
+            <Select
+              value={String(shotSeconds)}
+              onChange={(v) => setShotSeconds(Number(v))}
+              ariaLabel="Seconds per shot"
+              options={[6, 8, 10, 12].map((n) => ({ value: String(n), label: String(n) }))}
+            />
           </Field>
           <Field label="Target" hint="/10">
             <input name="targetScore" type="number" min={1} max={10} defaultValue={8} className={INPUT} />

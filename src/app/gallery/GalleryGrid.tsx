@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import type { GalleryItem } from "@/core/library";
 import { Badge, Card, Empty } from "@/components/ui";
+import { Select } from "@/components/Select";
 
 type Kind = "all" | "cut" | "shot" | "keyframe";
 
@@ -59,18 +60,17 @@ export function GalleryGrid({ items }: { items: GalleryItem[] }) {
           </button>
         ))}
 
-        <select
+        <Select
           value={project}
-          onChange={(e) => setProject(e.target.value)}
-          className="ml-auto rounded border border-basalt-700 bg-basalt-950 px-2 py-1 text-[12px] text-bone-300"
-        >
-          <option value="">Every production</option>
-          {projects.map(([id, title]) => (
-            <option key={id} value={id}>
-              {title}
-            </option>
-          ))}
-        </select>
+          onChange={setProject}
+          ariaLabel="Filter by production"
+          placeholder="Every production"
+          className="ml-auto w-52"
+          options={[
+            { value: "", label: "Every production" },
+            ...projects.map(([id, title]) => ({ value: id, label: title })),
+          ]}
+        />
       </div>
 
       {filtered.length === 0 ? (

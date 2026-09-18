@@ -94,6 +94,8 @@ export async function runProduction(options: RunOptions): Promise<Run> {
     emit,
     budgetUSD: DEFAULT_BUDGET_USD,
     spentUSD: 0,
+    ledgerStart: agent.ledger().length,
+    baselineUSD: agent.totalCostUSD(),
   };
 
   let run: Run = {
@@ -108,7 +110,7 @@ export async function runProduction(options: RunOptions): Promise<Run> {
     calls: [],
     pairedWithAttempt,
   };
-  await persist(projectId, run, (project) => ({ ...project, runs: [...project.runs, run] }));
+  await persist(ctx, run, (project) => ({ ...project, runs: [...project.runs, run] }));
 
   try {
     const project = existing;
@@ -158,7 +160,7 @@ export async function runProduction(options: RunOptions): Promise<Run> {
         // three different clock faces and three different lighting setups, and the canon's rules
         // about consistency could not be obeyed because nothing carried between renders.
         anchorUrl ??= shot.keyframeUrl;
-        await persist(ctx.projectId, run, replaceRun(run));
+        await persist(ctx, run, replaceRun(run));
       }
     });
 
@@ -212,8 +214,8 @@ export async function runProduction(options: RunOptions): Promise<Run> {
     run.stage = "COMPLETE";
     run.finishedAt = Date.now();
     run.costUSD = ctx.spentUSD;
-    run.calls = agent.ledger().map(toRecord);
-    await persist(ctx.projectId, run, replaceRun(run));
+    run.calls = callsFor(ctx);
+    await persist(ctx, run, replaceRun(run));
     await writeGraph(ctx.projectId, store);
 
     emit({ type: "done", attempt, score: run.review?.score });
@@ -223,8 +225,8 @@ export async function runProduction(options: RunOptions): Promise<Run> {
     run.error = safeText(error instanceof Error ? error.message : String(error), 500);
     run.finishedAt = Date.now();
     run.costUSD = ctx.spentUSD;
-    run.calls = agent.ledger().map(toRecord);
-    await persist(ctx.projectId, run, replaceRun(run));
+    run.calls = callsFor(ctx);
+    await persist(ctx, run, replaceRun(run));
     // Partial work is still evidence, and a failed attempt is part of the record.
     await writeGraph(ctx.projectId, store).catch(() => undefined);
     emit({ type: "error", message: run.error });
@@ -242,6 +244,18 @@ interface RunContext {
   emit: (event: PipelineEvent) => void;
   budgetUSD: number;
   spentUSD: number;
+  /** The agent's cumulative spend when this run started, so the budget measures only this run. */
+  baselineUSD: number;
+  /**
+   * Where this run's calls begin in the agent's ledger.
+   *
+   * The Livepeer client is a process singleton, so its ledger accumulates across every run the
+   * process performs. Without this offset a run records every call the process ever made — six
+   * productions in one script attributed all of their spend to each of them — and the per-run
+   * budget guard is really a per-process one, which trips on every run after the first few and
+   * fails them at zero spend.
+   */
+  ledgerStart: number;
 }
 
 async function stage(
@@ -252,7 +266,7 @@ async function stage(
 ): Promise<Run> {
   run.stage = name;
   ctx.emit({ type: "stage", stage: name });
-  await persist(ctx.projectId, run, replaceRun(run));
+  await persist(ctx, run, replaceRun(run));
 
   const before = ctx.agent.totalCostUSD();
   await work();
@@ -260,7 +274,7 @@ async function stage(
   run.costUSD = ctx.spentUSD;
   ctx.emit({ type: "cost", totalUSD: ctx.spentUSD });
 
-  await persist(ctx.projectId, run, replaceRun(run));
+  await persist(ctx, run, replaceRun(run));
   return run;
 }
 
@@ -570,7 +584,7 @@ async function learn(ctx: RunContext, run: Run): Promise<void> {
 // ---------------------------------------------------------------- plumbing
 
 function assertBudget(ctx: RunContext): void {
-  if (ctx.agent.totalCostUSD() >= ctx.budgetUSD) {
+  if (ctx.agent.totalCostUSD() - ctx.baselineUSD >= ctx.budgetUSD) {
     throw new BudgetExceeded(
       `This attempt reached its $${ctx.budgetUSD.toFixed(2)} ceiling. Raise STELE_RUN_BUDGET_USD to continue.`
     );
@@ -586,13 +600,18 @@ function replaceRun(run: Run) {
   });
 }
 
+/** Only the calls this run made, not everything the process has done since it started. */
+function callsFor(ctx: RunContext) {
+  return ctx.agent.ledger().slice(ctx.ledgerStart).map(toRecord);
+}
+
 async function persist(
-  projectId: string,
+  ctx: RunContext,
   run: Run,
   mutate: (project: Project) => Project
 ): Promise<void> {
-  run.calls = livepeer().ledger().map(toRecord);
-  await updateProject(projectId, mutate);
+  run.calls = callsFor(ctx);
+  await updateProject(ctx.projectId, mutate);
 }
 
 /** Mirrors the current project state into the knowledge graph. Never fatal to a run. */

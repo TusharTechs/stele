@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import type { LibraryRule } from "@/core/library";
 import { Badge, Card, Empty } from "@/components/ui";
+import { Select } from "@/components/Select";
 
 type StatusFilter = "all" | "steering" | "proposed" | "rejected" | "travelled";
 
@@ -62,18 +63,17 @@ export function RuleFilters({
           </button>
         ))}
 
-        <select
+        <Select
           value={project}
-          onChange={(e) => setProject(e.target.value)}
-          className="rounded border border-basalt-700 bg-basalt-950 px-2 py-1 text-[12px] text-bone-300"
-        >
-          <option value="">Every production</option>
-          {projects.map((p) => (
-            <option key={p.id} value={p.id}>
-              {p.title}
-            </option>
-          ))}
-        </select>
+          onChange={setProject}
+          ariaLabel="Filter by production"
+          placeholder="Every production"
+          className="w-48"
+          options={[
+            { value: "", label: "Every production" },
+            ...projects.map((p) => ({ value: p.id, label: p.title, hint: p.agentLabel })),
+          ]}
+        />
 
         <input
           value={query}
