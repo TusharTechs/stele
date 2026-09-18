@@ -40,17 +40,23 @@ export function SiteHeader({ children }: { children?: React.ReactNode }) {
             Knowledge
           </Link>
           <Link
+            href="/gallery"
+            className="hidden rounded px-2 py-1.5 text-bone-400 transition-colors hover:text-bone-50 md:inline-block md:px-2.5"
+          >
+            Gallery
+          </Link>
+          <Link
+            href="/compare"
+            className="hidden rounded px-2 py-1.5 text-bone-400 transition-colors hover:text-bone-50 lg:inline-block lg:px-2.5"
+          >
+            Compare
+          </Link>
+          <Link
             href="/ledger"
-            className="hidden rounded px-2 py-1.5 text-bone-400 transition-colors hover:text-bone-50 sm:inline-block sm:px-2.5"
+            className="hidden rounded px-2 py-1.5 text-bone-400 transition-colors hover:text-bone-50 lg:inline-block lg:px-2.5"
           >
             Ledger
           </Link>
-          <a
-            href="/api/health"
-            className="hidden rounded px-2 py-1.5 text-bone-400 transition-colors hover:text-bone-50 sm:inline-block sm:px-2.5"
-          >
-            Health
-          </a>
           <span
             title={`Knowledge store resolved from STELE_DKG=${mode}`}
             className={`ml-1 shrink-0 rounded border px-2 py-1 font-mono text-[10px] whitespace-nowrap uppercase tracking-wider ${tone}`}

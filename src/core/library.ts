@@ -220,3 +220,171 @@ export async function buildLedger(): Promise<LedgerSummary> {
     warnings: [...warnings.values()].sort((a, b) => b.count - a.count),
   };
 }
+
+// ---------------------------------------------------------------- assets
+
+export interface GalleryItem {
+  id: string;
+  kind: "cut" | "shot" | "keyframe" | "stamped";
+  url: string;
+  posterUrl?: string;
+  projectId: string;
+  projectTitle: string;
+  attempt: number;
+  shotIndex?: number;
+  intent?: string;
+  capability: string;
+  score?: number;
+  targetScore: number;
+  costUSD: number;
+  memoryClauseCount: number;
+  memoryWithheld: boolean;
+  /** Set on a keyframe that was edited from the film's anchor rather than generated fresh. */
+  derivedFromAnchor: boolean;
+  at: number;
+}
+
+/**
+ * Everything this studio has made, newest first.
+ *
+ * Ordered by attempt rather than grouped by production, so the gallery reads as a body of work
+ * instead of a filing cabinet. Each item keeps the score it earned and whether the render that
+ * produced it was steered by learned knowledge, because a frame is more interesting when you can see
+ * what the machine knew when it made it.
+ */
+export async function buildGallery(): Promise<GalleryItem[]> {
+  const projects = await listProjects();
+  const items: GalleryItem[] = [];
+
+  for (const project of projects) {
+    for (const run of project.runs) {
+      const shared = {
+        projectId: project.id,
+        projectTitle: project.title,
+        attempt: run.attempt,
+        targetScore: project.brief.targetScore,
+        memoryClauseCount: run.basePrompt?.memoryClauseCount ?? 0,
+        memoryWithheld: run.memoryWithheld,
+        at: run.finishedAt ?? run.startedAt,
+      };
+
+      const firstKeyframe = run.shots.find((s) => s.keyframeUrl)?.keyframeUrl;
+
+      if (run.cutUrl) {
+        items.push({
+          ...shared,
+          id: `${project.id}-${run.attempt}-cut`,
+          kind: "cut",
+          url: run.cutUrl,
+          posterUrl: firstKeyframe,
+          capability: "ffmpeg-concat",
+          score: run.review?.score,
+          costUSD: run.costUSD,
+          derivedFromAnchor: false,
+        });
+      }
+
+      if (run.stampedUrl) {
+        items.push({
+          ...shared,
+          id: `${project.id}-${run.attempt}-stamped`,
+          kind: "stamped",
+          url: run.stampedUrl,
+          posterUrl: firstKeyframe,
+          capability: "hyperframes-lower-third",
+          score: run.review?.score,
+          costUSD: 0,
+          derivedFromAnchor: false,
+        });
+      }
+
+      for (const shot of run.shots) {
+        const base = {
+          ...shared,
+          shotIndex: shot.index,
+          intent: shot.intent,
+          score: shot.review?.score,
+          derivedFromAnchor: Boolean(shot.anchoredTo),
+        };
+        if (shot.videoUrl) {
+          items.push({
+            ...base,
+            id: `${project.id}-${run.attempt}-${shot.index}-video`,
+            kind: "shot",
+            url: shot.videoUrl,
+            posterUrl: shot.keyframeUrl,
+            capability: shot.capability,
+            costUSD: shot.costUSD,
+          });
+        }
+        if (shot.keyframeUrl) {
+          items.push({
+            ...base,
+            id: `${project.id}-${run.attempt}-${shot.index}-frame`,
+            kind: "keyframe",
+            url: shot.keyframeUrl,
+            capability: shot.keyframeCapability ?? "flux-schnell",
+            costUSD: 0,
+          });
+        }
+      }
+    }
+  }
+
+  return items.sort((a, b) => b.at - a.at);
+}
+
+// ---------------------------------------------------------------- comparison
+
+export interface ComparableProject {
+  id: string;
+  title: string;
+  agentLabel: string;
+  note?: string;
+  goal: string;
+  attempts: number;
+  bestScore?: number;
+  firstScore?: number;
+  targetScore: number;
+  criteriaMet?: number;
+  criteriaTotal: number;
+  steeringRules: number;
+  inheritedRules: number;
+  totalUSD: number;
+  cutUrl?: string;
+  posterUrl?: string;
+  ruleBodies: string[];
+}
+
+export async function buildComparables(): Promise<ComparableProject[]> {
+  const projects = await listProjects();
+
+  return projects.map((project) => {
+    const scored = project.runs.filter((r) => r.review);
+    const latest = scored.at(-1);
+    const steering = project.lessons.filter((l) => l.status === "accepted" || l.status === "pinned");
+
+    return {
+      id: project.id,
+      title: project.title,
+      agentLabel: project.agentLabel,
+      note: project.note,
+      goal: project.brief.goal,
+      attempts: project.runs.length,
+      bestScore: scored.reduce<number | undefined>(
+        (best, r) => (best === undefined || r.review!.score > best ? r.review!.score : best),
+        undefined
+      ),
+      firstScore: scored[0]?.review?.score,
+      targetScore: project.brief.targetScore,
+      criteriaMet: latest?.review?.verdicts.filter((v) => v.met).length,
+      criteriaTotal: project.brief.criteria.length,
+      steeringRules: steering.length,
+      inheritedRules: steering.filter((l) => l.originProjectId && l.originProjectId !== project.id).length,
+      totalUSD: project.runs.reduce((sum, r) => sum + r.costUSD, 0),
+      cutUrl: latest?.cutUrl,
+      posterUrl: latest?.shots.find((s) => s.keyframeUrl)?.keyframeUrl,
+      ruleBodies: steering.map((l) => normalise(l.body)),
+    };
+  });
+}

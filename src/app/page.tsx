@@ -1,12 +1,15 @@
 import Link from "next/link";
 import { findShowcase, type ClipRef, type Showcase } from "@/core/showcase";
+import { buildLedger, buildLibrary } from "@/core/library";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Badge, Card } from "@/components/ui";
 
 export const dynamic = "force-dynamic";
 
 export default async function LandingPage() {
-  const showcase = await findShowcase();
+  // Real figures, or none. A landing page quoting numbers this instance cannot produce would be the
+  // one dishonest thing on a site whose entire argument is that its claims are checkable.
+  const [showcase, library, ledger] = await Promise.all([findShowcase(), buildLibrary(), buildLedger()]);
 
   return (
     <>
@@ -111,6 +114,47 @@ export default async function LandingPage() {
         </section>
 
         <section className="carved">
+          <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+            <h2 className="text-3xl leading-tight font-semibold tracking-tight text-bone-50">
+              What a studio actually gets
+            </h2>
+            <p className="mt-4 max-w-2xl text-bone-400">
+              The films are the output. The rules behind them, the record of how they were made, and
+              the bill for making them are the things you keep.
+            </p>
+
+            <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              <Surface
+                href="/knowledge"
+                label="Knowledge"
+                headline={`${library.totals.steering} rules steering renders`}
+                body="Every rule across every production, with the film that proved it and how many renders it has actually steered since."
+                stat={library.totals.travelled > 0 ? `${library.totals.travelled} have crossed a project boundary` : undefined}
+              />
+              <Surface
+                href="/gallery"
+                label="Gallery"
+                headline="Everything ever rendered"
+                body="Cuts, shots and keyframes, each carrying the score it earned and what the render knew at the time."
+              />
+              <Surface
+                href="/compare"
+                label="Compare"
+                headline="Two productions, side by side"
+                body="Not which scored higher. How much knowledge they share, and whether inheriting it did any good."
+              />
+              <Surface
+                href="/ledger"
+                label="Ledger"
+                headline={`$${ledger.totalUSD.toFixed(2)} across ${ledger.totalCalls} calls`}
+                body="Metered by Livepeer itself on every call, successful or not."
+                stat={ledger.failedCalls > 0 ? `${ledger.failedCalls} failed and were still billed` : undefined}
+              />
+            </div>
+          </div>
+        </section>
+
+        <section className="carved">
           <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6">
             <div className="grid gap-10 md:grid-cols-2">
               <div>
@@ -128,6 +172,13 @@ export default async function LandingPage() {
                   steered it and where each one came from, and what the network charged. Seal it and
                   that record is anchored on chain with an address anyone can resolve. No account, no
                   access to this machine, no need to take our word for it.
+                </p>
+                <p className="mt-4 text-bone-400">
+                  A record can also be checked rather than read. One button re-derives the prompt hash
+                  from the clauses it lists, queries the attempt back out of the knowledge graph, and
+                  re-hashes the video, printing the command that reproduces each check without this
+                  app. And the record&rsquo;s address can be burned onto the film, so wherever the
+                  video ends up, the way back travels with it.
                 </p>
                 {showcase ? (
                   <Link
@@ -302,6 +353,35 @@ function NoProofYet() {
         </Card>
       </div>
     </section>
+  );
+}
+
+function Surface({
+  href,
+  label,
+  headline,
+  body,
+  stat,
+}: {
+  href: string;
+  label: string;
+  headline: string;
+  body: string;
+  stat?: string;
+}) {
+  return (
+    <Link
+      href={href}
+      className="group rounded-lg border border-basalt-800 bg-basalt-900 p-5 transition-colors hover:border-basalt-700"
+    >
+      <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-bone-500">{label}</span>
+      <h3 className="mt-2.5 font-medium text-bone-50">{headline}</h3>
+      <p className="mt-2 text-[13px] leading-relaxed text-bone-400">{body}</p>
+      {stat ? <p className="mt-2.5 font-mono text-[11px] text-bronze-300">{stat}</p> : null}
+      <span className="mt-3 inline-block text-[13px] text-verdigris-400 transition-transform group-hover:translate-x-0.5">
+        Open →
+      </span>
+    </Link>
   );
 }
 
