@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+/*
+ * A stele is an inscribed slab — a record cut into stone so it outlasts whoever cut it. The palette
+ * follows the metaphor rather than decorating with it: basalt ground, bone text, and two accents that
+ * carry meaning consistently across the whole product.
+ *
+ *   verdigris — verified, passed, present in the graph
+ *   bronze    — knowledge, inscription, anything learned
+ *   terracotta— failed, missing, withheld
+ *
+ * Nothing else is allowed to be an accent. A colour that means one thing on one screen and something
+ * else on the next is worse than no colour at all.
+ */
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-mono-face), ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --color-basalt-950: #0a0a0b;
+  --color-basalt-900: #111113;
+  --color-basalt-850: #17171a;
+  --color-basalt-800: #1e1e22;
+  --color-basalt-700: #2a2a30;
+  --color-basalt-600: #3a3a42;
+
+  --color-bone-50: #f4f2ee;
+  --color-bone-200: #d6d2ca;
+  --color-bone-400: #9b978e;
+  --color-bone-500: #7a766e;
+
+  --color-verdigris-400: #6ddcb0;
+  --color-verdigris-500: #3fbf92;
+  --color-verdigris-900: #10281f;
+
+  --color-bronze-300: #e0bd6a;
+  --color-bronze-400: #c9a227;
+  --color-bronze-900: #2b2410;
+
+  --color-terracotta-400: #e88a72;
+  --color-terracotta-500: #d4654a;
+  --color-terracotta-900: #2e1712;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-basalt-950);
+  color: var(--color-bone-50);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(63, 191, 146, 0.3);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-basalt-900);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-basalt-700);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-basalt-600);
+}
+
+/*
+ * The carved rule. Used to separate sections the way a line is cut into stone — a highlight above the
+ * groove and a shadow below, so it reads as depth rather than as a border.
+ */
+.carved {
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 1px 0 rgba(244, 242, 238, 0.045);
+}
+
+@keyframes stele-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.pulse-dot {
+  animation: stele-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes stele-sweep {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(400%);
+  }
+}
+
+/* A light travelling across a bar, for a stage that is running with no measurable progress. */
+.sweep::after {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  width: 25%;
+  background: linear-gradient(90deg, transparent, rgba(109, 220, 176, 0.55), transparent);
+  animation: stele-sweep 1.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse-dot,
+  .sweep::after {
+    animation: none;
+  }
+}

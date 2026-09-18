@@ -122,7 +122,8 @@ function assembleClauses(brief: Brief, rows: Binding[], shot?: ShotPlan): Clause
       sourceIri: row.node,
       sourceAttempt: row.fromAttempt ? Number(row.fromAttempt) : undefined,
       criterionIndex: row.criterion ? criterionIndexFromIri(row.criterion) : undefined,
-      originProjectId: row.originProject,
+      // A binding carries the term's IRI, not the bare id the rest of the app compares against.
+      originProjectId: idFromIri(row.originProject),
     });
   }
 
@@ -163,6 +164,11 @@ function normalise(value: string): string {
 function criterionIndexFromIri(value: string): number | undefined {
   const index = Number(value.split("/").pop());
   return Number.isInteger(index) ? index : undefined;
+}
+
+/** `https://stele.studio/g/project/ab12` -> `ab12`. Bindings return IRIs; callers compare ids. */
+function idFromIri(value: string | undefined): string | undefined {
+  return value?.split("/").filter(Boolean).pop() || undefined;
 }
 
 /**
