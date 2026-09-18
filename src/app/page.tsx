@@ -1,69 +1,53 @@
 import Link from "next/link";
-import { findShowcase, type ClipRef, type Showcase } from "@/core/showcase";
+import { buildCinematic, findShowcase, type Cinematic, type Showcase } from "@/core/showcase";
 import { buildLedger, buildLibrary } from "@/core/library";
 import { SiteHeader } from "@/components/SiteHeader";
+import { Wordmark } from "@/components/Logo";
+import { ProofPair } from "@/components/ProofPair";
+import { AmbientVideo } from "@/components/AmbientVideo";
 import { Badge, Card } from "@/components/ui";
 
 export const dynamic = "force-dynamic";
 
+/**
+ * The landing page.
+ *
+ * Everything moving on this page was rendered by this instance. A site for a product about
+ * provenance running on stock footage would be a joke at its own expense, so where nothing has been
+ * rendered the cinematic treatment does not appear at all and the page falls back to type. Same
+ * reason the figures are read from the store rather than written into the copy.
+ */
 export default async function LandingPage() {
-  // Real figures, or none. A landing page quoting numbers this instance cannot produce would be the
-  // one dishonest thing on a site whose entire argument is that its claims are checkable.
-  const [showcase, library, ledger] = await Promise.all([findShowcase(), buildLibrary(), buildLedger()]);
+  const [showcase, cinematic, library, ledger] = await Promise.all([
+    findShowcase(),
+    buildCinematic(),
+    buildLibrary(),
+    buildLedger(),
+  ]);
 
   return (
-    <>
-      <SiteHeader />
+    <div className="grain">
+      <SiteHeader overHero />
 
       <main>
-        <section className="mx-auto max-w-5xl px-4 pt-24 pb-16 sm:px-6">
-          <h1 className="display max-w-3xl text-4xl leading-[1.05] text-bone-50 sm:text-6xl">
-            You got the shot once.
-            <br />
-            <span className="text-bone-500">Then you never got it again.</span>
-          </h1>
-
-          <p className="mt-8 max-w-xl text-lg leading-relaxed text-bone-300">
-            Forty prompts in, something finally lands. You could not say which word did it. Two days
-            later you need one more shot that matches, and you are back at prompt one.
-          </p>
-          <p className="mt-4 max-w-xl text-lg leading-relaxed text-bone-400">
-            Every tool you have used forgets. Stele writes down what worked, why it worked, and what
-            it was trying to fix. Then it uses it.
-          </p>
-
-          <div className="mt-10 flex flex-wrap items-center gap-3">
-            <Link
-              href="/studio"
-              className="rounded bg-verdigris-500 px-5 py-2.5 font-medium text-basalt-950 transition-colors hover:bg-verdigris-400"
-            >
-              Open the studio
-            </Link>
-            {showcase ? (
-              <Link
-                href={`/record/${showcase.project.id}`}
-                className="rounded border border-basalt-700 px-5 py-2.5 text-bone-200 transition-colors hover:border-basalt-600"
-              >
-                Read a production record
-              </Link>
-            ) : null}
-          </div>
-        </section>
+        <Hero cinematic={cinematic} />
 
         {showcase ? <Proof showcase={showcase} /> : <NoProofYet />}
 
+        {cinematic.strip.length > 1 ? <Strip cinematic={cinematic} /> : null}
+
         <section className="carved">
-          <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6">
-            <h2 className="display max-w-2xl text-3xl leading-tight text-bone-50">
+          <div className="mx-auto max-w-5xl px-4 py-24 sm:px-6">
+            <h2 className="display reveal max-w-2xl text-3xl leading-tight text-bone-50 sm:text-4xl">
               A score going up proves nothing. So we show our working.
             </h2>
-            <p className="mt-5 max-w-2xl text-bone-400">
+            <p className="reveal mt-5 max-w-2xl text-bone-400">
               Anything can look like it is learning if you only publish the runs that improved. Two
               things here exist to make that harder to fake, including for us.
             </p>
 
             <div className="mt-10 grid gap-4 md:grid-cols-2">
-              <Card className="p-6">
+              <Card className="reveal p-6">
                 <Badge tone="knowledge">the control</Badge>
                 <h3 className="display-sm mt-4 text-lg text-bone-50">Run it again, knowing nothing</h3>
                 <p className="mt-2.5 text-sm leading-relaxed text-bone-400">
@@ -74,13 +58,12 @@ export default async function LandingPage() {
                 </p>
               </Card>
 
-              <Card className="p-6">
+              <Card className="reveal p-6">
                 <Badge tone="verified">the console</Badge>
                 <h3 className="display-sm mt-4 text-lg text-bone-50">Ask the graph yourself</h3>
                 <p className="mt-2.5 text-sm leading-relaxed text-bone-400">
-                  There is a SPARQL box inside the studio, and the first query in it is the one the
-                  prompt compiler runs before every render. Not a diagram of the graph. The graph.
-                  Change the query and see what the machine sees.
+                  Type a question in English and watch it become SPARQL you can read, run against the
+                  store, and change. Not a diagram of the graph. The graph.
                 </p>
               </Card>
             </div>
@@ -88,12 +71,10 @@ export default async function LandingPage() {
         </section>
 
         <section className="carved">
-          <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6">
-            <h2 className="display text-3xl leading-tight text-bone-50">
-              How it works
-            </h2>
+          <div className="mx-auto max-w-5xl px-4 py-24 sm:px-6">
+            <h2 className="display reveal text-3xl leading-tight text-bone-50 sm:text-4xl">How it works</h2>
 
-            <ol className="mt-10 grid gap-8 md:grid-cols-3">
+            <ol className="mt-12 grid gap-10 md:grid-cols-3">
               <Step
                 n="01"
                 title="It reads before it writes"
@@ -113,12 +94,14 @@ export default async function LandingPage() {
           </div>
         </section>
 
+        <Stills cinematic={cinematic} />
+
         <section className="carved">
-          <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-            <h2 className="display text-3xl leading-tight text-bone-50">
-              What a studio actually gets
+          <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+            <h2 className="display reveal text-3xl leading-tight text-bone-50 sm:text-4xl">
+              What a studio actually keeps
             </h2>
-            <p className="mt-4 max-w-2xl text-bone-400">
+            <p className="reveal mt-4 max-w-2xl text-bone-400">
               The films are the output. The rules behind them, the record of how they were made, and
               the bill for making them are the things you keep.
             </p>
@@ -134,8 +117,8 @@ export default async function LandingPage() {
               <Surface
                 href="/gallery"
                 label="Gallery"
-                headline="Everything ever rendered"
-                body="Cuts, shots and keyframes, each carrying the score it earned and what the render knew at the time."
+                headline={`${cinematic.counts.shots} shots, ${cinematic.counts.frames} frames`}
+                body="Everything ever rendered, each carrying the score it earned and what the render knew at the time."
               />
               <Surface
                 href="/compare"
@@ -155,30 +138,26 @@ export default async function LandingPage() {
         </section>
 
         <section className="carved">
-          <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6">
-            <div className="grid gap-10 md:grid-cols-2">
-              <div>
+          <div className="mx-auto max-w-5xl px-4 py-24 sm:px-6">
+            <div className="grid gap-12 md:grid-cols-2">
+              <div className="reveal">
                 <h2 className="display text-3xl leading-tight text-bone-50">
                   The part nobody else gives you
                 </h2>
                 <p className="mt-5 text-bone-400">
                   Ask any AI video tool what made your clip and it has nothing to say. Which model,
-                  from which frame, judged how, costing what, following whose direction. All of it gone the
-                  moment the tab closed.
+                  from which frame, judged how, costing what, following whose direction. All of it
+                  gone the moment the tab closed.
                 </p>
                 <p className="mt-4 text-bone-400">
-                  Every finished production here has a page you can send someone. It lists the
-                  capabilities that touched it, the criteria it was judged against, the rules that
-                  steered it and where each one came from, and what the network charged. Seal it and
-                  that record is anchored on chain with an address anyone can resolve. No account, no
-                  access to this machine, no need to take our word for it.
+                  Every finished production here has a page you can send someone, and that page can be
+                  checked rather than read: one button re-derives the prompt hash from the clauses it
+                  lists, queries the attempt back out of the knowledge graph, and re-hashes the video,
+                  printing the command that reproduces each check without this app.
                 </p>
                 <p className="mt-4 text-bone-400">
-                  A record can also be checked rather than read. One button re-derives the prompt hash
-                  from the clauses it lists, queries the attempt back out of the knowledge graph, and
-                  re-hashes the video, printing the command that reproduces each check without this
-                  app. And the record&rsquo;s address can be burned onto the film, so wherever the
-                  video ends up, the way back travels with it.
+                  The record&rsquo;s address can also be burned onto the film, so wherever the video
+                  ends up, the way back travels with it.
                 </p>
                 {showcase ? (
                   <Link
@@ -190,52 +169,249 @@ export default async function LandingPage() {
                 ) : null}
               </div>
 
-              <div>
+              <div className="reveal">
                 <h2 className="display text-3xl leading-tight text-bone-50">
                   Knowledge that outlives the project
                 </h2>
                 <p className="mt-5 text-bone-400">
                   A rule you proved on one film is worth something on the next one, and on a
                   colleague&rsquo;s. Approve it and it goes into shared memory; the next production
-                  finds it by query and starts warm, carrying the name of the film and the studio
-                  that proved it, at a discounted confidence, still waiting on someone&rsquo;s yes.
+                  finds it by query and starts warm, carrying the name of the film and the studio that
+                  proved it, at a discounted confidence, still waiting on someone&rsquo;s yes.
                 </p>
                 <p className="mt-4 text-bone-400">
                   A folder of prompts cannot do that. This is the whole reason the memory is a
                   knowledge graph and not a text file.
                 </p>
+                <Link
+                  href="/knowledge"
+                  className="mt-6 inline-block text-verdigris-400 underline-offset-4 hover:underline"
+                >
+                  See what it has learned →
+                </Link>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="carved">
-          <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6">
-            <p className="max-w-3xl text-xl leading-relaxed text-bone-300">
-              Everything here runs on one network. The thinking, the keyframes, the video, the voice,
-              the edit, and the model that watches the result. All of it on{" "}
-              <span className="text-bone-50">Livepeer</span>. The knowledge lives in the{" "}
-              <span className="text-bone-50">OriginTrail DKG</span>. There is no third vendor holding
-              anything.
-            </p>
-            <p className="mt-6 text-sm text-bone-500">
-              <a href="/api/health" className="text-verdigris-400 underline-offset-4 hover:underline">
-                See exactly what this instance is wired to
-              </a>{" "}
-              . It will tell you whether the knowledge store is the real thing or the local fallback.
-            </p>
-          </div>
-        </section>
+        <Closing cinematic={cinematic} />
       </main>
 
-      <footer className="carved">
-        <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-4 px-4 py-10 text-sm text-bone-500 sm:px-6">
-          <span className="font-mono tracking-wider text-bone-400">STELE</span>
-          <span>Every frame, on the record.</span>
-          <span className="ml-auto">Apache-2.0</span>
+      <footer className="carved relative z-10">
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+          <div className="flex flex-col gap-10 sm:flex-row sm:justify-between">
+            <div>
+              <Wordmark />
+              <p className="mt-4 max-w-xs text-sm leading-relaxed text-bone-500">
+                A stele is a slab of stone with a record cut into it, put up in public so it outlasts
+                whoever cut it. That is the entire idea, applied to film.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-x-14 gap-y-2.5">
+              <FooterColumn
+                title="Produce"
+                links={[
+                  ["/studio", "Studio"],
+                  ["/gallery", "Gallery"],
+                ]}
+              />
+              <FooterColumn
+                title="Record"
+                links={[
+                  ["/knowledge", "Knowledge"],
+                  ["/compare", "Compare"],
+                  ["/ledger", "Ledger"],
+                ]}
+              />
+            </div>
+          </div>
+
+          <div className="mt-12 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-basalt-800 pt-6 font-mono text-[11px] tracking-wide text-bone-500">
+            <span>Every frame, on the record.</span>
+            <span className="hidden sm:inline">Built on Livepeer and the OriginTrail DKG.</span>
+            <a href="/api/health" className="ml-auto transition-colors hover:text-bone-200">
+              Instance health
+            </a>
+            <span>Apache-2.0</span>
+          </div>
         </div>
       </footer>
-    </>
+    </div>
+  );
+}
+
+/**
+ * The hero, over footage this instance rendered.
+ *
+ * The clip sits at low opacity under a gradient that reaches full black by the time it meets the
+ * text, so the words never fight the picture. Muted, looping, and carrying a poster so the first
+ * paint is an image rather than a black rectangle on a slow connection.
+ */
+function Hero({ cinematic }: { cinematic: Cinematic }) {
+  return (
+    <section className="relative isolate overflow-hidden">
+      {cinematic.hero ? (
+        <>
+          <AmbientVideo
+            src={cinematic.hero.url}
+            poster={cinematic.hero.posterUrl}
+            className="absolute inset-0 -z-10 h-full w-full object-cover opacity-[0.38]"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0 -z-10 bg-gradient-to-b from-basalt-950/45 via-basalt-950/80 to-basalt-950"
+          />
+        </>
+      ) : null}
+
+      <div className="mx-auto max-w-5xl px-4 pt-28 pb-24 sm:px-6 sm:pt-36 sm:pb-32">
+        <h1 className="display max-w-3xl text-4xl leading-[1.05] text-bone-50 sm:text-6xl">
+          You got the shot once.
+          <br />
+          <span className="text-bone-500">Then you never got it again.</span>
+        </h1>
+
+        <p className="mt-8 max-w-xl text-lg leading-relaxed text-bone-300">
+          Forty prompts in, something finally lands. You could not say which word did it. Two days
+          later you need one more shot that matches, and you are back at prompt one.
+        </p>
+        <p className="mt-4 max-w-xl text-lg leading-relaxed text-bone-400">
+          Every tool you have used forgets. Stele writes down what worked, why it worked, and what it
+          was trying to fix. Then it uses it.
+        </p>
+
+        <div className="mt-10 flex flex-wrap items-center gap-3">
+          <Link
+            href="/studio"
+            className="rounded bg-verdigris-500 px-5 py-2.5 font-medium text-basalt-950 transition-colors hover:bg-verdigris-400"
+          >
+            Open the studio
+          </Link>
+          <Link
+            href="/gallery"
+            className="rounded border border-basalt-700 px-5 py-2.5 text-bone-200 transition-colors hover:border-basalt-600"
+          >
+            See the work
+          </Link>
+        </div>
+
+        {cinematic.hero ? (
+          <p className="mt-10 font-mono text-[11px] text-bone-500">
+            Behind this text: {cinematic.hero.title}, scored {cinematic.hero.score}/10 by a model that
+            watched it. Rendered by this instance, like everything else on this page.
+          </p>
+        ) : null}
+      </div>
+    </section>
+  );
+}
+
+/** A strip of shots, one per production, so the range reads as range rather than repetition. */
+function Strip({ cinematic }: { cinematic: Cinematic }) {
+  return (
+    <section className="carved overflow-hidden">
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <p className="reveal font-mono text-[11px] uppercase tracking-[0.2em] text-bone-500">
+          {cinematic.counts.productions} productions, {cinematic.counts.shots} shots
+        </p>
+        <div className="reveal mt-5 grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-6">
+          {cinematic.strip.map((item) => (
+            <Link
+              key={item.url}
+              href={`/studio/${item.projectId}`}
+              className="group relative overflow-hidden rounded border border-basalt-800"
+            >
+              <AmbientVideo
+                src={item.url}
+                poster={item.posterUrl}
+                className="aspect-[3/4] w-full object-cover opacity-70 transition-opacity group-hover:opacity-100"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-basalt-950 to-transparent p-2.5 pt-8">
+                <p className="truncate text-[11px] text-bone-200">{item.title}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/** Stills, because a wall of frames says "this has been used" faster than a paragraph can. */
+function Stills({ cinematic }: { cinematic: Cinematic }) {
+  if (cinematic.stills.length < 4) return null;
+
+  return (
+    <section className="carved overflow-hidden">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
+        <div className="reveal grid grid-cols-3 gap-2 sm:grid-cols-5">
+          {cinematic.stills.map((still, i) => (
+            <Link
+              key={`${still.url}-${i}`}
+              href={`/studio/${still.projectId}`}
+              className="group overflow-hidden rounded border border-basalt-800"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={still.url}
+                alt=""
+                loading="lazy"
+                className="aspect-square w-full object-cover opacity-60 transition-all duration-500 group-hover:scale-105 group-hover:opacity-100"
+              />
+            </Link>
+          ))}
+        </div>
+        <p className="reveal mt-5 text-center font-mono text-[11px] text-bone-500">
+          Every frame above came out of this instance, with its score and its reasons on record.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function Closing({ cinematic }: { cinematic: Cinematic }) {
+  return (
+    <section className="carved relative isolate overflow-hidden">
+      {cinematic.hero ? (
+        <>
+          <AmbientVideo
+            src={cinematic.hero.url}
+            poster={cinematic.hero.posterUrl}
+            className="absolute inset-0 -z-10 h-full w-full object-cover opacity-[0.22]"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0 -z-10 bg-gradient-to-b from-basalt-950 via-basalt-950/85 to-basalt-950"
+          />
+        </>
+      ) : null}
+
+      <div className="mx-auto max-w-4xl px-4 py-28 text-center sm:px-6">
+        <h2 className="display reveal text-3xl leading-tight text-bone-50 sm:text-5xl">
+          Everything here runs on one network.
+        </h2>
+        <p className="reveal mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-bone-300">
+          The thinking, the keyframes, the video, the voice, the edit, and the model that watches the
+          result. All of it on Livepeer. The knowledge lives in the OriginTrail DKG. There is no third
+          vendor holding anything.
+        </p>
+        <div className="reveal mt-9 flex flex-wrap justify-center gap-3">
+          <Link
+            href="/studio"
+            className="rounded bg-verdigris-500 px-5 py-2.5 font-medium text-basalt-950 transition-colors hover:bg-verdigris-400"
+          >
+            Open the studio
+          </Link>
+          <a
+            href="/api/health"
+            className="rounded border border-basalt-700 px-5 py-2.5 text-bone-200 transition-colors hover:border-basalt-600"
+          >
+            Check what this instance is wired to
+          </a>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -243,97 +419,126 @@ export default async function LandingPage() {
  * The argument, shown rather than made.
  *
  * Two real cuts from the same brief, the scores a model gave them, and the rules that came between.
- * Everything on this panel is read from actual project history — if the pair does not exist, the
- * panel does not appear.
+ * If the pair does not exist, the panel does not appear.
  */
 function Proof({ showcase }: { showcase: Showcase }) {
   const gain = showcase.after.score - showcase.before.score;
+  const from = nameOrigins(showcase.originTitles);
 
   return (
     <section className="carved">
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <div className="flex flex-wrap items-baseline justify-between gap-3">
-          <h2 className="display-sm text-xl text-bone-50">
-            Same brief. Same reviewer.{" "}
+      <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+        <p className="reveal font-mono text-[11px] uppercase tracking-[0.2em] text-bone-500">
+          from a real project in this instance
+        </p>
+        <h2 className="display reveal mt-4 max-w-3xl text-3xl leading-tight text-bone-50 sm:text-4xl">
+          Same brief. Same reviewer.{" "}
+          <span className="text-bone-500">
             {showcase.inherited
               ? "The second one knew what another production had learned."
               : "The second one knew what the first one got wrong."}
-          </h2>
-          <p className="font-mono text-[11px] text-bone-500">from a real project in this instance</p>
+          </span>
+        </h2>
+        <p className="reveal mt-5 max-w-2xl text-bone-400">{showcase.goal}</p>
+
+        {/* The claim, stated in numbers before anyone watches anything. Criteria repaired leads,
+            because that is the specific checkable thing; the score follows, whichever way it went. */}
+        <dl className="reveal mt-10 grid gap-px overflow-hidden rounded-lg border border-basalt-800 bg-basalt-800 sm:grid-cols-3">
+          <Verdict
+            value={`${showcase.criteriaFixed} of ${showcase.criteriaTotal}`}
+            label={`${showcase.criteriaTotal === 1 ? "criterion" : "criteria"} the reviewer had marked failing now pass`}
+            tone={showcase.criteriaFixed > 0 ? "good" : "flat"}
+          />
+          <Verdict
+            value={`${showcase.before.score} → ${showcase.after.score}`}
+            label="on the reviewer's ten point score"
+            tone={gain > 0 ? "good" : gain < 0 ? "bad" : "flat"}
+          />
+          <Verdict
+            value={String(showcase.learned.length)}
+            label={from ? `rules carried over from ${from}` : "rules it learned in between"}
+            tone="knowledge"
+          />
+        </dl>
+
+        {gain <= 0 ? (
+          <p className="reveal mt-4 max-w-2xl text-sm leading-relaxed text-bone-500">
+            The score did not go up, and it is staying on the page that way. One number on a coarse
+            scale is a model&rsquo;s summary impression and it moves for reasons nobody can audit.
+            Which named criteria passed is the specific claim, so that is what this ranks on.
+          </p>
+        ) : null}
+
+        <div className="reveal mt-10">
+          <ProofPair
+            before={showcase.before}
+            after={showcase.after}
+            beforeLabel={`Attempt ${showcase.before.attempt} · knowing nothing`}
+            afterLabel={`Attempt ${showcase.after.attempt} · ${
+              showcase.inherited ? "steered by another film's rules" : "steered by what it learned"
+            }`}
+          />
         </div>
-        <p className="mt-2 max-w-2xl text-sm text-bone-400">{showcase.goal}</p>
 
-        <div className="mt-8 grid items-start gap-6 lg:grid-cols-[1fr_260px_1fr]">
-          <Clip label={`Attempt ${showcase.before.attempt} · knowing nothing`} clip={showcase.before} />
-
-          <div className="lg:pt-10">
-            <p className="font-mono text-[11px] uppercase tracking-wider text-bone-500">
-              {showcase.inherited ? "what it inherited from another production" : "what it learned in between"}
+        {showcase.learned.length > 0 ? (
+          <div className="reveal mt-14 border-t border-basalt-800 pt-9">
+            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-bone-500">
+              {from ? `what it brought over from ${from}` : "what it learned in between"}
             </p>
-            <ul className="mt-3 grid gap-2">
-              {showcase.learned.slice(0, 4).map((clause) => (
-                <li
-                  key={clause.index}
-                  className="rounded border border-bronze-400/30 bg-bronze-900/40 px-3 py-2 text-[13px] leading-snug text-bone-200"
-                >
-                  {clause.body}
+            <ol className="mt-6 grid gap-x-10 gap-y-5 sm:grid-cols-2">
+              {showcase.learned.slice(0, 4).map((clause, i) => (
+                <li key={clause.index} className="flex gap-4 border-l border-bronze-400/35 pl-4">
+                  <span className="mt-[3px] font-mono text-[11px] tabular-nums text-bronze-400">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <p className="text-sm leading-relaxed text-bone-300">{clause.body}</p>
                 </li>
               ))}
-            </ul>
-            {/* Criteria first: a score is one number on a coarse scale, and a pair can repair real
-                faults without moving it. Naming what was actually fixed is the checkable claim. */}
-            {showcase.criteriaFixed > 0 ? (
-              <p className="mt-4 font-mono text-sm text-verdigris-400">
-                {showcase.criteriaFixed} {showcase.criteriaFixed === 1 ? "criterion" : "criteria"} went
-                from failing to passing
-              </p>
-            ) : null}
-            {gain !== 0 ? (
-              <p className={`mt-1 font-mono text-sm ${gain > 0 ? "text-verdigris-400" : "text-terracotta-400"}`}>
-                {gain > 0 ? "+" : ""}
-                {gain.toFixed(Math.abs(gain) % 1 ? 1 : 0)} on the reviewer&rsquo;s score
-              </p>
-            ) : null}
+            </ol>
           </div>
-
-          <Clip label={`Attempt ${showcase.after.attempt} · ${showcase.inherited ? "steered by another film's rules" : "steered by it"}`} clip={showcase.after} highlight />
-        </div>
+        ) : null}
       </div>
     </section>
   );
 }
 
-function Clip({ label, clip, highlight }: { label: string; clip: ClipRef; highlight?: boolean }) {
-  const { score, url, summary, posterUrl } = clip;
+/**
+ * The productions a set of rules came from, written the way a person would say it.
+ *
+ * Two names read fine. Three or more in a caption is a list nobody finishes, so past two it becomes
+ * a count, and the names are still one click away on the knowledge page.
+ */
+function nameOrigins(titles: string[]): string | undefined {
+  if (titles.length === 0) return undefined;
+  if (titles.length === 1) return titles[0];
+  if (titles.length === 2) return `${titles[0]} and ${titles[1]}`;
+  return `${titles.length} other productions`;
+}
+
+/** One cell of the verdict strip. Colour follows the product's rule, never the direction of the copy. */
+function Verdict({
+  value,
+  label,
+  tone,
+}: {
+  value: string;
+  label: string;
+  tone: "good" | "bad" | "flat" | "knowledge";
+}) {
+  const colour =
+    tone === "good"
+      ? "text-verdigris-400"
+      : tone === "bad"
+        ? "text-terracotta-400"
+        : tone === "knowledge"
+          ? "text-bronze-300"
+          : "text-bone-200";
+
   return (
-    <figure>
-      {/* Posters are the shot's own keyframe. Without one the panel is two black rectangles until
-          someone presses play, which buries the entire argument of the page below a click. */}
-      <video
-        src={url}
-        poster={posterUrl}
-        controls
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        className={`aspect-video w-full rounded-lg border bg-black object-cover ${
-          highlight ? "border-verdigris-500/40" : "border-basalt-800"
-        }`}
-      />
-      <figcaption className="mt-3">
-        <div className="flex items-baseline justify-between gap-3">
-          <span className="font-mono text-[11px] uppercase tracking-wider text-bone-500">{label}</span>
-          <span
-            className={`font-mono text-lg tabular-nums ${highlight ? "text-verdigris-400" : "text-bone-300"}`}
-          >
-            {score}
-            <span className="text-xs text-bone-500">/10</span>
-          </span>
-        </div>
-        <p className="mt-1.5 text-[13px] leading-snug text-bone-500">{summary}</p>
-      </figcaption>
-    </figure>
+    <div className="bg-basalt-900 px-5 py-5">
+      <dt className={`font-mono text-2xl tabular-nums ${colour}`}>{value}</dt>
+      <dd className="mt-1.5 text-[13px] leading-snug text-bone-500">{label}</dd>
+    </div>
   );
 }
 
@@ -343,8 +548,8 @@ function NoProofYet() {
       <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6">
         <Card className="p-6">
           <p className="text-bone-300">
-            This instance has no finished productions yet, so there is nothing real to show you here
-            , and a mock-up would defeat the point.
+            This instance has no finished productions yet, so there is nothing real to show you here,
+            and a mock-up would defeat the point.
           </p>
           <p className="mt-3 text-sm text-bone-500">
             Run one brief twice in the studio and this space fills with both cuts, the scores a model
@@ -372,7 +577,7 @@ function Surface({
   return (
     <Link
       href={href}
-      className="group rounded-lg border border-basalt-800 bg-basalt-900 p-5 transition-colors hover:border-basalt-700"
+      className="reveal group rounded-lg border border-basalt-800 bg-basalt-900 p-5 transition-colors hover:border-basalt-700"
     >
       <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-bone-500">{label}</span>
       <h3 className="display-sm mt-2.5 text-[15px] text-bone-50">{headline}</h3>
@@ -387,10 +592,27 @@ function Surface({
 
 function Step({ n, title, body }: { n: string; title: string; body: string }) {
   return (
-    <li>
+    <li className="reveal">
       <span className="font-mono text-[11px] tracking-wider text-verdigris-400">{n}</span>
       <h3 className="display-sm mt-2 text-lg text-bone-50">{title}</h3>
       <p className="mt-2 text-sm leading-relaxed text-bone-400">{body}</p>
     </li>
+  );
+}
+
+function FooterColumn({ title, links }: { title: string; links: Array<[string, string]> }) {
+  return (
+    <div>
+      <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-bone-500">{title}</p>
+      <ul className="mt-3 space-y-2">
+        {links.map(([href, label]) => (
+          <li key={href}>
+            <Link href={href} className="text-sm text-bone-300 transition-colors hover:text-bone-50">
+              {label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
