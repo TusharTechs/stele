@@ -16,9 +16,14 @@ const nextConfig: NextConfig = {
    * it is the only copy of the record. Excluded and unseeded, a hosted build renders a site with no
    * productions in it: every page technically correct and completely empty.
    *
-   * Only the project JSON is included. The media it points at is served from `public/seed`.
+   * The graph goes too, not just the projects. The seed writes a Turtle file per project beside
+   * them, and the in-process store reads those back on every query, so tracing the JSON alone would
+   * have deployed the productions with their knowledge missing: a Knowledge page with no rules and
+   * a SPARQL console that answers nothing, on the site whose argument is the graph.
+   *
+   * The media the records point at is served from `public/seed` and needs no tracing.
    */
-  outputFileTracingIncludes: { "/**": [".data/projects/*.json"] },
+  outputFileTracingIncludes: { "/**": [".data/**"] },
   outputFileTracingExcludes: { "*": ["docs/**", "demo/**"] },
 };
 
