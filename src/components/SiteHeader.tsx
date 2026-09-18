@@ -33,6 +33,18 @@ export function SiteHeader({ children }: { children?: React.ReactNode }) {
           <Link href="/studio" className="rounded px-2 py-1.5 text-bone-400 transition-colors hover:text-bone-50 sm:px-2.5">
             Studio
           </Link>
+          <Link
+            href="/knowledge"
+            className="rounded px-2 py-1.5 text-bone-400 transition-colors hover:text-bone-50 sm:px-2.5"
+          >
+            Knowledge
+          </Link>
+          <Link
+            href="/ledger"
+            className="hidden rounded px-2 py-1.5 text-bone-400 transition-colors hover:text-bone-50 sm:inline-block sm:px-2.5"
+          >
+            Ledger
+          </Link>
           <a
             href="/api/health"
             className="hidden rounded px-2 py-1.5 text-bone-400 transition-colors hover:text-bone-50 sm:inline-block sm:px-2.5"
