@@ -202,7 +202,7 @@ export class LivepeerAgent {
     const jobId = str(sc.job_id) ?? str(sc.jobId);
     if (req.async && jobId && !sc.url) {
       try {
-        sc = await this.pollJob(jobId, req.timeout ?? 300);
+        sc = await this.pollJob(jobId, pollDeadlineFor(req.timeout ?? 300));
       } catch (error) {
         return this.record(req, argsHash, startedAt, {
           ok: false,
@@ -243,6 +243,18 @@ export class LivepeerAgent {
     return result;
   }
 
+  /**
+   * Wait for an async job, and wait longer than the provider will.
+   *
+   * The dispatch timeout is what the network is told to allow the render. Polling only that long
+   * means giving up at the exact moment the job resolves, and the surface is explicit about the
+   * consequence: "a shorter one aborts a render the provider finishes and bills". Measured on a
+   * loaded network, two shots timed out at 308s against a 300s ceiling and cost $0.57 each for a
+   * result nobody collected, then re-rendered and paid again.
+   *
+   * Polling past the provider's own abort costs nothing when the job is quick, and collects either
+   * the output or the provider's own error when it is slow.
+   */
   private async pollJob(jobId: string, timeoutSeconds: number): Promise<Record<string, unknown>> {
     const deadline = Date.now() + timeoutSeconds * 1000;
     while (Date.now() < deadline) {
@@ -440,6 +452,11 @@ function redact(value: string): string {
 
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+/** The provider's ceiling plus a margin, so the last poll lands after the job has resolved either way. */
+export function pollDeadlineFor(dispatchTimeoutSeconds: number): number {
+  return Math.ceil(dispatchTimeoutSeconds * 1.25) + 45;
 }
 
 let singleton: LivepeerAgent | undefined;

@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import type { Project } from "@/core/schemas";
 import { Badge, Button, Card, Empty, SectionTitle } from "@/components/ui";
 import { GraphPicture, GraphPictureSection } from "./GraphPicture";
+import { AskPanel } from "./AskPanel";
 import { describeNode, projectShape } from "@/dkg/queries";
 
 interface Preset {
@@ -123,6 +124,14 @@ export function GraphTab({ project }: { project: Project }) {
       </aside>
 
       <section className="grid gap-6">
+        <AskPanel
+          projectId={project.id}
+          onUseQuery={(q) => {
+            setSparql(q);
+            void run(q);
+          }}
+        />
+
         {shape ? (
           <GraphPictureSection>
             <GraphPicture rows={shape.bindings ?? []} onInspect={inspect} busy={busy} />

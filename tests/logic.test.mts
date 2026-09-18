@@ -2,6 +2,7 @@ import { test, describe } from "node:test";
 import assert from "node:assert/strict";
 
 import { extractJson, snapDuration } from "@/livepeer/capabilities";
+import { pollDeadlineFor } from "@/livepeer/mcp-client";
 import { collapseVerdicts } from "@/core/reviewer";
 import { assertSafe, safeReference, safeSourceUrl, safeText } from "@/dkg/redact";
 import { iriLit, lit, decLit } from "@/dkg/ontology";
@@ -52,6 +53,20 @@ describe("snapDuration", () => {
     assert.equal(snapDuration(9), 8);
     assert.equal(snapDuration(3), 6);
     assert.equal(snapDuration(999), 20);
+  });
+});
+
+describe("pollDeadlineFor", () => {
+  test("waits longer than the provider will", () => {
+    // The surface warns that a timeout shorter than its own "aborts a render the provider finishes
+    // and bills". Measured: two shots abandoned at 308s against a 300s ceiling, $0.57 each, then
+    // re-rendered and billed again. The poll has to outlast the dispatch ceiling, not match it.
+    assert.ok(pollDeadlineFor(300) > 300);
+    assert.ok(pollDeadlineFor(60) > 60);
+  });
+
+  test("leaves enough margin to catch a job resolving right at the ceiling", () => {
+    assert.ok(pollDeadlineFor(300) >= 345, String(pollDeadlineFor(300)));
   });
 });
 

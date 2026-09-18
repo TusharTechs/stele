@@ -36,10 +36,25 @@ export const CAPABILITY = {
   concat: "ffmpeg-concat",
   mux: "ffmpeg-mux",
   audioMix: "ffmpeg-audio-mix",
-  reframe: "ffmpeg-reframe",
 } as const;
 
-/** Video is the only slow stage; everything else answers inside a few seconds. */
+/*
+ * `ffmpeg-reframe` is deliberately absent.
+ *
+ * It looked like the obvious way to deliver a cut in 9:16 and 1:1. Probed against a live clip with
+ * three parameter shapes, the network answered the same way each time: "ffmpeg-reframe does not
+ * declare `aspect_ratio` — the provider will ignore it, so that instruction is dropped." It returns
+ * a video and ignores the ratio, so a "deliver vertical" button built on it would quietly not
+ * reframe. Captions, via whisper-word into ffmpeg-burn-subtitles, are the delivery step that works.
+ */
+
+/**
+ * Dispatch timeouts, in seconds.
+ *
+ * `video` matches what the video capabilities declare as their own abort point (300s). The client
+ * polls past this by a margin, because giving up at the provider's ceiling means paying for a render
+ * and never reading its result.
+ */
 const TIMEOUT = {
   reason: 60,
   ground: 45,
@@ -355,38 +370,6 @@ export async function muxAudio(
     persist: true,
   });
   return asMedia(result, CAPABILITY.mux);
-}
-
-/** Mixes several audio tracks down to one. Returns audio, not video. */
-export async function mixTracks(
-  agent: LivepeerAgent,
-  stage: string,
-  tracks: string[]
-): Promise<MediaOutput> {
-  const result = await agent.runOrThrow({
-    capability: CAPABILITY.audioMix,
-    stage,
-    inputs: { tracks },
-    timeout: TIMEOUT.edit,
-    persist: true,
-  });
-  return asMedia(result, CAPABILITY.audioMix);
-}
-
-export async function reframe(
-  agent: LivepeerAgent,
-  stage: string,
-  videoUrl: string,
-  aspectRatio: string
-): Promise<MediaOutput> {
-  const result = await agent.runOrThrow({
-    capability: CAPABILITY.reframe,
-    stage,
-    inputs: { video_url: videoUrl, aspect_ratio: aspectRatio },
-    timeout: TIMEOUT.edit,
-    persist: true,
-  });
-  return asMedia(result, CAPABILITY.reframe);
 }
 
 /** Reads a public page so a scripted claim can carry the URL it came from. */
