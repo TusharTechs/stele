@@ -47,7 +47,7 @@ export function NewProjectForm() {
 
     const criteria = lines("criteria").map((body, index) => ({ index, body }));
     if (criteria.length === 0) {
-      setError("Give at least one success criterion — it is what the reviewer scores against.");
+      setError("Give at least one success criterion. It is what the reviewer scores against.");
       setBusy(false);
       return;
     }
@@ -137,7 +137,7 @@ export function NewProjectForm() {
           </Field>
         </div>
 
-        <Field label="Ground in a page" hint="https only — its claims are kept as a source." optional>
+        <Field label="Ground in a page" hint="https only. Its claims are kept as a source." optional>
           <input name="groundingUrl" type="url" placeholder="https://…" className={INPUT} />
         </Field>
 
@@ -171,7 +171,7 @@ export function NewProjectForm() {
 }
 
 const INPUT =
-  "w-full rounded border border-basalt-700 bg-basalt-950 px-2.5 py-1.5 text-sm text-bone-50 outline-none transition-colors placeholder:text-bone-500 focus:border-verdigris-500/60";
+  "w-full rounded border border-basalt-700 bg-basalt-950 px-2.5 py-1.5 text-sm text-bone-50 transition-colors placeholder:text-bone-500 focus:border-verdigris-500/60";
 
 function Field({
   label,

@@ -92,7 +92,7 @@ export class FileKnowledgeStore implements KnowledgeStore {
       ready: true,
       detail:
         files.length === 0
-          ? "In-process RDF store, empty. Real SPARQL, no DKG node — not evidence of a DKG integration."
+          ? "In-process RDF store, empty. Real SPARQL, no DKG node. Not evidence of a DKG integration."
           : `In-process RDF store holding ${files.length} assertion file(s). Real SPARQL, no DKG node.`,
     };
   }

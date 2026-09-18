@@ -102,7 +102,12 @@ export async function listProjects(): Promise<Project[]> {
     const project = await loadProject(name.replace(/\.json$/, ""));
     if (project) projects.push(project);
   }
-  return projects.sort((a, b) => b.updatedAt - a.updatedAt);
+  // Recency, except that a project nobody has run yet goes last however recently it was touched.
+  // Creating three briefs in a row would otherwise bury the production you actually have footage in.
+  return projects.sort((a, b) => {
+    const started = (p: Project) => (p.runs.length > 0 ? 1 : 0);
+    return started(b) - started(a) || b.updatedAt - a.updatedAt;
+  });
 }
 
 /**

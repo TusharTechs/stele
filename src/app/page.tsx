@@ -26,7 +26,7 @@ export default async function LandingPage() {
           </p>
           <p className="mt-4 max-w-xl text-lg leading-relaxed text-bone-400">
             Every tool you have used forgets. Stele writes down what worked, why it worked, and what
-            it was trying to fix — and then uses it.
+            it was trying to fix. Then it uses it.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-3">
@@ -56,7 +56,7 @@ export default async function LandingPage() {
             </h2>
             <p className="mt-5 max-w-2xl text-bone-400">
               Anything can look like it is learning if you only publish the runs that improved. Two
-              things here exist to make that harder to fake — including for us.
+              things here exist to make that harder to fake, including for us.
             </p>
 
             <div className="mt-10 grid gap-4 md:grid-cols-2">
@@ -65,7 +65,7 @@ export default async function LandingPage() {
                 <h3 className="mt-4 text-lg font-medium text-bone-50">Run it again, knowing nothing</h3>
                 <p className="mt-2.5 text-sm leading-relaxed text-bone-400">
                   One button runs the same brief with every lesson deliberately withheld. Same shot
-                  count, same criteria, same reviewer — one variable changed. If the canon is not
+                  count, same criteria, same reviewer. One variable changed. If the canon is not
                   earning its place, this is where you find out, and the result goes in the record
                   either way.
                 </p>
@@ -94,7 +94,7 @@ export default async function LandingPage() {
               <Step
                 n="01"
                 title="It reads before it writes"
-                body="Every render starts with a query, not a prompt. Constraints you set and lessons you approved come back as rows, and each row becomes one clause. The prompt is assembled, not stored — so knowledge added today changes the render tonight."
+                body="Every render starts with a query, not a prompt. Constraints you set and lessons you approved come back as rows, and each row becomes one clause. The prompt is assembled, not stored, so knowledge added today changes the render tonight."
               />
               <Step
                 n="02"
@@ -104,7 +104,7 @@ export default async function LandingPage() {
               <Step
                 n="03"
                 title="You decide what it keeps"
-                body="What the reviewer found gets turned into rules for next time — and then it waits. Nothing steers a render until you accept it. A confident wrong note is indistinguishable from a right one, and the wrong one would poison every attempt after it."
+                body="What the reviewer found gets turned into rules for next time, and then it waits. Nothing steers a render until you accept it. A confident wrong note is indistinguishable from a right one, and the wrong one would poison every attempt after it."
               />
             </ol>
           </div>
@@ -119,14 +119,14 @@ export default async function LandingPage() {
                 </h2>
                 <p className="mt-5 text-bone-400">
                   Ask any AI video tool what made your clip and it has nothing to say. Which model,
-                  from which frame, judged how, costing what, following whose direction — gone the
+                  from which frame, judged how, costing what, following whose direction. All of it gone the
                   moment the tab closed.
                 </p>
                 <p className="mt-4 text-bone-400">
                   Every finished production here has a page you can send someone. It lists the
                   capabilities that touched it, the criteria it was judged against, the rules that
                   steered it and where each one came from, and what the network charged. Seal it and
-                  that record is anchored on chain with an address anyone can resolve — no account, no
+                  that record is anchored on chain with an address anyone can resolve. No account, no
                   access to this machine, no need to take our word for it.
                 </p>
                 {showcase ? (
@@ -146,7 +146,7 @@ export default async function LandingPage() {
                 <p className="mt-5 text-bone-400">
                   A rule you proved on one film is worth something on the next one, and on a
                   colleague&rsquo;s. Approve it and it goes into shared memory; the next production
-                  finds it by query and starts warm — carrying the name of the film and the studio
+                  finds it by query and starts warm, carrying the name of the film and the studio
                   that proved it, at a discounted confidence, still waiting on someone&rsquo;s yes.
                 </p>
                 <p className="mt-4 text-bone-400">
@@ -162,7 +162,7 @@ export default async function LandingPage() {
           <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6">
             <p className="max-w-3xl text-xl leading-relaxed text-bone-300">
               Everything here runs on one network. The thinking, the keyframes, the video, the voice,
-              the edit, and the model that watches the result — all of it on{" "}
+              the edit, and the model that watches the result. All of it on{" "}
               <span className="text-bone-50">Livepeer</span>. The knowledge lives in the{" "}
               <span className="text-bone-50">OriginTrail DKG</span>. There is no third vendor holding
               anything.
@@ -171,7 +171,7 @@ export default async function LandingPage() {
               <a href="/api/health" className="text-verdigris-400 underline-offset-4 hover:underline">
                 See exactly what this instance is wired to
               </a>{" "}
-              — it will tell you if the knowledge store is the real thing or the local fallback.
+              . It will tell you whether the knowledge store is the real thing or the local fallback.
             </p>
           </div>
         </section>
@@ -213,7 +213,7 @@ function Proof({ showcase }: { showcase: Showcase }) {
         <p className="mt-2 max-w-2xl text-sm text-bone-400">{showcase.goal}</p>
 
         <div className="mt-8 grid items-start gap-6 lg:grid-cols-[1fr_260px_1fr]">
-          <Clip label={`Attempt ${showcase.before.attempt} — knowing nothing`} clip={showcase.before} />
+          <Clip label={`Attempt ${showcase.before.attempt} · knowing nothing`} clip={showcase.before} />
 
           <div className="lg:pt-10">
             <p className="font-mono text-[11px] uppercase tracking-wider text-bone-500">
@@ -245,7 +245,7 @@ function Proof({ showcase }: { showcase: Showcase }) {
             ) : null}
           </div>
 
-          <Clip label={`Attempt ${showcase.after.attempt} — ${showcase.inherited ? "steered by another film's rules" : "steered by it"}`} clip={showcase.after} highlight />
+          <Clip label={`Attempt ${showcase.after.attempt} · ${showcase.inherited ? "steered by another film's rules" : "steered by it"}`} clip={showcase.after} highlight />
         </div>
       </div>
     </section>
@@ -293,7 +293,7 @@ function NoProofYet() {
         <Card className="p-6">
           <p className="text-bone-300">
             This instance has no finished productions yet, so there is nothing real to show you here
-            — and a mock-up would defeat the point.
+            , and a mock-up would defeat the point.
           </p>
           <p className="mt-3 text-sm text-bone-500">
             Run one brief twice in the studio and this space fills with both cuts, the scores a model

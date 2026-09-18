@@ -131,6 +131,7 @@ function assembleClauses(brief: Brief, rows: Binding[], shot?: ShotPlan): Clause
       criterionIndex: row.criterion ? criterionIndexFromIri(row.criterion) : undefined,
       // A binding carries the term's IRI, not the bare id the rest of the app compares against.
       originProjectId: idFromIri(row.originProject),
+      originProjectTitle: row.originTitle,
     });
   }
 

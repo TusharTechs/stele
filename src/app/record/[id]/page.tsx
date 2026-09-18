@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { loadProject } from "@/core/store";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Badge, Card, Empty, Money, SectionTitle, Score } from "@/components/ui";
+import type { Clause } from "@/core/schemas";
 
 export const dynamic = "force-dynamic";
 
@@ -51,7 +52,14 @@ export default async function RecordPage({ params }: { params: Promise<{ id: str
           <>
             <section className="mt-10">
               {run.cutUrl ? (
-                <video src={run.cutUrl} controls playsInline className="w-full rounded-lg border border-basalt-800 bg-black" />
+                <video
+                  src={run.cutUrl}
+                  poster={run.shots.find((shot) => shot.keyframeUrl)?.keyframeUrl}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="aspect-video w-full rounded-lg border border-basalt-800 bg-black"
+                />
               ) : null}
               <Card className="mt-3 p-4">
                 <div className="flex flex-wrap items-start justify-between gap-4">
@@ -59,7 +67,7 @@ export default async function RecordPage({ params }: { params: Promise<{ id: str
                   <Score value={run.review!.score} target={project.brief.targetScore} />
                 </div>
                 <p className="mt-3 font-mono text-[10px] uppercase tracking-wider text-bone-500">
-                  judged by {run.review!.capability} — a model that watched the clip
+                  judged by {run.review!.capability} · a model that watched the clip
                 </p>
               </Card>
             </section>
@@ -96,10 +104,7 @@ export default async function RecordPage({ params }: { params: Promise<{ id: str
               </p>
             </Row>
 
-            <Row
-              title="Steered by"
-              hint={learned.length ? `${learned.length} learned, from earlier attempts` : "the brief alone"}
-            >
+            <Row title="Steered by" hint={steeredByHint(learned)}>
               {learned.length === 0 ? (
                 <p className="text-sm text-bone-500">
                   This attempt compiled from the brief and its constraints. Nothing learned had been
@@ -110,11 +115,18 @@ export default async function RecordPage({ params }: { params: Promise<{ id: str
                   {learned.map((clause) => (
                     <li key={clause.index} className="rounded border border-bronze-400/30 bg-bronze-900/40 px-3 py-2">
                       <p className="text-sm text-bone-200">{clause.body}</p>
-                      <p className="mt-1 font-mono text-[10px] uppercase tracking-wider text-bronze-300">
-                        learned in attempt {clause.sourceAttempt}
-                        {clause.originProjectId && clause.originProjectId !== project.id
-                          ? " · inherited from another production"
-                          : ""}
+                      <p className="mt-1 text-[11px] text-bronze-300">
+                        {clause.originProjectId && clause.originProjectId !== project.id ? (
+                          <>
+                            proved by{" "}
+                            <span className="font-medium">
+                              {clause.originProjectTitle ?? "another production"}
+                            </span>{" "}
+                            on its attempt {clause.sourceAttempt}, and adopted here
+                          </>
+                        ) : (
+                          <>learned on this production&rsquo;s attempt {clause.sourceAttempt}</>
+                        )}
                       </p>
                     </li>
                   ))}
@@ -156,7 +168,7 @@ export default async function RecordPage({ params }: { params: Promise<{ id: str
               {!seal ? (
                 <p className="mt-3 text-xs text-bone-500">
                   Not yet sealed. Until a production is published to Verifiable Memory, this record is
-                  verifiable only against this instance — the honest statement of what it is.
+                  verifiable only against this instance. That is the honest statement of what it is.
                 </p>
               ) : null}
             </Row>
@@ -172,6 +184,15 @@ export default async function RecordPage({ params }: { params: Promise<{ id: str
       </main>
     </>
   );
+}
+
+/** Says where the knowledge came from, which is not the same question as how much of it there was. */
+function steeredByHint(learned: Clause[]): string {
+  if (learned.length === 0) return "the brief alone";
+  const foreign = learned.filter((c) => c.originProjectId && c.originProjectTitle).length;
+  if (foreign === learned.length) return `${learned.length} inherited from other productions`;
+  if (foreign > 0) return `${learned.length} learned, ${foreign} of them inherited`;
+  return `${learned.length} learned on earlier attempts`;
 }
 
 function Row({ title, hint, children }: { title: string; hint?: string; children: React.ReactNode }) {

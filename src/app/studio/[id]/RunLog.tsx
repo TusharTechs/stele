@@ -46,7 +46,7 @@ export function RunLog({ events, running }: { events: PipelineEvent[]; running: 
             <span
               key={stage}
               className={`font-mono text-[10px] uppercase tracking-wider ${
-                active ? "text-verdigris-400" : done ? "text-bone-400" : "text-bone-500/50"
+                active ? "text-verdigris-400" : done ? "text-bone-400" : "text-bone-500"
               }`}
             >
               {active ? <span className="pulse-dot">▸ </span> : done ? "✓ " : "· "}
@@ -94,16 +94,16 @@ function Line({ event }: { event: PipelineEvent }) {
       <p className={tone}>
         <span className="text-bone-500">shot {event.index} </span>
         {event.status}
-        {event.detail ? ` — ${event.detail}` : ""}
+        {event.detail ? ` · ${event.detail}` : ""}
       </p>
     );
   }
 
-  if (event.type === "error") return <p className="text-terracotta-400">error — {event.message}</p>;
+  if (event.type === "error") return <p className="text-terracotta-400">error · {event.message}</p>;
   if (event.type === "done") {
     return (
       <p className="text-verdigris-400">
-        attempt {event.attempt} complete{event.score !== undefined ? ` — ${event.score}/10` : ""}
+        attempt {event.attempt} complete{event.score !== undefined ? ` · ${event.score}/10` : ""}
       </p>
     );
   }

@@ -26,7 +26,10 @@
   --color-bone-50: #f4f2ee;
   --color-bone-200: #d6d2ca;
   --color-bone-400: #9b978e;
-  --color-bone-500: #7a766e;
+  /* Measured, not picked. The previous value (#7a766e) came out at 3.96:1 on the lighter surfaces —
+     below AA, and this is the colour every 10–11px label in the product uses. This one clears 4.5
+     against basalt-950 through basalt-800 while keeping the same warm grey. */
+  --color-bone-500: #8b8680;
 
   --color-verdigris-400: #6ddcb0;
   --color-verdigris-500: #3fbf92;
@@ -54,6 +57,34 @@ body {
 
 ::selection {
   background: rgba(63, 191, 146, 0.3);
+}
+
+/*
+ * One focus ring, everywhere.
+ *
+ * Several inputs set `outline-none` and replaced it with a border colour change, which is invisible
+ * to anyone tabbing quickly and disappears entirely against a dark field.
+ *
+ * Written as a plain selector list rather than `:where(…)`. Zero specificity read well, but the
+ * framework's own reset then won every tie and form fields kept resolving to `outline-style: none`
+ * — a focus ring that works on links and silently does nothing on the inputs it was added for.
+ * `:focus-visible` still means a mouse click leaves no ring behind.
+ */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  /* Longhand on purpose. The `outline` shorthand resolved to a white ring on form fields — the
+     framework re-applies `outline-color` after it, so only the colour was lost and the ring looked
+     deliberate enough to miss. Setting the colour on its own line survives that. */
+  outline-width: 2px;
+  outline-style: solid;
+  outline-color: var(--color-verdigris-500);
+  outline-offset: 2px;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar {

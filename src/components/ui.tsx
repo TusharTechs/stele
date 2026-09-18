@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { ReactNode } from "react";
 
 /**
@@ -99,18 +98,6 @@ export function Empty({ children }: { children: ReactNode }) {
     <p className="rounded border border-dashed border-basalt-700 px-4 py-6 text-center text-sm text-bone-500">
       {children}
     </p>
-  );
-}
-
-export function Wordmark({ className = "" }: { className?: string }) {
-  return (
-    <Link href="/" className={`group inline-flex items-baseline gap-2 ${className}`}>
-      <span className="font-mono text-base font-semibold tracking-[0.2em] text-bone-50 uppercase">Stele</span>
-      <span className="h-3 w-px bg-basalt-600" aria-hidden />
-      <span className="hidden text-xs text-bone-500 transition-colors group-hover:text-bone-400 sm:inline">
-        every frame, on the record
-      </span>
-    </Link>
   );
 }
 

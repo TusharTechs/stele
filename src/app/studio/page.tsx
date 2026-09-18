@@ -21,7 +21,7 @@ export default async function StudioPage() {
 
             {projects.length === 0 ? (
               <Empty>
-                Nothing yet. Write a brief on the right — Stele will decompose it into a canon before
+                Nothing yet. Write a brief on the right. Stele decomposes it into a canon before
                 it renders anything.
               </Empty>
             ) : (
@@ -41,6 +41,11 @@ export default async function StudioPage() {
                           <div className="min-w-0">
                             <h3 className="truncate font-medium text-bone-50">{project.title}</h3>
                             <p className="mt-1 line-clamp-2 text-sm text-bone-400">{project.brief.goal}</p>
+                            {project.note ? (
+                              <p className="mt-2 border-l-2 border-bronze-400/40 pl-2.5 text-[13px] leading-snug text-bronze-300">
+                                {project.note}
+                              </p>
+                            ) : null}
                           </div>
                           <div className="flex shrink-0 items-center gap-2">
                             {project.seals.length > 0 ? <Badge tone="verified">sealed</Badge> : null}
@@ -49,7 +54,9 @@ export default async function StudioPage() {
                         </div>
 
                         <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-[11px] text-bone-500">
-                          <span>{project.runs.length} attempt{project.runs.length === 1 ? "" : "s"}</span>
+                          <span>
+                            {project.runs.length} attempt{project.runs.length === 1 ? "" : "s"}
+                          </span>
                           {scored.length > 0 ? (
                             <span>
                               best {best}/10

@@ -41,6 +41,9 @@ async function capture(): Promise<void> {
 
   for (const project of projects) {
     const localised = await mapMedia(project, async (url) => {
+      // Already captured on a previous run — re-capturing should be idempotent, not a failure.
+      if (url.startsWith("/seed/")) return url;
+
       const cached = seen.get(url);
       if (cached) return cached;
 

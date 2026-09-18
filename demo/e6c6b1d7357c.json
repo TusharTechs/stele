@@ -2,8 +2,9 @@
   "id": "e6c6b1d7357c",
   "title": "Indigo Hearth",
   "createdAt": 1789743775421,
-  "updatedAt": 1789744394877,
+  "updatedAt": 1789747566201,
   "agentLabel": "studio-a",
+  "note": "The loop working. Attempt 1 failed on framing variety; the rule distilled from that failure fixed it on attempt 2, and the score rose with it.",
   "brief": {
     "goal": "A three-shot teaser for a hand-thrown stoneware teapot, glazed deep indigo, on a bare plaster shelf.",
     "audience": "Design-literate buyers browsing a homepage",

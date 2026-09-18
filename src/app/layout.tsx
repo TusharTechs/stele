@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "sw
 const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono-face", display: "swap" });
 
 export const metadata: Metadata = {
-  title: "Stele — every frame, on the record",
+  title: "Stele · every frame, on the record",
   description:
     "An AI studio whose memory and its receipts are the same verifiable knowledge graph. Built on Livepeer Agent and the OriginTrail DKG.",
 };

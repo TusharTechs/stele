@@ -60,7 +60,7 @@ export function CanonTab({
       <div className="grid gap-8">
         <section>
           <SectionTitle hint={proposed.length ? "nothing here steers a render yet" : undefined}>
-            Proposed — awaiting your decision
+            Proposed · awaiting your decision
           </SectionTitle>
           {proposed.length === 0 ? (
             <Empty>Nothing waiting. New lessons appear here after each attempt.</Empty>
@@ -226,7 +226,7 @@ function LessonRow({
           value={draft}
           onChange={(event) => setDraft(event.target.value)}
           rows={2}
-          className="w-full rounded border border-basalt-700 bg-basalt-950 px-2.5 py-1.5 text-sm text-bone-50 outline-none focus:border-verdigris-500/60"
+          className="w-full rounded border border-basalt-700 bg-basalt-950 px-2.5 py-1.5 text-sm text-bone-50 focus:border-verdigris-500/60"
         />
       ) : (
         <p className="text-sm text-bone-200">{lesson.body}</p>

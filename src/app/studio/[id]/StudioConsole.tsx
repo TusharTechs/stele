@@ -229,6 +229,11 @@ function Header({
             {project.seals.length > 0 ? <Badge tone="verified">sealed</Badge> : null}
           </div>
           <p className="mt-2 max-w-2xl text-sm text-bone-400">{project.brief.goal}</p>
+          {project.note ? (
+            <p className="mt-2.5 max-w-2xl border-l-2 border-bronze-400/40 pl-3 text-[13px] leading-snug text-bronze-300">
+              {project.note}
+            </p>
+          ) : null}
 
           <dl className="mt-4 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[11px] text-bone-500">
             <Stat label="attempts" value={String(project.runs.length)} />
@@ -266,7 +271,7 @@ function Header({
               onClick={() => onRun(true)}
               title={
                 activeCount === 0
-                  ? "Nothing in the canon yet — a control run would be identical to a normal one."
+                  ? "Nothing in the canon yet, so a control run would be identical to a normal one."
                   : "Run the same brief with every learned lesson withheld, to measure what the canon is worth."
               }
             >
@@ -279,7 +284,7 @@ function Header({
               title={
                 dkgMode === "network"
                   ? "Publish this production's record to Verifiable Memory and mint a UAL."
-                  : `This instance runs on ${dkgMode === "edge" ? "an edge node" : "a local RDF store"} — set STELE_DKG=network to seal.`
+                  : `This instance runs on ${dkgMode === "edge" ? "an edge node" : "a local RDF store"}. Set STELE_DKG=network to seal.`
               }
             >
               {sealing ? "Sealing…" : "Seal"}

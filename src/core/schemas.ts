@@ -80,6 +80,8 @@ export const ClauseSchema = z.object({
   /** The graph IRI the clause came from, so the UI can link straight into the SPARQL result. */
   sourceIri: z.string().optional(),
   originProjectId: z.string().optional(),
+  /** The production that proved this rule, by name. An id nobody can resolve is not attribution. */
+  originProjectTitle: z.string().optional(),
 });
 export type Clause = z.infer<typeof ClauseSchema>;
 
@@ -253,6 +255,8 @@ export const ProjectSchema = z.object({
   createdAt: z.number(),
   updatedAt: z.number(),
   agentLabel: z.string().default("studio-a"),
+  /** One line on what this production demonstrates. Set on the shipped demo bundle. */
+  note: z.string().optional(),
   brief: BriefSchema,
   canonVersion: z.number().int().min(0).default(1),
   constraints: z.array(ConstraintSchema).default([]),

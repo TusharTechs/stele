@@ -20,7 +20,7 @@ export function ProductionTab({
   const run = project.runs.find((r) => r.attempt === selectedAttempt) ?? project.runs.at(-1);
 
   if (!run) {
-    return <Empty>No attempts yet. Press “Run first attempt” — the canon is already built.</Empty>;
+    return <Empty>No attempts yet. Press “Run first attempt”. The canon is already built.</Empty>;
   }
 
   return (
@@ -103,7 +103,7 @@ function Cut({ project, run }: { project: Project; run: Run }) {
       <SectionTitle
         hint={
           run.memoryWithheld
-            ? "control run — every learned lesson withheld"
+            ? "control run · every learned lesson withheld"
             : `${run.basePrompt?.memoryClauseCount ?? 0} learned clauses steered this`
         }
       >
@@ -228,7 +228,7 @@ function WhyThisPrompt({ run, project }: { run: Run; project: Project }) {
       {run.memoryWithheld ? (
         <p className="mb-3 rounded border border-terracotta-500/40 bg-terracotta-900 px-3 py-2 text-xs text-terracotta-400">
           Control run. The canon was deliberately withheld, so nothing below came from learned
-          knowledge — that is what makes the paired score meaningful.
+          knowledge. That is what makes the paired score meaningful.
         </p>
       ) : learned.length === 0 ? (
         <p className="mb-3 text-xs text-bone-500">

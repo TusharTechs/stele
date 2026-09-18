@@ -133,7 +133,7 @@ export async function runProduction(options: RunOptions): Promise<Run> {
         type: "stage",
         stage: "COMPILING",
         detail: withholdMemory
-          ? "Memory withheld — compiling from the brief alone (control run)."
+          ? "Memory withheld. Compiling from the brief alone (control run)."
           : `${fromGraph} of ${compiled.prompt.clauses.length} clauses came from the graph, ${compiled.prompt.memoryClauseCount} of them learned from earlier attempts (${compiled.rowCount} rows via ${compiled.servedBy}, ${compiled.queryMs}ms).`,
       });
     });
@@ -203,7 +203,7 @@ export async function runProduction(options: RunOptions): Promise<Run> {
     //    happens without the canon, so letting it write back would contaminate the comparison.
     run = await stage(ctx, run, "LEARNING", async () => {
       if (withholdMemory) {
-        ctx.emit({ type: "stage", stage: "LEARNING", detail: "Control run — nothing written to the canon." });
+        ctx.emit({ type: "stage", stage: "LEARNING", detail: "Control run. Nothing written to the canon." });
         return;
       }
       await learn(ctx, run);
@@ -274,7 +274,7 @@ async function stage(
 async function ground(ctx: RunContext, project: Project): Promise<void> {
   const url = safeSourceUrl(project.brief.groundingUrl);
   if (!url) {
-    ctx.emit({ type: "stage", stage: "GROUNDING", detail: "Grounding URL rejected — https only." });
+    ctx.emit({ type: "stage", stage: "GROUNDING", detail: "Grounding URL rejected. https only." });
     return;
   }
 
@@ -316,10 +316,10 @@ async function planShots(ctx: RunContext, project: Project, compiledKnowledge: s
     ...brief.criteria.map((c) => `  ${c.index}. ${c.body}`),
     "",
     "For each shot give:",
-    "  intent — one sentence on what this shot is for in the film.",
-    "  keyframeBrief — a still-image prompt for the opening frame. Concrete and visual: subject, framing, light, colour, lens feel. No camera movement here.",
-    "  motion — how the shot moves once animated. One short phrase, e.g. 'slow dolly in, steam rising'.",
-    `  seconds — must be exactly ${duration}.`,
+    "  intent: one sentence on what this shot is for in the film.",
+    "  keyframeBrief: a still-image prompt for the opening frame. Concrete and visual: subject, framing, light, colour, lens feel. No camera movement here.",
+    "  motion: how the shot moves once animated. One short phrase, e.g. 'slow dolly in, steam rising'.",
+    `  seconds: must be exactly ${duration}.`,
     "",
     "The shots must read as one continuous piece: same world, same palette, same subject treatment.",
     "Index them from 0.",
@@ -423,7 +423,7 @@ async function renderShotWithGate(
           index: plan.index,
           status: shot.status,
           url: video.url,
-          detail: `${shot.review.score}/10 — ${shot.review.summary}`,
+          detail: `${shot.review.score}/10 · ${shot.review.summary}`,
         });
         return shot;
       }
@@ -435,7 +435,7 @@ async function renderShotWithGate(
         type: "shot",
         index: plan.index,
         status: "failed",
-        detail: `${shot.review.score}/10 — re-rendering with the reviewer's notes.`,
+        detail: `${shot.review.score}/10 · re-rendering with the reviewer's notes.`,
       });
     } catch (error) {
       shot.error = safeText(error instanceof Error ? error.message : String(error), 300);
@@ -472,7 +472,7 @@ async function assemble(ctx: RunContext, project: Project, run: Run, shots: Shot
       // were 100% meant roughly one run in six threw away every shot it had just paid minutes and
       // dollars to render. The shots are the expensive part and they already exist; falling back to
       // the first one keeps the attempt, its footage and its record, and says plainly what happened.
-      run.assemblyNote = `Shots could not be cut together (${short(error)}). Using shot 0 as the cut — all ${clips.length} shots are kept and downloadable.`;
+      run.assemblyNote = `Shots could not be cut together (${short(error)}). Using shot 0 as the cut. All ${clips.length} shots are kept and downloadable.`;
       ctx.emit({ type: "stage", stage: "ASSEMBLING", detail: run.assemblyNote });
     }
   }
@@ -520,7 +520,7 @@ async function writeNarration(ctx: RunContext, project: Project, shots: ShotReco
     ctx.agent,
     `narration:attempt-${ctx.attempt}`,
     [
-      `Write voiceover for a ${seconds}-second film. About ${words} words — this is a hard ceiling, not a target.`,
+      `Write voiceover for a ${seconds}-second film. About ${words} words. That is a hard ceiling, not a target.`,
       `The film: ${project.brief.goal}`,
       project.brief.audience ? `Audience: ${project.brief.audience}` : "",
       "",

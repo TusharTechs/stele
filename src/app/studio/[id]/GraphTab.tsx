@@ -93,7 +93,7 @@ export function GraphTab({ project }: { project: Project }) {
         </ul>
 
         <p className="mt-4 text-xs text-bone-500">
-          Read-only. SELECT, ASK, CONSTRUCT and DESCRIBE — a store that accepted updates from a browser
+          Read-only: SELECT, ASK, CONSTRUCT and DESCRIBE. A store that accepted updates from a browser
           would let any page rewrite the provenance record.
         </p>
       </aside>
@@ -117,7 +117,7 @@ export function GraphTab({ project }: { project: Project }) {
           onChange={(event) => setSparql(event.target.value)}
           rows={10}
           spellCheck={false}
-          className="w-full rounded border border-basalt-700 bg-basalt-950 p-3 font-mono text-xs text-bone-200 outline-none focus:border-verdigris-500/60"
+          className="w-full rounded border border-basalt-700 bg-basalt-950 p-3 font-mono text-xs text-bone-200 focus:border-verdigris-500/60"
         />
 
         <div className="mt-2 flex items-center gap-3">

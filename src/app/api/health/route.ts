@@ -45,7 +45,7 @@ async function probeLivepeer() {
       authenticated: keyed,
       detail: keyed
         ? "Authenticated with an API key."
-        : "No API key set — running on keyless demo credits, which are capped per address.",
+        : "No API key set. Running on keyless demo credits, which are capped per address.",
       sample: { capability: card.name, priceUSD: card.priceUSD, p50ms: card.sla?.p50_ms },
     };
   } catch (error) {
