@@ -27,12 +27,16 @@ export interface Showcase {
   after: ClipRef;
   /** The clauses present in the later run and absent from the earlier one — the actual difference. */
   learned: Clause[];
+  /** How many criteria went from failing to passing. The honest headline. */
+  criteriaFixed: number;
+  /** Set when the learned knowledge came from a different production entirely. */
+  inherited: boolean;
 }
 
 export async function findShowcase(): Promise<Showcase | undefined> {
   const projects = await listProjects();
 
-  let best: { showcase: Showcase; gain: number } | undefined;
+  let best: { showcase: Showcase; rank: number } | undefined;
 
   for (const project of projects) {
     const complete = project.runs.filter(
@@ -50,17 +54,27 @@ export async function findShowcase(): Promise<Showcase | undefined> {
 
     if (!before || !after || after.attempt <= before.attempt) continue;
 
-    const gain = after.review.score - before.review.score;
-    if (best && gain <= best.gain) continue;
+    const learned = (after.basePrompt?.clauses ?? []).filter((clause) => clause.sourceKind === "lesson");
+    const criteriaFixed = before.review.verdicts.filter(
+      (v) => !v.met && after.review.verdicts.some((w) => w.index === v.index && w.met)
+    ).length;
+
+    // Ranked on criteria repaired before score, because that is the claim actually being made. A
+    // score is one model's single number on a coarse scale; "two criteria this failed now pass" is
+    // the specific, checkable thing, and a pair can fix real faults without the number moving.
+    const rank = criteriaFixed * 10 + (after.review.score - before.review.score);
+    if (best && rank <= best.rank) continue;
 
     best = {
-      gain,
+      rank,
       showcase: {
         project: { id: project.id, title: project.title },
         goal: project.brief.goal,
         before: clipRef(before),
         after: clipRef(after),
-        learned: (after.basePrompt?.clauses ?? []).filter((clause) => clause.sourceKind === "lesson"),
+        learned,
+        criteriaFixed,
+        inherited: learned.some((c) => c.originProjectId && c.originProjectId !== project.id),
       },
     };
   }

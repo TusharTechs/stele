@@ -1,0 +1,2558 @@
+{
+  "id": "8537957f0870",
+  "title": "Iron Still",
+  "createdAt": 1789745228592,
+  "updatedAt": 1789745847648,
+  "agentLabel": "studio-b",
+  "brief": {
+    "goal": "A three-shot teaser for a cast-iron pour-over kettle on a bare plaster shelf.",
+    "audience": "Specialty coffee buyers",
+    "styleNote": "Single soft north light, deep falloff into shadow, muted earth palette.",
+    "criteria": [
+      {
+        "index": 0,
+        "body": "The kettle is unmistakably the hero of every frame"
+      },
+      {
+        "index": 1,
+        "body": "The lighting, finish and surface stay identical across all three shots"
+      },
+      {
+        "index": 2,
+        "body": "Each shot uses a visibly different framing, so the three do not read as one repeated angle"
+      },
+      {
+        "index": 3,
+        "body": "The mood is quiet and unhurried, never busy or commercial"
+      }
+    ],
+    "avoid": [
+      "on-screen text or logos",
+      "cluttered props",
+      "steam or pouring liquid"
+    ],
+    "shotCount": 3,
+    "shotSeconds": 6,
+    "aspectRatio": "16:9",
+    "targetScore": 9,
+    "narration": false,
+    "music": false
+  },
+  "canonVersion": 2,
+  "constraints": [
+    {
+      "id": "297e652b6f39",
+      "kind": "subject",
+      "body": "A cast-iron pour-over kettle is the only object on screen.",
+      "weight": 1,
+      "authoredBy": "studio-b",
+      "createdAt": 1789745228592
+    },
+    {
+      "id": "0c9289ab1196",
+      "kind": "subject",
+      "body": "The kettle rests on a bare plaster shelf.",
+      "weight": 0.9,
+      "authoredBy": "studio-b",
+      "createdAt": 1789745228592
+    },
+    {
+      "id": "2d45840afafa",
+      "kind": "style",
+      "body": "Lighting is a single, soft north light source.",
+      "weight": 1,
+      "authoredBy": "studio-b",
+      "createdAt": 1789745228592
+    },
+    {
+      "id": "a07a7f1a01ae",
+      "kind": "style",
+      "body": "Lighting creates deep falloff into shadow.",
+      "weight": 1,
+      "authoredBy": "studio-b",
+      "createdAt": 1789745228592
+    },
+    {
+      "id": "06a3953acbda",
+      "kind": "style",
+      "body": "The color palette is muted earth tones.",
+      "weight": 0.9,
+      "authoredBy": "studio-b",
+      "createdAt": 1789745228592
+    },
+    {
+      "id": "09ee32fe3950",
+      "kind": "avoid",
+      "body": "No on-screen text, logos, or clutter.",
+      "weight": 1,
+      "authoredBy": "studio-b",
+      "createdAt": 1789745228592
+    },
+    {
+      "id": "b62b3b4974d2",
+      "kind": "avoid",
+      "body": "No steam or pouring liquid from the kettle.",
+      "weight": 1,
+      "authoredBy": "studio-b",
+      "createdAt": 1789745228592
+    },
+    {
+      "id": "83f1cfebf377",
+      "kind": "format",
+      "body": "The film consists of three distinct shots.",
+      "weight": 1,
+      "authoredBy": "studio-b",
+      "createdAt": 1789745228592
+    },
+    {
+      "id": "b871ed8c2355",
+      "kind": "style",
+      "body": "The mood is quiet and unhurried.",
+      "weight": 0.8,
+      "authoredBy": "studio-b",
+      "createdAt": 1789745228592
+    },
+    {
+      "id": "9ffea4ae59d5",
+      "kind": "avoid",
+      "body": "The mood is never busy or commercial.",
+      "weight": 0.8,
+      "authoredBy": "studio-b",
+      "createdAt": 1789745228592
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1-09f01d8076",
+      "kind": "knownFailure",
+      "body": "Ensure significant and obvious changes in framing between each of the three shots, including variations in focal length, camera height, and horizontal angle, to prevent them from reading as one repeated angle.",
+      "status": "proposed",
+      "confidence": 0.8,
+      "learnedFromAttempt": 1,
+      "criterionIndex": 2
+    },
+    {
+      "id": "l1-00f741ebc0",
+      "kind": "knownFailure",
+      "body": "Maintain the exact same shadow patterns and surface textures on the kettle and shelf across all three shots, regardless of framing changes, by keeping the light source and kettle's orientation relative to the light absolutely consistent.",
+      "status": "proposed",
+      "confidence": 0.7,
+      "learnedFromAttempt": 1,
+      "criterionIndex": 1
+    },
+    {
+      "id": "l1-361e8db2a9",
+      "kind": "successfulPattern",
+      "body": "Keep the cast-iron pour-over kettle as the sole, undeniable focal point and main subject in every frame.",
+      "status": "proposed",
+      "confidence": 0.9,
+      "learnedFromAttempt": 1,
+      "criterionIndex": 0
+    },
+    {
+      "id": "l1-f404430460",
+      "kind": "successfulPattern",
+      "body": "Replicate the precise quality of the single soft north light, ensuring deep falloff into shadow, and the muted earth palette for all three shots.",
+      "status": "proposed",
+      "confidence": 0.9,
+      "learnedFromAttempt": 1,
+      "criterionIndex": 1
+    },
+    {
+      "id": "inherited-a0e4e0078ab9",
+      "kind": "knownFailure",
+      "body": "Vary framing significantly across all three shots. Do not center the teapot identically in each frame.",
+      "status": "accepted",
+      "confidence": 0.7,
+      "learnedFromAttempt": 1,
+      "originProjectId": "e6c6b1d7357c",
+      "originProjectTitle": "Indigo Hearth",
+      "originAgent": "studio-a",
+      "curatedBy": "cli",
+      "curatedAt": 1789745571034
+    },
+    {
+      "id": "inherited-563cb898d035",
+      "kind": "successfulPattern",
+      "body": "Ensure the teapot remains the absolute hero and singular focus of every frame.",
+      "status": "accepted",
+      "confidence": 0.7,
+      "learnedFromAttempt": 1,
+      "originProjectId": "e6c6b1d7357c",
+      "originProjectTitle": "Indigo Hearth",
+      "originAgent": "studio-a",
+      "curatedBy": "cli",
+      "curatedAt": 1789745571034
+    },
+    {
+      "id": "inherited-88545eea2d8c",
+      "kind": "successfulPattern",
+      "body": "Maintain identical deep indigo glaze, soft north light, and deep falloff into shadow across all three shots.",
+      "status": "accepted",
+      "confidence": 0.7,
+      "learnedFromAttempt": 1,
+      "originProjectId": "e6c6b1d7357c",
+      "originProjectTitle": "Indigo Hearth",
+      "originAgent": "studio-a",
+      "curatedBy": "cli",
+      "curatedAt": 1789745571034
+    },
+    {
+      "id": "inherited-e2add5fdb046",
+      "kind": "styleAnchor",
+      "body": "Utilize a low, warm key light from the left, casting deep shadows, and balance with a cool, neutral fill light.",
+      "status": "accepted",
+      "confidence": 0.63,
+      "learnedFromAttempt": 1,
+      "originProjectId": "b05ae4b8e655",
+      "originProjectTitle": "Time's Embrace",
+      "originAgent": "studio-a",
+      "curatedBy": "cli",
+      "curatedAt": 1789745571034
+    },
+    {
+      "id": "inherited-e0380626eedd",
+      "kind": "successfulPattern",
+      "body": "Maintain a shallow depth of field, with the brushed-brass clock always in sharp focus as the hero of the frame.",
+      "status": "accepted",
+      "confidence": 0.63,
+      "learnedFromAttempt": 1,
+      "originProjectId": "b05ae4b8e655",
+      "originProjectTitle": "Time's Embrace",
+      "originAgent": "studio-a",
+      "curatedBy": "cli",
+      "curatedAt": 1789745571034
+    },
+    {
+      "id": "l2-c05ba6abc6",
+      "kind": "knownFailure",
+      "body": "Ensure sufficient compositional variation between shots so they do not appear as merely shifted versions of the same angle.",
+      "status": "proposed",
+      "confidence": 0.8,
+      "learnedFromAttempt": 2,
+      "criterionIndex": 2
+    },
+    {
+      "id": "l2-83e5de30bd",
+      "kind": "successfulPattern",
+      "body": "Maintain the quiet and unhurried mood, emphasizing the stillness of the kettle on the shelf.",
+      "status": "proposed",
+      "confidence": 0.9,
+      "learnedFromAttempt": 2,
+      "criterionIndex": 3
+    },
+    {
+      "id": "l2-cdd330cbab",
+      "kind": "successfulPattern",
+      "body": "Keep the cast-iron pour-over kettle as the sole subject, avoiding any additional elements or objects in the frame.",
+      "status": "proposed",
+      "confidence": 0.9,
+      "learnedFromAttempt": 2,
+      "criterionIndex": 0
+    }
+  ],
+  "runs": [
+    {
+      "attempt": 1,
+      "startedAt": 1789745235779,
+      "finishedAt": 1789745547042,
+      "stage": "COMPLETE",
+      "memoryWithheld": false,
+      "canonVersion": 1,
+      "basePrompt": {
+        "text": "A three-shot teaser for a cast-iron pour-over kettle on a bare plaster shelf. Single soft north light, deep falloff into shadow, muted earth palette. The film consists of three distinct shots. A cast-iron pour-over kettle is the only object on screen. Avoid: No on-screen text, logos, or clutter. Lighting creates deep falloff into shadow. Lighting is a single, soft north light source. Avoid: No steam or pouring liquid from the kettle. The kettle rests on a bare plaster shelf. The color palette is muted earth tones. The mood is quiet and unhurried. Avoid: The mood is never busy or commercial. Avoid: on-screen text or logos Avoid: cluttered props Avoid: steam or pouring liquid",
+        "clauses": [
+          {
+            "index": 0,
+            "body": "A three-shot teaser for a cast-iron pour-over kettle on a bare plaster shelf.",
+            "role": "goal",
+            "sourceKind": "brief"
+          },
+          {
+            "index": 1,
+            "body": "Single soft north light, deep falloff into shadow, muted earth palette.",
+            "role": "style",
+            "sourceKind": "brief"
+          },
+          {
+            "index": 2,
+            "body": "The film consists of three distinct shots.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/8537957f0870/1a93db0af57dd0afbec2",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/8537957f0870/1a93db0af57dd0afbec2"
+          },
+          {
+            "index": 3,
+            "body": "A cast-iron pour-over kettle is the only object on screen.",
+            "role": "subject",
+            "sourceId": "https://stele.studio/g/constraint/8537957f0870/30bbdaac83acb9afe428",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/8537957f0870/30bbdaac83acb9afe428"
+          },
+          {
+            "index": 4,
+            "body": "Avoid: No on-screen text, logos, or clutter.",
+            "role": "avoid",
+            "sourceId": "https://stele.studio/g/constraint/8537957f0870/c2da5e06e4a70e486d17",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/8537957f0870/c2da5e06e4a70e486d17"
+          },
+          {
+            "index": 5,
+            "body": "Lighting creates deep falloff into shadow.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/8537957f0870/c358ec5043596120d7fb",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/8537957f0870/c358ec5043596120d7fb"
+          },
+          {
+            "index": 6,
+            "body": "Lighting is a single, soft north light source.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/8537957f0870/ca54cf8a798ac32c7db8",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/8537957f0870/ca54cf8a798ac32c7db8"
+          },
+          {
+            "index": 7,
+            "body": "Avoid: No steam or pouring liquid from the kettle.",
+            "role": "avoid",
+            "sourceId": "https://stele.studio/g/constraint/8537957f0870/e547ae78bc683534a9e1",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/8537957f0870/e547ae78bc683534a9e1"
+          },
+          {
+            "index": 8,
+            "body": "The kettle rests on a bare plaster shelf.",
+            "role": "subject",
+            "sourceId": "https://stele.studio/g/constraint/8537957f0870/0140c3ab601f68dedb44",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/8537957f0870/0140c3ab601f68dedb44"
+          },
+          {
+            "index": 9,
+            "body": "The color palette is muted earth tones.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/8537957f0870/810f88fff294ff914404",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/8537957f0870/810f88fff294ff914404"
+          },
+          {
+            "index": 10,
+            "body": "The mood is quiet and unhurried.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/8537957f0870/7b9ecaa79d62d68c57f1",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/8537957f0870/7b9ecaa79d62d68c57f1"
+          },
+          {
+            "index": 11,
+            "body": "Avoid: The mood is never busy or commercial.",
+            "role": "avoid",
+            "sourceId": "https://stele.studio/g/constraint/8537957f0870/e00c532e174b53e52647",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/8537957f0870/e00c532e174b53e52647"
+          },
+          {
+            "index": 12,
+            "body": "Avoid: on-screen text or logos",
+            "role": "avoid",
+            "sourceKind": "brief"
+          },
+          {
+            "index": 13,
+            "body": "Avoid: cluttered props",
+            "role": "avoid",
+            "sourceKind": "brief"
+          },
+          {
+            "index": 14,
+            "body": "Avoid: steam or pouring liquid",
+            "role": "avoid",
+            "sourceKind": "brief"
+          }
+        ],
+        "memoryClauseCount": 0,
+        "promptHash": "1f1077e94e43f8a6fe761632bc2d8cd2ff096ed662c3f027f6b9e6c22fb74488"
+      },
+      "shots": [
+        {
+          "index": 0,
+          "intent": "To introduce the kettle in its environment, establishing its monolithic presence.",
+          "prompt": {
+            "text": "A wide shot of a cast-iron pour-over kettle centered on a bare, unblemished plaster shelf, bathed in soft north light from the left, creating deep falloff into shadow on the right, muted earth tones dominating the scene, captured with a slightly telephoto lens for subtle depth compression. Single soft north light, deep falloff into shadow, muted earth palette. The film consists of three distinct shots. A cast-iron pour-over kettle is the only object on screen. Avoid: No on-screen text, logos, or clutter. Lighting creates deep falloff into shadow. Lighting is a single, soft north light source. Avoid: No steam or pouring liquid from the kettle. The kettle rests on a bare plaster shelf. The color palette is muted earth tones. The mood is quiet and unhurried. Avoid: The mood is never busy or commercial. Avoid: on-screen text or logos Avoid: cluttered props Avoid: steam or pouring liquid",
+            "clauses": [
+              {
+                "index": 0,
+                "body": "A wide shot of a cast-iron pour-over kettle centered on a bare, unblemished plaster shelf, bathed in soft north light from the left, creating deep falloff into shadow on the right, muted earth tones dominating the scene, captured with a slightly telephoto lens for subtle depth compression.",
+                "role": "goal",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 1,
+                "body": "Single soft north light, deep falloff into shadow, muted earth palette.",
+                "role": "style",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 2,
+                "body": "The film consists of three distinct shots.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/1a93db0af57dd0afbec2",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/1a93db0af57dd0afbec2"
+              },
+              {
+                "index": 3,
+                "body": "A cast-iron pour-over kettle is the only object on screen.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/30bbdaac83acb9afe428",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/30bbdaac83acb9afe428"
+              },
+              {
+                "index": 4,
+                "body": "Avoid: No on-screen text, logos, or clutter.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/c2da5e06e4a70e486d17",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/c2da5e06e4a70e486d17"
+              },
+              {
+                "index": 5,
+                "body": "Lighting creates deep falloff into shadow.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/c358ec5043596120d7fb",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/c358ec5043596120d7fb"
+              },
+              {
+                "index": 6,
+                "body": "Lighting is a single, soft north light source.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/ca54cf8a798ac32c7db8",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/ca54cf8a798ac32c7db8"
+              },
+              {
+                "index": 7,
+                "body": "Avoid: No steam or pouring liquid from the kettle.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/e547ae78bc683534a9e1",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/e547ae78bc683534a9e1"
+              },
+              {
+                "index": 8,
+                "body": "The kettle rests on a bare plaster shelf.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/0140c3ab601f68dedb44",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/0140c3ab601f68dedb44"
+              },
+              {
+                "index": 9,
+                "body": "The color palette is muted earth tones.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/810f88fff294ff914404",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/810f88fff294ff914404"
+              },
+              {
+                "index": 10,
+                "body": "The mood is quiet and unhurried.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/7b9ecaa79d62d68c57f1",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/7b9ecaa79d62d68c57f1"
+              },
+              {
+                "index": 11,
+                "body": "Avoid: The mood is never busy or commercial.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/e00c532e174b53e52647",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/e00c532e174b53e52647"
+              },
+              {
+                "index": 12,
+                "body": "Avoid: on-screen text or logos",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 13,
+                "body": "Avoid: cluttered props",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 14,
+                "body": "Avoid: steam or pouring liquid",
+                "role": "avoid",
+                "sourceKind": "brief"
+              }
+            ],
+            "memoryClauseCount": 0,
+            "promptHash": "9cb87b9d97ba59242351c0c85e14cc26419762d27d3d21cc0955d377150cf3b3"
+          },
+          "motionPrompt": "Static shot, no movement.",
+          "keyframeUrl": "/seed/97df7c9c04d3776d.jpg",
+          "keyframeCapability": "flux-schnell",
+          "videoUrl": "/seed/d2c2a39aaf0072c8.mp4",
+          "capability": "ltx-25-i2v-fast",
+          "costUSD": 0,
+          "review": {
+            "score": 9,
+            "passed": true,
+            "summary": "The kettle stands as a clear, focused subject in a minimal, well-lit environment with consistent visual presentation across all shots.",
+            "findings": [
+              {
+                "index": 0,
+                "body": "Strong focus on product with minimal visual noise",
+                "polarity": "positive"
+              }
+            ],
+            "verdicts": [
+              {
+                "index": 0,
+                "met": true,
+                "note": "Kettle is unmistakably the hero in every frame with no distractions"
+              },
+              {
+                "index": 1,
+                "met": true,
+                "note": "Lighting, finish, and surface remain identical across all three shots, maintaining visual consistency"
+              },
+              {
+                "index": 2,
+                "met": true,
+                "note": "Each shot uses a visibly different framing—close-up, medium, and wide—avoiding repetition"
+              },
+              {
+                "index": 3,
+                "met": true,
+                "note": "Mood is quiet and unhurried, with stillness and soft light reinforcing a calm, contemplative tone"
+              }
+            ],
+            "costUSD": 0.0129,
+            "capability": "nemotron-omni-video"
+          },
+          "attempts": 1,
+          "status": "passed"
+        },
+        {
+          "index": 1,
+          "intent": "To highlight the textured surface and craftsmanship of the kettle.",
+          "prompt": {
+            "text": "A medium close-up, slightly from above, focusing on the kettle's handle and the upper curve of its body, resting on the plaster shelf, with soft north light emphasizing the subtle texture of the cast iron and the deep shadows on the underside, a muted earth palette prevails, shot with a standard prime lens for natural perspective. Single soft north light, deep falloff into shadow, muted earth palette. The film consists of three distinct shots. A cast-iron pour-over kettle is the only object on screen. Avoid: No on-screen text, logos, or clutter. Lighting creates deep falloff into shadow. Lighting is a single, soft north light source. Avoid: No steam or pouring liquid from the kettle. The kettle rests on a bare plaster shelf. The color palette is muted earth tones. The mood is quiet and unhurried. Avoid: The mood is never busy or commercial. Avoid: on-screen text or logos Avoid: cluttered props Avoid: steam or pouring liquid",
+            "clauses": [
+              {
+                "index": 0,
+                "body": "A medium close-up, slightly from above, focusing on the kettle's handle and the upper curve of its body, resting on the plaster shelf, with soft north light emphasizing the subtle texture of the cast iron and the deep shadows on the underside, a muted earth palette prevails, shot with a standard prime lens for natural perspective.",
+                "role": "goal",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 1,
+                "body": "Single soft north light, deep falloff into shadow, muted earth palette.",
+                "role": "style",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 2,
+                "body": "The film consists of three distinct shots.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/1a93db0af57dd0afbec2",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/1a93db0af57dd0afbec2"
+              },
+              {
+                "index": 3,
+                "body": "A cast-iron pour-over kettle is the only object on screen.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/30bbdaac83acb9afe428",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/30bbdaac83acb9afe428"
+              },
+              {
+                "index": 4,
+                "body": "Avoid: No on-screen text, logos, or clutter.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/c2da5e06e4a70e486d17",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/c2da5e06e4a70e486d17"
+              },
+              {
+                "index": 5,
+                "body": "Lighting creates deep falloff into shadow.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/c358ec5043596120d7fb",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/c358ec5043596120d7fb"
+              },
+              {
+                "index": 6,
+                "body": "Lighting is a single, soft north light source.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/ca54cf8a798ac32c7db8",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/ca54cf8a798ac32c7db8"
+              },
+              {
+                "index": 7,
+                "body": "Avoid: No steam or pouring liquid from the kettle.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/e547ae78bc683534a9e1",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/e547ae78bc683534a9e1"
+              },
+              {
+                "index": 8,
+                "body": "The kettle rests on a bare plaster shelf.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/0140c3ab601f68dedb44",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/0140c3ab601f68dedb44"
+              },
+              {
+                "index": 9,
+                "body": "The color palette is muted earth tones.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/810f88fff294ff914404",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/810f88fff294ff914404"
+              },
+              {
+                "index": 10,
+                "body": "The mood is quiet and unhurried.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/7b9ecaa79d62d68c57f1",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/7b9ecaa79d62d68c57f1"
+              },
+              {
+                "index": 11,
+                "body": "Avoid: The mood is never busy or commercial.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/e00c532e174b53e52647",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/e00c532e174b53e52647"
+              },
+              {
+                "index": 12,
+                "body": "Avoid: on-screen text or logos",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 13,
+                "body": "Avoid: cluttered props",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 14,
+                "body": "Avoid: steam or pouring liquid",
+                "role": "avoid",
+                "sourceKind": "brief"
+              }
+            ],
+            "memoryClauseCount": 0,
+            "promptHash": "48853dd45476b76221fdc112730381f393aa3c81ff752af41ca16126b045a7b2"
+          },
+          "motionPrompt": "A very slow, subtle pan right, revealing more of the kettle's side.",
+          "keyframeUrl": "/seed/5ea62e97d68374f2.jpg",
+          "keyframeCapability": "kontext-edit",
+          "anchoredTo": "/seed/97df7c9c04d3776d.jpg",
+          "videoUrl": "/seed/e4f7bf66ba683f85.mp4",
+          "capability": "ltx-25-i2v-fast",
+          "costUSD": 0,
+          "review": {
+            "score": 8,
+            "passed": false,
+            "summary": "The kettle is the clear focal point with consistent lighting and varied framing, but the mood lacks quietness due to the static nature of the shots.",
+            "findings": [
+              {
+                "index": 0,
+                "body": "Clear hero focus",
+                "polarity": "positive"
+              },
+              {
+                "index": 1,
+                "body": "Consistent lighting",
+                "polarity": "positive"
+              },
+              {
+                "index": 2,
+                "body": "Varied angles",
+                "polarity": "positive"
+              },
+              {
+                "index": 3,
+                "body": "No motion to create unhurried mood",
+                "polarity": "negative",
+                "criterionIndex": 3
+              }
+            ],
+            "verdicts": [
+              {
+                "index": 0,
+                "met": true,
+                "note": "Kettle dominates all frames"
+              },
+              {
+                "index": 1,
+                "met": true,
+                "note": "Surface texture and finish are uniform across shots"
+              },
+              {
+                "index": 2,
+                "met": true,
+                "note": "Framing changes: wide, medium, close-up"
+              },
+              {
+                "index": 3,
+                "met": false,
+                "note": "Mood is static, not unhurried; no movement to convey calm"
+              }
+            ],
+            "costUSD": 0.0128,
+            "capability": "nemotron-omni-video"
+          },
+          "attempts": 2,
+          "status": "failed"
+        },
+        {
+          "index": 2,
+          "intent": "To reveal the spout and reinforce the kettle's functional elegance.",
+          "prompt": {
+            "text": "A tight close-up, eye-level, isolating the graceful curve of the kettle's spout and a portion of its body, against the blurred plaster shelf background, illuminated by the single soft north light creating a strong contrast with the deep shadows beneath the spout, the muted earth tones continuing the established palette, rendered with a macro-like lens feel to emphasize fine detail. Single soft north light, deep falloff into shadow, muted earth palette. The film consists of three distinct shots. A cast-iron pour-over kettle is the only object on screen. Avoid: No on-screen text, logos, or clutter. Lighting creates deep falloff into shadow. Lighting is a single, soft north light source. Avoid: No steam or pouring liquid from the kettle. The kettle rests on a bare plaster shelf. The color palette is muted earth tones. The mood is quiet and unhurried. Avoid: The mood is never busy or commercial. Avoid: on-screen text or logos Avoid: cluttered props Avoid: steam or pouring liquid",
+            "clauses": [
+              {
+                "index": 0,
+                "body": "A tight close-up, eye-level, isolating the graceful curve of the kettle's spout and a portion of its body, against the blurred plaster shelf background, illuminated by the single soft north light creating a strong contrast with the deep shadows beneath the spout, the muted earth tones continuing the established palette, rendered with a macro-like lens feel to emphasize fine detail.",
+                "role": "goal",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 1,
+                "body": "Single soft north light, deep falloff into shadow, muted earth palette.",
+                "role": "style",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 2,
+                "body": "The film consists of three distinct shots.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/1a93db0af57dd0afbec2",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/1a93db0af57dd0afbec2"
+              },
+              {
+                "index": 3,
+                "body": "A cast-iron pour-over kettle is the only object on screen.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/30bbdaac83acb9afe428",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/30bbdaac83acb9afe428"
+              },
+              {
+                "index": 4,
+                "body": "Avoid: No on-screen text, logos, or clutter.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/c2da5e06e4a70e486d17",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/c2da5e06e4a70e486d17"
+              },
+              {
+                "index": 5,
+                "body": "Lighting creates deep falloff into shadow.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/c358ec5043596120d7fb",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/c358ec5043596120d7fb"
+              },
+              {
+                "index": 6,
+                "body": "Lighting is a single, soft north light source.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/ca54cf8a798ac32c7db8",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/ca54cf8a798ac32c7db8"
+              },
+              {
+                "index": 7,
+                "body": "Avoid: No steam or pouring liquid from the kettle.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/e547ae78bc683534a9e1",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/e547ae78bc683534a9e1"
+              },
+              {
+                "index": 8,
+                "body": "The kettle rests on a bare plaster shelf.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/0140c3ab601f68dedb44",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/0140c3ab601f68dedb44"
+              },
+              {
+                "index": 9,
+                "body": "The color palette is muted earth tones.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/810f88fff294ff914404",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/810f88fff294ff914404"
+              },
+              {
+                "index": 10,
+                "body": "The mood is quiet and unhurried.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/7b9ecaa79d62d68c57f1",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/7b9ecaa79d62d68c57f1"
+              },
+              {
+                "index": 11,
+                "body": "Avoid: The mood is never busy or commercial.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/e00c532e174b53e52647",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/e00c532e174b53e52647"
+              },
+              {
+                "index": 12,
+                "body": "Avoid: on-screen text or logos",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 13,
+                "body": "Avoid: cluttered props",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 14,
+                "body": "Avoid: steam or pouring liquid",
+                "role": "avoid",
+                "sourceKind": "brief"
+              }
+            ],
+            "memoryClauseCount": 0,
+            "promptHash": "b2c6595d9bf5ff039214bb2c34bd4a29101ea5675a55e6c1532f646798bc6260"
+          },
+          "motionPrompt": "A gentle, almost imperceptible push-in, centered on the spout.",
+          "keyframeUrl": "/seed/3ce0c5a92de391fd.jpg",
+          "keyframeCapability": "kontext-edit",
+          "anchoredTo": "/seed/97df7c9c04d3776d.jpg",
+          "videoUrl": "/seed/29029250ba7c6a83.mp4",
+          "capability": "ltx-25-i2v-fast",
+          "costUSD": 0,
+          "review": {
+            "score": 7,
+            "passed": false,
+            "summary": "The kettle is the central focus with consistent lighting and a calm, minimalist mood, though the framing becomes too similar across shots.",
+            "findings": [
+              {
+                "index": 0,
+                "body": "Kettle is the clear visual focus",
+                "polarity": "positive"
+              },
+              {
+                "index": 1,
+                "body": "Consistent lighting and minimalist aesthetic",
+                "polarity": "positive"
+              },
+              {
+                "index": 2,
+                "body": "Calm, unhurried mood",
+                "polarity": "positive"
+              },
+              {
+                "index": 3,
+                "body": "Subtle shifts in lighting/reflection make surface appearance inconsistent",
+                "polarity": "negative",
+                "criterionIndex": 1
+              },
+              {
+                "index": 4,
+                "body": "Framing lacks true variety across shots",
+                "polarity": "negative",
+                "criterionIndex": 1
+              }
+            ],
+            "verdicts": [
+              {
+                "index": 0,
+                "met": true,
+                "note": "The kettle is clearly the hero in every frame with tight, centered composition."
+              },
+              {
+                "index": 1,
+                "met": false,
+                "note": "Lighting and finish are consistent, but the surface texture appears slightly different due to angle shifts."
+              },
+              {
+                "index": 2,
+                "met": false,
+                "note": "Framing is too similar; the three shots use nearly identical angles, lacking visible variety."
+              },
+              {
+                "index": 3,
+                "met": true,
+                "note": "The mood is quiet and unhurried, with no movement or distractions."
+              }
+            ],
+            "costUSD": 0.0128,
+            "capability": "nemotron-omni-video"
+          },
+          "attempts": 2,
+          "status": "failed"
+        }
+      ],
+      "cutUrl": "/seed/4b777ed4b9531ed9.mp4",
+      "review": {
+        "score": 8,
+        "passed": false,
+        "summary": "The three shots successfully showcase the cast-iron kettle with consistent lighting and mood, though framing is too similar to feel truly varied.",
+        "findings": [
+          {
+            "index": 0,
+            "body": "Hero object remains front and center",
+            "polarity": "positive"
+          },
+          {
+            "index": 1,
+            "body": "Consistent, natural lighting enhances material texture",
+            "polarity": "positive"
+          },
+          {
+            "index": 2,
+            "body": "Calm, minimalist mood aligns with specialty coffee aesthetic",
+            "polarity": "positive"
+          },
+          {
+            "index": 3,
+            "body": "Framing differences are subtle, not clearly distinct shots",
+            "polarity": "negative",
+            "criterionIndex": 1
+          }
+        ],
+        "verdicts": [
+          {
+            "index": 0,
+            "met": true,
+            "note": "The kettle is the sole focus in all frames, clearly the hero."
+          },
+          {
+            "index": 1,
+            "met": false,
+            "note": "Lighting and finish remain identical, but surface texture and shadow patterns shift noticeably due to angle changes."
+          },
+          {
+            "index": 2,
+            "met": false,
+            "note": "Framing is similar—only slight zoom or angle changes—not visibly distinct shots as intended."
+          },
+          {
+            "index": 3,
+            "met": true,
+            "note": "The mood is quiet, unhurried, and free of commercial busyness or distractions."
+          }
+        ],
+        "costUSD": 0.0128,
+        "capability": "nemotron-omni-video"
+      },
+      "lessonIds": [
+        "l1-09f01d8076",
+        "l1-00f741ebc0",
+        "l1-361e8db2a9",
+        "l1-f404430460"
+      ],
+      "costUSD": 3.0835,
+      "calls": [
+        {
+          "id": "aa0dce7d-ab71-4d1c-8be5-d80d0a92df5f",
+          "capability": "gemini-text",
+          "stage": "intake",
+          "argsHash": "5af3c141fce876a8",
+          "at": 1789745214570,
+          "latencyMs": 6981,
+          "ok": true,
+          "costUSD": 0.0001,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 1,
+          "warnings": []
+        },
+        {
+          "id": "f6899be7-2268-4e05-b7b0-896bd5ca278b",
+          "capability": "gemini-text",
+          "stage": "intake",
+          "argsHash": "53caecd432ed50bf",
+          "at": 1789745221556,
+          "latencyMs": 7035,
+          "ok": true,
+          "costUSD": 0.0001,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 1,
+          "warnings": []
+        },
+        {
+          "id": "53c6eb2e-fbe7-46c9-b748-06f05571a165",
+          "capability": "gemini-text",
+          "stage": "plan:attempt-1",
+          "argsHash": "87f397e215b4b0aa",
+          "at": 1789745235807,
+          "latencyMs": 7242,
+          "ok": true,
+          "costUSD": 0.0001,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 1,
+          "warnings": []
+        },
+        {
+          "id": "dcce657a-e1ff-4a23-b408-ddb31788ef8d",
+          "capability": "flux-schnell",
+          "stage": "keyframe:1.0",
+          "argsHash": "848d3e5d46b0a3a0",
+          "at": 1789745243056,
+          "latencyMs": 5602,
+          "ok": true,
+          "costUSD": 0.0032,
+          "costUnitKind": "megapixel",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly83eTRmbHpwdWxndjRjbzZyLnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS91cGxvYWRzLzE3ODk3NDUyNDc5ODgtY3Z5dDA0LmpwZWc.5180befe985705a2/1789745247988-cvyt04.jpeg",
+          "warnings": []
+        },
+        {
+          "id": "0699e5ab-2dcd-494f-93e4-eed44727fbca",
+          "capability": "ltx-25-i2v-fast",
+          "stage": "animate:1.0",
+          "argsHash": "4b05d929f05674f1",
+          "at": 1789745248658,
+          "latencyMs": 34049,
+          "ok": true,
+          "costUSD": 0.567,
+          "costUnitKind": "second",
+          "costUnits": 6,
+          "jobId": "mjob_e2cd63aad581",
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly92M2IuZmFsLm1lZGlhL2ZpbGVzL2IvMGFhYWVmM2QvVDZiWW5fVXZjYlpzZFEwMEFsMXR2X29YWWlUek15Lm1wNA.709ef1fc43a8abbf/T6bYn_UvcbZsdQ00Al1tv_oXYiTzMy.mp4",
+          "warnings": [
+            {
+              "kind": "warning",
+              "message": "A durable copy was requested but none was recorded — the URL returned inherits the provider's lifetime. Retry the copy with upload({ source_url: <the url> })."
+            }
+          ]
+        },
+        {
+          "id": "4ceb5e93-68da-4864-8e73-24d90f50be2e",
+          "capability": "nemotron-omni-video",
+          "stage": "review:1.0",
+          "argsHash": "cea370043a7104b6",
+          "at": 1789745282708,
+          "latencyMs": 6648,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "d5e9ff5f-da21-43ec-9af1-dabfeaf8bc07",
+          "capability": "gemini-text",
+          "stage": "review:1.0:structure",
+          "argsHash": "f4eeabd17a2ca611",
+          "at": 1789745289357,
+          "latencyMs": 4504,
+          "ok": true,
+          "costUSD": 0.0001,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 1,
+          "warnings": []
+        },
+        {
+          "id": "71832539-35b4-46c3-a51c-c80b74fa97c4",
+          "capability": "kontext-edit",
+          "stage": "keyframe:1.1",
+          "argsHash": "8a7f989aeec4c6da",
+          "at": 1789745293869,
+          "latencyMs": 13339,
+          "ok": true,
+          "costUSD": 0.042,
+          "costUnitKind": "image",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly83eTRmbHpwdWxndjRjbzZyLnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS91cGxvYWRzLzE3ODk3NDUzMDY1NjAtcHdzdW1jLmpwZWc.edc30f5e9b9a2022/1789745306560-pwsumc.jpeg",
+          "warnings": []
+        },
+        {
+          "id": "3450d2d3-b12d-4115-98ac-970db0ebc29f",
+          "capability": "ltx-25-i2v-fast",
+          "stage": "animate:1.1",
+          "argsHash": "2da0d586cf7aeaca",
+          "at": 1789745307208,
+          "latencyMs": 32263,
+          "ok": true,
+          "costUSD": 0.567,
+          "costUnitKind": "second",
+          "costUnits": 6,
+          "jobId": "mjob_b2b09d3a7cce",
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly92M2IuZmFsLm1lZGlhL2ZpbGVzL2IvMGFhYWVmNDMvaU4wd2otalZTLU5FZTFsOFBsSWpMX2N3SXBNdkNNLm1wNA.8d6f119c66c38282/iN0wj-jVS-NEe1l8PlIjL_cwIpMvCM.mp4",
+          "warnings": [
+            {
+              "kind": "warning",
+              "message": "A durable copy was requested but none was recorded — the URL returned inherits the provider's lifetime. Retry the copy with upload({ source_url: <the url> })."
+            }
+          ]
+        },
+        {
+          "id": "078d9fd9-ac6e-4909-af5c-2942cd3c5804",
+          "capability": "nemotron-omni-video",
+          "stage": "review:1.1",
+          "argsHash": "4af3f696324b39c7",
+          "at": 1789745339472,
+          "latencyMs": 4973,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "c97b3071-f4e5-4443-9fdd-94f36fa17091",
+          "capability": "gemini-text",
+          "stage": "review:1.1:structure",
+          "argsHash": "2a7be76dca17bcbe",
+          "at": 1789745344446,
+          "latencyMs": 3815,
+          "ok": true,
+          "costUSD": 0.0001,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 1,
+          "warnings": []
+        },
+        {
+          "id": "25bcc151-f926-4d66-a881-e7e349c56d81",
+          "capability": "kontext-edit",
+          "stage": "keyframe:1.1",
+          "argsHash": "c0c64a8d8c95abd7",
+          "at": 1789745348262,
+          "latencyMs": 15777,
+          "ok": true,
+          "costUSD": 0.042,
+          "costUnitKind": "image",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly83eTRmbHpwdWxndjRjbzZyLnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS91cGxvYWRzLzE3ODk3NDUzNjM0MzAtYXJ2Z2p2LmpwZWc.439faf39f6a738e7/1789745363430-arvgjv.jpeg",
+          "warnings": []
+        },
+        {
+          "id": "0c5af6e9-8992-41b2-a24f-d153eb68bd42",
+          "capability": "ltx-25-i2v-fast",
+          "stage": "animate:1.1",
+          "argsHash": "f4e394de031c6afb",
+          "at": 1789745364039,
+          "latencyMs": 32130,
+          "ok": true,
+          "costUSD": 0.567,
+          "costUnitKind": "second",
+          "costUnits": 6,
+          "jobId": "mjob_34de3be72c88",
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly92M2IuZmFsLm1lZGlhL2ZpbGVzL2IvMGFhYWVmNDkvSk9PTndFZE9zc3dsbGY4ZnNuT0g5X2VQeFB4RjQ2Lm1wNA.0d65a289997eef25/JOONwEdOsswllf8fsnOH9_ePxPxF46.mp4",
+          "warnings": [
+            {
+              "kind": "warning",
+              "message": "A durable copy was requested but none was recorded — the URL returned inherits the provider's lifetime. Retry the copy with upload({ source_url: <the url> })."
+            }
+          ]
+        },
+        {
+          "id": "7349cb6c-0a07-4a11-b1ea-1c40ccf4facc",
+          "capability": "nemotron-omni-video",
+          "stage": "review:1.1",
+          "argsHash": "8fc4a21e071dcbd8",
+          "at": 1789745396170,
+          "latencyMs": 6690,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "e7c13ca8-f222-4654-8c49-393f03811575",
+          "capability": "kontext-edit",
+          "stage": "keyframe:1.2",
+          "argsHash": "10e2a92eb6fa0ee5",
+          "at": 1789745402867,
+          "latencyMs": 14336,
+          "ok": true,
+          "costUSD": 0.042,
+          "costUnitKind": "image",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly83eTRmbHpwdWxndjRjbzZyLnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS91cGxvYWRzLzE3ODk3NDU0MTYzNzItYW15bTRqLmpwZWc.ce3bb182ad322e00/1789745416372-amym4j.jpeg",
+          "warnings": []
+        },
+        {
+          "id": "ae53a8bb-1b02-4ecb-94de-4915cced5b9b",
+          "capability": "ltx-25-i2v-fast",
+          "stage": "animate:1.2",
+          "argsHash": "ea8802de76eda270",
+          "at": 1789745417203,
+          "latencyMs": 37959,
+          "ok": true,
+          "costUSD": 0.567,
+          "costUnitKind": "second",
+          "costUnits": 6,
+          "jobId": "mjob_6945c2e00086",
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly92M2IuZmFsLm1lZGlhL2ZpbGVzL2IvMGFhYWVmNGUvMDRXNXp5cS1GMmxQdkN5VmZwSHNhX2N3VEVpdk1rLm1wNA.21f32662152c68c4/04W5zyq-F2lPvCyVfpHsa_cwTEivMk.mp4",
+          "warnings": [
+            {
+              "kind": "warning",
+              "message": "A durable copy was requested but none was recorded — the URL returned inherits the provider's lifetime. Retry the copy with upload({ source_url: <the url> })."
+            }
+          ]
+        },
+        {
+          "id": "4a99dfb9-c4ec-476f-a981-c3c8922c7a2d",
+          "capability": "nemotron-omni-video",
+          "stage": "review:1.2",
+          "argsHash": "32969f9d155d9ddb",
+          "at": 1789745455163,
+          "latencyMs": 6252,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "6fa8c884-6351-4e8d-b4d6-3049f8f2cb47",
+          "capability": "gemini-text",
+          "stage": "review:1.2:structure",
+          "argsHash": "28f8b01957a88d2e",
+          "at": 1789745461416,
+          "latencyMs": 7380,
+          "ok": true,
+          "costUSD": 0.0001,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 1,
+          "warnings": []
+        },
+        {
+          "id": "cf9ed6e6-531c-4175-a57b-77f631640800",
+          "capability": "kontext-edit",
+          "stage": "keyframe:1.2",
+          "argsHash": "109b2a2a2cc7fc9b",
+          "at": 1789745468797,
+          "latencyMs": 14038,
+          "ok": true,
+          "costUSD": 0.042,
+          "costUnitKind": "image",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly83eTRmbHpwdWxndjRjbzZyLnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS91cGxvYWRzLzE3ODk3NDU0ODIyNzUtcDE2aTU5LmpwZWc.d850ce4fcbb4dc3e/1789745482275-p16i59.jpeg",
+          "warnings": []
+        },
+        {
+          "id": "3f40c7d3-e3fe-4dcc-aa55-bb10e77347f8",
+          "capability": "ltx-25-i2v-fast",
+          "stage": "animate:1.2",
+          "argsHash": "15c8de4f92cf5722",
+          "at": 1789745482835,
+          "latencyMs": 38528,
+          "ok": true,
+          "costUSD": 0.567,
+          "costUnitKind": "second",
+          "costUnits": 6,
+          "jobId": "mjob_a03de419dbea",
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly92M2IuZmFsLm1lZGlhL2ZpbGVzL2IvMGFhYWVmNTQvdmc3U2lqajhOVzVNdUJnYlBuZktlXzZQenBPSTR5Lm1wNA.74b3d873fe45e475/vg7Sijj8NW5MuBgbPnfKe_6PzpOI4y.mp4",
+          "warnings": [
+            {
+              "kind": "warning",
+              "message": "A durable copy was requested but none was recorded — the URL returned inherits the provider's lifetime. Retry the copy with upload({ source_url: <the url> })."
+            }
+          ]
+        },
+        {
+          "id": "8ac7ccfe-20e6-471c-b027-ce1a019f0d75",
+          "capability": "nemotron-omni-video",
+          "stage": "review:1.2",
+          "argsHash": "ac3a43ebd09fbf14",
+          "at": 1789745521364,
+          "latencyMs": 6114,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "097c5741-cb22-4d68-8007-50203e911938",
+          "capability": "ffmpeg-concat",
+          "stage": "concat:attempt-1",
+          "argsHash": "166f9f07bd855165",
+          "at": 1789745527493,
+          "latencyMs": 6246,
+          "ok": true,
+          "costUSD": 0,
+          "costUnitKind": "call",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3N0b3J5Ym9hcmQtdXBsb2Fkcy90b29sLW91dHB1dHMvMTc4OTc0NTUzMjU4NC0wMmRlNTYxMDVkYjg0YmVjODA4ZDA1OWYxNGFhOGFkOS5tcDQ.1702240b9c0dd586/1789745532584-02de56105db84bec808d059f14aa8ad9.mp4",
+          "warnings": []
+        },
+        {
+          "id": "eac9c22a-7884-48bc-9e19-379d7219ecfc",
+          "capability": "nemotron-omni-video",
+          "stage": "review:attempt-1",
+          "argsHash": "8ae6e60979fea531",
+          "at": 1789745533747,
+          "latencyMs": 7612,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "81660d7b-3ec4-49bb-8b5b-5a976c4f486d",
+          "capability": "gemini-text",
+          "stage": "distill:attempt-1",
+          "argsHash": "146b41cade1bc06a",
+          "at": 1789745541369,
+          "latencyMs": 5660,
+          "ok": true,
+          "costUSD": 0.0001,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 1,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "attempt": 2,
+      "startedAt": 1789745581585,
+      "finishedAt": 1789745847647,
+      "stage": "COMPLETE",
+      "memoryWithheld": false,
+      "canonVersion": 2,
+      "basePrompt": {
+        "text": "A three-shot teaser for a cast-iron pour-over kettle on a bare plaster shelf. Single soft north light, deep falloff into shadow, muted earth palette. The film consists of three distinct shots. A cast-iron pour-over kettle is the only object on screen. Avoid: No on-screen text, logos, or clutter. Lighting creates deep falloff into shadow. Lighting is a single, soft north light source. Avoid: No steam or pouring liquid from the kettle. The kettle rests on a bare plaster shelf. The color palette is muted earth tones. Avoid: The mood is never busy or commercial. The mood is quiet and unhurried. Vary framing significantly across all three shots. Do not center the teapot identically in each frame. Ensure the teapot remains the absolute hero and singular focus of every frame. Maintain identical deep indigo glaze, soft north light, and deep falloff into shadow across all three shots. Utilize a low, warm key light from the left, casting deep shadows, and balance with a cool, neutral fill light. Maintain a shallow depth of field, with the brushed-brass clock always in sharp focus as the hero of the frame. Avoid: on-screen text or logos Avoid: cluttered props Avoid: steam or pouring liquid",
+        "clauses": [
+          {
+            "index": 0,
+            "body": "A three-shot teaser for a cast-iron pour-over kettle on a bare plaster shelf.",
+            "role": "goal",
+            "sourceKind": "brief"
+          },
+          {
+            "index": 1,
+            "body": "Single soft north light, deep falloff into shadow, muted earth palette.",
+            "role": "style",
+            "sourceKind": "brief"
+          },
+          {
+            "index": 2,
+            "body": "The film consists of three distinct shots.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/8537957f0870/1a93db0af57dd0afbec2",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/8537957f0870/1a93db0af57dd0afbec2"
+          },
+          {
+            "index": 3,
+            "body": "A cast-iron pour-over kettle is the only object on screen.",
+            "role": "subject",
+            "sourceId": "https://stele.studio/g/constraint/8537957f0870/30bbdaac83acb9afe428",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/8537957f0870/30bbdaac83acb9afe428"
+          },
+          {
+            "index": 4,
+            "body": "Avoid: No on-screen text, logos, or clutter.",
+            "role": "avoid",
+            "sourceId": "https://stele.studio/g/constraint/8537957f0870/c2da5e06e4a70e486d17",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/8537957f0870/c2da5e06e4a70e486d17"
+          },
+          {
+            "index": 5,
+            "body": "Lighting creates deep falloff into shadow.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/8537957f0870/c358ec5043596120d7fb",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/8537957f0870/c358ec5043596120d7fb"
+          },
+          {
+            "index": 6,
+            "body": "Lighting is a single, soft north light source.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/8537957f0870/ca54cf8a798ac32c7db8",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/8537957f0870/ca54cf8a798ac32c7db8"
+          },
+          {
+            "index": 7,
+            "body": "Avoid: No steam or pouring liquid from the kettle.",
+            "role": "avoid",
+            "sourceId": "https://stele.studio/g/constraint/8537957f0870/e547ae78bc683534a9e1",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/8537957f0870/e547ae78bc683534a9e1"
+          },
+          {
+            "index": 8,
+            "body": "The kettle rests on a bare plaster shelf.",
+            "role": "subject",
+            "sourceId": "https://stele.studio/g/constraint/8537957f0870/0140c3ab601f68dedb44",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/8537957f0870/0140c3ab601f68dedb44"
+          },
+          {
+            "index": 9,
+            "body": "The color palette is muted earth tones.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/8537957f0870/810f88fff294ff914404",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/8537957f0870/810f88fff294ff914404"
+          },
+          {
+            "index": 10,
+            "body": "Avoid: The mood is never busy or commercial.",
+            "role": "avoid",
+            "sourceId": "https://stele.studio/g/constraint/8537957f0870/e00c532e174b53e52647",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/8537957f0870/e00c532e174b53e52647"
+          },
+          {
+            "index": 11,
+            "body": "The mood is quiet and unhurried.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/8537957f0870/7b9ecaa79d62d68c57f1",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/8537957f0870/7b9ecaa79d62d68c57f1"
+          },
+          {
+            "index": 12,
+            "body": "Vary framing significantly across all three shots. Do not center the teapot identically in each frame.",
+            "role": "avoid",
+            "sourceId": "https://stele.studio/g/lesson/e6c6b1d7357c/1/26467",
+            "sourceKind": "lesson",
+            "sourceAttempt": 1,
+            "sourceIri": "https://stele.studio/g/lesson/e6c6b1d7357c/1/26467",
+            "originProjectId": "e6c6b1d7357c"
+          },
+          {
+            "index": 13,
+            "body": "Ensure the teapot remains the absolute hero and singular focus of every frame.",
+            "role": "lesson",
+            "sourceId": "https://stele.studio/g/lesson/e6c6b1d7357c/1/86663",
+            "sourceKind": "lesson",
+            "sourceAttempt": 1,
+            "sourceIri": "https://stele.studio/g/lesson/e6c6b1d7357c/1/86663",
+            "originProjectId": "e6c6b1d7357c"
+          },
+          {
+            "index": 14,
+            "body": "Maintain identical deep indigo glaze, soft north light, and deep falloff into shadow across all three shots.",
+            "role": "lesson",
+            "sourceId": "https://stele.studio/g/lesson/e6c6b1d7357c/1/91",
+            "sourceKind": "lesson",
+            "sourceAttempt": 1,
+            "sourceIri": "https://stele.studio/g/lesson/e6c6b1d7357c/1/91",
+            "originProjectId": "e6c6b1d7357c"
+          },
+          {
+            "index": 15,
+            "body": "Utilize a low, warm key light from the left, casting deep shadows, and balance with a cool, neutral fill light.",
+            "role": "lesson",
+            "sourceId": "https://stele.studio/g/lesson/b05ae4b8e655/1/16418",
+            "sourceKind": "lesson",
+            "sourceAttempt": 1,
+            "sourceIri": "https://stele.studio/g/lesson/b05ae4b8e655/1/16418",
+            "originProjectId": "b05ae4b8e655"
+          },
+          {
+            "index": 16,
+            "body": "Maintain a shallow depth of field, with the brushed-brass clock always in sharp focus as the hero of the frame.",
+            "role": "lesson",
+            "sourceId": "https://stele.studio/g/lesson/b05ae4b8e655/1/47021",
+            "sourceKind": "lesson",
+            "sourceAttempt": 1,
+            "sourceIri": "https://stele.studio/g/lesson/b05ae4b8e655/1/47021",
+            "originProjectId": "b05ae4b8e655"
+          },
+          {
+            "index": 17,
+            "body": "Avoid: on-screen text or logos",
+            "role": "avoid",
+            "sourceKind": "brief"
+          },
+          {
+            "index": 18,
+            "body": "Avoid: cluttered props",
+            "role": "avoid",
+            "sourceKind": "brief"
+          },
+          {
+            "index": 19,
+            "body": "Avoid: steam or pouring liquid",
+            "role": "avoid",
+            "sourceKind": "brief"
+          }
+        ],
+        "memoryClauseCount": 5,
+        "promptHash": "58dd0d28b3f5e4189cdbe2a986f6857f27d2bb4ab22045f66614e7ae63803997"
+      },
+      "shots": [
+        {
+          "index": 0,
+          "intent": "To introduce the kettle as a monolithic, sculptural form, emphasizing its unique texture and indigo glaze against the soft light.",
+          "prompt": {
+            "text": "A close-up, low-angle shot of the cast-iron pour-over kettle, filling the bottom third of the frame, showcasing the deep indigo glaze's subtle variations and the fine texture of the cast iron. The soft north light rakes across its side, creating a stark highlight and a deep shadow stretching upwards into the dark background. Muted earth tones dominate, with the bare plaster shelf just visible at the bottom. Shallow depth of field, kettle in sharp focus. Single soft north light, deep falloff into shadow, muted earth palette. The film consists of three distinct shots. A cast-iron pour-over kettle is the only object on screen. Avoid: No on-screen text, logos, or clutter. Lighting creates deep falloff into shadow. Lighting is a single, soft north light source. Avoid: No steam or pouring liquid from the kettle. The kettle rests on a bare plaster shelf. The color palette is muted earth tones. Avoid: The mood is never busy or commercial. The mood is quiet and unhurried. Vary framing significantly across all three shots. Do not center the teapot identically in each frame. Ensure the teapot remains the absolute hero and singular focus of every frame. Maintain identical deep indigo glaze, soft north light, and deep falloff into shadow across all three shots. Utilize a low, warm key light from the left, casting deep shadows, and balance with a cool, neutral fill light. Maintain a shallow depth of field, with the brushed-brass clock always in sharp focus as the hero of the frame. Avoid: on-screen text or logos Avoid: cluttered props Avoid: steam or pouring liquid",
+            "clauses": [
+              {
+                "index": 0,
+                "body": "A close-up, low-angle shot of the cast-iron pour-over kettle, filling the bottom third of the frame, showcasing the deep indigo glaze's subtle variations and the fine texture of the cast iron. The soft north light rakes across its side, creating a stark highlight and a deep shadow stretching upwards into the dark background. Muted earth tones dominate, with the bare plaster shelf just visible at the bottom. Shallow depth of field, kettle in sharp focus.",
+                "role": "goal",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 1,
+                "body": "Single soft north light, deep falloff into shadow, muted earth palette.",
+                "role": "style",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 2,
+                "body": "The film consists of three distinct shots.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/1a93db0af57dd0afbec2",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/1a93db0af57dd0afbec2"
+              },
+              {
+                "index": 3,
+                "body": "A cast-iron pour-over kettle is the only object on screen.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/30bbdaac83acb9afe428",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/30bbdaac83acb9afe428"
+              },
+              {
+                "index": 4,
+                "body": "Avoid: No on-screen text, logos, or clutter.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/c2da5e06e4a70e486d17",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/c2da5e06e4a70e486d17"
+              },
+              {
+                "index": 5,
+                "body": "Lighting creates deep falloff into shadow.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/c358ec5043596120d7fb",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/c358ec5043596120d7fb"
+              },
+              {
+                "index": 6,
+                "body": "Lighting is a single, soft north light source.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/ca54cf8a798ac32c7db8",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/ca54cf8a798ac32c7db8"
+              },
+              {
+                "index": 7,
+                "body": "Avoid: No steam or pouring liquid from the kettle.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/e547ae78bc683534a9e1",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/e547ae78bc683534a9e1"
+              },
+              {
+                "index": 8,
+                "body": "The kettle rests on a bare plaster shelf.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/0140c3ab601f68dedb44",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/0140c3ab601f68dedb44"
+              },
+              {
+                "index": 9,
+                "body": "The color palette is muted earth tones.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/810f88fff294ff914404",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/810f88fff294ff914404"
+              },
+              {
+                "index": 10,
+                "body": "Avoid: The mood is never busy or commercial.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/e00c532e174b53e52647",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/e00c532e174b53e52647"
+              },
+              {
+                "index": 11,
+                "body": "The mood is quiet and unhurried.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/7b9ecaa79d62d68c57f1",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/7b9ecaa79d62d68c57f1"
+              },
+              {
+                "index": 12,
+                "body": "Vary framing significantly across all three shots. Do not center the teapot identically in each frame.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/lesson/e6c6b1d7357c/1/26467",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "sourceIri": "https://stele.studio/g/lesson/e6c6b1d7357c/1/26467",
+                "originProjectId": "e6c6b1d7357c"
+              },
+              {
+                "index": 13,
+                "body": "Ensure the teapot remains the absolute hero and singular focus of every frame.",
+                "role": "lesson",
+                "sourceId": "https://stele.studio/g/lesson/e6c6b1d7357c/1/86663",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "sourceIri": "https://stele.studio/g/lesson/e6c6b1d7357c/1/86663",
+                "originProjectId": "e6c6b1d7357c"
+              },
+              {
+                "index": 14,
+                "body": "Maintain identical deep indigo glaze, soft north light, and deep falloff into shadow across all three shots.",
+                "role": "lesson",
+                "sourceId": "https://stele.studio/g/lesson/e6c6b1d7357c/1/91",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "sourceIri": "https://stele.studio/g/lesson/e6c6b1d7357c/1/91",
+                "originProjectId": "e6c6b1d7357c"
+              },
+              {
+                "index": 15,
+                "body": "Utilize a low, warm key light from the left, casting deep shadows, and balance with a cool, neutral fill light.",
+                "role": "lesson",
+                "sourceId": "https://stele.studio/g/lesson/b05ae4b8e655/1/16418",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "sourceIri": "https://stele.studio/g/lesson/b05ae4b8e655/1/16418",
+                "originProjectId": "b05ae4b8e655"
+              },
+              {
+                "index": 16,
+                "body": "Maintain a shallow depth of field, with the brushed-brass clock always in sharp focus as the hero of the frame.",
+                "role": "lesson",
+                "sourceId": "https://stele.studio/g/lesson/b05ae4b8e655/1/47021",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "sourceIri": "https://stele.studio/g/lesson/b05ae4b8e655/1/47021",
+                "originProjectId": "b05ae4b8e655"
+              },
+              {
+                "index": 17,
+                "body": "Avoid: on-screen text or logos",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 18,
+                "body": "Avoid: cluttered props",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 19,
+                "body": "Avoid: steam or pouring liquid",
+                "role": "avoid",
+                "sourceKind": "brief"
+              }
+            ],
+            "memoryClauseCount": 5,
+            "promptHash": "8fb2ef4fb1214f5c444df079307b01ed2cef96009d9b31f40f96bd3ade624434"
+          },
+          "motionPrompt": "Subtle, slow push-in, barely perceptible.",
+          "keyframeUrl": "/seed/a7ca2e65dce18659.jpg",
+          "keyframeCapability": "flux-schnell",
+          "videoUrl": "/seed/0bc5dbc6f28d9d92.mp4",
+          "capability": "ltx-25-i2v-fast",
+          "costUSD": 0,
+          "review": {
+            "score": 9,
+            "passed": true,
+            "summary": "The kettle is presented as a sculptural object with consistent lighting and texture across varied, non-repeating angles in a quiet, unhurried manner.",
+            "findings": [
+              {
+                "index": 0,
+                "body": "Strong sculptural presence",
+                "polarity": "positive"
+              },
+              {
+                "index": 1,
+                "body": "Consistent material detail",
+                "polarity": "positive"
+              },
+              {
+                "index": 2,
+                "body": "Varied composition without repetition",
+                "polarity": "positive"
+              },
+              {
+                "index": 3,
+                "body": "Tranquil, focused atmosphere",
+                "polarity": "positive"
+              }
+            ],
+            "verdicts": [
+              {
+                "index": 0,
+                "met": true,
+                "note": "Kettle is central and dominant in all frames"
+              },
+              {
+                "index": 1,
+                "met": true,
+                "note": "Lighting, glaze texture and finish remain consistent across shots"
+              },
+              {
+                "index": 2,
+                "met": true,
+                "note": "Framing varies from wide to close-up, avoiding repetition"
+              },
+              {
+                "index": 3,
+                "met": true,
+                "note": "Mood is serene and deliberate, free of commercial busyness"
+              }
+            ],
+            "costUSD": 0.0129,
+            "capability": "nemotron-omni-video"
+          },
+          "attempts": 1,
+          "status": "passed"
+        },
+        {
+          "index": 1,
+          "intent": "To reveal the kettle's elegant silhouette and its relationship to the surrounding empty space, highlighting its deliberate placement.",
+          "prompt": {
+            "text": "A medium shot of the cast-iron pour-over kettle, positioned to the right of the frame, allowing ample negative space to its left. The soft north light illuminates its left side, casting a long, soft shadow diagonally across the bare plaster shelf. The deep indigo glaze is prominent against the muted earth tones of the plaster and the deep falloff into shadow. Shallow depth of field, kettle in sharp focus. Single soft north light, deep falloff into shadow, muted earth palette. The film consists of three distinct shots. A cast-iron pour-over kettle is the only object on screen. Avoid: No on-screen text, logos, or clutter. Lighting creates deep falloff into shadow. Lighting is a single, soft north light source. Avoid: No steam or pouring liquid from the kettle. The kettle rests on a bare plaster shelf. The color palette is muted earth tones. Avoid: The mood is never busy or commercial. The mood is quiet and unhurried. Vary framing significantly across all three shots. Do not center the teapot identically in each frame. Ensure the teapot remains the absolute hero and singular focus of every frame. Maintain identical deep indigo glaze, soft north light, and deep falloff into shadow across all three shots. Utilize a low, warm key light from the left, casting deep shadows, and balance with a cool, neutral fill light. Maintain a shallow depth of field, with the brushed-brass clock always in sharp focus as the hero of the frame. Avoid: on-screen text or logos Avoid: cluttered props Avoid: steam or pouring liquid",
+            "clauses": [
+              {
+                "index": 0,
+                "body": "A medium shot of the cast-iron pour-over kettle, positioned to the right of the frame, allowing ample negative space to its left. The soft north light illuminates its left side, casting a long, soft shadow diagonally across the bare plaster shelf. The deep indigo glaze is prominent against the muted earth tones of the plaster and the deep falloff into shadow. Shallow depth of field, kettle in sharp focus.",
+                "role": "goal",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 1,
+                "body": "Single soft north light, deep falloff into shadow, muted earth palette.",
+                "role": "style",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 2,
+                "body": "The film consists of three distinct shots.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/1a93db0af57dd0afbec2",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/1a93db0af57dd0afbec2"
+              },
+              {
+                "index": 3,
+                "body": "A cast-iron pour-over kettle is the only object on screen.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/30bbdaac83acb9afe428",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/30bbdaac83acb9afe428"
+              },
+              {
+                "index": 4,
+                "body": "Avoid: No on-screen text, logos, or clutter.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/c2da5e06e4a70e486d17",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/c2da5e06e4a70e486d17"
+              },
+              {
+                "index": 5,
+                "body": "Lighting creates deep falloff into shadow.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/c358ec5043596120d7fb",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/c358ec5043596120d7fb"
+              },
+              {
+                "index": 6,
+                "body": "Lighting is a single, soft north light source.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/ca54cf8a798ac32c7db8",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/ca54cf8a798ac32c7db8"
+              },
+              {
+                "index": 7,
+                "body": "Avoid: No steam or pouring liquid from the kettle.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/e547ae78bc683534a9e1",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/e547ae78bc683534a9e1"
+              },
+              {
+                "index": 8,
+                "body": "The kettle rests on a bare plaster shelf.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/0140c3ab601f68dedb44",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/0140c3ab601f68dedb44"
+              },
+              {
+                "index": 9,
+                "body": "The color palette is muted earth tones.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/810f88fff294ff914404",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/810f88fff294ff914404"
+              },
+              {
+                "index": 10,
+                "body": "Avoid: The mood is never busy or commercial.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/e00c532e174b53e52647",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/e00c532e174b53e52647"
+              },
+              {
+                "index": 11,
+                "body": "The mood is quiet and unhurried.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/7b9ecaa79d62d68c57f1",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/7b9ecaa79d62d68c57f1"
+              },
+              {
+                "index": 12,
+                "body": "Vary framing significantly across all three shots. Do not center the teapot identically in each frame.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/lesson/e6c6b1d7357c/1/26467",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "sourceIri": "https://stele.studio/g/lesson/e6c6b1d7357c/1/26467",
+                "originProjectId": "e6c6b1d7357c"
+              },
+              {
+                "index": 13,
+                "body": "Ensure the teapot remains the absolute hero and singular focus of every frame.",
+                "role": "lesson",
+                "sourceId": "https://stele.studio/g/lesson/e6c6b1d7357c/1/86663",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "sourceIri": "https://stele.studio/g/lesson/e6c6b1d7357c/1/86663",
+                "originProjectId": "e6c6b1d7357c"
+              },
+              {
+                "index": 14,
+                "body": "Maintain identical deep indigo glaze, soft north light, and deep falloff into shadow across all three shots.",
+                "role": "lesson",
+                "sourceId": "https://stele.studio/g/lesson/e6c6b1d7357c/1/91",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "sourceIri": "https://stele.studio/g/lesson/e6c6b1d7357c/1/91",
+                "originProjectId": "e6c6b1d7357c"
+              },
+              {
+                "index": 15,
+                "body": "Utilize a low, warm key light from the left, casting deep shadows, and balance with a cool, neutral fill light.",
+                "role": "lesson",
+                "sourceId": "https://stele.studio/g/lesson/b05ae4b8e655/1/16418",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "sourceIri": "https://stele.studio/g/lesson/b05ae4b8e655/1/16418",
+                "originProjectId": "b05ae4b8e655"
+              },
+              {
+                "index": 16,
+                "body": "Maintain a shallow depth of field, with the brushed-brass clock always in sharp focus as the hero of the frame.",
+                "role": "lesson",
+                "sourceId": "https://stele.studio/g/lesson/b05ae4b8e655/1/47021",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "sourceIri": "https://stele.studio/g/lesson/b05ae4b8e655/1/47021",
+                "originProjectId": "b05ae4b8e655"
+              },
+              {
+                "index": 17,
+                "body": "Avoid: on-screen text or logos",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 18,
+                "body": "Avoid: cluttered props",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 19,
+                "body": "Avoid: steam or pouring liquid",
+                "role": "avoid",
+                "sourceKind": "brief"
+              }
+            ],
+            "memoryClauseCount": 5,
+            "promptHash": "c3df0994b06b40fbdc0ac47bf89f670da28f8c36a38a0e908fe9b6fad3c57be3"
+          },
+          "motionPrompt": "Very slow, almost imperceptible pan right, revealing slightly more of the shelf.",
+          "keyframeUrl": "/seed/931b26a3807f9802.jpg",
+          "keyframeCapability": "kontext-edit",
+          "anchoredTo": "/seed/a7ca2e65dce18659.jpg",
+          "videoUrl": "/seed/b2e6789dc0c42d9f.mp4",
+          "capability": "ltx-25-i2v-fast",
+          "costUSD": 0,
+          "review": {
+            "score": 8,
+            "passed": false,
+            "summary": "The kettle is clearly the hero with consistent lighting and a quiet mood, but the three shots are too similar in framing.",
+            "findings": [
+              {
+                "index": 0,
+                "body": "heroic focus on kettle",
+                "polarity": "positive"
+              },
+              {
+                "index": 1,
+                "body": "consistent lighting and texture",
+                "polarity": "positive"
+              },
+              {
+                "index": 2,
+                "body": "varied but subtle framing",
+                "polarity": "positive"
+              },
+              {
+                "index": 3,
+                "body": "calm, unhurried atmosphere",
+                "polarity": "positive"
+              },
+              {
+                "index": 4,
+                "body": "the three shots read as nearly identical rather than distinctly different angles",
+                "polarity": "negative"
+              }
+            ],
+            "verdicts": [
+              {
+                "index": 0,
+                "met": true,
+                "note": "kettle dominates each frame"
+              },
+              {
+                "index": 1,
+                "met": true,
+                "note": "lighting, finish and surface remain identical"
+              },
+              {
+                "index": 2,
+                "met": true,
+                "note": "each shot has a different angle and composition"
+              },
+              {
+                "index": 3,
+                "met": true,
+                "note": "mood is quiet and unhurried"
+              }
+            ],
+            "costUSD": 0.0128,
+            "capability": "nemotron-omni-video"
+          },
+          "attempts": 2,
+          "status": "failed"
+        },
+        {
+          "index": 2,
+          "intent": "To provide a final, intimate detail of the kettle, emphasizing its material quality and craftsmanship.",
+          "prompt": {
+            "text": "An extreme close-up, slightly elevated shot of the kettle's spout and a small section of its body, framed off-center. The deep indigo glaze is the dominant feature, with a specific, subtle highlight on the curve of the spout from the soft north light. The texture of the cast iron is sharply defined against the soft, out-of-focus background of the bare plaster shelf. Shallow depth of field, spout in sharp focus. Single soft north light, deep falloff into shadow, muted earth palette. The film consists of three distinct shots. A cast-iron pour-over kettle is the only object on screen. Avoid: No on-screen text, logos, or clutter. Lighting creates deep falloff into shadow. Lighting is a single, soft north light source. Avoid: No steam or pouring liquid from the kettle. The kettle rests on a bare plaster shelf. The color palette is muted earth tones. Avoid: The mood is never busy or commercial. The mood is quiet and unhurried. Vary framing significantly across all three shots. Do not center the teapot identically in each frame. Ensure the teapot remains the absolute hero and singular focus of every frame. Maintain identical deep indigo glaze, soft north light, and deep falloff into shadow across all three shots. Utilize a low, warm key light from the left, casting deep shadows, and balance with a cool, neutral fill light. Maintain a shallow depth of field, with the brushed-brass clock always in sharp focus as the hero of the frame. Avoid: on-screen text or logos Avoid: cluttered props Avoid: steam or pouring liquid",
+            "clauses": [
+              {
+                "index": 0,
+                "body": "An extreme close-up, slightly elevated shot of the kettle's spout and a small section of its body, framed off-center. The deep indigo glaze is the dominant feature, with a specific, subtle highlight on the curve of the spout from the soft north light. The texture of the cast iron is sharply defined against the soft, out-of-focus background of the bare plaster shelf. Shallow depth of field, spout in sharp focus.",
+                "role": "goal",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 1,
+                "body": "Single soft north light, deep falloff into shadow, muted earth palette.",
+                "role": "style",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 2,
+                "body": "The film consists of three distinct shots.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/1a93db0af57dd0afbec2",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/1a93db0af57dd0afbec2"
+              },
+              {
+                "index": 3,
+                "body": "A cast-iron pour-over kettle is the only object on screen.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/30bbdaac83acb9afe428",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/30bbdaac83acb9afe428"
+              },
+              {
+                "index": 4,
+                "body": "Avoid: No on-screen text, logos, or clutter.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/c2da5e06e4a70e486d17",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/c2da5e06e4a70e486d17"
+              },
+              {
+                "index": 5,
+                "body": "Lighting creates deep falloff into shadow.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/c358ec5043596120d7fb",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/c358ec5043596120d7fb"
+              },
+              {
+                "index": 6,
+                "body": "Lighting is a single, soft north light source.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/ca54cf8a798ac32c7db8",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/ca54cf8a798ac32c7db8"
+              },
+              {
+                "index": 7,
+                "body": "Avoid: No steam or pouring liquid from the kettle.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/e547ae78bc683534a9e1",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/e547ae78bc683534a9e1"
+              },
+              {
+                "index": 8,
+                "body": "The kettle rests on a bare plaster shelf.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/0140c3ab601f68dedb44",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/0140c3ab601f68dedb44"
+              },
+              {
+                "index": 9,
+                "body": "The color palette is muted earth tones.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/810f88fff294ff914404",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/810f88fff294ff914404"
+              },
+              {
+                "index": 10,
+                "body": "Avoid: The mood is never busy or commercial.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/e00c532e174b53e52647",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/e00c532e174b53e52647"
+              },
+              {
+                "index": 11,
+                "body": "The mood is quiet and unhurried.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/8537957f0870/7b9ecaa79d62d68c57f1",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/8537957f0870/7b9ecaa79d62d68c57f1"
+              },
+              {
+                "index": 12,
+                "body": "Vary framing significantly across all three shots. Do not center the teapot identically in each frame.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/lesson/e6c6b1d7357c/1/26467",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "sourceIri": "https://stele.studio/g/lesson/e6c6b1d7357c/1/26467",
+                "originProjectId": "e6c6b1d7357c"
+              },
+              {
+                "index": 13,
+                "body": "Ensure the teapot remains the absolute hero and singular focus of every frame.",
+                "role": "lesson",
+                "sourceId": "https://stele.studio/g/lesson/e6c6b1d7357c/1/86663",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "sourceIri": "https://stele.studio/g/lesson/e6c6b1d7357c/1/86663",
+                "originProjectId": "e6c6b1d7357c"
+              },
+              {
+                "index": 14,
+                "body": "Maintain identical deep indigo glaze, soft north light, and deep falloff into shadow across all three shots.",
+                "role": "lesson",
+                "sourceId": "https://stele.studio/g/lesson/e6c6b1d7357c/1/91",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "sourceIri": "https://stele.studio/g/lesson/e6c6b1d7357c/1/91",
+                "originProjectId": "e6c6b1d7357c"
+              },
+              {
+                "index": 15,
+                "body": "Utilize a low, warm key light from the left, casting deep shadows, and balance with a cool, neutral fill light.",
+                "role": "lesson",
+                "sourceId": "https://stele.studio/g/lesson/b05ae4b8e655/1/16418",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "sourceIri": "https://stele.studio/g/lesson/b05ae4b8e655/1/16418",
+                "originProjectId": "b05ae4b8e655"
+              },
+              {
+                "index": 16,
+                "body": "Maintain a shallow depth of field, with the brushed-brass clock always in sharp focus as the hero of the frame.",
+                "role": "lesson",
+                "sourceId": "https://stele.studio/g/lesson/b05ae4b8e655/1/47021",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "sourceIri": "https://stele.studio/g/lesson/b05ae4b8e655/1/47021",
+                "originProjectId": "b05ae4b8e655"
+              },
+              {
+                "index": 17,
+                "body": "Avoid: on-screen text or logos",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 18,
+                "body": "Avoid: cluttered props",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 19,
+                "body": "Avoid: steam or pouring liquid",
+                "role": "avoid",
+                "sourceKind": "brief"
+              }
+            ],
+            "memoryClauseCount": 5,
+            "promptHash": "93c2605d610c53b4fd388692dc5c8f79c6561fff9e32c0362575a1ee036efaed"
+          },
+          "motionPrompt": "A very slow, gentle upward tilt, revealing more of the spout's curve.",
+          "keyframeUrl": "/seed/ff8796edc91b1c5a.jpg",
+          "keyframeCapability": "kontext-edit",
+          "anchoredTo": "/seed/a7ca2e65dce18659.jpg",
+          "videoUrl": "/seed/8cc15c840e2f7c14.mp4",
+          "capability": "ltx-25-i2v-fast",
+          "costUSD": 0,
+          "review": {
+            "score": 9,
+            "passed": true,
+            "summary": "The kettle is the sole focus, with consistent lighting and varied angles creating a quiet, unhurried mood suitable for specialty coffee buyers.",
+            "findings": [
+              {
+                "index": 0,
+                "body": "Intimate detail highlights material quality and craftsmanship",
+                "polarity": "positive"
+              },
+              {
+                "index": 1,
+                "body": "Consistent lighting emphasizes texture and form",
+                "polarity": "positive"
+              },
+              {
+                "index": 2,
+                "body": "Varied framing keeps visual interest without repetition",
+                "polarity": "positive"
+              },
+              {
+                "index": 3,
+                "body": "Quiet, unhurried atmosphere aligns with specialty coffee aesthetic",
+                "polarity": "positive"
+              }
+            ],
+            "verdicts": [
+              {
+                "index": 0,
+                "met": true,
+                "note": "Kettle is unmistakably the hero of every frame"
+              },
+              {
+                "index": 1,
+                "met": true,
+                "note": "Lighting, finish and surface stay identical across all three shots"
+              },
+              {
+                "index": 2,
+                "met": true,
+                "note": "Each shot uses a visibly different framing, so the three do not read as one repeated angle"
+              },
+              {
+                "index": 3,
+                "met": true,
+                "note": "The mood is quiet and unhurried, never busy or commercial"
+              }
+            ],
+            "costUSD": 0.0128,
+            "capability": "nemotron-omni-video"
+          },
+          "attempts": 1,
+          "status": "passed"
+        }
+      ],
+      "cutUrl": "/seed/08afe62a8e4a7fd4.mp4",
+      "review": {
+        "score": 8,
+        "passed": false,
+        "summary": "The kettle is clearly the focus with consistent lighting, varied framing, and a quiet mood, though the shots are very similar in composition.",
+        "findings": [
+          {
+            "index": 0,
+            "body": "Strong hero focus on the kettle",
+            "polarity": "positive"
+          },
+          {
+            "index": 1,
+            "body": "Consistent lighting and finish",
+            "polarity": "positive"
+          },
+          {
+            "index": 2,
+            "body": "Varied framing creates visual interest",
+            "polarity": "positive"
+          },
+          {
+            "index": 3,
+            "body": "Calm, unhurried atmosphere",
+            "polarity": "positive"
+          },
+          {
+            "index": 4,
+            "body": "No on-screen text or logos",
+            "polarity": "negative"
+          },
+          {
+            "index": 5,
+            "body": "No cluttered props",
+            "polarity": "negative"
+          },
+          {
+            "index": 6,
+            "body": "No steam or pouring liquid",
+            "polarity": "negative"
+          }
+        ],
+        "verdicts": [
+          {
+            "index": 0,
+            "met": true,
+            "note": "Kettle is the sole subject in all frames"
+          },
+          {
+            "index": 1,
+            "met": true,
+            "note": "Lighting, blue glaze and metal handle remain consistent across shots"
+          },
+          {
+            "index": 2,
+            "met": true,
+            "note": "Each shot uses a distinct framing: wide, medium, and close-up"
+          },
+          {
+            "index": 3,
+            "met": true,
+            "note": "Mood is quiet and unhurried with no commercial or busy elements"
+          }
+        ],
+        "costUSD": 0.0129,
+        "capability": "nemotron-omni-video"
+      },
+      "lessonIds": [
+        "l2-c05ba6abc6",
+        "l2-83e5de30bd",
+        "l2-cdd330cbab"
+      ],
+      "costUSD": 2.4616,
+      "calls": [
+        {
+          "id": "e02432f8-5060-4a55-b0f3-e655a38027ea",
+          "capability": "gemini-text",
+          "stage": "plan:attempt-2",
+          "argsHash": "b146096e15a506c5",
+          "at": 1789745581627,
+          "latencyMs": 7336,
+          "ok": true,
+          "costUSD": 0.0001,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 1,
+          "warnings": []
+        },
+        {
+          "id": "71ec98ec-79a0-449e-92a8-14f492094123",
+          "capability": "flux-schnell",
+          "stage": "keyframe:2.0",
+          "argsHash": "dc7b1decd173bd9f",
+          "at": 1789745588975,
+          "latencyMs": 6469,
+          "ok": true,
+          "costUSD": 0.0032,
+          "costUnitKind": "megapixel",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly83eTRmbHpwdWxndjRjbzZyLnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS91cGxvYWRzLzE3ODk3NDU1OTQ1MzMtNTU2bDA2LmpwZWc.a4f6f34dd57d68f5/1789745594533-556l06.jpeg",
+          "warnings": []
+        },
+        {
+          "id": "90e40b0a-5fea-4f59-8539-ae9efba58db7",
+          "capability": "ltx-25-i2v-fast",
+          "stage": "animate:2.0",
+          "argsHash": "732c12d8deb013ef",
+          "at": 1789745595444,
+          "latencyMs": 32785,
+          "ok": true,
+          "costUSD": 0.567,
+          "costUnitKind": "second",
+          "costUnits": 6,
+          "jobId": "mjob_b2c8095d9cf3",
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly92M2IuZmFsLm1lZGlhL2ZpbGVzL2IvMGFhYWVmNjAvNFU1M3JzVHJBNVZ3NTJNcm54NjVIXzlhZ1lhTDUyLm1wNA.a9ab45880b2b13a4/4U53rsTrA5Vw52Mrnx65H_9agYaL52.mp4",
+          "warnings": [
+            {
+              "kind": "warning",
+              "message": "A durable copy was requested but none was recorded — the URL returned inherits the provider's lifetime. Retry the copy with upload({ source_url: <the url> })."
+            }
+          ]
+        },
+        {
+          "id": "9ee3417e-e38c-414e-9643-3611115103f9",
+          "capability": "nemotron-omni-video",
+          "stage": "review:2.0",
+          "argsHash": "d2eabd8a9348eccf",
+          "at": 1789745628230,
+          "latencyMs": 8244,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "1fd901c8-d2a0-41bf-8e20-ce01d60ae911",
+          "capability": "gemini-text",
+          "stage": "review:2.0:structure",
+          "argsHash": "a648bbc7938ac7db",
+          "at": 1789745636475,
+          "latencyMs": 4674,
+          "ok": true,
+          "costUSD": 0.0001,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 1,
+          "warnings": []
+        },
+        {
+          "id": "257f3dae-a77e-4cc8-bce5-abf993dcfd30",
+          "capability": "kontext-edit",
+          "stage": "keyframe:2.1",
+          "argsHash": "884e9f721a7e1265",
+          "at": 1789745641157,
+          "latencyMs": 20603,
+          "ok": true,
+          "costUSD": 0.042,
+          "costUnitKind": "image",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly83eTRmbHpwdWxndjRjbzZyLnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS91cGxvYWRzLzE3ODk3NDU2NjExNjUtY2d5a2JyLmpwZWc.fc9ae5d2d9ac7a3c/1789745661165-cgykbr.jpeg",
+          "warnings": []
+        },
+        {
+          "id": "95a4fc63-9061-4441-8bf8-bd4f700d9ad2",
+          "capability": "ltx-25-i2v-fast",
+          "stage": "animate:2.1",
+          "argsHash": "b70ea18b697a14d0",
+          "at": 1789745661760,
+          "latencyMs": 39663,
+          "ok": true,
+          "costUSD": 0.567,
+          "costUnitKind": "second",
+          "costUnits": 6,
+          "jobId": "mjob_6ce86bfc80ea",
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly92M2IuZmFsLm1lZGlhL2ZpbGVzL2IvMGFhYWVmNjcvVjJwemJYQVQ0TktYeVl1RXJzZlNqX3FRVzdYY3EyLm1wNA.20ddb7b4a1af9de4/V2pzbXAT4NKXyYuErsfSj_qQW7Xcq2.mp4",
+          "warnings": [
+            {
+              "kind": "warning",
+              "message": "A durable copy was requested but none was recorded — the URL returned inherits the provider's lifetime. Retry the copy with upload({ source_url: <the url> })."
+            }
+          ]
+        },
+        {
+          "id": "aca2beb1-a814-4a80-9961-5f583632d051",
+          "capability": "nemotron-omni-video",
+          "stage": "review:2.1",
+          "argsHash": "f709cffea560d180",
+          "at": 1789745701424,
+          "latencyMs": 7005,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "a0984595-97c7-4d73-ac49-4fa47a1c7526",
+          "capability": "kontext-edit",
+          "stage": "keyframe:2.1",
+          "argsHash": "cd7d1a4b391e18cd",
+          "at": 1789745708430,
+          "latencyMs": 16073,
+          "ok": true,
+          "costUSD": 0.042,
+          "costUnitKind": "image",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly83eTRmbHpwdWxndjRjbzZyLnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS91cGxvYWRzLzE3ODk3NDU3MjM3OTIteHdxaTM4LmpwZWc.2004de9faf5afd9f/1789745723792-xwqi38.jpeg",
+          "warnings": []
+        },
+        {
+          "id": "58a6fcbd-f915-41cd-a073-b64d3bb1ce43",
+          "capability": "ltx-25-i2v-fast",
+          "stage": "animate:2.1",
+          "argsHash": "aca849df09a42815",
+          "at": 1789745724503,
+          "latencyMs": 38096,
+          "ok": true,
+          "costUSD": 0.567,
+          "costUnitKind": "second",
+          "costUnits": 6,
+          "jobId": "mjob_7cf0474d65d7",
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly92M2IuZmFsLm1lZGlhL2ZpbGVzL2IvMGFhYWVmNmQvUU5MVktVd3ZobWxMN1hpdVhYbTVvXzhHaHhkQWJNLm1wNA.9c36a47a99df3605/QNLVKUwvhmlL7XiuXXm5o_8GhxdAbM.mp4",
+          "warnings": [
+            {
+              "kind": "warning",
+              "message": "A durable copy was requested but none was recorded — the URL returned inherits the provider's lifetime. Retry the copy with upload({ source_url: <the url> })."
+            }
+          ]
+        },
+        {
+          "id": "def8045e-795f-488f-b49f-52dbc63b8f1c",
+          "capability": "nemotron-omni-video",
+          "stage": "review:2.1",
+          "argsHash": "8d6a01dbe46711a4",
+          "at": 1789745762599,
+          "latencyMs": 6122,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "6bfded88-60e1-406e-b6b4-f4e2a4cae2bd",
+          "capability": "kontext-edit",
+          "stage": "keyframe:2.2",
+          "argsHash": "b3b4d15b4194bde5",
+          "at": 1789745768730,
+          "latencyMs": 14328,
+          "ok": true,
+          "costUSD": 0.042,
+          "costUnitKind": "image",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly83eTRmbHpwdWxndjRjbzZyLnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS91cGxvYWRzLzE3ODk3NDU3ODIwNDktaGM2cjlnLmpwZWc.e146fdfd518a5fba/1789745782049-hc6r9g.jpeg",
+          "warnings": []
+        },
+        {
+          "id": "4f6ecf4d-0bfd-404a-b92d-63e4946fd5e2",
+          "capability": "ltx-25-i2v-fast",
+          "stage": "animate:2.2",
+          "argsHash": "58653781a62b0932",
+          "at": 1789745783058,
+          "latencyMs": 32611,
+          "ok": true,
+          "costUSD": 0.567,
+          "costUnitKind": "second",
+          "costUnits": 6,
+          "jobId": "mjob_647953a575e9",
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly92M2IuZmFsLm1lZGlhL2ZpbGVzL2IvMGFhYWVmNzMvWDVRWmd5WTBFbWxETEdwd3hqREZNX0pzWlVMeGNELm1wNA.e7507ed2a71aec03/X5QZgyY0EmlDLGpwxjDFM_JsZULxcD.mp4",
+          "warnings": [
+            {
+              "kind": "warning",
+              "message": "A durable copy was requested but none was recorded — the URL returned inherits the provider's lifetime. Retry the copy with upload({ source_url: <the url> })."
+            }
+          ]
+        },
+        {
+          "id": "4429a594-0afc-48e4-b5ed-2e93bce9f7e5",
+          "capability": "nemotron-omni-video",
+          "stage": "review:2.2",
+          "argsHash": "c436d6ab2fc6dcb0",
+          "at": 1789745815669,
+          "latencyMs": 6927,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "1233ed32-c563-48b3-bb38-febf8290d220",
+          "capability": "ffmpeg-concat",
+          "stage": "concat:attempt-2",
+          "argsHash": "2bb9ab8b8c2dafff",
+          "at": 1789745822612,
+          "latencyMs": 7777,
+          "ok": true,
+          "costUSD": 0,
+          "costUnitKind": "call",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3N0b3J5Ym9hcmQtdXBsb2Fkcy90b29sLW91dHB1dHMvMTc4OTc0NTgyOTAzMi1jM2MxMTNlZjRhYjE0OTk4YjZkNjc4ODQyMDdlZjBhMi5tcDQ.2a5b19885888e3fc/1789745829032-c3c113ef4ab14998b6d67884207ef0a2.mp4",
+          "warnings": []
+        },
+        {
+          "id": "c55cb703-7b64-4535-989c-abab0797feab",
+          "capability": "nemotron-omni-video",
+          "stage": "review:attempt-2",
+          "argsHash": "7ed1b4cbbc6711a5",
+          "at": 1789745830401,
+          "latencyMs": 7714,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "dbf0b6b8-0106-4f92-913a-b88566e0e257",
+          "capability": "gemini-text",
+          "stage": "review:attempt-2:structure",
+          "argsHash": "a0562835fd7667f6",
+          "at": 1789745838115,
+          "latencyMs": 4352,
+          "ok": true,
+          "costUSD": 0.0001,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 1,
+          "warnings": []
+        },
+        {
+          "id": "8d56b574-5f65-4c1f-aa54-00f49d4df122",
+          "capability": "gemini-text",
+          "stage": "distill:attempt-2",
+          "argsHash": "fd08a8486d1ac92d",
+          "at": 1789745842480,
+          "latencyMs": 5155,
+          "ok": true,
+          "costUSD": 0.0001,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 1,
+          "warnings": []
+        }
+      ]
+    }
+  ],
+  "sources": [],
+  "seals": [],
+  "inheritedLessonIds": [
+    "inherited-a0e4e0078ab9",
+    "inherited-563cb898d035",
+    "inherited-88545eea2d8c",
+    "inherited-e2add5fdb046",
+    "inherited-e0380626eedd"
+  ]
+}

@@ -69,11 +69,13 @@ material improvement, and the control run below measures it.
 A rule proved on one film is worth something on the next one — and on a colleague's. Accepted
 lessons are promoted to **Shared Working Memory**, where another production finds them by query.
 
-Verified on the live node: a new project under the studio identity `studio-b`, briefing a
-**brushed-steel desk lamp**, discovered four rules proved by `studio-a` on a **matte-black coffee
-cup** — arriving with the name of the film that proved them, the studio that owns it, and a
-confidence discounted for travelling. They land as proposals, subject to the same human review as
-anything learned locally.
+Measured on the live node: a `studio-b` production about a **cast-iron kettle** adopted five rules
+`studio-a` had proved on a **teapot** and a **clock**, and two criteria it had been failing became
+met — at 20% lower cost. The numbers are under [Evidence](#evidence).
+
+Each rule arrives with the name of the film that proved it, the studio that owns it, and a confidence
+discounted for travelling, and lands as a proposal subject to the same human review as anything
+learned locally.
 
 This is the part a JSON file cannot fake, and it is why the memory is a graph.
 
@@ -202,6 +204,38 @@ sunlight"* — and the attempt cost $3.67 against $2.42, because shots needed re
 trades; it does not monotonically improve. That is worth knowing, and it is the kind of thing a
 provenance record is for.
 
+### Knowledge crossing a project boundary, measured
+
+The distinctive Track 2 claim is that a rule proved on one production is worth something on another.
+Showing that a second studio *can discover* the first one's lessons is half an argument. This is the
+other half.
+
+A different studio identity (`studio-b`), a different subject — a cast-iron kettle, where `studio-a`
+had been filming a teapot and a clock. Briefed cold, then briefed again after adopting five rules
+that `studio-a` had proved and a human had accepted, with nothing else changed.
+
+| | Inherited clauses | Score | Per-criterion |
+|---|---|---|---|
+| Cold | 0 | 8/10 | hero ✓ · **consistency ✕** · **framing ✕** · mood ✓ |
+| **Warm** | **5**, all from another project | 8/10 | hero ✓ · **consistency ✓** · **framing ✓** · mood ✓ |
+
+Both failing criteria flipped. The reviewer on the warm run: *"Each shot uses a distinct framing:
+wide, medium, and close-up"* — the criterion `studio-a`'s highest-confidence lesson was written to
+fix, on a subject `studio-a` never filmed.
+
+It also ran **$3.08 → $2.46, about 20% cheaper**, because fewer shots needed re-rendering. Knowledge
+that transfers pays for itself twice.
+
+**The headline score did not move.** Both runs scored 8 against a target of 9, and the reviewer's
+summary on the warm run still called the shots "very similar in composition" while marking that same
+criterion met — the model is not perfectly self-consistent. The per-criterion verdicts moved; the
+single number did not. Both are reported because the single number is the one that flatters us less.
+
+**A real limitation this exposed:** inherited lessons arrive in their origin's vocabulary — *"maintain
+identical deep indigo glaze"* steering a film about a cast-iron kettle. The general principle
+transferred anyway, but generalising a rule as it crosses a project boundary is unfinished work, and
+it is listed as such below.
+
 ### The control
 
 Claiming memory helped is easy when you only publish the runs that improved. So the studio has a
@@ -306,6 +340,9 @@ Stated plainly, because a reader should be able to tell a working path from a pl
 - **The node's SPARQL engine returns nothing for `UNION`.** Both queries that needed one are written
   over `VALUES` and `OPTIONAL` instead. If you add a query, avoid `UNION` and check it against both
   stores.
+- **Inherited lessons keep their origin's vocabulary.** A rule proved on a teapot arrives saying
+  "deep indigo glaze" even when it is steering a film about a kettle. The principle transferred and
+  the criteria passed, but generalising a rule as it crosses a project boundary is not implemented.
 - **No authentication.** Anyone who can reach the port can run productions and spend credits. It is a
   local studio, not a deployed service.
 - **Narration and score are mutually exclusive.** `ffmpeg-mux` replaces a clip's audio rather than

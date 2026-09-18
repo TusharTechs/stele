@@ -1,0 +1,103 @@
+{
+  "id": "d6bda5e47cbb",
+  "title": "Lumin",
+  "createdAt": 1789740874398,
+  "updatedAt": 1789740874401,
+  "agentLabel": "studio-b",
+  "brief": {
+    "goal": "A premium film for a brushed-steel desk lamp on a walnut surface.",
+    "audience": "Architects and interior buyers",
+    "styleNote": "Warm practical light, restrained palette, shallow depth of field.",
+    "criteria": [
+      {
+        "index": 0,
+        "body": "The lamp is unmistakably the hero of the frame"
+      },
+      {
+        "index": 1,
+        "body": "The look stays consistent across every shot"
+      }
+    ],
+    "avoid": [
+      "on-screen text or logos"
+    ],
+    "shotCount": 1,
+    "shotSeconds": 6,
+    "aspectRatio": "16:9",
+    "targetScore": 8,
+    "narration": false,
+    "music": false
+  },
+  "canonVersion": 1,
+  "constraints": [
+    {
+      "id": "ebb503cb8a87",
+      "kind": "subject",
+      "body": "A brushed-steel desk lamp is the primary focus of every frame.",
+      "weight": 1,
+      "authoredBy": "studio-b",
+      "createdAt": 1789740874398
+    },
+    {
+      "id": "fa4ee799cee2",
+      "kind": "subject",
+      "body": "The lamp rests on a walnut surface.",
+      "weight": 1,
+      "authoredBy": "studio-b",
+      "createdAt": 1789740874398
+    },
+    {
+      "id": "277f7b543c18",
+      "kind": "style",
+      "body": "Light emitted from the lamp is warm-toned.",
+      "weight": 0.9,
+      "authoredBy": "studio-b",
+      "createdAt": 1789740874398
+    },
+    {
+      "id": "77c877c3ca22",
+      "kind": "style",
+      "body": "All lighting highlights the practical function of the lamp.",
+      "weight": 0.85,
+      "authoredBy": "studio-b",
+      "createdAt": 1789740874398
+    },
+    {
+      "id": "60620d0d8fb9",
+      "kind": "style",
+      "body": "The overall color palette is restrained.",
+      "weight": 0.8,
+      "authoredBy": "studio-b",
+      "createdAt": 1789740874398
+    },
+    {
+      "id": "af102b285ea3",
+      "kind": "style",
+      "body": "Shallow depth of field isolates the lamp.",
+      "weight": 0.9,
+      "authoredBy": "studio-b",
+      "createdAt": 1789740874398
+    },
+    {
+      "id": "2fb2c10b92a4",
+      "kind": "avoid",
+      "body": "No on-screen text.",
+      "weight": 1,
+      "authoredBy": "studio-b",
+      "createdAt": 1789740874398
+    },
+    {
+      "id": "d76001e51f3c",
+      "kind": "avoid",
+      "body": "No visible logos.",
+      "weight": 1,
+      "authoredBy": "studio-b",
+      "createdAt": 1789740874398
+    }
+  ],
+  "lessons": [],
+  "runs": [],
+  "sources": [],
+  "seals": [],
+  "inheritedLessonIds": []
+}

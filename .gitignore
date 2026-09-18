@@ -10,3 +10,6 @@ npm-debug.log*
 .data/
 next-env.d.ts
 tsconfig.tsbuildinfo
+
+# public/seed/ and demo/ are the shipped demo bundle (see scripts/seed.mts) and are tracked
+# deliberately, so a clean clone shows finished productions without a key or any spend.

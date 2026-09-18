@@ -203,8 +203,10 @@ function Proof({ showcase }: { showcase: Showcase }) {
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <div className="flex flex-wrap items-baseline justify-between gap-3">
           <h2 className="text-xl font-medium text-bone-50">
-            Same brief. Same reviewer. {showcase.after.attempt - showcase.before.attempt} attempts
-            apart.
+            Same brief. Same reviewer.{" "}
+            {showcase.inherited
+              ? "The second one knew what another production had learned."
+              : "The second one knew what the first one got wrong."}
           </h2>
           <p className="font-mono text-[11px] text-bone-500">from a real project in this instance</p>
         </div>
@@ -215,7 +217,7 @@ function Proof({ showcase }: { showcase: Showcase }) {
 
           <div className="lg:pt-10">
             <p className="font-mono text-[11px] uppercase tracking-wider text-bone-500">
-              what it learned in between
+              {showcase.inherited ? "what it inherited from another production" : "what it learned in between"}
             </p>
             <ul className="mt-3 grid gap-2">
               {showcase.learned.slice(0, 4).map((clause) => (
@@ -227,17 +229,23 @@ function Proof({ showcase }: { showcase: Showcase }) {
                 </li>
               ))}
             </ul>
+            {/* Criteria first: a score is one number on a coarse scale, and a pair can repair real
+                faults without moving it. Naming what was actually fixed is the checkable claim. */}
+            {showcase.criteriaFixed > 0 ? (
+              <p className="mt-4 font-mono text-sm text-verdigris-400">
+                {showcase.criteriaFixed} {showcase.criteriaFixed === 1 ? "criterion" : "criteria"} went
+                from failing to passing
+              </p>
+            ) : null}
             {gain !== 0 ? (
-              <p
-                className={`mt-4 font-mono text-sm ${gain > 0 ? "text-verdigris-400" : "text-terracotta-400"}`}
-              >
+              <p className={`mt-1 font-mono text-sm ${gain > 0 ? "text-verdigris-400" : "text-terracotta-400"}`}>
                 {gain > 0 ? "+" : ""}
                 {gain.toFixed(Math.abs(gain) % 1 ? 1 : 0)} on the reviewer&rsquo;s score
               </p>
             ) : null}
           </div>
 
-          <Clip label={`Attempt ${showcase.after.attempt} — steered by it`} clip={showcase.after} highlight />
+          <Clip label={`Attempt ${showcase.after.attempt} — ${showcase.inherited ? "steered by another film's rules" : "steered by it"}`} clip={showcase.after} highlight />
         </div>
       </div>
     </section>

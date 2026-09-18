@@ -1,0 +1,1374 @@
+{
+  "id": "7671d44f2bca",
+  "title": "The Vessel",
+  "createdAt": 1789740231879,
+  "updatedAt": 1789742848057,
+  "agentLabel": "studio-a",
+  "brief": {
+    "goal": "A calm, premium product film for a matte-black ceramic coffee cup on pale concrete.",
+    "audience": "Design-literate buyers browsing a homepage",
+    "styleNote": "Soft directional window light, cool neutral palette, shallow depth of field, no text.",
+    "criteria": [
+      {
+        "index": 0,
+        "body": "The subject is unmistakably the hero of the frame"
+      },
+      {
+        "index": 1,
+        "body": "The look is consistent across every shot"
+      }
+    ],
+    "avoid": [
+      "on-screen text or logos",
+      "harsh contrast"
+    ],
+    "shotCount": 1,
+    "shotSeconds": 6,
+    "aspectRatio": "16:9",
+    "targetScore": 8,
+    "narration": false,
+    "music": false
+  },
+  "canonVersion": 2,
+  "constraints": [
+    {
+      "id": "eff87d7cc6de",
+      "kind": "subject",
+      "body": "A matte-black ceramic coffee cup is present in every shot.",
+      "weight": 1,
+      "authoredBy": "studio-a",
+      "createdAt": 1789740231879
+    },
+    {
+      "id": "2ee672ffef5f",
+      "kind": "subject",
+      "body": "Pale concrete serves as the primary surface for the cup.",
+      "weight": 0.9,
+      "authoredBy": "studio-a",
+      "createdAt": 1789740231879
+    },
+    {
+      "id": "e96493503ec4",
+      "kind": "style",
+      "body": "Illumination is soft directional window light.",
+      "weight": 0.95,
+      "authoredBy": "studio-a",
+      "createdAt": 1789740231879
+    },
+    {
+      "id": "f71766bc9281",
+      "kind": "style",
+      "body": "The overall color palette is cool neutral.",
+      "weight": 0.9,
+      "authoredBy": "studio-a",
+      "createdAt": 1789740231879
+    },
+    {
+      "id": "b1de6f0f90c5",
+      "kind": "style",
+      "body": "Shallow depth of field is used to isolate the subject.",
+      "weight": 0.9,
+      "authoredBy": "studio-a",
+      "createdAt": 1789740231879
+    },
+    {
+      "id": "a9bae1a76639",
+      "kind": "avoid",
+      "body": "No on-screen text of any kind.",
+      "weight": 1,
+      "authoredBy": "studio-a",
+      "createdAt": 1789740231879
+    },
+    {
+      "id": "bb1ef007847d",
+      "kind": "avoid",
+      "body": "No on-screen logos of any kind.",
+      "weight": 1,
+      "authoredBy": "studio-a",
+      "createdAt": 1789740231879
+    },
+    {
+      "id": "680042b44724",
+      "kind": "avoid",
+      "body": "Avoid harsh contrast in lighting or color.",
+      "weight": 0.85,
+      "authoredBy": "studio-a",
+      "createdAt": 1789740231879
+    },
+    {
+      "id": "373c2bad8a77",
+      "kind": "format",
+      "body": "The film should have a premium and calm tone.",
+      "weight": 0.85,
+      "authoredBy": "studio-a",
+      "createdAt": 1789740231879
+    },
+    {
+      "id": "32082dd4952e",
+      "kind": "style",
+      "body": "The cup should be the dominant visual element in every frame.",
+      "weight": 0.95,
+      "authoredBy": "studio-a",
+      "createdAt": 1789740231879
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1-16ad288010",
+      "kind": "constraint",
+      "body": "Maintain consistent soft directional window light across all shots.",
+      "status": "accepted",
+      "confidence": 0.9,
+      "learnedFromAttempt": 1,
+      "criterionIndex": 1,
+      "curatedBy": "cli",
+      "curatedAt": 1789740303285
+    },
+    {
+      "id": "l1-3c169de86b",
+      "kind": "constraint",
+      "body": "Ensure consistent shadow length and softness across all shots.",
+      "status": "accepted",
+      "confidence": 0.8,
+      "learnedFromAttempt": 1,
+      "criterionIndex": 1,
+      "curatedBy": "cli",
+      "curatedAt": 1789740303285
+    },
+    {
+      "id": "l1-c0c8373049",
+      "kind": "constraint",
+      "body": "Maintain consistent brightness and contrast for the cup across all shots.",
+      "status": "accepted",
+      "confidence": 0.8,
+      "learnedFromAttempt": 1,
+      "criterionIndex": 1,
+      "curatedBy": "cli",
+      "curatedAt": 1789740303285
+    },
+    {
+      "id": "l1-441d0d6366",
+      "kind": "successfulPattern",
+      "body": "Utilize minimalist composition to focus attention on the cup's form and matte texture.",
+      "status": "accepted",
+      "confidence": 0.7,
+      "learnedFromAttempt": 1,
+      "criterionIndex": 0,
+      "curatedBy": "cli",
+      "curatedAt": 1789740303285
+    },
+    {
+      "id": "l3-2895b6934b",
+      "kind": "successfulPattern",
+      "body": "Ensure the matte-black ceramic coffee cup is the sole focal point and most prominent element in the frame.",
+      "status": "proposed",
+      "confidence": 0.9,
+      "learnedFromAttempt": 3,
+      "criterionIndex": 0
+    },
+    {
+      "id": "l3-f824568fdd",
+      "kind": "successfulPattern",
+      "body": "Maintain the overall color palette as cool and neutral.",
+      "status": "proposed",
+      "confidence": 0.8,
+      "learnedFromAttempt": 3,
+      "criterionIndex": 1
+    },
+    {
+      "id": "l3-15be13ffb0",
+      "kind": "successfulPattern",
+      "body": "Utilize a shallow depth of field to isolate the cup from the background.",
+      "status": "proposed",
+      "confidence": 0.8,
+      "learnedFromAttempt": 3,
+      "criterionIndex": 0
+    },
+    {
+      "id": "l3-c1d31c835c",
+      "kind": "knownFailure",
+      "body": "Vary the angle or proximity of the camera to the cup slightly between shots to create visual interest without compromising minimalism.",
+      "status": "proposed",
+      "confidence": 0.7,
+      "learnedFromAttempt": 3
+    }
+  ],
+  "runs": [
+    {
+      "attempt": 1,
+      "startedAt": 1789740231896,
+      "finishedAt": 1789740292050,
+      "stage": "COMPLETE",
+      "memoryWithheld": false,
+      "canonVersion": 1,
+      "basePrompt": {
+        "text": "A calm, premium product film for a matte-black ceramic coffee cup on pale concrete. Soft directional window light, cool neutral palette, shallow depth of field, no text. Avoid: No on-screen logos of any kind. Avoid: No on-screen text of any kind. A matte-black ceramic coffee cup is present in every shot. The cup should be the dominant visual element in every frame. Illumination is soft directional window light. Shallow depth of field is used to isolate the subject. The overall color palette is cool neutral. Pale concrete serves as the primary surface for the cup. The film should have a premium and calm tone. Avoid: Avoid harsh contrast in lighting or color. Avoid: on-screen text or logos Avoid: harsh contrast",
+        "clauses": [
+          {
+            "index": 0,
+            "body": "A calm, premium product film for a matte-black ceramic coffee cup on pale concrete.",
+            "role": "goal",
+            "sourceKind": "brief"
+          },
+          {
+            "index": 1,
+            "body": "Soft directional window light, cool neutral palette, shallow depth of field, no text.",
+            "role": "style",
+            "sourceKind": "brief"
+          },
+          {
+            "index": 2,
+            "body": "Avoid: No on-screen logos of any kind.",
+            "role": "avoid",
+            "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/bf417754b1d6e68b9ca3",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/bf417754b1d6e68b9ca3"
+          },
+          {
+            "index": 3,
+            "body": "Avoid: No on-screen text of any kind.",
+            "role": "avoid",
+            "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/39640c2773e36295be75",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/39640c2773e36295be75"
+          },
+          {
+            "index": 4,
+            "body": "A matte-black ceramic coffee cup is present in every shot.",
+            "role": "subject",
+            "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/59616d694bc41147524c",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/59616d694bc41147524c"
+          },
+          {
+            "index": 5,
+            "body": "The cup should be the dominant visual element in every frame.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/d647df7b7681f52e04de",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/d647df7b7681f52e04de"
+          },
+          {
+            "index": 6,
+            "body": "Illumination is soft directional window light.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/af23fbfe455f27c637e9",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/af23fbfe455f27c637e9"
+          },
+          {
+            "index": 7,
+            "body": "Shallow depth of field is used to isolate the subject.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/9f72200b1db87e8b7d54",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/9f72200b1db87e8b7d54"
+          },
+          {
+            "index": 8,
+            "body": "The overall color palette is cool neutral.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/f2c71252cb39404b64ad",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/f2c71252cb39404b64ad"
+          },
+          {
+            "index": 9,
+            "body": "Pale concrete serves as the primary surface for the cup.",
+            "role": "subject",
+            "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/5289a2a38e2322e4e6ff",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/5289a2a38e2322e4e6ff"
+          },
+          {
+            "index": 10,
+            "body": "The film should have a premium and calm tone.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/be4c7fb8aa93163cee96",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/be4c7fb8aa93163cee96"
+          },
+          {
+            "index": 11,
+            "body": "Avoid: Avoid harsh contrast in lighting or color.",
+            "role": "avoid",
+            "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/3ba58b1c7b5d20bf3690",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/3ba58b1c7b5d20bf3690"
+          },
+          {
+            "index": 12,
+            "body": "Avoid: on-screen text or logos",
+            "role": "avoid",
+            "sourceKind": "brief"
+          },
+          {
+            "index": 13,
+            "body": "Avoid: harsh contrast",
+            "role": "avoid",
+            "sourceKind": "brief"
+          }
+        ],
+        "memoryClauseCount": 0,
+        "promptHash": "4e4d4d6c88fb1236578a2f60b6c175666f624f9ee050b9667fed534b50ae7bcc"
+      },
+      "shots": [
+        {
+          "index": 0,
+          "intent": "Introduce the matte-black ceramic coffee cup as a solitary, elegant form against a minimalist backdrop.",
+          "prompt": {
+            "text": "A matte-black ceramic coffee cup, perfectly centered, stands on pale, unblemished concrete, bathed in soft, directional window light from the left, creating a subtle, elongated shadow. The cool neutral palette emphasizes the cup's velvety matte texture against the concrete's cool gray. Shallow depth of field blurs the background into a smooth, undifferentiated cool tone, enhancing the cup's isolation. The lens feel is clean and pristine, with no distortion. Soft directional window light, cool neutral palette, shallow depth of field, no text. Avoid: No on-screen logos of any kind. Avoid: No on-screen text of any kind. A matte-black ceramic coffee cup is present in every shot. The cup should be the dominant visual element in every frame. Illumination is soft directional window light. Shallow depth of field is used to isolate the subject. The overall color palette is cool neutral. Pale concrete serves as the primary surface for the cup. The film should have a premium and calm tone. Avoid: Avoid harsh contrast in lighting or color. Avoid: on-screen text or logos Avoid: harsh contrast",
+            "clauses": [
+              {
+                "index": 0,
+                "body": "A matte-black ceramic coffee cup, perfectly centered, stands on pale, unblemished concrete, bathed in soft, directional window light from the left, creating a subtle, elongated shadow. The cool neutral palette emphasizes the cup's velvety matte texture against the concrete's cool gray. Shallow depth of field blurs the background into a smooth, undifferentiated cool tone, enhancing the cup's isolation. The lens feel is clean and pristine, with no distortion.",
+                "role": "goal",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 1,
+                "body": "Soft directional window light, cool neutral palette, shallow depth of field, no text.",
+                "role": "style",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 2,
+                "body": "Avoid: No on-screen logos of any kind.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/bf417754b1d6e68b9ca3",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/bf417754b1d6e68b9ca3"
+              },
+              {
+                "index": 3,
+                "body": "Avoid: No on-screen text of any kind.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/39640c2773e36295be75",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/39640c2773e36295be75"
+              },
+              {
+                "index": 4,
+                "body": "A matte-black ceramic coffee cup is present in every shot.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/59616d694bc41147524c",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/59616d694bc41147524c"
+              },
+              {
+                "index": 5,
+                "body": "The cup should be the dominant visual element in every frame.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/d647df7b7681f52e04de",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/d647df7b7681f52e04de"
+              },
+              {
+                "index": 6,
+                "body": "Illumination is soft directional window light.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/af23fbfe455f27c637e9",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/af23fbfe455f27c637e9"
+              },
+              {
+                "index": 7,
+                "body": "Shallow depth of field is used to isolate the subject.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/9f72200b1db87e8b7d54",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/9f72200b1db87e8b7d54"
+              },
+              {
+                "index": 8,
+                "body": "The overall color palette is cool neutral.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/f2c71252cb39404b64ad",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/f2c71252cb39404b64ad"
+              },
+              {
+                "index": 9,
+                "body": "Pale concrete serves as the primary surface for the cup.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/5289a2a38e2322e4e6ff",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/5289a2a38e2322e4e6ff"
+              },
+              {
+                "index": 10,
+                "body": "The film should have a premium and calm tone.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/be4c7fb8aa93163cee96",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/be4c7fb8aa93163cee96"
+              },
+              {
+                "index": 11,
+                "body": "Avoid: Avoid harsh contrast in lighting or color.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/3ba58b1c7b5d20bf3690",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/3ba58b1c7b5d20bf3690"
+              },
+              {
+                "index": 12,
+                "body": "Avoid: on-screen text or logos",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 13,
+                "body": "Avoid: harsh contrast",
+                "role": "avoid",
+                "sourceKind": "brief"
+              }
+            ],
+            "memoryClauseCount": 0,
+            "promptHash": "6e90cc61e88597ff443b1aaf798a0bf52288a84b3f4f982961e7b8fd3b6edb71"
+          },
+          "motionPrompt": "A very slow, imperceptible push-in on the cup, subtly bringing it closer to the viewer.",
+          "keyframeUrl": "/seed/61faae44d9e24a7e.jpg",
+          "videoUrl": "/seed/ac916a80df91269e.mp4",
+          "capability": "ltx-25-i2v-fast",
+          "costUSD": 0,
+          "review": {
+            "score": 9,
+            "passed": true,
+            "summary": "The matte-black ceramic cup is the clear focal point in a softly lit, minimalist setting.",
+            "findings": [
+              {
+                "index": 0,
+                "body": "Clean, modern aesthetic with strong visual hierarchy",
+                "polarity": "positive"
+              }
+            ],
+            "verdicts": [
+              {
+                "index": 0,
+                "met": true,
+                "note": "The cup is centered and sharply in focus, dominating the frame without competition."
+              },
+              {
+                "index": 1,
+                "met": true,
+                "note": "Lighting and composition remain consistent, with smooth shadows and no visual distractions."
+              }
+            ],
+            "costUSD": 0.0128,
+            "capability": "nemotron-omni-video"
+          },
+          "attempts": 1,
+          "status": "passed"
+        }
+      ],
+      "cutUrl": "/seed/ac916a80df91269e.mp4",
+      "review": {
+        "score": 7,
+        "passed": false,
+        "summary": "A calm, premium product film of a matte-black ceramic coffee cup on pale concrete, but lighting shifts between shots create inconsistency.",
+        "findings": [
+          {
+            "index": 0,
+            "body": "Minimalist composition focuses attention on the cup's form and matte texture.",
+            "polarity": "positive"
+          },
+          {
+            "index": 1,
+            "body": "Lighting changes between shots, breaking visual consistency; first shot is dim with long shadows, second shot is brighter with shorter shadows and higher contrast.",
+            "polarity": "negative",
+            "criterionIndex": 1
+          }
+        ],
+        "verdicts": [
+          {
+            "index": 0,
+            "met": true,
+            "note": "The matte-black cup is unmistakably the hero in all frames."
+          },
+          {
+            "index": 1,
+            "met": false,
+            "note": "The look is inconsistent; first shot has soft window light, second shot has harsher, direct lighting with a brighter cup."
+          }
+        ],
+        "costUSD": 0.0128,
+        "capability": "nemotron-omni-video"
+      },
+      "lessonIds": [
+        "l1-16ad288010",
+        "l1-3c169de86b",
+        "l1-c0c8373049",
+        "l1-441d0d6366"
+      ],
+      "costUSD": 0.596,
+      "calls": [
+        {
+          "id": "75a1fab6-97cc-4040-8932-b3ef278edd17",
+          "capability": "gemini-text",
+          "stage": "intake",
+          "argsHash": "02ea7e9fdcbd3974",
+          "at": 1789740226832,
+          "latencyMs": 5045,
+          "ok": true,
+          "costUSD": 0.0001,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 1,
+          "warnings": []
+        },
+        {
+          "id": "fb92d077-ab41-4b36-b584-827740005930",
+          "capability": "gemini-text",
+          "stage": "plan:attempt-1",
+          "argsHash": "600cb3e38c4b3dc0",
+          "at": 1789740231961,
+          "latencyMs": 3589,
+          "ok": true,
+          "costUSD": 0.0001,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 1,
+          "warnings": []
+        },
+        {
+          "id": "b823dca4-e217-412c-a9d6-a8d93dcef78f",
+          "capability": "flux-schnell",
+          "stage": "keyframe:1.0",
+          "argsHash": "3c8173464167240c",
+          "at": 1789740235559,
+          "latencyMs": 11152,
+          "ok": true,
+          "costUSD": 0.0032,
+          "costUnitKind": "megapixel",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly83eTRmbHpwdWxndjRjbzZyLnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS91cGxvYWRzLzE3ODk3NDAyNDYwMjQtZmZmbjJmLmpwZWc.0e1e31b38796f24d/1789740246024-fffn2f.jpeg",
+          "warnings": []
+        },
+        {
+          "id": "f20906a4-3eb9-4a86-b6cd-5fcf39f08548",
+          "capability": "ltx-25-i2v-fast",
+          "stage": "animate:1.0",
+          "argsHash": "06f0e1bef9a54ab1",
+          "at": 1789740246711,
+          "latencyMs": 31240,
+          "ok": true,
+          "costUSD": 0.567,
+          "costUnitKind": "second",
+          "costUnits": 6,
+          "jobId": "mjob_3562e28e07ad",
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly92M2IuZmFsLm1lZGlhL2ZpbGVzL2IvMGFhYWVkNDkvTkwyQ2RScENDUTNBd1ZSOHFRZ0s3X0xUcnNVOTlkLm1wNA.9c2321c8e7913fd5/NL2CdRpCCQ3AwVR8qQgK7_LTrsU99d.mp4",
+          "warnings": [
+            {
+              "kind": "warning",
+              "message": "A durable copy was requested but none was recorded — the URL returned inherits the provider's lifetime. Retry the copy with upload({ source_url: <the url> })."
+            }
+          ]
+        },
+        {
+          "id": "6cf8e975-3e03-42ab-a4ce-7b35606e4d34",
+          "capability": "nemotron-omni-video",
+          "stage": "review:1.0",
+          "argsHash": "345acab769cfc8d0",
+          "at": 1789740277952,
+          "latencyMs": 5588,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "3d0c14c4-a138-4438-9da7-32f60df67843",
+          "capability": "nemotron-omni-video",
+          "stage": "review:attempt-1",
+          "argsHash": "9260e281758508ee",
+          "at": 1789740283565,
+          "latencyMs": 3869,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "af695dc1-76d8-4112-bfe9-20b7aa2b1e4e",
+          "capability": "gemini-text",
+          "stage": "distill:attempt-1",
+          "argsHash": "ce921bf52929013f",
+          "at": 1789740287443,
+          "latencyMs": 4596,
+          "ok": true,
+          "costUSD": 0.0001,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 1,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "attempt": 2,
+      "startedAt": 1789740303291,
+      "finishedAt": 1789740303317,
+      "stage": "FAILED",
+      "memoryWithheld": false,
+      "canonVersion": 2,
+      "shots": [],
+      "lessonIds": [],
+      "costUSD": 0,
+      "calls": [],
+      "error": "Could not parse run-ledger.ttl as Turtle: Error: Parser error at line 59 between columns 65 and 71: The prefix https: has not been declared"
+    },
+    {
+      "attempt": 3,
+      "startedAt": 1789740359328,
+      "finishedAt": 1789740438580,
+      "stage": "COMPLETE",
+      "memoryWithheld": false,
+      "canonVersion": 2,
+      "basePrompt": {
+        "text": "A calm, premium product film for a matte-black ceramic coffee cup on pale concrete. Soft directional window light, cool neutral palette, shallow depth of field, no text. Avoid: No on-screen logos of any kind. Avoid: No on-screen text of any kind. A matte-black ceramic coffee cup is present in every shot. The cup should be the dominant visual element in every frame. Illumination is soft directional window light. Shallow depth of field is used to isolate the subject. The overall color palette is cool neutral. Pale concrete serves as the primary surface for the cup. The film should have a premium and calm tone. Avoid: Avoid harsh contrast in lighting or color. Maintain consistent soft directional window light across all shots. Maintain consistent brightness and contrast for the cup across all shots. Ensure consistent shadow length and softness across all shots. Utilize minimalist composition to focus attention on the cup's form and matte texture. Avoid: on-screen text or logos Avoid: harsh contrast",
+        "clauses": [
+          {
+            "index": 0,
+            "body": "A calm, premium product film for a matte-black ceramic coffee cup on pale concrete.",
+            "role": "goal",
+            "sourceKind": "brief"
+          },
+          {
+            "index": 1,
+            "body": "Soft directional window light, cool neutral palette, shallow depth of field, no text.",
+            "role": "style",
+            "sourceKind": "brief"
+          },
+          {
+            "index": 2,
+            "body": "Avoid: No on-screen logos of any kind.",
+            "role": "avoid",
+            "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/bf417754b1d6e68b9ca3",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/bf417754b1d6e68b9ca3"
+          },
+          {
+            "index": 3,
+            "body": "Avoid: No on-screen text of any kind.",
+            "role": "avoid",
+            "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/39640c2773e36295be75",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/39640c2773e36295be75"
+          },
+          {
+            "index": 4,
+            "body": "A matte-black ceramic coffee cup is present in every shot.",
+            "role": "subject",
+            "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/59616d694bc41147524c",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/59616d694bc41147524c"
+          },
+          {
+            "index": 5,
+            "body": "The cup should be the dominant visual element in every frame.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/d647df7b7681f52e04de",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/d647df7b7681f52e04de"
+          },
+          {
+            "index": 6,
+            "body": "Illumination is soft directional window light.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/af23fbfe455f27c637e9",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/af23fbfe455f27c637e9"
+          },
+          {
+            "index": 7,
+            "body": "Shallow depth of field is used to isolate the subject.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/9f72200b1db87e8b7d54",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/9f72200b1db87e8b7d54"
+          },
+          {
+            "index": 8,
+            "body": "The overall color palette is cool neutral.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/f2c71252cb39404b64ad",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/f2c71252cb39404b64ad"
+          },
+          {
+            "index": 9,
+            "body": "Pale concrete serves as the primary surface for the cup.",
+            "role": "subject",
+            "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/5289a2a38e2322e4e6ff",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/5289a2a38e2322e4e6ff"
+          },
+          {
+            "index": 10,
+            "body": "The film should have a premium and calm tone.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/be4c7fb8aa93163cee96",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/be4c7fb8aa93163cee96"
+          },
+          {
+            "index": 11,
+            "body": "Avoid: Avoid harsh contrast in lighting or color.",
+            "role": "avoid",
+            "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/3ba58b1c7b5d20bf3690",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/3ba58b1c7b5d20bf3690"
+          },
+          {
+            "index": 12,
+            "body": "Maintain consistent soft directional window light across all shots.",
+            "role": "lesson",
+            "sourceId": "https://stele.studio/g/lesson/7671d44f2bca/1/2925",
+            "sourceKind": "lesson",
+            "sourceAttempt": 1,
+            "criterionIndex": 1,
+            "sourceIri": "https://stele.studio/g/lesson/7671d44f2bca/1/2925",
+            "originProjectId": "https://stele.studio/g/project/7671d44f2bca"
+          },
+          {
+            "index": 13,
+            "body": "Maintain consistent brightness and contrast for the cup across all shots.",
+            "role": "lesson",
+            "sourceId": "https://stele.studio/g/lesson/7671d44f2bca/1/8304",
+            "sourceKind": "lesson",
+            "sourceAttempt": 1,
+            "criterionIndex": 1,
+            "sourceIri": "https://stele.studio/g/lesson/7671d44f2bca/1/8304",
+            "originProjectId": "https://stele.studio/g/project/7671d44f2bca"
+          },
+          {
+            "index": 14,
+            "body": "Ensure consistent shadow length and softness across all shots.",
+            "role": "lesson",
+            "sourceId": "https://stele.studio/g/lesson/7671d44f2bca/1/77351",
+            "sourceKind": "lesson",
+            "sourceAttempt": 1,
+            "criterionIndex": 1,
+            "sourceIri": "https://stele.studio/g/lesson/7671d44f2bca/1/77351",
+            "originProjectId": "https://stele.studio/g/project/7671d44f2bca"
+          },
+          {
+            "index": 15,
+            "body": "Utilize minimalist composition to focus attention on the cup's form and matte texture.",
+            "role": "lesson",
+            "sourceId": "https://stele.studio/g/lesson/7671d44f2bca/1/73964",
+            "sourceKind": "lesson",
+            "sourceAttempt": 1,
+            "criterionIndex": 0,
+            "sourceIri": "https://stele.studio/g/lesson/7671d44f2bca/1/73964",
+            "originProjectId": "https://stele.studio/g/project/7671d44f2bca"
+          },
+          {
+            "index": 16,
+            "body": "Avoid: on-screen text or logos",
+            "role": "avoid",
+            "sourceKind": "brief"
+          },
+          {
+            "index": 17,
+            "body": "Avoid: harsh contrast",
+            "role": "avoid",
+            "sourceKind": "brief"
+          }
+        ],
+        "memoryClauseCount": 4,
+        "promptHash": "16c1fcf60b427463f23ca9aa5b0594f26475cf23a51a5521d234f4ca7661ba9f"
+      },
+      "shots": [
+        {
+          "index": 0,
+          "intent": "Introduce the matte-black ceramic coffee cup in its pristine, unadorned state, highlighting its form and texture.",
+          "prompt": {
+            "text": "A solitary matte-black ceramic coffee cup, perfectly centered, sits on a smooth, pale concrete surface. Soft, directional window light from the left casts a gentle, elongated shadow to the right. The background is a soft, out-of-focus wash of pale grey. The lens exhibits a very shallow depth of field, with only the cup in sharp focus. Soft directional window light, cool neutral palette, shallow depth of field, no text. Avoid: No on-screen logos of any kind. Avoid: No on-screen text of any kind. A matte-black ceramic coffee cup is present in every shot. The cup should be the dominant visual element in every frame. Illumination is soft directional window light. Shallow depth of field is used to isolate the subject. The overall color palette is cool neutral. Pale concrete serves as the primary surface for the cup. The film should have a premium and calm tone. Avoid: Avoid harsh contrast in lighting or color. Maintain consistent soft directional window light across all shots. Maintain consistent brightness and contrast for the cup across all shots. Ensure consistent shadow length and softness across all shots. Utilize minimalist composition to focus attention on the cup's form and matte texture. Avoid: on-screen text or logos Avoid: harsh contrast",
+            "clauses": [
+              {
+                "index": 0,
+                "body": "A solitary matte-black ceramic coffee cup, perfectly centered, sits on a smooth, pale concrete surface. Soft, directional window light from the left casts a gentle, elongated shadow to the right. The background is a soft, out-of-focus wash of pale grey. The lens exhibits a very shallow depth of field, with only the cup in sharp focus.",
+                "role": "goal",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 1,
+                "body": "Soft directional window light, cool neutral palette, shallow depth of field, no text.",
+                "role": "style",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 2,
+                "body": "Avoid: No on-screen logos of any kind.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/bf417754b1d6e68b9ca3",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/bf417754b1d6e68b9ca3"
+              },
+              {
+                "index": 3,
+                "body": "Avoid: No on-screen text of any kind.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/39640c2773e36295be75",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/39640c2773e36295be75"
+              },
+              {
+                "index": 4,
+                "body": "A matte-black ceramic coffee cup is present in every shot.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/59616d694bc41147524c",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/59616d694bc41147524c"
+              },
+              {
+                "index": 5,
+                "body": "The cup should be the dominant visual element in every frame.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/d647df7b7681f52e04de",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/d647df7b7681f52e04de"
+              },
+              {
+                "index": 6,
+                "body": "Illumination is soft directional window light.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/af23fbfe455f27c637e9",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/af23fbfe455f27c637e9"
+              },
+              {
+                "index": 7,
+                "body": "Shallow depth of field is used to isolate the subject.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/9f72200b1db87e8b7d54",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/9f72200b1db87e8b7d54"
+              },
+              {
+                "index": 8,
+                "body": "The overall color palette is cool neutral.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/f2c71252cb39404b64ad",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/f2c71252cb39404b64ad"
+              },
+              {
+                "index": 9,
+                "body": "Pale concrete serves as the primary surface for the cup.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/5289a2a38e2322e4e6ff",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/5289a2a38e2322e4e6ff"
+              },
+              {
+                "index": 10,
+                "body": "The film should have a premium and calm tone.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/be4c7fb8aa93163cee96",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/be4c7fb8aa93163cee96"
+              },
+              {
+                "index": 11,
+                "body": "Avoid: Avoid harsh contrast in lighting or color.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/7671d44f2bca/3ba58b1c7b5d20bf3690",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/7671d44f2bca/3ba58b1c7b5d20bf3690"
+              },
+              {
+                "index": 12,
+                "body": "Maintain consistent soft directional window light across all shots.",
+                "role": "lesson",
+                "sourceId": "https://stele.studio/g/lesson/7671d44f2bca/1/2925",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "criterionIndex": 1,
+                "sourceIri": "https://stele.studio/g/lesson/7671d44f2bca/1/2925",
+                "originProjectId": "https://stele.studio/g/project/7671d44f2bca"
+              },
+              {
+                "index": 13,
+                "body": "Maintain consistent brightness and contrast for the cup across all shots.",
+                "role": "lesson",
+                "sourceId": "https://stele.studio/g/lesson/7671d44f2bca/1/8304",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "criterionIndex": 1,
+                "sourceIri": "https://stele.studio/g/lesson/7671d44f2bca/1/8304",
+                "originProjectId": "https://stele.studio/g/project/7671d44f2bca"
+              },
+              {
+                "index": 14,
+                "body": "Ensure consistent shadow length and softness across all shots.",
+                "role": "lesson",
+                "sourceId": "https://stele.studio/g/lesson/7671d44f2bca/1/77351",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "criterionIndex": 1,
+                "sourceIri": "https://stele.studio/g/lesson/7671d44f2bca/1/77351",
+                "originProjectId": "https://stele.studio/g/project/7671d44f2bca"
+              },
+              {
+                "index": 15,
+                "body": "Utilize minimalist composition to focus attention on the cup's form and matte texture.",
+                "role": "lesson",
+                "sourceId": "https://stele.studio/g/lesson/7671d44f2bca/1/73964",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "criterionIndex": 0,
+                "sourceIri": "https://stele.studio/g/lesson/7671d44f2bca/1/73964",
+                "originProjectId": "https://stele.studio/g/project/7671d44f2bca"
+              },
+              {
+                "index": 16,
+                "body": "Avoid: on-screen text or logos",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 17,
+                "body": "Avoid: harsh contrast",
+                "role": "avoid",
+                "sourceKind": "brief"
+              }
+            ],
+            "memoryClauseCount": 4,
+            "promptHash": "559d55ac7e690877d20de81c00739e2a92a4f287ba83512acc922871ad7f74f4"
+          },
+          "motionPrompt": "Subtle, slow push-in, bringing the cup slightly closer while maintaining focus.",
+          "keyframeUrl": "/seed/340c96603b9f9495.jpg",
+          "videoUrl": "/seed/c2b48ddd93ad09a9.mp4",
+          "capability": "ltx-25-i2v-fast",
+          "costUSD": 0,
+          "review": {
+            "score": 8,
+            "passed": true,
+            "summary": "A matte-black ceramic coffee cup is presented in a clean, unadorned state, highlighting its form and texture against a soft-lit background.",
+            "findings": [
+              {
+                "index": 0,
+                "body": "Hero is unmistakably the matte-black ceramic coffee cup, presented with clarity and focus",
+                "polarity": "positive"
+              },
+              {
+                "index": 1,
+                "body": "No on-screen text or logos present, avoiding visual clutter",
+                "polarity": "negative"
+              }
+            ],
+            "verdicts": [
+              {
+                "index": 0,
+                "met": true,
+                "note": "The matte-black ceramic coffee cup is unmistakably the hero of the frame, centered and clearly defined."
+              },
+              {
+                "index": 1,
+                "met": true,
+                "note": "The look is consistent across every shot, with steady lighting and no visual distractions."
+              }
+            ],
+            "costUSD": 0.0128,
+            "capability": "nemotron-omni-video"
+          },
+          "attempts": 1,
+          "status": "passed"
+        }
+      ],
+      "cutUrl": "/seed/c2b48ddd93ad09a9.mp4",
+      "review": {
+        "score": 8,
+        "passed": true,
+        "summary": "A minimalist, well-lit shot centers a matte-black cup on pale concrete, avoiding text or logos while maintaining consistent lighting.",
+        "findings": [
+          {
+            "index": 0,
+            "body": "Clean, distraction-free composition emphasizing product texture",
+            "polarity": "positive"
+          },
+          {
+            "index": 1,
+            "body": "Soft, natural lighting creates premium aesthetic without harsh contrast",
+            "polarity": "positive"
+          },
+          {
+            "index": 2,
+            "body": "Slightly static composition may lack engagement for homepage browsing",
+            "polarity": "negative"
+          }
+        ],
+        "verdicts": [
+          {
+            "index": 0,
+            "met": true,
+            "note": "The black cup is the clear focal point, occupying center frame with soft shadows."
+          },
+          {
+            "index": 1,
+            "met": true,
+            "note": "Lighting and color grading remain consistent across the static shot, with no visual shifts."
+          }
+        ],
+        "costUSD": 0.0128,
+        "capability": "nemotron-omni-video"
+      },
+      "lessonIds": [
+        "l3-2895b6934b",
+        "l3-f824568fdd",
+        "l3-15be13ffb0",
+        "l3-c1d31c835c"
+      ],
+      "costUSD": 0.5961,
+      "calls": [
+        {
+          "id": "f699ca02-f27f-49ad-b1fe-143f38998e0f",
+          "capability": "gemini-text",
+          "stage": "plan:attempt-3",
+          "argsHash": "bbf4393c4be88c84",
+          "at": 1789740359377,
+          "latencyMs": 5016,
+          "ok": true,
+          "costUSD": 0.0001,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 1,
+          "warnings": []
+        },
+        {
+          "id": "30e79b32-cd6e-41d5-9aef-ebbc85db8465",
+          "capability": "flux-schnell",
+          "stage": "keyframe:3.0",
+          "argsHash": "c449d524bb85001f",
+          "at": 1789740364404,
+          "latencyMs": 22666,
+          "ok": true,
+          "costUSD": 0.0032,
+          "costUnitKind": "megapixel",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly83eTRmbHpwdWxndjRjbzZyLnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS91cGxvYWRzLzE3ODk3NDAzODYzMzQteGd6aXdsLmpwZWc.fd8704140a4997dd/1789740386334-xgziwl.jpeg",
+          "warnings": []
+        },
+        {
+          "id": "3c6de0d8-f1df-4102-b2f6-2a7b9f901800",
+          "capability": "ltx-25-i2v-fast",
+          "stage": "animate:3.0",
+          "argsHash": "a33b7dd6843a1fce",
+          "at": 1789740387070,
+          "latencyMs": 31642,
+          "ok": true,
+          "costUSD": 0.567,
+          "costUnitKind": "second",
+          "costUnits": 6,
+          "jobId": "mjob_34f9ca149980",
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly92M2IuZmFsLm1lZGlhL2ZpbGVzL2IvMGFhYWVkNTcvU2ktMDZkVHgxZjgydmJiNmc4ZXFXX2swZVRRMnVlLm1wNA.c13bc3bbbdcdd475/Si-06dTx1f82vbb6g8eqW_k0eTQ2ue.mp4",
+          "warnings": [
+            {
+              "kind": "warning",
+              "message": "A durable copy was requested but none was recorded — the URL returned inherits the provider's lifetime. Retry the copy with upload({ source_url: <the url> })."
+            }
+          ]
+        },
+        {
+          "id": "02c47a26-d8fe-44de-ab22-1a07bdd02bfb",
+          "capability": "nemotron-omni-video",
+          "stage": "review:3.0",
+          "argsHash": "2a531c1aca5e6173",
+          "at": 1789740418712,
+          "latencyMs": 4997,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "a0edff53-20e5-4830-a52f-9cf6d2f044b8",
+          "capability": "nemotron-omni-video",
+          "stage": "review:attempt-3",
+          "argsHash": "17e734b9efd3205f",
+          "at": 1789740423732,
+          "latencyMs": 5579,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "2370c1b3-2117-464d-b854-a5a3b38b0160",
+          "capability": "gemini-text",
+          "stage": "distill:attempt-3",
+          "argsHash": "e16b5365d788e6b3",
+          "at": 1789740429324,
+          "latencyMs": 4287,
+          "ok": true,
+          "costUSD": 0.0001,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 1,
+          "warnings": []
+        },
+        {
+          "id": "6746f3db-f87c-4fe5-bc5a-7232899153c6",
+          "capability": "gemini-text",
+          "stage": "distill:attempt-3",
+          "argsHash": "706e2ac0f76702bd",
+          "at": 1789740433613,
+          "latencyMs": 4961,
+          "ok": true,
+          "costUSD": 0.0001,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 1,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "attempt": 4,
+      "startedAt": 1789742795393,
+      "finishedAt": 1789742848056,
+      "stage": "COMPLETE",
+      "memoryWithheld": true,
+      "canonVersion": 2,
+      "basePrompt": {
+        "text": "A calm, premium product film for a matte-black ceramic coffee cup on pale concrete. Soft directional window light, cool neutral palette, shallow depth of field, no text. Avoid: on-screen text or logos Avoid: harsh contrast",
+        "clauses": [
+          {
+            "index": 0,
+            "body": "A calm, premium product film for a matte-black ceramic coffee cup on pale concrete.",
+            "role": "goal",
+            "sourceKind": "brief"
+          },
+          {
+            "index": 1,
+            "body": "Soft directional window light, cool neutral palette, shallow depth of field, no text.",
+            "role": "style",
+            "sourceKind": "brief"
+          },
+          {
+            "index": 2,
+            "body": "Avoid: on-screen text or logos",
+            "role": "avoid",
+            "sourceKind": "brief"
+          },
+          {
+            "index": 3,
+            "body": "Avoid: harsh contrast",
+            "role": "avoid",
+            "sourceKind": "brief"
+          }
+        ],
+        "memoryClauseCount": 0,
+        "promptHash": "6c5a555e5034e3a9167d1d338323d95fb5a515a88561d6d356079150e0f3232c"
+      },
+      "shots": [
+        {
+          "index": 0,
+          "intent": "Introduce the matte-black ceramic coffee cup as the hero product, highlighting its premium feel and simple elegance in a serene setting.",
+          "prompt": {
+            "text": "A low-angle, medium close-up of a matte-black ceramic coffee cup, perfectly centered on a pale, smooth concrete surface. Soft, cool-toned directional light from the left sculpts the cup's smooth, dark surface, creating subtle, elegant shadows. The background is softly blurred into an indistinct, cool grey wash. Shallow depth of field accentuates the cup's form. No harsh contrasts, just gentle light fall-off. Soft directional window light, cool neutral palette, shallow depth of field, no text. Avoid: on-screen text or logos Avoid: harsh contrast",
+            "clauses": [
+              {
+                "index": 0,
+                "body": "A low-angle, medium close-up of a matte-black ceramic coffee cup, perfectly centered on a pale, smooth concrete surface. Soft, cool-toned directional light from the left sculpts the cup's smooth, dark surface, creating subtle, elegant shadows. The background is softly blurred into an indistinct, cool grey wash. Shallow depth of field accentuates the cup's form. No harsh contrasts, just gentle light fall-off.",
+                "role": "goal",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 1,
+                "body": "Soft directional window light, cool neutral palette, shallow depth of field, no text.",
+                "role": "style",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 2,
+                "body": "Avoid: on-screen text or logos",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 3,
+                "body": "Avoid: harsh contrast",
+                "role": "avoid",
+                "sourceKind": "brief"
+              }
+            ],
+            "memoryClauseCount": 0,
+            "promptHash": "c9310828d3513ae461d12e2448fa4c6efaaa3ce123d8f0057e225cb45a5051f7"
+          },
+          "motionPrompt": "Slow, almost imperceptible 30-degree arc dolly right around the cup.",
+          "keyframeUrl": "/seed/0155d1da2c9c0ad3.jpg",
+          "videoUrl": "/seed/3bdbbe8f1af475ba.mp4",
+          "capability": "ltx-25-i2v-fast",
+          "costUSD": 0,
+          "review": {
+            "score": 8,
+            "passed": true,
+            "summary": "The matte-black ceramic coffee cup is the clear hero, presented with simple elegance in a serene, well-lit setting.",
+            "findings": [
+              {
+                "index": 0,
+                "body": "Minimalist and premium aesthetic aligns with design-literate audience",
+                "polarity": "positive"
+              },
+              {
+                "index": 1,
+                "body": "Clean, uncluttered background enhances product focus",
+                "polarity": "positive"
+              },
+              {
+                "index": 2,
+                "body": "Soft, even lighting avoids harsh contrast and maintains a serene mood",
+                "polarity": "positive"
+              },
+              {
+                "index": 3,
+                "body": "No dynamic movement or variation to engage viewer beyond initial impact",
+                "polarity": "negative"
+              }
+            ],
+            "verdicts": [
+              {
+                "index": 0,
+                "met": true,
+                "note": "The cup is centered and occupies the primary focal area, unmistakably the hero."
+              },
+              {
+                "index": 1,
+                "met": true,
+                "note": "Consistent lighting and composition across frames, with no visual disruption or variation."
+              }
+            ],
+            "costUSD": 0.0128,
+            "capability": "nemotron-omni-video"
+          },
+          "attempts": 1,
+          "status": "passed"
+        }
+      ],
+      "cutUrl": "/seed/3bdbbe8f1af475ba.mp4",
+      "review": {
+        "score": 8,
+        "passed": true,
+        "summary": "A single, static shot of a matte-black ceramic mug on pale concrete, lit softly with gentle shadows.",
+        "findings": [
+          {
+            "index": 0,
+            "body": "Minimalist composition keeps focus on the product",
+            "polarity": "positive"
+          },
+          {
+            "index": 1,
+            "body": "Soft, even lighting creates a premium, calm mood",
+            "polarity": "positive"
+          },
+          {
+            "index": 2,
+            "body": "Clean, uncluttered background supports the hero product",
+            "polarity": "positive"
+          },
+          {
+            "index": 3,
+            "body": "The clip is extremely short and lacks motion or dynamic engagement, risking viewer disengagement",
+            "polarity": "negative"
+          }
+        ],
+        "verdicts": [
+          {
+            "index": 0,
+            "met": true,
+            "note": "The matte-black ceramic mug is centered and clearly the sole subject, occupying the middle ground with no competing visual elements."
+          },
+          {
+            "index": 1,
+            "met": true,
+            "note": "The lighting is soft and consistent, with gentle gradients and no harsh contrast or sudden changes across the short clip."
+          }
+        ],
+        "costUSD": 0.0128,
+        "capability": "nemotron-omni-video"
+      },
+      "lessonIds": [],
+      "costUSD": 0.5959,
+      "calls": [
+        {
+          "id": "14fabe8c-3f01-406b-96a5-1565fd3c19f6",
+          "capability": "gemini-text",
+          "stage": "plan:attempt-4",
+          "argsHash": "0be180fce2069847",
+          "at": 1789742795402,
+          "latencyMs": 5203,
+          "ok": true,
+          "costUSD": 0.0001,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 1,
+          "warnings": []
+        },
+        {
+          "id": "8bbddab4-f45a-483e-8478-e852e7e46d02",
+          "capability": "flux-schnell",
+          "stage": "keyframe:4.0",
+          "argsHash": "2497ae4879efca87",
+          "at": 1789742800616,
+          "latencyMs": 5467,
+          "ok": true,
+          "costUSD": 0.0032,
+          "costUnitKind": "megapixel",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly83eTRmbHpwdWxndjRjbzZyLnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS91cGxvYWRzLzE3ODk3NDI4MDUzNjMtcGNicW93LmpwZWc.24f9b85b62004afa/1789742805363-pcbqow.jpeg",
+          "warnings": []
+        },
+        {
+          "id": "41ebd9af-531a-457e-b43d-5cd6a74e86ab",
+          "capability": "ltx-25-i2v-fast",
+          "stage": "animate:4.0",
+          "argsHash": "dde2ecd51d88cf42",
+          "at": 1789742806084,
+          "latencyMs": 33158,
+          "ok": true,
+          "costUSD": 0.567,
+          "costUnitKind": "second",
+          "costUnits": 6,
+          "jobId": "mjob_81fd593d8bc7",
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly92M2IuZmFsLm1lZGlhL2ZpbGVzL2IvMGFhYWVlNDkvRmluOUZOeEpCWnhZYUExZGRVcTd2X3RUNWh2cTFCLm1wNA.798ca8b97a06ece0/Fin9FNxJBZxYaA1ddUq7v_tT5hvq1B.mp4",
+          "warnings": [
+            {
+              "kind": "warning",
+              "message": "A durable copy was requested but none was recorded — the URL returned inherits the provider's lifetime. Retry the copy with upload({ source_url: <the url> })."
+            }
+          ]
+        },
+        {
+          "id": "d3531ae1-1818-455a-afc5-b75890b687e2",
+          "capability": "nemotron-omni-video",
+          "stage": "review:4.0",
+          "argsHash": "c0606a67b24c648c",
+          "at": 1789742839243,
+          "latencyMs": 4865,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "3418cc5c-1707-475f-84da-079e966aa08e",
+          "capability": "nemotron-omni-video",
+          "stage": "review:attempt-4",
+          "argsHash": "eff50db5b8fe8ca2",
+          "at": 1789742844131,
+          "latencyMs": 3916,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        }
+      ]
+    }
+  ],
+  "sources": [],
+  "seals": [],
+  "inheritedLessonIds": []
+}

@@ -173,17 +173,30 @@ export async function runProduction(options: RunOptions): Promise<Run> {
     // 6. Review the finished cut — the score that drives the loop.
     run = await stage(ctx, run, "REVIEWING", async () => {
       if (!run.cutUrl) throw new Error("There is no cut to review.");
-      run.review = await reviewVideo({
-        agent,
-        brief: project.brief,
-        videoUrl: run.cutUrl,
-        stage: `review:attempt-${attempt}`,
-      });
-      ctx.emit({
-        type: "stage",
-        stage: "REVIEWING",
-        detail: `Scored ${run.review.score}/10 against a target of ${project.brief.targetScore}.`,
-      });
+      try {
+        run.review = await reviewVideo({
+          agent,
+          brief: project.brief,
+          videoUrl: run.cutUrl,
+          stage: `review:attempt-${attempt}`,
+        });
+        ctx.emit({
+          type: "stage",
+          stage: "REVIEWING",
+          detail: `Scored ${run.review.score}/10 against a target of ${project.brief.targetScore}.`,
+        });
+      } catch (error) {
+        // The review costs about a cent and arrives after every expensive stage has succeeded.
+        // Failing the attempt here would discard a finished film over the cheapest call in the run.
+        // The attempt stands, unscored and labelled as such; it teaches the loop nothing, which is
+        // the honest consequence rather than a guessed score.
+        run.reviewError = short(error);
+        ctx.emit({
+          type: "stage",
+          stage: "REVIEWING",
+          detail: `The cut is finished but could not be reviewed: ${run.reviewError}`,
+        });
+      }
     });
 
     // 7. Learn. A control run deliberately contributes nothing: its whole purpose is to show what
@@ -449,11 +462,20 @@ async function renderShotWithGate(
 async function assemble(ctx: RunContext, project: Project, run: Run, shots: ShotRecord[]): Promise<void> {
   const clips = shots.map((shot) => shot.videoUrl!).filter(Boolean);
 
-  let cut =
-    clips.length === 1
-      ? clips[0]
-      : (await concatClips(ctx.agent, `concat:attempt-${ctx.attempt}`, clips)).url;
-  ctx.emit({ type: "stage", stage: "ASSEMBLING", detail: `Cut ${clips.length} shot(s) together.` });
+  let cut = clips[0];
+  if (clips.length > 1) {
+    try {
+      cut = (await concatClips(ctx.agent, `concat:attempt-${ctx.attempt}`, clips)).url;
+      ctx.emit({ type: "stage", stage: "ASSEMBLING", detail: `Cut ${clips.length} shots together.` });
+    } catch (error) {
+      // The network publishes this capability's success rate, and it is 84%. Building as though it
+      // were 100% meant roughly one run in six threw away every shot it had just paid minutes and
+      // dollars to render. The shots are the expensive part and they already exist; falling back to
+      // the first one keeps the attempt, its footage and its record, and says plainly what happened.
+      run.assemblyNote = `Shots could not be cut together (${short(error)}). Using shot 0 as the cut — all ${clips.length} shots are kept and downloadable.`;
+      ctx.emit({ type: "stage", stage: "ASSEMBLING", detail: run.assemblyNote });
+    }
+  }
 
   if (project.brief.narration) {
     try {

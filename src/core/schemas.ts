@@ -222,6 +222,10 @@ export const RunSchema = z.object({
   narrationUrl: z.string().optional(),
   musicUrl: z.string().optional(),
   review: ReviewSchema.optional(),
+  /** Set when the cut finished but the reviewer could not score it. The attempt still stands. */
+  reviewError: z.string().optional(),
+  /** Set when the shots could not be cut together and the film fell back to a single shot. */
+  assemblyNote: z.string().optional(),
   lessonIds: z.array(z.string()).default([]),
   costUSD: z.number().default(0),
   calls: z.array(LivepeerCallRecordSchema).default([]),

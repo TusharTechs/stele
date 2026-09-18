@@ -1,0 +1,2437 @@
+{
+  "id": "e6c6b1d7357c",
+  "title": "Indigo Hearth",
+  "createdAt": 1789743775421,
+  "updatedAt": 1789744394877,
+  "agentLabel": "studio-a",
+  "brief": {
+    "goal": "A three-shot teaser for a hand-thrown stoneware teapot, glazed deep indigo, on a bare plaster shelf.",
+    "audience": "Design-literate buyers browsing a homepage",
+    "styleNote": "Single soft north light, deep falloff into shadow, muted earth palette, shallow depth of field.",
+    "criteria": [
+      {
+        "index": 0,
+        "body": "The teapot is unmistakably the hero of every frame"
+      },
+      {
+        "index": 1,
+        "body": "The lighting, glaze colour and surface stay identical across all three shots"
+      },
+      {
+        "index": 2,
+        "body": "Each shot uses a visibly different framing, so the three do not read as one repeated angle"
+      },
+      {
+        "index": 3,
+        "body": "The mood is quiet and unhurried, never busy or commercial"
+      }
+    ],
+    "avoid": [
+      "on-screen text or logos",
+      "cluttered props",
+      "steam or pouring liquid"
+    ],
+    "shotCount": 3,
+    "shotSeconds": 6,
+    "aspectRatio": "16:9",
+    "targetScore": 9,
+    "narration": false,
+    "music": false
+  },
+  "canonVersion": 2,
+  "constraints": [
+    {
+      "id": "cdae7a515065",
+      "kind": "subject",
+      "body": "A hand-thrown stoneware teapot is the sole and undeniable subject of every frame.",
+      "weight": 1,
+      "authoredBy": "studio-a",
+      "createdAt": 1789743775421
+    },
+    {
+      "id": "bd7315a4b8b5",
+      "kind": "style",
+      "body": "The teapot's glaze is a consistent deep indigo colour across all shots.",
+      "weight": 0.95,
+      "authoredBy": "studio-a",
+      "createdAt": 1789743775421
+    },
+    {
+      "id": "a5d98e5ddd21",
+      "kind": "style",
+      "body": "The teapot rests on a bare plaster shelf.",
+      "weight": 0.9,
+      "authoredBy": "studio-a",
+      "createdAt": 1789743775421
+    },
+    {
+      "id": "e5fbfc2a119a",
+      "kind": "style",
+      "body": "Light emanates from a single, soft north-facing source.",
+      "weight": 0.9,
+      "authoredBy": "studio-a",
+      "createdAt": 1789743775421
+    },
+    {
+      "id": "e97e85275dec",
+      "kind": "style",
+      "body": "Shadows fall deeply, creating high contrast and chiaroscuro effects.",
+      "weight": 0.9,
+      "authoredBy": "studio-a",
+      "createdAt": 1789743775421
+    },
+    {
+      "id": "14e35adcc4b8",
+      "kind": "style",
+      "body": "The colour palette is strictly muted earth tones, with the indigo as the primary accent.",
+      "weight": 0.85,
+      "authoredBy": "studio-a",
+      "createdAt": 1789743775421
+    },
+    {
+      "id": "2d7c1a531849",
+      "kind": "style",
+      "body": "The depth of field is very shallow, rendering the background soft and indistinct.",
+      "weight": 0.85,
+      "authoredBy": "studio-a",
+      "createdAt": 1789743775421
+    },
+    {
+      "id": "0230671319b2",
+      "kind": "avoid",
+      "body": "There is no text or logo visible in any shot.",
+      "weight": 1,
+      "authoredBy": "studio-a",
+      "createdAt": 1789743775421
+    },
+    {
+      "id": "a0b24dd45115",
+      "kind": "avoid",
+      "body": "No additional objects or clutter are present in the frame, beyond the teapot and shelf.",
+      "weight": 0.95,
+      "authoredBy": "studio-a",
+      "createdAt": 1789743775421
+    },
+    {
+      "id": "97681a1385d0",
+      "kind": "avoid",
+      "body": "No steam or pouring liquid is depicted.",
+      "weight": 0.95,
+      "authoredBy": "studio-a",
+      "createdAt": 1789743775421
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1-6d164341b3",
+      "kind": "knownFailure",
+      "body": "Vary framing significantly across all three shots. Do not center the teapot identically in each frame.",
+      "status": "accepted",
+      "confidence": 1,
+      "learnedFromAttempt": 1,
+      "criterionIndex": 2,
+      "curatedBy": "cli",
+      "curatedAt": 1789744034541
+    },
+    {
+      "id": "l1-34c4c44665",
+      "kind": "successfulPattern",
+      "body": "Ensure the teapot remains the absolute hero and singular focus of every frame.",
+      "status": "accepted",
+      "confidence": 1,
+      "learnedFromAttempt": 1,
+      "criterionIndex": 0,
+      "curatedBy": "cli",
+      "curatedAt": 1789744034541
+    },
+    {
+      "id": "l1-228bf52afa",
+      "kind": "successfulPattern",
+      "body": "Maintain identical deep indigo glaze, soft north light, and deep falloff into shadow across all three shots.",
+      "status": "accepted",
+      "confidence": 1,
+      "learnedFromAttempt": 1,
+      "criterionIndex": 1,
+      "curatedBy": "cli",
+      "curatedAt": 1789744034541
+    },
+    {
+      "id": "l1-d61c843c92",
+      "kind": "styleAnchor",
+      "body": "Frame the teapot with a shallow depth of field, emphasizing its texture against a softly blurred background.",
+      "status": "accepted",
+      "confidence": 0.9,
+      "learnedFromAttempt": 1,
+      "curatedBy": "cli",
+      "curatedAt": 1789744034541
+    },
+    {
+      "id": "l2-605a4e0fe8",
+      "kind": "knownFailure",
+      "body": "Ensure consistent light temperature and intensity on the teapot across all shots to maintain identical perceived glaze color.",
+      "status": "proposed",
+      "confidence": 0.8,
+      "learnedFromAttempt": 2,
+      "criterionIndex": 1
+    },
+    {
+      "id": "l2-d527a921c1",
+      "kind": "constraint",
+      "body": "Render the plaster shelf as a consistent, muted earth tone that complements the indigo glaze without drawing attention.",
+      "status": "proposed",
+      "confidence": 0.5,
+      "learnedFromAttempt": 2
+    },
+    {
+      "id": "l2-646530ebe5",
+      "kind": "successfulPattern",
+      "body": "Utilize a consistent muted earth palette for all background and incidental elements to reinforce the quiet mood.",
+      "status": "proposed",
+      "confidence": 0.7,
+      "learnedFromAttempt": 2
+    },
+    {
+      "id": "l2-a72c3f02cc",
+      "kind": "styleAnchor",
+      "body": "Maintain the soft, unhurried pacing through deliberate framing choices and lack of distracting elements.",
+      "status": "proposed",
+      "confidence": 0.6,
+      "learnedFromAttempt": 2,
+      "criterionIndex": 3
+    }
+  ],
+  "runs": [
+    {
+      "attempt": 1,
+      "startedAt": 1789743781131,
+      "finishedAt": 1789744004413,
+      "stage": "COMPLETE",
+      "memoryWithheld": false,
+      "canonVersion": 1,
+      "basePrompt": {
+        "text": "A three-shot teaser for a hand-thrown stoneware teapot, glazed deep indigo, on a bare plaster shelf. Single soft north light, deep falloff into shadow, muted earth palette, shallow depth of field. Avoid: There is no text or logo visible in any shot. A hand-thrown stoneware teapot is the sole and undeniable subject of every frame. Avoid: No steam or pouring liquid is depicted. The teapot's glaze is a consistent deep indigo colour across all shots. Avoid: No additional objects or clutter are present in the frame, beyond the teapot and shelf. Light emanates from a single, soft north-facing source. The teapot rests on a bare plaster shelf. Shadows fall deeply, creating high contrast and chiaroscuro effects. The depth of field is very shallow, rendering the background soft and indistinct. The colour palette is strictly muted earth tones, with the indigo as the primary accent. Avoid: on-screen text or logos Avoid: cluttered props Avoid: steam or pouring liquid",
+        "clauses": [
+          {
+            "index": 0,
+            "body": "A three-shot teaser for a hand-thrown stoneware teapot, glazed deep indigo, on a bare plaster shelf.",
+            "role": "goal",
+            "sourceKind": "brief"
+          },
+          {
+            "index": 1,
+            "body": "Single soft north light, deep falloff into shadow, muted earth palette, shallow depth of field.",
+            "role": "style",
+            "sourceKind": "brief"
+          },
+          {
+            "index": 2,
+            "body": "Avoid: There is no text or logo visible in any shot.",
+            "role": "avoid",
+            "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/65b936acfeaa0f3b32ae",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/65b936acfeaa0f3b32ae"
+          },
+          {
+            "index": 3,
+            "body": "A hand-thrown stoneware teapot is the sole and undeniable subject of every frame.",
+            "role": "subject",
+            "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/a2d01a80d2a9807408e7",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/a2d01a80d2a9807408e7"
+          },
+          {
+            "index": 4,
+            "body": "Avoid: No steam or pouring liquid is depicted.",
+            "role": "avoid",
+            "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/8d763a9e0033850db4c5",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/8d763a9e0033850db4c5"
+          },
+          {
+            "index": 5,
+            "body": "The teapot's glaze is a consistent deep indigo colour across all shots.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/cdcd05bb754444934cc9",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/cdcd05bb754444934cc9"
+          },
+          {
+            "index": 6,
+            "body": "Avoid: No additional objects or clutter are present in the frame, beyond the teapot and shelf.",
+            "role": "avoid",
+            "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/d0ea9757c41a80efed9c",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/d0ea9757c41a80efed9c"
+          },
+          {
+            "index": 7,
+            "body": "Light emanates from a single, soft north-facing source.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/6a2bec5b65118fb5d696",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/6a2bec5b65118fb5d696"
+          },
+          {
+            "index": 8,
+            "body": "The teapot rests on a bare plaster shelf.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/926a0316a98b30de5a86",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/926a0316a98b30de5a86"
+          },
+          {
+            "index": 9,
+            "body": "Shadows fall deeply, creating high contrast and chiaroscuro effects.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/bf2ccfadd05cd6e21b9d",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/bf2ccfadd05cd6e21b9d"
+          },
+          {
+            "index": 10,
+            "body": "The depth of field is very shallow, rendering the background soft and indistinct.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/95fee41c54c9488859a9",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/95fee41c54c9488859a9"
+          },
+          {
+            "index": 11,
+            "body": "The colour palette is strictly muted earth tones, with the indigo as the primary accent.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/d11a4193200d54cf94dc",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/d11a4193200d54cf94dc"
+          },
+          {
+            "index": 12,
+            "body": "Avoid: on-screen text or logos",
+            "role": "avoid",
+            "sourceKind": "brief"
+          },
+          {
+            "index": 13,
+            "body": "Avoid: cluttered props",
+            "role": "avoid",
+            "sourceKind": "brief"
+          },
+          {
+            "index": 14,
+            "body": "Avoid: steam or pouring liquid",
+            "role": "avoid",
+            "sourceKind": "brief"
+          }
+        ],
+        "memoryClauseCount": 0,
+        "promptHash": "ef64842e14cfdd7a36d51856545b06f14a207cbb333755c88a98b165b42e6127"
+      },
+      "shots": [
+        {
+          "index": 0,
+          "intent": "To introduce the teapot as a sculptural object, highlighting its form and the interplay of light and shadow on its curves.",
+          "prompt": {
+            "text": "A wide shot of the indigo stoneware teapot resting on the bare plaster shelf, angled slightly from the left, with the soft north light raking across its surface, creating deep shadows that emphasize its hand-thrown texture. The background is a soft, muted earth tone blur due to shallow depth of field. The indigo glaze is rich and consistent. Single soft north light, deep falloff into shadow, muted earth palette, shallow depth of field. Avoid: There is no text or logo visible in any shot. A hand-thrown stoneware teapot is the sole and undeniable subject of every frame. Avoid: No steam or pouring liquid is depicted. The teapot's glaze is a consistent deep indigo colour across all shots. Avoid: No additional objects or clutter are present in the frame, beyond the teapot and shelf. Light emanates from a single, soft north-facing source. The teapot rests on a bare plaster shelf. Shadows fall deeply, creating high contrast and chiaroscuro effects. The depth of field is very shallow, rendering the background soft and indistinct. The colour palette is strictly muted earth tones, with the indigo as the primary accent. Avoid: on-screen text or logos Avoid: cluttered props Avoid: steam or pouring liquid",
+            "clauses": [
+              {
+                "index": 0,
+                "body": "A wide shot of the indigo stoneware teapot resting on the bare plaster shelf, angled slightly from the left, with the soft north light raking across its surface, creating deep shadows that emphasize its hand-thrown texture. The background is a soft, muted earth tone blur due to shallow depth of field. The indigo glaze is rich and consistent.",
+                "role": "goal",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 1,
+                "body": "Single soft north light, deep falloff into shadow, muted earth palette, shallow depth of field.",
+                "role": "style",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 2,
+                "body": "Avoid: There is no text or logo visible in any shot.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/65b936acfeaa0f3b32ae",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/65b936acfeaa0f3b32ae"
+              },
+              {
+                "index": 3,
+                "body": "A hand-thrown stoneware teapot is the sole and undeniable subject of every frame.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/a2d01a80d2a9807408e7",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/a2d01a80d2a9807408e7"
+              },
+              {
+                "index": 4,
+                "body": "Avoid: No steam or pouring liquid is depicted.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/8d763a9e0033850db4c5",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/8d763a9e0033850db4c5"
+              },
+              {
+                "index": 5,
+                "body": "The teapot's glaze is a consistent deep indigo colour across all shots.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/cdcd05bb754444934cc9",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/cdcd05bb754444934cc9"
+              },
+              {
+                "index": 6,
+                "body": "Avoid: No additional objects or clutter are present in the frame, beyond the teapot and shelf.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/d0ea9757c41a80efed9c",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/d0ea9757c41a80efed9c"
+              },
+              {
+                "index": 7,
+                "body": "Light emanates from a single, soft north-facing source.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/6a2bec5b65118fb5d696",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/6a2bec5b65118fb5d696"
+              },
+              {
+                "index": 8,
+                "body": "The teapot rests on a bare plaster shelf.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/926a0316a98b30de5a86",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/926a0316a98b30de5a86"
+              },
+              {
+                "index": 9,
+                "body": "Shadows fall deeply, creating high contrast and chiaroscuro effects.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/bf2ccfadd05cd6e21b9d",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/bf2ccfadd05cd6e21b9d"
+              },
+              {
+                "index": 10,
+                "body": "The depth of field is very shallow, rendering the background soft and indistinct.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/95fee41c54c9488859a9",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/95fee41c54c9488859a9"
+              },
+              {
+                "index": 11,
+                "body": "The colour palette is strictly muted earth tones, with the indigo as the primary accent.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/d11a4193200d54cf94dc",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/d11a4193200d54cf94dc"
+              },
+              {
+                "index": 12,
+                "body": "Avoid: on-screen text or logos",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 13,
+                "body": "Avoid: cluttered props",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 14,
+                "body": "Avoid: steam or pouring liquid",
+                "role": "avoid",
+                "sourceKind": "brief"
+              }
+            ],
+            "memoryClauseCount": 0,
+            "promptHash": "df4f8a9de2f78bdd23036682398513010b69449ec87a5c5252789c6a6f4d94ee"
+          },
+          "motionPrompt": "Very slow, almost imperceptible push in from wide to medium.",
+          "keyframeUrl": "/seed/3b2067a4e2d061ec.jpg",
+          "keyframeCapability": "flux-schnell",
+          "videoUrl": "/seed/9f86b76bb3ef65d7.mp4",
+          "capability": "ltx-25-i2v-fast",
+          "costUSD": 0,
+          "review": {
+            "score": 8,
+            "passed": false,
+            "summary": "The teapot is consistently presented as a sculptural object with consistent lighting, glaze, and framing that varies across shots, creating a quiet, unhurried mood without commercial clutter.",
+            "findings": [
+              {
+                "index": 0,
+                "body": "Clear hero focus",
+                "polarity": "positive"
+              },
+              {
+                "index": 1,
+                "body": "Consistent visual elements",
+                "polarity": "positive"
+              },
+              {
+                "index": 2,
+                "body": "Varied framing",
+                "polarity": "positive"
+              },
+              {
+                "index": 3,
+                "body": "Quiet mood",
+                "polarity": "positive"
+              },
+              {
+                "index": 4,
+                "body": "None",
+                "polarity": "negative",
+                "criterionIndex": 4
+              }
+            ],
+            "verdicts": [
+              {
+                "index": 0,
+                "met": true,
+                "note": "Teapot is the clear hero in every frame"
+              },
+              {
+                "index": 1,
+                "met": true,
+                "note": "Lighting, glaze and surface remain identical across all shots"
+              },
+              {
+                "index": 2,
+                "met": true,
+                "note": "Each shot uses visibly different framing (wide, close, angled)"
+              },
+              {
+                "index": 3,
+                "met": true,
+                "note": "Mood is quiet and unhurried, no busy or commercial elements"
+              }
+            ],
+            "costUSD": 0.0128,
+            "capability": "nemotron-omni-video"
+          },
+          "attempts": 2,
+          "status": "failed"
+        },
+        {
+          "index": 1,
+          "intent": "To reveal the exquisite detail of the teapot's indigo glaze and the subtle imperfections that speak to its handmade nature.",
+          "prompt": {
+            "text": "A tight close-up on the teapot's shoulder and upper body, centered, where the soft north light subtly glints off the indigo glaze, revealing variations in its surface and a rich, deep hue. The background is an indistinct, soft wash of muted earth tones, a result of the shallow depth of field. Single soft north light, deep falloff into shadow, muted earth palette, shallow depth of field. Avoid: There is no text or logo visible in any shot. A hand-thrown stoneware teapot is the sole and undeniable subject of every frame. Avoid: No steam or pouring liquid is depicted. The teapot's glaze is a consistent deep indigo colour across all shots. Avoid: No additional objects or clutter are present in the frame, beyond the teapot and shelf. Light emanates from a single, soft north-facing source. The teapot rests on a bare plaster shelf. Shadows fall deeply, creating high contrast and chiaroscuro effects. The depth of field is very shallow, rendering the background soft and indistinct. The colour palette is strictly muted earth tones, with the indigo as the primary accent. Avoid: on-screen text or logos Avoid: cluttered props Avoid: steam or pouring liquid",
+            "clauses": [
+              {
+                "index": 0,
+                "body": "A tight close-up on the teapot's shoulder and upper body, centered, where the soft north light subtly glints off the indigo glaze, revealing variations in its surface and a rich, deep hue. The background is an indistinct, soft wash of muted earth tones, a result of the shallow depth of field.",
+                "role": "goal",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 1,
+                "body": "Single soft north light, deep falloff into shadow, muted earth palette, shallow depth of field.",
+                "role": "style",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 2,
+                "body": "Avoid: There is no text or logo visible in any shot.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/65b936acfeaa0f3b32ae",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/65b936acfeaa0f3b32ae"
+              },
+              {
+                "index": 3,
+                "body": "A hand-thrown stoneware teapot is the sole and undeniable subject of every frame.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/a2d01a80d2a9807408e7",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/a2d01a80d2a9807408e7"
+              },
+              {
+                "index": 4,
+                "body": "Avoid: No steam or pouring liquid is depicted.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/8d763a9e0033850db4c5",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/8d763a9e0033850db4c5"
+              },
+              {
+                "index": 5,
+                "body": "The teapot's glaze is a consistent deep indigo colour across all shots.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/cdcd05bb754444934cc9",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/cdcd05bb754444934cc9"
+              },
+              {
+                "index": 6,
+                "body": "Avoid: No additional objects or clutter are present in the frame, beyond the teapot and shelf.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/d0ea9757c41a80efed9c",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/d0ea9757c41a80efed9c"
+              },
+              {
+                "index": 7,
+                "body": "Light emanates from a single, soft north-facing source.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/6a2bec5b65118fb5d696",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/6a2bec5b65118fb5d696"
+              },
+              {
+                "index": 8,
+                "body": "The teapot rests on a bare plaster shelf.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/926a0316a98b30de5a86",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/926a0316a98b30de5a86"
+              },
+              {
+                "index": 9,
+                "body": "Shadows fall deeply, creating high contrast and chiaroscuro effects.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/bf2ccfadd05cd6e21b9d",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/bf2ccfadd05cd6e21b9d"
+              },
+              {
+                "index": 10,
+                "body": "The depth of field is very shallow, rendering the background soft and indistinct.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/95fee41c54c9488859a9",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/95fee41c54c9488859a9"
+              },
+              {
+                "index": 11,
+                "body": "The colour palette is strictly muted earth tones, with the indigo as the primary accent.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/d11a4193200d54cf94dc",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/d11a4193200d54cf94dc"
+              },
+              {
+                "index": 12,
+                "body": "Avoid: on-screen text or logos",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 13,
+                "body": "Avoid: cluttered props",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 14,
+                "body": "Avoid: steam or pouring liquid",
+                "role": "avoid",
+                "sourceKind": "brief"
+              }
+            ],
+            "memoryClauseCount": 0,
+            "promptHash": "2d74a9954e23a7be42bc638aaf3087bbeba89fb6fc768a4d61f7cf2f99d023e9"
+          },
+          "motionPrompt": "A gentle, slow pan across the teapot's body, revealing more surface detail.",
+          "keyframeUrl": "/seed/dcdb5aaaeb7e0213.jpg",
+          "keyframeCapability": "kontext-edit",
+          "anchoredTo": "/seed/3b2067a4e2d061ec.jpg",
+          "videoUrl": "/seed/8b294184ce6ecbb8.mp4",
+          "capability": "ltx-25-i2v-fast",
+          "costUSD": 0,
+          "review": {
+            "score": 9,
+            "passed": true,
+            "summary": "The teapot is the sole focus, with consistent lighting and glaze, distinct framing, and a calm mood.",
+            "findings": [
+              {
+                "index": 0,
+                "body": "Clear focus on the teapot",
+                "polarity": "positive"
+              },
+              {
+                "index": 1,
+                "body": "Consistent lighting and glaze",
+                "polarity": "positive"
+              },
+              {
+                "index": 2,
+                "body": "Distinct framing angles",
+                "polarity": "positive"
+              },
+              {
+                "index": 3,
+                "body": "Calm, unhurried mood",
+                "polarity": "positive"
+              }
+            ],
+            "verdicts": [
+              {
+                "index": 0,
+                "met": true,
+                "note": "Teapot is clearly the hero in every frame."
+              },
+              {
+                "index": 1,
+                "met": true,
+                "note": "Lighting, glaze colour and surface are identical across all three shots."
+              },
+              {
+                "index": 2,
+                "met": true,
+                "note": "Each shot uses a visibly different framing (close-up, side profile, angled rear)."
+              },
+              {
+                "index": 3,
+                "met": true,
+                "note": "Mood is quiet and unhurried with no busy elements."
+              }
+            ],
+            "costUSD": 0.0128,
+            "capability": "nemotron-omni-video"
+          },
+          "attempts": 1,
+          "status": "passed"
+        },
+        {
+          "index": 2,
+          "intent": "To conclude with a contemplative view, emphasizing the teapot's presence and grounding it within its minimalist environment.",
+          "prompt": {
+            "text": "A medium shot of the teapot, framed slightly from above and to the right, showcasing its full silhouette against the plaster shelf, with the soft north light casting a deep, elongated shadow behind it. The muted earth tones of the shelf and background are softly out of focus, accentuating the vibrant indigo of the teapot. Single soft north light, deep falloff into shadow, muted earth palette, shallow depth of field. Avoid: There is no text or logo visible in any shot. A hand-thrown stoneware teapot is the sole and undeniable subject of every frame. Avoid: No steam or pouring liquid is depicted. The teapot's glaze is a consistent deep indigo colour across all shots. Avoid: No additional objects or clutter are present in the frame, beyond the teapot and shelf. Light emanates from a single, soft north-facing source. The teapot rests on a bare plaster shelf. Shadows fall deeply, creating high contrast and chiaroscuro effects. The depth of field is very shallow, rendering the background soft and indistinct. The colour palette is strictly muted earth tones, with the indigo as the primary accent. Avoid: on-screen text or logos Avoid: cluttered props Avoid: steam or pouring liquid",
+            "clauses": [
+              {
+                "index": 0,
+                "body": "A medium shot of the teapot, framed slightly from above and to the right, showcasing its full silhouette against the plaster shelf, with the soft north light casting a deep, elongated shadow behind it. The muted earth tones of the shelf and background are softly out of focus, accentuating the vibrant indigo of the teapot.",
+                "role": "goal",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 1,
+                "body": "Single soft north light, deep falloff into shadow, muted earth palette, shallow depth of field.",
+                "role": "style",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 2,
+                "body": "Avoid: There is no text or logo visible in any shot.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/65b936acfeaa0f3b32ae",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/65b936acfeaa0f3b32ae"
+              },
+              {
+                "index": 3,
+                "body": "A hand-thrown stoneware teapot is the sole and undeniable subject of every frame.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/a2d01a80d2a9807408e7",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/a2d01a80d2a9807408e7"
+              },
+              {
+                "index": 4,
+                "body": "Avoid: No steam or pouring liquid is depicted.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/8d763a9e0033850db4c5",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/8d763a9e0033850db4c5"
+              },
+              {
+                "index": 5,
+                "body": "The teapot's glaze is a consistent deep indigo colour across all shots.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/cdcd05bb754444934cc9",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/cdcd05bb754444934cc9"
+              },
+              {
+                "index": 6,
+                "body": "Avoid: No additional objects or clutter are present in the frame, beyond the teapot and shelf.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/d0ea9757c41a80efed9c",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/d0ea9757c41a80efed9c"
+              },
+              {
+                "index": 7,
+                "body": "Light emanates from a single, soft north-facing source.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/6a2bec5b65118fb5d696",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/6a2bec5b65118fb5d696"
+              },
+              {
+                "index": 8,
+                "body": "The teapot rests on a bare plaster shelf.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/926a0316a98b30de5a86",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/926a0316a98b30de5a86"
+              },
+              {
+                "index": 9,
+                "body": "Shadows fall deeply, creating high contrast and chiaroscuro effects.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/bf2ccfadd05cd6e21b9d",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/bf2ccfadd05cd6e21b9d"
+              },
+              {
+                "index": 10,
+                "body": "The depth of field is very shallow, rendering the background soft and indistinct.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/95fee41c54c9488859a9",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/95fee41c54c9488859a9"
+              },
+              {
+                "index": 11,
+                "body": "The colour palette is strictly muted earth tones, with the indigo as the primary accent.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/d11a4193200d54cf94dc",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/d11a4193200d54cf94dc"
+              },
+              {
+                "index": 12,
+                "body": "Avoid: on-screen text or logos",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 13,
+                "body": "Avoid: cluttered props",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 14,
+                "body": "Avoid: steam or pouring liquid",
+                "role": "avoid",
+                "sourceKind": "brief"
+              }
+            ],
+            "memoryClauseCount": 0,
+            "promptHash": "96700d607ec78da45267af952e4a0c8630ab194b9571489dac363fec55d8bc45"
+          },
+          "motionPrompt": "A slow, downward arc around the teapot, settling slightly lower.",
+          "keyframeUrl": "/seed/0e88273df342f0ee.jpg",
+          "keyframeCapability": "kontext-edit",
+          "anchoredTo": "/seed/3b2067a4e2d061ec.jpg",
+          "videoUrl": "/seed/0bf2eec4353b89a2.mp4",
+          "capability": "ltx-25-i2v-fast",
+          "costUSD": 0,
+          "review": {
+            "score": 9,
+            "passed": true,
+            "summary": "The teapot remains the clear focal point in each shot with consistent visual qualities.",
+            "findings": [
+              {
+                "index": 0,
+                "body": "Clean minimalist composition",
+                "polarity": "positive"
+              },
+              {
+                "index": 1,
+                "body": "Strong directional lighting highlights form",
+                "polarity": "positive"
+              }
+            ],
+            "verdicts": [
+              {
+                "index": 0,
+                "met": true,
+                "note": "Teapot is the only prominent object and dominates all frames."
+              },
+              {
+                "index": 1,
+                "met": true,
+                "note": "Glaze colour and surface texture stay the same across all shots."
+              },
+              {
+                "index": 2,
+                "met": true,
+                "note": "Framing changes visibly: wide, medium close-up, and tighter angle."
+              },
+              {
+                "index": 3,
+                "met": true,
+                "note": "Mood is calm, still, and unhurried with no motion or distractions."
+              }
+            ],
+            "costUSD": 0.0128,
+            "capability": "nemotron-omni-video"
+          },
+          "attempts": 1,
+          "status": "passed"
+        }
+      ],
+      "cutUrl": "/seed/923b90e61dc5a950.mp4",
+      "review": {
+        "score": 7,
+        "passed": false,
+        "summary": "The teapot is the hero in all shots, lighting and glaze are consistent, and the mood is quiet, but the three shots are too similar in framing to feel like distinct angles.",
+        "findings": [
+          {
+            "index": 0,
+            "body": "Clear focus on the teapot as the sole subject",
+            "polarity": "positive"
+          },
+          {
+            "index": 1,
+            "body": "Consistent lighting and glaze colour throughout",
+            "polarity": "positive"
+          },
+          {
+            "index": 2,
+            "body": "Repetitive framing makes the three shots feel redundant",
+            "polarity": "negative",
+            "criterionIndex": 2
+          },
+          {
+            "index": 3,
+            "body": "No distinct variation in shot composition to satisfy the three-shot teaser requirement",
+            "polarity": "negative",
+            "criterionIndex": 2
+          }
+        ],
+        "verdicts": [
+          {
+            "index": 0,
+            "met": true,
+            "note": "The teapot dominates each frame without competition."
+          },
+          {
+            "index": 1,
+            "met": true,
+            "note": "The deep indigo glaze and surface texture remain identical across all shots."
+          },
+          {
+            "index": 2,
+            "met": false,
+            "note": "All three shots use nearly the same centered composition, so they feel like repeated angles rather than different framings."
+          },
+          {
+            "index": 3,
+            "met": true,
+            "note": "The scene is calm, with steady light and no hurried movement."
+          }
+        ],
+        "costUSD": 0.0128,
+        "capability": "nemotron-omni-video"
+      },
+      "lessonIds": [
+        "l1-6d164341b3",
+        "l1-34c4c44665",
+        "l1-228bf52afa",
+        "l1-d61c843c92"
+      ],
+      "costUSD": 2.4225999999999996,
+      "calls": [
+        {
+          "id": "8ff16e6e-727c-48a4-b309-2e759e7917cc",
+          "capability": "gemini-text",
+          "stage": "intake",
+          "argsHash": "0d8976c50801a981",
+          "at": 1789743762271,
+          "latencyMs": 6955,
+          "ok": true,
+          "costUSD": 0.0001,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 1,
+          "warnings": []
+        },
+        {
+          "id": "158fce97-1170-4ea0-90be-9a1e69d3d7be",
+          "capability": "gemini-text",
+          "stage": "intake",
+          "argsHash": "4c2014d93587b450",
+          "at": 1789743769230,
+          "latencyMs": 6191,
+          "ok": true,
+          "costUSD": 0.0001,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 1,
+          "warnings": []
+        },
+        {
+          "id": "3df881bc-f501-4218-b408-1fe65225312f",
+          "capability": "gemini-text",
+          "stage": "plan:attempt-1",
+          "argsHash": "35558e6878f0d924",
+          "at": 1789743781155,
+          "latencyMs": 6756,
+          "ok": true,
+          "costUSD": 0.0001,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 1,
+          "warnings": []
+        },
+        {
+          "id": "f8b2d690-d8e3-4c97-b3e9-96ccc1d43fa7",
+          "capability": "flux-schnell",
+          "stage": "keyframe:1.0",
+          "argsHash": "46deea51e30bccde",
+          "at": 1789743787921,
+          "latencyMs": 5859,
+          "ok": true,
+          "costUSD": 0.0032,
+          "costUnitKind": "megapixel",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly83eTRmbHpwdWxndjRjbzZyLnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS91cGxvYWRzLzE3ODk3NDM3OTMwNDYtZGZmNngyLmpwZWc.42a1c160c374359c/1789743793046-dff6x2.jpeg",
+          "warnings": []
+        },
+        {
+          "id": "a93efa49-83c8-4846-9f48-8b9468fed887",
+          "capability": "ltx-25-i2v-fast",
+          "stage": "animate:1.0",
+          "argsHash": "5713d717317cb548",
+          "at": 1789743793780,
+          "latencyMs": 25504,
+          "ok": true,
+          "costUSD": 0.567,
+          "costUnitKind": "second",
+          "costUnits": 6,
+          "jobId": "mjob_ae9401cedfbf",
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly92M2IuZmFsLm1lZGlhL2ZpbGVzL2IvMGFhYWVlYWIvejdLRlp1YVJiaXlMdmRVcjh2MER5X2VDSDJ0QjlNLm1wNA.270bf34d03207028/z7KFZuaRbiyLvdUr8v0Dy_eCH2tB9M.mp4",
+          "warnings": [
+            {
+              "kind": "warning",
+              "message": "A durable copy was requested but none was recorded — the URL returned inherits the provider's lifetime. Retry the copy with upload({ source_url: <the url> })."
+            }
+          ]
+        },
+        {
+          "id": "62229e36-1c45-4029-86f1-2997437ddbec",
+          "capability": "nemotron-omni-video",
+          "stage": "review:1.0",
+          "argsHash": "ff603dfe1a145705",
+          "at": 1789743819285,
+          "latencyMs": 4641,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "0f632e73-4848-4fca-88de-77740ab7fd8a",
+          "capability": "flux-schnell",
+          "stage": "keyframe:1.0",
+          "argsHash": "7591a9ee2c5cdedc",
+          "at": 1789743823928,
+          "latencyMs": 6607,
+          "ok": true,
+          "costUSD": 0.0032,
+          "costUnitKind": "megapixel",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly83eTRmbHpwdWxndjRjbzZyLnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS91cGxvYWRzLzE3ODk3NDM4Mjk4NTItNTJsdXJ6LmpwZWc.ba35b2530ceb8268/1789743829852-52lurz.jpeg",
+          "warnings": []
+        },
+        {
+          "id": "d2124ca8-a520-461b-ad29-00c606509403",
+          "capability": "ltx-25-i2v-fast",
+          "stage": "animate:1.0",
+          "argsHash": "80441b28f6a8a19d",
+          "at": 1789743830536,
+          "latencyMs": 31661,
+          "ok": true,
+          "costUSD": 0.567,
+          "costUnitKind": "second",
+          "costUnits": 6,
+          "jobId": "mjob_1ddbe4685672",
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly92M2IuZmFsLm1lZGlhL2ZpbGVzL2IvMGFhYWVlYWYvRWMzbXg1c01Da3pWUVA2azd1ZTlVX2hUNGt6MnhzLm1wNA.955ba755ae6562f7/Ec3mx5sMCkzVQP6k7ue9U_hT4kz2xs.mp4",
+          "warnings": [
+            {
+              "kind": "warning",
+              "message": "A durable copy was requested but none was recorded — the URL returned inherits the provider's lifetime. Retry the copy with upload({ source_url: <the url> })."
+            }
+          ]
+        },
+        {
+          "id": "fdc265b8-1fb1-488f-b364-fd6718728730",
+          "capability": "nemotron-omni-video",
+          "stage": "review:1.0",
+          "argsHash": "bbc1b457a4ef9060",
+          "at": 1789743862197,
+          "latencyMs": 5461,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "0f78868b-befe-43ff-9976-c2417121bf83",
+          "capability": "kontext-edit",
+          "stage": "keyframe:1.1",
+          "argsHash": "9bbb7f27d0cbcca3",
+          "at": 1789743867663,
+          "latencyMs": 13331,
+          "ok": true,
+          "costUSD": 0.042,
+          "costUnitKind": "image",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly83eTRmbHpwdWxndjRjbzZyLnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS91cGxvYWRzLzE3ODk3NDM4ODAzMTktbDc2ZGJqLmpwZWc.807a60f7f3d7d4d3/1789743880319-l76dbj.jpeg",
+          "warnings": []
+        },
+        {
+          "id": "494c433f-c63d-4790-b512-33002791bcfa",
+          "capability": "ltx-25-i2v-fast",
+          "stage": "animate:1.1",
+          "argsHash": "7f5e8ed10a4e5917",
+          "at": 1789743880994,
+          "latencyMs": 42974,
+          "ok": true,
+          "costUSD": 0.567,
+          "costUnitKind": "second",
+          "costUnits": 6,
+          "jobId": "mjob_3107498f4e3e",
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly92M2IuZmFsLm1lZGlhL2ZpbGVzL2IvMGFhYWVlYjQvQlNaUkxIWXZqRkJ6NDRYeHRkNENiX2JucGM2cnBZLm1wNA.0ba4ed95d78d8fa6/BSZRLHYvjFBz44Xxtd4Cb_bnpc6rpY.mp4",
+          "warnings": [
+            {
+              "kind": "warning",
+              "message": "A durable copy was requested but none was recorded — the URL returned inherits the provider's lifetime. Retry the copy with upload({ source_url: <the url> })."
+            }
+          ]
+        },
+        {
+          "id": "6e50114a-70e5-4849-a7a4-1a5744822d21",
+          "capability": "nemotron-omni-video",
+          "stage": "review:1.1",
+          "argsHash": "338a015acba91ebd",
+          "at": 1789743923968,
+          "latencyMs": 6374,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "7098135a-7156-400b-8cd7-4326897002a6",
+          "capability": "kontext-edit",
+          "stage": "keyframe:1.2",
+          "argsHash": "5cf2db942fc4f559",
+          "at": 1789743930353,
+          "latencyMs": 12855,
+          "ok": true,
+          "costUSD": 0.042,
+          "costUnitKind": "image",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly83eTRmbHpwdWxndjRjbzZyLnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS91cGxvYWRzLzE3ODk3NDM5NDI1MDUtYWNpZ2N1LmpwZWc.a7ed3d21a398882c/1789743942505-acigcu.jpeg",
+          "warnings": []
+        },
+        {
+          "id": "71f32b72-477c-4869-ade1-10e1c8e90d57",
+          "capability": "ltx-25-i2v-fast",
+          "stage": "animate:1.2",
+          "argsHash": "102419a6890e4656",
+          "at": 1789743943209,
+          "latencyMs": 37177,
+          "ok": true,
+          "costUSD": 0.567,
+          "costUnitKind": "second",
+          "costUnits": 6,
+          "jobId": "mjob_7ab3286bfb8f",
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly92M2IuZmFsLm1lZGlhL2ZpbGVzL2IvMGFhYWVlYmIvcHVYTXdQbXFWOGhZblVKMnNUZFlqX1hwUDJwcndHLm1wNA.f6fb9fe5395aaded/puXMwPmqV8hYnUJ2sTdYj_XpP2prwG.mp4",
+          "warnings": [
+            {
+              "kind": "warning",
+              "message": "A durable copy was requested but none was recorded — the URL returned inherits the provider's lifetime. Retry the copy with upload({ source_url: <the url> })."
+            }
+          ]
+        },
+        {
+          "id": "425e45bb-5f16-48b6-827c-5d57f9b17e88",
+          "capability": "nemotron-omni-video",
+          "stage": "review:1.2",
+          "argsHash": "d4697872550d1b5a",
+          "at": 1789743980387,
+          "latencyMs": 6125,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "077ff12a-7984-4579-8e1f-8a89f33ce94a",
+          "capability": "ffmpeg-concat",
+          "stage": "concat:attempt-1",
+          "argsHash": "ee201e3e37b99cd8",
+          "at": 1789743986528,
+          "latencyMs": 6620,
+          "ok": true,
+          "costUSD": 0,
+          "costUnitKind": "call",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3N0b3J5Ym9hcmQtdXBsb2Fkcy90b29sLW91dHB1dHMvMTc4OTc0Mzk5MTk3NC01Y2E3YjRmOWQwNzU0ZjMxOTg5ZDMxZTgyNzIxNWVlZC5tcDQ.16fe1a327274b506/1789743991974-5ca7b4f9d0754f31989d31e827215eed.mp4",
+          "warnings": []
+        },
+        {
+          "id": "f35ae5cc-dfbb-4ff6-91cf-bb5939d0b062",
+          "capability": "nemotron-omni-video",
+          "stage": "review:attempt-1",
+          "argsHash": "62c440d7981c3357",
+          "at": 1789743993155,
+          "latencyMs": 6505,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "8a9dbdf2-c7bb-4ec5-b74b-aa50702edbab",
+          "capability": "gemini-text",
+          "stage": "distill:attempt-1",
+          "argsHash": "0f16743f9db76ff1",
+          "at": 1789743999667,
+          "latencyMs": 4740,
+          "ok": true,
+          "costUSD": 0.0001,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 1,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "attempt": 2,
+      "startedAt": 1789744041639,
+      "finishedAt": 1789744394875,
+      "stage": "COMPLETE",
+      "memoryWithheld": false,
+      "canonVersion": 2,
+      "basePrompt": {
+        "text": "A three-shot teaser for a hand-thrown stoneware teapot, glazed deep indigo, on a bare plaster shelf. Single soft north light, deep falloff into shadow, muted earth palette, shallow depth of field. A hand-thrown stoneware teapot is the sole and undeniable subject of every frame. Avoid: There is no text or logo visible in any shot. Avoid: No additional objects or clutter are present in the frame, beyond the teapot and shelf. Avoid: No steam or pouring liquid is depicted. The teapot's glaze is a consistent deep indigo colour across all shots. Shadows fall deeply, creating high contrast and chiaroscuro effects. Light emanates from a single, soft north-facing source. The teapot rests on a bare plaster shelf. The depth of field is very shallow, rendering the background soft and indistinct. The colour palette is strictly muted earth tones, with the indigo as the primary accent. Avoid: Vary framing significantly across all three shots. Do not center the teapot identically in each frame. Ensure the teapot remains the absolute hero and singular focus of every frame. Maintain identical deep indigo glaze, soft north light, and deep falloff into shadow across all three shots. Frame the teapot with a shallow depth of field, emphasizing its texture against a softly blurred background. Avoid: on-screen text or logos Avoid: cluttered props Avoid: steam or pouring liquid",
+        "clauses": [
+          {
+            "index": 0,
+            "body": "A three-shot teaser for a hand-thrown stoneware teapot, glazed deep indigo, on a bare plaster shelf.",
+            "role": "goal",
+            "sourceKind": "brief"
+          },
+          {
+            "index": 1,
+            "body": "Single soft north light, deep falloff into shadow, muted earth palette, shallow depth of field.",
+            "role": "style",
+            "sourceKind": "brief"
+          },
+          {
+            "index": 2,
+            "body": "A hand-thrown stoneware teapot is the sole and undeniable subject of every frame.",
+            "role": "subject",
+            "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/a2d01a80d2a9807408e7",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/a2d01a80d2a9807408e7"
+          },
+          {
+            "index": 3,
+            "body": "Avoid: There is no text or logo visible in any shot.",
+            "role": "avoid",
+            "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/65b936acfeaa0f3b32ae",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/65b936acfeaa0f3b32ae"
+          },
+          {
+            "index": 4,
+            "body": "Avoid: No additional objects or clutter are present in the frame, beyond the teapot and shelf.",
+            "role": "avoid",
+            "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/d0ea9757c41a80efed9c",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/d0ea9757c41a80efed9c"
+          },
+          {
+            "index": 5,
+            "body": "Avoid: No steam or pouring liquid is depicted.",
+            "role": "avoid",
+            "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/8d763a9e0033850db4c5",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/8d763a9e0033850db4c5"
+          },
+          {
+            "index": 6,
+            "body": "The teapot's glaze is a consistent deep indigo colour across all shots.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/cdcd05bb754444934cc9",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/cdcd05bb754444934cc9"
+          },
+          {
+            "index": 7,
+            "body": "Shadows fall deeply, creating high contrast and chiaroscuro effects.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/bf2ccfadd05cd6e21b9d",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/bf2ccfadd05cd6e21b9d"
+          },
+          {
+            "index": 8,
+            "body": "Light emanates from a single, soft north-facing source.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/6a2bec5b65118fb5d696",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/6a2bec5b65118fb5d696"
+          },
+          {
+            "index": 9,
+            "body": "The teapot rests on a bare plaster shelf.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/926a0316a98b30de5a86",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/926a0316a98b30de5a86"
+          },
+          {
+            "index": 10,
+            "body": "The depth of field is very shallow, rendering the background soft and indistinct.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/95fee41c54c9488859a9",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/95fee41c54c9488859a9"
+          },
+          {
+            "index": 11,
+            "body": "The colour palette is strictly muted earth tones, with the indigo as the primary accent.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/d11a4193200d54cf94dc",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/d11a4193200d54cf94dc"
+          },
+          {
+            "index": 12,
+            "body": "Avoid: Vary framing significantly across all three shots. Do not center the teapot identically in each frame.",
+            "role": "avoid",
+            "sourceId": "https://stele.studio/g/lesson/e6c6b1d7357c/1/18920",
+            "sourceKind": "lesson",
+            "sourceAttempt": 1,
+            "criterionIndex": 2,
+            "sourceIri": "https://stele.studio/g/lesson/e6c6b1d7357c/1/18920",
+            "originProjectId": "e6c6b1d7357c"
+          },
+          {
+            "index": 13,
+            "body": "Ensure the teapot remains the absolute hero and singular focus of every frame.",
+            "role": "lesson",
+            "sourceId": "https://stele.studio/g/lesson/e6c6b1d7357c/1/88268",
+            "sourceKind": "lesson",
+            "sourceAttempt": 1,
+            "criterionIndex": 0,
+            "sourceIri": "https://stele.studio/g/lesson/e6c6b1d7357c/1/88268",
+            "originProjectId": "e6c6b1d7357c"
+          },
+          {
+            "index": 14,
+            "body": "Maintain identical deep indigo glaze, soft north light, and deep falloff into shadow across all three shots.",
+            "role": "lesson",
+            "sourceId": "https://stele.studio/g/lesson/e6c6b1d7357c/1/939",
+            "sourceKind": "lesson",
+            "sourceAttempt": 1,
+            "criterionIndex": 1,
+            "sourceIri": "https://stele.studio/g/lesson/e6c6b1d7357c/1/939",
+            "originProjectId": "e6c6b1d7357c"
+          },
+          {
+            "index": 15,
+            "body": "Frame the teapot with a shallow depth of field, emphasizing its texture against a softly blurred background.",
+            "role": "lesson",
+            "sourceId": "https://stele.studio/g/lesson/e6c6b1d7357c/1/76049",
+            "sourceKind": "lesson",
+            "sourceAttempt": 1,
+            "sourceIri": "https://stele.studio/g/lesson/e6c6b1d7357c/1/76049",
+            "originProjectId": "e6c6b1d7357c"
+          },
+          {
+            "index": 16,
+            "body": "Avoid: on-screen text or logos",
+            "role": "avoid",
+            "sourceKind": "brief"
+          },
+          {
+            "index": 17,
+            "body": "Avoid: cluttered props",
+            "role": "avoid",
+            "sourceKind": "brief"
+          },
+          {
+            "index": 18,
+            "body": "Avoid: steam or pouring liquid",
+            "role": "avoid",
+            "sourceKind": "brief"
+          }
+        ],
+        "memoryClauseCount": 4,
+        "promptHash": "19f63396d298f215fbcbed3259176c4ab09d99977ada4e7d5707c2ca00220eca"
+      },
+      "shots": [
+        {
+          "index": 0,
+          "intent": "To introduce the teapot as a sculptural form, emphasizing its unique silhouette against the soft light.",
+          "prompt": {
+            "text": "A medium shot of a hand-thrown indigo stoneware teapot, positioned slightly off-center to the left, on a bare plaster shelf. Soft north light illuminates the left side, casting a deep, high-contrast shadow across the right, with a muted earth tone background softly blurred. Single soft north light, deep falloff into shadow, muted earth palette, shallow depth of field. A hand-thrown stoneware teapot is the sole and undeniable subject of every frame. Avoid: There is no text or logo visible in any shot. Avoid: No additional objects or clutter are present in the frame, beyond the teapot and shelf. Avoid: No steam or pouring liquid is depicted. The teapot's glaze is a consistent deep indigo colour across all shots. Shadows fall deeply, creating high contrast and chiaroscuro effects. Light emanates from a single, soft north-facing source. The teapot rests on a bare plaster shelf. The depth of field is very shallow, rendering the background soft and indistinct. The colour palette is strictly muted earth tones, with the indigo as the primary accent. Avoid: Vary framing significantly across all three shots. Do not center the teapot identically in each frame. Ensure the teapot remains the absolute hero and singular focus of every frame. Maintain identical deep indigo glaze, soft north light, and deep falloff into shadow across all three shots. Frame the teapot with a shallow depth of field, emphasizing its texture against a softly blurred background. Avoid: on-screen text or logos Avoid: cluttered props Avoid: steam or pouring liquid",
+            "clauses": [
+              {
+                "index": 0,
+                "body": "A medium shot of a hand-thrown indigo stoneware teapot, positioned slightly off-center to the left, on a bare plaster shelf. Soft north light illuminates the left side, casting a deep, high-contrast shadow across the right, with a muted earth tone background softly blurred.",
+                "role": "goal",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 1,
+                "body": "Single soft north light, deep falloff into shadow, muted earth palette, shallow depth of field.",
+                "role": "style",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 2,
+                "body": "A hand-thrown stoneware teapot is the sole and undeniable subject of every frame.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/a2d01a80d2a9807408e7",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/a2d01a80d2a9807408e7"
+              },
+              {
+                "index": 3,
+                "body": "Avoid: There is no text or logo visible in any shot.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/65b936acfeaa0f3b32ae",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/65b936acfeaa0f3b32ae"
+              },
+              {
+                "index": 4,
+                "body": "Avoid: No additional objects or clutter are present in the frame, beyond the teapot and shelf.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/d0ea9757c41a80efed9c",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/d0ea9757c41a80efed9c"
+              },
+              {
+                "index": 5,
+                "body": "Avoid: No steam or pouring liquid is depicted.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/8d763a9e0033850db4c5",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/8d763a9e0033850db4c5"
+              },
+              {
+                "index": 6,
+                "body": "The teapot's glaze is a consistent deep indigo colour across all shots.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/cdcd05bb754444934cc9",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/cdcd05bb754444934cc9"
+              },
+              {
+                "index": 7,
+                "body": "Shadows fall deeply, creating high contrast and chiaroscuro effects.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/bf2ccfadd05cd6e21b9d",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/bf2ccfadd05cd6e21b9d"
+              },
+              {
+                "index": 8,
+                "body": "Light emanates from a single, soft north-facing source.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/6a2bec5b65118fb5d696",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/6a2bec5b65118fb5d696"
+              },
+              {
+                "index": 9,
+                "body": "The teapot rests on a bare plaster shelf.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/926a0316a98b30de5a86",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/926a0316a98b30de5a86"
+              },
+              {
+                "index": 10,
+                "body": "The depth of field is very shallow, rendering the background soft and indistinct.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/95fee41c54c9488859a9",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/95fee41c54c9488859a9"
+              },
+              {
+                "index": 11,
+                "body": "The colour palette is strictly muted earth tones, with the indigo as the primary accent.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/d11a4193200d54cf94dc",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/d11a4193200d54cf94dc"
+              },
+              {
+                "index": 12,
+                "body": "Avoid: Vary framing significantly across all three shots. Do not center the teapot identically in each frame.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/lesson/e6c6b1d7357c/1/18920",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "criterionIndex": 2,
+                "sourceIri": "https://stele.studio/g/lesson/e6c6b1d7357c/1/18920",
+                "originProjectId": "e6c6b1d7357c"
+              },
+              {
+                "index": 13,
+                "body": "Ensure the teapot remains the absolute hero and singular focus of every frame.",
+                "role": "lesson",
+                "sourceId": "https://stele.studio/g/lesson/e6c6b1d7357c/1/88268",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "criterionIndex": 0,
+                "sourceIri": "https://stele.studio/g/lesson/e6c6b1d7357c/1/88268",
+                "originProjectId": "e6c6b1d7357c"
+              },
+              {
+                "index": 14,
+                "body": "Maintain identical deep indigo glaze, soft north light, and deep falloff into shadow across all three shots.",
+                "role": "lesson",
+                "sourceId": "https://stele.studio/g/lesson/e6c6b1d7357c/1/939",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "criterionIndex": 1,
+                "sourceIri": "https://stele.studio/g/lesson/e6c6b1d7357c/1/939",
+                "originProjectId": "e6c6b1d7357c"
+              },
+              {
+                "index": 15,
+                "body": "Frame the teapot with a shallow depth of field, emphasizing its texture against a softly blurred background.",
+                "role": "lesson",
+                "sourceId": "https://stele.studio/g/lesson/e6c6b1d7357c/1/76049",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "sourceIri": "https://stele.studio/g/lesson/e6c6b1d7357c/1/76049",
+                "originProjectId": "e6c6b1d7357c"
+              },
+              {
+                "index": 16,
+                "body": "Avoid: on-screen text or logos",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 17,
+                "body": "Avoid: cluttered props",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 18,
+                "body": "Avoid: steam or pouring liquid",
+                "role": "avoid",
+                "sourceKind": "brief"
+              }
+            ],
+            "memoryClauseCount": 4,
+            "promptHash": "923e06e43beef9bf0ff407337edbe24fa75008376022c3c3ba7311cba195fd6a"
+          },
+          "motionPrompt": "Gentle, almost imperceptible push-in from a medium shot to a slightly tighter medium shot.",
+          "keyframeUrl": "/seed/eba028e79beb4da3.jpg",
+          "keyframeCapability": "flux-schnell",
+          "videoUrl": "/seed/397409f6af5a2b26.mp4",
+          "capability": "ltx-25-i2v-fast",
+          "costUSD": 0,
+          "review": {
+            "score": 8,
+            "passed": false,
+            "summary": "The teapot is presented as a sculptural object with consistent lighting and glaze, though framing variations are subtle.",
+            "findings": [
+              {
+                "index": 0,
+                "body": "Clean composition, strong silhouette",
+                "polarity": "positive"
+              },
+              {
+                "index": 1,
+                "body": "Consistent material texture and color",
+                "polarity": "positive"
+              },
+              {
+                "index": 2,
+                "body": "Natural, soft lighting enhances form",
+                "polarity": "positive"
+              },
+              {
+                "index": 3,
+                "body": "None detected; no text, clutter, steam, or pouring",
+                "polarity": "negative"
+              }
+            ],
+            "verdicts": [
+              {
+                "index": 0,
+                "met": true,
+                "note": "Teapot remains the sole focus across all frames"
+              },
+              {
+                "index": 1,
+                "met": true,
+                "note": "Glaze, color, and lighting are identical in all three shots"
+              },
+              {
+                "index": 2,
+                "met": true,
+                "note": "Framing shifts from medium to close-up to side profile, avoiding repetition"
+              },
+              {
+                "index": 3,
+                "met": true,
+                "note": "Mood is calm and deliberate, with no motion or commercial elements"
+              }
+            ],
+            "costUSD": 0.0128,
+            "capability": "nemotron-omni-video"
+          },
+          "attempts": 2,
+          "status": "failed"
+        },
+        {
+          "index": 1,
+          "intent": "To highlight the delicate curve of the handle and the textural nuances of the clay beneath the glaze.",
+          "prompt": {
+            "text": "A close-up shot of the teapot's handle and upper body, framed from the right, with the handle curving gracefully into the upper third of the frame. The deep indigo glaze gleams softly on the curve, while the background plaster shelf and wall blur into muted earth tones, deeply shadowed on the left. Single soft north light, deep falloff into shadow, muted earth palette, shallow depth of field. A hand-thrown stoneware teapot is the sole and undeniable subject of every frame. Avoid: There is no text or logo visible in any shot. Avoid: No additional objects or clutter are present in the frame, beyond the teapot and shelf. Avoid: No steam or pouring liquid is depicted. The teapot's glaze is a consistent deep indigo colour across all shots. Shadows fall deeply, creating high contrast and chiaroscuro effects. Light emanates from a single, soft north-facing source. The teapot rests on a bare plaster shelf. The depth of field is very shallow, rendering the background soft and indistinct. The colour palette is strictly muted earth tones, with the indigo as the primary accent. Avoid: Vary framing significantly across all three shots. Do not center the teapot identically in each frame. Ensure the teapot remains the absolute hero and singular focus of every frame. Maintain identical deep indigo glaze, soft north light, and deep falloff into shadow across all three shots. Frame the teapot with a shallow depth of field, emphasizing its texture against a softly blurred background. Avoid: on-screen text or logos Avoid: cluttered props Avoid: steam or pouring liquid",
+            "clauses": [
+              {
+                "index": 0,
+                "body": "A close-up shot of the teapot's handle and upper body, framed from the right, with the handle curving gracefully into the upper third of the frame. The deep indigo glaze gleams softly on the curve, while the background plaster shelf and wall blur into muted earth tones, deeply shadowed on the left.",
+                "role": "goal",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 1,
+                "body": "Single soft north light, deep falloff into shadow, muted earth palette, shallow depth of field.",
+                "role": "style",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 2,
+                "body": "A hand-thrown stoneware teapot is the sole and undeniable subject of every frame.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/a2d01a80d2a9807408e7",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/a2d01a80d2a9807408e7"
+              },
+              {
+                "index": 3,
+                "body": "Avoid: There is no text or logo visible in any shot.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/65b936acfeaa0f3b32ae",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/65b936acfeaa0f3b32ae"
+              },
+              {
+                "index": 4,
+                "body": "Avoid: No additional objects or clutter are present in the frame, beyond the teapot and shelf.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/d0ea9757c41a80efed9c",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/d0ea9757c41a80efed9c"
+              },
+              {
+                "index": 5,
+                "body": "Avoid: No steam or pouring liquid is depicted.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/8d763a9e0033850db4c5",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/8d763a9e0033850db4c5"
+              },
+              {
+                "index": 6,
+                "body": "The teapot's glaze is a consistent deep indigo colour across all shots.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/cdcd05bb754444934cc9",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/cdcd05bb754444934cc9"
+              },
+              {
+                "index": 7,
+                "body": "Shadows fall deeply, creating high contrast and chiaroscuro effects.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/bf2ccfadd05cd6e21b9d",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/bf2ccfadd05cd6e21b9d"
+              },
+              {
+                "index": 8,
+                "body": "Light emanates from a single, soft north-facing source.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/6a2bec5b65118fb5d696",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/6a2bec5b65118fb5d696"
+              },
+              {
+                "index": 9,
+                "body": "The teapot rests on a bare plaster shelf.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/926a0316a98b30de5a86",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/926a0316a98b30de5a86"
+              },
+              {
+                "index": 10,
+                "body": "The depth of field is very shallow, rendering the background soft and indistinct.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/95fee41c54c9488859a9",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/95fee41c54c9488859a9"
+              },
+              {
+                "index": 11,
+                "body": "The colour palette is strictly muted earth tones, with the indigo as the primary accent.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/d11a4193200d54cf94dc",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/d11a4193200d54cf94dc"
+              },
+              {
+                "index": 12,
+                "body": "Avoid: Vary framing significantly across all three shots. Do not center the teapot identically in each frame.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/lesson/e6c6b1d7357c/1/18920",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "criterionIndex": 2,
+                "sourceIri": "https://stele.studio/g/lesson/e6c6b1d7357c/1/18920",
+                "originProjectId": "e6c6b1d7357c"
+              },
+              {
+                "index": 13,
+                "body": "Ensure the teapot remains the absolute hero and singular focus of every frame.",
+                "role": "lesson",
+                "sourceId": "https://stele.studio/g/lesson/e6c6b1d7357c/1/88268",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "criterionIndex": 0,
+                "sourceIri": "https://stele.studio/g/lesson/e6c6b1d7357c/1/88268",
+                "originProjectId": "e6c6b1d7357c"
+              },
+              {
+                "index": 14,
+                "body": "Maintain identical deep indigo glaze, soft north light, and deep falloff into shadow across all three shots.",
+                "role": "lesson",
+                "sourceId": "https://stele.studio/g/lesson/e6c6b1d7357c/1/939",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "criterionIndex": 1,
+                "sourceIri": "https://stele.studio/g/lesson/e6c6b1d7357c/1/939",
+                "originProjectId": "e6c6b1d7357c"
+              },
+              {
+                "index": 15,
+                "body": "Frame the teapot with a shallow depth of field, emphasizing its texture against a softly blurred background.",
+                "role": "lesson",
+                "sourceId": "https://stele.studio/g/lesson/e6c6b1d7357c/1/76049",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "sourceIri": "https://stele.studio/g/lesson/e6c6b1d7357c/1/76049",
+                "originProjectId": "e6c6b1d7357c"
+              },
+              {
+                "index": 16,
+                "body": "Avoid: on-screen text or logos",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 17,
+                "body": "Avoid: cluttered props",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 18,
+                "body": "Avoid: steam or pouring liquid",
+                "role": "avoid",
+                "sourceKind": "brief"
+              }
+            ],
+            "memoryClauseCount": 4,
+            "promptHash": "b0b302b231dae2c7b900cddf150014b88abcee27ec83d73d9d3222bbde9cf7c1"
+          },
+          "motionPrompt": "A very slow, subtle pan from right to left, revealing more of the pot's shoulder.",
+          "keyframeUrl": "/seed/5060b098c760c748.jpg",
+          "keyframeCapability": "kontext-edit",
+          "anchoredTo": "/seed/eba028e79beb4da3.jpg",
+          "videoUrl": "/seed/e51839fbe86ba3ff.mp4",
+          "capability": "ltx-25-i2v-fast",
+          "costUSD": 0,
+          "review": {
+            "score": 8,
+            "passed": false,
+            "summary": "The teapot is the clear hero with consistent lighting and glaze, but the framing is too similar across shots, reducing variety.",
+            "findings": [
+              {
+                "index": 0,
+                "body": "Clear focus on product texture and form",
+                "polarity": "positive"
+              },
+              {
+                "index": 1,
+                "body": "Consistent, natural lighting enhances material quality",
+                "polarity": "positive"
+              },
+              {
+                "index": 2,
+                "body": "Minimalist composition avoids distraction",
+                "polarity": "positive"
+              },
+              {
+                "index": 3,
+                "body": "Framing lacks meaningful variation across the three shots",
+                "polarity": "negative",
+                "criterionIndex": 1
+              }
+            ],
+            "verdicts": [
+              {
+                "index": 0,
+                "met": true,
+                "note": "Teapot remains the central, unchanging focus in all frames."
+              },
+              {
+                "index": 1,
+                "met": false,
+                "note": "Glaze color and lighting are consistent, but surface texture details vary slightly due to angle changes."
+              },
+              {
+                "index": 2,
+                "met": false,
+                "note": "Framing differences are minimal; the three shots feel like slight zooms rather than distinct compositions."
+              },
+              {
+                "index": 3,
+                "met": true,
+                "note": "The quiet, unhurried mood is maintained with soft light and no distractions."
+              }
+            ],
+            "costUSD": 0.0128,
+            "capability": "nemotron-omni-video"
+          },
+          "attempts": 2,
+          "status": "failed"
+        },
+        {
+          "index": 2,
+          "intent": "To reveal the spout's elegant form and the overall grounded presence of the teapot from a low, contemplative angle.",
+          "prompt": {
+            "text": "A low-angle medium shot of the indigo teapot, framed with the spout prominent in the lower right quadrant, resting on the bare plaster shelf. The soft north light skims the top surfaces, creating a rich chiaroscuro effect with deep shadows falling behind and to the left of the pot, against a muted, softly blurred earth-toned background. Single soft north light, deep falloff into shadow, muted earth palette, shallow depth of field. A hand-thrown stoneware teapot is the sole and undeniable subject of every frame. Avoid: There is no text or logo visible in any shot. Avoid: No additional objects or clutter are present in the frame, beyond the teapot and shelf. Avoid: No steam or pouring liquid is depicted. The teapot's glaze is a consistent deep indigo colour across all shots. Shadows fall deeply, creating high contrast and chiaroscuro effects. Light emanates from a single, soft north-facing source. The teapot rests on a bare plaster shelf. The depth of field is very shallow, rendering the background soft and indistinct. The colour palette is strictly muted earth tones, with the indigo as the primary accent. Avoid: Vary framing significantly across all three shots. Do not center the teapot identically in each frame. Ensure the teapot remains the absolute hero and singular focus of every frame. Maintain identical deep indigo glaze, soft north light, and deep falloff into shadow across all three shots. Frame the teapot with a shallow depth of field, emphasizing its texture against a softly blurred background. Avoid: on-screen text or logos Avoid: cluttered props Avoid: steam or pouring liquid",
+            "clauses": [
+              {
+                "index": 0,
+                "body": "A low-angle medium shot of the indigo teapot, framed with the spout prominent in the lower right quadrant, resting on the bare plaster shelf. The soft north light skims the top surfaces, creating a rich chiaroscuro effect with deep shadows falling behind and to the left of the pot, against a muted, softly blurred earth-toned background.",
+                "role": "goal",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 1,
+                "body": "Single soft north light, deep falloff into shadow, muted earth palette, shallow depth of field.",
+                "role": "style",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 2,
+                "body": "A hand-thrown stoneware teapot is the sole and undeniable subject of every frame.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/a2d01a80d2a9807408e7",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/a2d01a80d2a9807408e7"
+              },
+              {
+                "index": 3,
+                "body": "Avoid: There is no text or logo visible in any shot.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/65b936acfeaa0f3b32ae",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/65b936acfeaa0f3b32ae"
+              },
+              {
+                "index": 4,
+                "body": "Avoid: No additional objects or clutter are present in the frame, beyond the teapot and shelf.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/d0ea9757c41a80efed9c",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/d0ea9757c41a80efed9c"
+              },
+              {
+                "index": 5,
+                "body": "Avoid: No steam or pouring liquid is depicted.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/8d763a9e0033850db4c5",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/8d763a9e0033850db4c5"
+              },
+              {
+                "index": 6,
+                "body": "The teapot's glaze is a consistent deep indigo colour across all shots.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/cdcd05bb754444934cc9",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/cdcd05bb754444934cc9"
+              },
+              {
+                "index": 7,
+                "body": "Shadows fall deeply, creating high contrast and chiaroscuro effects.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/bf2ccfadd05cd6e21b9d",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/bf2ccfadd05cd6e21b9d"
+              },
+              {
+                "index": 8,
+                "body": "Light emanates from a single, soft north-facing source.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/6a2bec5b65118fb5d696",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/6a2bec5b65118fb5d696"
+              },
+              {
+                "index": 9,
+                "body": "The teapot rests on a bare plaster shelf.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/926a0316a98b30de5a86",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/926a0316a98b30de5a86"
+              },
+              {
+                "index": 10,
+                "body": "The depth of field is very shallow, rendering the background soft and indistinct.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/95fee41c54c9488859a9",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/95fee41c54c9488859a9"
+              },
+              {
+                "index": 11,
+                "body": "The colour palette is strictly muted earth tones, with the indigo as the primary accent.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/e6c6b1d7357c/d11a4193200d54cf94dc",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/e6c6b1d7357c/d11a4193200d54cf94dc"
+              },
+              {
+                "index": 12,
+                "body": "Avoid: Vary framing significantly across all three shots. Do not center the teapot identically in each frame.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/lesson/e6c6b1d7357c/1/18920",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "criterionIndex": 2,
+                "sourceIri": "https://stele.studio/g/lesson/e6c6b1d7357c/1/18920",
+                "originProjectId": "e6c6b1d7357c"
+              },
+              {
+                "index": 13,
+                "body": "Ensure the teapot remains the absolute hero and singular focus of every frame.",
+                "role": "lesson",
+                "sourceId": "https://stele.studio/g/lesson/e6c6b1d7357c/1/88268",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "criterionIndex": 0,
+                "sourceIri": "https://stele.studio/g/lesson/e6c6b1d7357c/1/88268",
+                "originProjectId": "e6c6b1d7357c"
+              },
+              {
+                "index": 14,
+                "body": "Maintain identical deep indigo glaze, soft north light, and deep falloff into shadow across all three shots.",
+                "role": "lesson",
+                "sourceId": "https://stele.studio/g/lesson/e6c6b1d7357c/1/939",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "criterionIndex": 1,
+                "sourceIri": "https://stele.studio/g/lesson/e6c6b1d7357c/1/939",
+                "originProjectId": "e6c6b1d7357c"
+              },
+              {
+                "index": 15,
+                "body": "Frame the teapot with a shallow depth of field, emphasizing its texture against a softly blurred background.",
+                "role": "lesson",
+                "sourceId": "https://stele.studio/g/lesson/e6c6b1d7357c/1/76049",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "sourceIri": "https://stele.studio/g/lesson/e6c6b1d7357c/1/76049",
+                "originProjectId": "e6c6b1d7357c"
+              },
+              {
+                "index": 16,
+                "body": "Avoid: on-screen text or logos",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 17,
+                "body": "Avoid: cluttered props",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 18,
+                "body": "Avoid: steam or pouring liquid",
+                "role": "avoid",
+                "sourceKind": "brief"
+              }
+            ],
+            "memoryClauseCount": 4,
+            "promptHash": "3a3095cd87a9d4d24f8b0fcbb9a69a6161bff829d8fc569218b5d030eac7d305"
+          },
+          "motionPrompt": "A slow, deliberate pull-back from a slightly tighter shot to a medium shot, revealing more of the shelf.",
+          "keyframeUrl": "/seed/7cca52fe514a5c8e.jpg",
+          "keyframeCapability": "kontext-edit",
+          "anchoredTo": "/seed/eba028e79beb4da3.jpg",
+          "videoUrl": "/seed/535117d2afd898bd.mp4",
+          "capability": "ltx-25-i2v-fast",
+          "costUSD": 0,
+          "review": {
+            "score": 8,
+            "passed": false,
+            "summary": "The teapot is the clear focus with consistent lighting and varied framing, though the mood is slightly disrupted by a sudden appearance of other bowls.",
+            "findings": [
+              {
+                "index": 0,
+                "body": "Consistent lighting and color highlight the teapot's design",
+                "polarity": "positive"
+              },
+              {
+                "index": 1,
+                "body": "Varied framing provides visual interest without distraction",
+                "polarity": "positive"
+              },
+              {
+                "index": 2,
+                "body": "A bowl briefly enters the frame at 00:03, introducing external elements that slightly break the focus",
+                "polarity": "negative"
+              }
+            ],
+            "verdicts": [
+              {
+                "index": 0,
+                "met": true,
+                "note": "Teapot remains the central subject in all shots"
+              },
+              {
+                "index": 1,
+                "met": true,
+                "note": "Lighting, glaze colour and surface texture are identical in all frames"
+              },
+              {
+                "index": 2,
+                "met": true,
+                "note": "Framing changes from close-up to medium to wide, showing different perspectives"
+              },
+              {
+                "index": 3,
+                "met": true,
+                "note": "Mood is quiet and unhurried, with no busy elements or commercial clutter"
+              }
+            ],
+            "costUSD": 0.0128,
+            "capability": "nemotron-omni-video"
+          },
+          "attempts": 2,
+          "status": "failed"
+        }
+      ],
+      "cutUrl": "/seed/55b21c2fb2601fc6.mp4",
+      "review": {
+        "score": 8,
+        "passed": false,
+        "summary": "The teapot is consistently highlighted with varied but complementary framing, though the lighting shifts slightly across shots.",
+        "findings": [
+          {
+            "index": 0,
+            "body": "Hero focus maintained",
+            "polarity": "positive"
+          },
+          {
+            "index": 1,
+            "body": "Distinct framing enhances visual interest",
+            "polarity": "positive"
+          },
+          {
+            "index": 2,
+            "body": "Quiet, unhurried pacing",
+            "polarity": "positive"
+          },
+          {
+            "index": 3,
+            "body": "Subtle lighting shift changes glaze appearance across shots",
+            "polarity": "negative",
+            "criterionIndex": 1
+          }
+        ],
+        "verdicts": [
+          {
+            "index": 0,
+            "met": true,
+            "note": "Teapot remains the central focus in every frame"
+          },
+          {
+            "index": 1,
+            "met": false,
+            "note": "Glaze appears slightly warmer in first shot due to direct sunlight, altering perceived colour"
+          },
+          {
+            "index": 2,
+            "met": true,
+            "note": "Framing changes from close-up to medium to wide shot, clearly distinct angles"
+          },
+          {
+            "index": 3,
+            "met": true,
+            "note": "Mood is calm and deliberate, with no fast cuts or busy elements"
+          }
+        ],
+        "costUSD": 0.0128,
+        "capability": "nemotron-omni-video"
+      },
+      "lessonIds": [
+        "l2-605a4e0fe8",
+        "l2-d527a921c1",
+        "l2-646530ebe5",
+        "l2-a72c3f02cc"
+      ],
+      "costUSD": 3.6661999999999986,
+      "calls": [
+        {
+          "id": "528624f3-e809-4ef1-9478-ec6cdab03293",
+          "capability": "gemini-text",
+          "stage": "plan:attempt-2",
+          "argsHash": "f610824b57494b2f",
+          "at": 1789744041669,
+          "latencyMs": 6819,
+          "ok": true,
+          "costUSD": 0.0001,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 1,
+          "warnings": []
+        },
+        {
+          "id": "d88a0f87-37d9-42ab-ac90-a33df3a66278",
+          "capability": "flux-schnell",
+          "stage": "keyframe:2.0",
+          "argsHash": "77a5db115b59af22",
+          "at": 1789744048498,
+          "latencyMs": 5489,
+          "ok": true,
+          "costUSD": 0.0032,
+          "costUnitKind": "megapixel",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly83eTRmbHpwdWxndjRjbzZyLnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS91cGxvYWRzLzE3ODk3NDQwNTMzMDktc213MjNtLmpwZWc.00491f472f38dd19/1789744053309-smw23m.jpeg",
+          "warnings": []
+        },
+        {
+          "id": "d12bd621-ef1e-43a8-8c84-0d3c04b5b8e5",
+          "capability": "ltx-25-i2v-fast",
+          "stage": "animate:2.0",
+          "argsHash": "e4bf20f469483070",
+          "at": 1789744053988,
+          "latencyMs": 32481,
+          "ok": true,
+          "costUSD": 0.567,
+          "costUnitKind": "second",
+          "costUnits": 6,
+          "jobId": "mjob_fed6a8cf21e5",
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly92M2IuZmFsLm1lZGlhL2ZpbGVzL2IvMGFhYWVlYzYvQVFINjA2WjJxd2hOcHlIR1JVbjY5X1JKSndBbXNXLm1wNA.1e841de554c92018/AQH606Z2qwhNpyHGRUn69_RJJwAmsW.mp4",
+          "warnings": [
+            {
+              "kind": "warning",
+              "message": "A durable copy was requested but none was recorded — the URL returned inherits the provider's lifetime. Retry the copy with upload({ source_url: <the url> })."
+            }
+          ]
+        },
+        {
+          "id": "0ced79c2-ed95-40f8-9b35-d5bfb54ef778",
+          "capability": "nemotron-omni-video",
+          "stage": "review:2.0",
+          "argsHash": "99059911b08a4209",
+          "at": 1789744086470,
+          "latencyMs": 6184,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "37b30da4-d706-4301-9e4e-148f6a4d594d",
+          "capability": "flux-schnell",
+          "stage": "keyframe:2.0",
+          "argsHash": "9129f81945bbedb8",
+          "at": 1789744092657,
+          "latencyMs": 5947,
+          "ok": true,
+          "costUSD": 0.0032,
+          "costUnitKind": "megapixel",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly83eTRmbHpwdWxndjRjbzZyLnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS91cGxvYWRzLzE3ODk3NDQwOTc1NjYtN2JxbTgyLmpwZWc.75831818dbb55010/1789744097566-7bqm82.jpeg",
+          "warnings": []
+        },
+        {
+          "id": "afb7d923-7429-4130-8688-73baa7e6fa47",
+          "capability": "ltx-25-i2v-fast",
+          "stage": "animate:2.0",
+          "argsHash": "9daa3a9d9544b1f4",
+          "at": 1789744098604,
+          "latencyMs": 32091,
+          "ok": true,
+          "costUSD": 0.567,
+          "costUnitKind": "second",
+          "costUnits": 6,
+          "jobId": "mjob_df4bb8abe297",
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly92M2IuZmFsLm1lZGlhL2ZpbGVzL2IvMGFhYWVlY2EvNnlRX1RORWdOWmI4QllSTEJNUFl6X3ZrTlg2bWJJLm1wNA.036cf44c1022570c/6yQ_TNEgNZb8BYRLBMPYz_vkNX6mbI.mp4",
+          "warnings": [
+            {
+              "kind": "warning",
+              "message": "A durable copy was requested but none was recorded — the URL returned inherits the provider's lifetime. Retry the copy with upload({ source_url: <the url> })."
+            }
+          ]
+        },
+        {
+          "id": "56945e27-7c29-4f27-a358-16c6e3f6bc7a",
+          "capability": "nemotron-omni-video",
+          "stage": "review:2.0",
+          "argsHash": "37461b0ce9a51dac",
+          "at": 1789744130696,
+          "latencyMs": 6246,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "d03cf9dc-0a10-47a3-b4ca-1d4b09b4007f",
+          "capability": "kontext-edit",
+          "stage": "keyframe:2.1",
+          "argsHash": "e770a73a72689399",
+          "at": 1789744136951,
+          "latencyMs": 13997,
+          "ok": true,
+          "costUSD": 0.042,
+          "costUnitKind": "image",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly83eTRmbHpwdWxndjRjbzZyLnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS91cGxvYWRzLzE3ODk3NDQxNTAyMTQtc3U5cWc2LmpwZWc.78de18edcbb1dff2/1789744150214-su9qg6.jpeg",
+          "warnings": []
+        },
+        {
+          "id": "107cf32d-419c-46c4-95ae-b1df9d3a4a6e",
+          "capability": "ltx-25-i2v-fast",
+          "stage": "animate:2.1",
+          "argsHash": "236614a1dc4ad1d5",
+          "at": 1789744150949,
+          "latencyMs": 32653,
+          "ok": true,
+          "costUSD": 0.567,
+          "costUnitKind": "second",
+          "costUnits": 6,
+          "jobId": "mjob_869501197c2d",
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly92M2IuZmFsLm1lZGlhL2ZpbGVzL2IvMGFhYWVlY2YveGYxQUxaNWt2YmpKel9IdF9kcE9iX21kaWF3Y0FwLm1wNA.58f5df7a04fa4191/xf1ALZ5kvbjJz_Ht_dpOb_mdiawcAp.mp4",
+          "warnings": [
+            {
+              "kind": "warning",
+              "message": "A durable copy was requested but none was recorded — the URL returned inherits the provider's lifetime. Retry the copy with upload({ source_url: <the url> })."
+            }
+          ]
+        },
+        {
+          "id": "6540c0c0-69c5-4f82-8e1f-a23b5d57cd6b",
+          "capability": "nemotron-omni-video",
+          "stage": "review:2.1",
+          "argsHash": "ccf5e5298cbf0d52",
+          "at": 1789744183602,
+          "latencyMs": 7921,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "b0599b4e-afb0-43dc-bc29-e9109cd0c4b2",
+          "capability": "kontext-edit",
+          "stage": "keyframe:2.1",
+          "argsHash": "b8c88aacdd37f9b9",
+          "at": 1789744191524,
+          "latencyMs": 12123,
+          "ok": true,
+          "costUSD": 0.042,
+          "costUnitKind": "image",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly83eTRmbHpwdWxndjRjbzZyLnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS91cGxvYWRzLzE3ODk3NDQyMDI5OTEtNzJocWEzLmpwZWc.2da65aba8d77619b/1789744202991-72hqa3.jpeg",
+          "warnings": []
+        },
+        {
+          "id": "8fb55fdb-9cd4-454b-b39f-ca5a3aef7ddd",
+          "capability": "ltx-25-i2v-fast",
+          "stage": "animate:2.1",
+          "argsHash": "aede582ad05a6809",
+          "at": 1789744203648,
+          "latencyMs": 33824,
+          "ok": true,
+          "costUSD": 0.567,
+          "costUnitKind": "second",
+          "costUnits": 6,
+          "jobId": "mjob_a8a4e29abf6c",
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly92M2IuZmFsLm1lZGlhL2ZpbGVzL2IvMGFhYWVlZDUvd1k3WlBvbEpmX0c4TGZ4NlhRMmxKXzRocktEdlNmLm1wNA.c75c9dd487703df3/wY7ZPolJf_G8Lfx6XQ2lJ_4hrKDvSf.mp4",
+          "warnings": [
+            {
+              "kind": "warning",
+              "message": "A durable copy was requested but none was recorded — the URL returned inherits the provider's lifetime. Retry the copy with upload({ source_url: <the url> })."
+            }
+          ]
+        },
+        {
+          "id": "ca8132e8-2b0a-4a20-9a59-5affef8aea3b",
+          "capability": "nemotron-omni-video",
+          "stage": "review:2.1",
+          "argsHash": "e83288094aa85678",
+          "at": 1789744237473,
+          "latencyMs": 6321,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "005d1bec-4ab7-48fd-a534-b4cbe8269046",
+          "capability": "kontext-edit",
+          "stage": "keyframe:2.2",
+          "argsHash": "e06d2820997d2afa",
+          "at": 1789744243804,
+          "latencyMs": 13587,
+          "ok": true,
+          "costUSD": 0.042,
+          "costUnitKind": "image",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly83eTRmbHpwdWxndjRjbzZyLnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS91cGxvYWRzLzE3ODk3NDQyNTY3MjkteTl0aDVnLmpwZWc.53c20633db6f1fdb/1789744256729-y9th5g.jpeg",
+          "warnings": []
+        },
+        {
+          "id": "de9cfb1c-189d-4e7b-9542-9096d183a3c1",
+          "capability": "ltx-25-i2v-fast",
+          "stage": "animate:2.2",
+          "argsHash": "dce3b9a44ce780a1",
+          "at": 1789744257391,
+          "latencyMs": 38233,
+          "ok": true,
+          "costUSD": 0.567,
+          "costUnitKind": "second",
+          "costUnits": 6,
+          "jobId": "mjob_bd0293a2e068",
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly92M2IuZmFsLm1lZGlhL2ZpbGVzL2IvMGFhYWVlZGEvdXlMUk0xWWRtcGY4Y0tkenZ5d0pnX2xLQ1pjVEMyLm1wNA.be18f89c45678398/uyLRM1Ydmpf8cKdzvywJg_lKCZcTC2.mp4",
+          "warnings": [
+            {
+              "kind": "warning",
+              "message": "A durable copy was requested but none was recorded — the URL returned inherits the provider's lifetime. Retry the copy with upload({ source_url: <the url> })."
+            }
+          ]
+        },
+        {
+          "id": "09233425-07a5-4e10-8df5-6809a9135122",
+          "capability": "nemotron-omni-video",
+          "stage": "review:2.2",
+          "argsHash": "d37c85b8317bc149",
+          "at": 1789744295625,
+          "latencyMs": 20602,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "b5042f46-181f-4514-9f08-035b6bc2b75b",
+          "capability": "kontext-edit",
+          "stage": "keyframe:2.2",
+          "argsHash": "e4c94b1eda2fd96c",
+          "at": 1789744316231,
+          "latencyMs": 13757,
+          "ok": true,
+          "costUSD": 0.042,
+          "costUnitKind": "image",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly83eTRmbHpwdWxndjRjbzZyLnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS91cGxvYWRzLzE3ODk3NDQzMjkxMjAtaXo2cmxwLmpwZWc.7703dc9b785d2579/1789744329120-iz6rlp.jpeg",
+          "warnings": []
+        },
+        {
+          "id": "f5db6493-e427-47b7-9f9c-3e73abdb2b62",
+          "capability": "ltx-25-i2v-fast",
+          "stage": "animate:2.2",
+          "argsHash": "639a369ba0eb54b6",
+          "at": 1789744329989,
+          "latencyMs": 38599,
+          "ok": true,
+          "costUSD": 0.567,
+          "costUnitKind": "second",
+          "costUnits": 6,
+          "jobId": "mjob_7a3f57423e71",
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly92M2IuZmFsLm1lZGlhL2ZpbGVzL2IvMGFhYWVlZTEvdTFmUWhmcTk3SkJwNHJkTEt6dmFkX0RqTUNmTWd6Lm1wNA.0d6f2008cbb98358/u1fQhfq97JBp4rdLKzvad_DjMCfMgz.mp4",
+          "warnings": [
+            {
+              "kind": "warning",
+              "message": "A durable copy was requested but none was recorded — the URL returned inherits the provider's lifetime. Retry the copy with upload({ source_url: <the url> })."
+            }
+          ]
+        },
+        {
+          "id": "09d3ff38-d105-4fe6-9e92-6514d22f3afd",
+          "capability": "nemotron-omni-video",
+          "stage": "review:2.2",
+          "argsHash": "35f07496d33b1b75",
+          "at": 1789744368588,
+          "latencyMs": 7322,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "2f61b6bd-a5bb-4951-937d-ddabb2a1bef5",
+          "capability": "ffmpeg-concat",
+          "stage": "concat:attempt-2",
+          "argsHash": "f9f23588453231ba",
+          "at": 1789744375926,
+          "latencyMs": 6506,
+          "ok": true,
+          "costUSD": 0,
+          "costUnitKind": "call",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3N0b3J5Ym9hcmQtdXBsb2Fkcy90b29sLW91dHB1dHMvMTc4OTc0NDM4MTM2OC1mMjBjYTg2M2Q1Y2M0MmNiYWYyYWNlOTc2OThlMWEwOC5tcDQ.8cfa2077990e724d/1789744381368-f20ca863d5cc42cbaf2ace97698e1a08.mp4",
+          "warnings": []
+        },
+        {
+          "id": "0be7ee77-d456-4a12-8362-ac550a44551f",
+          "capability": "nemotron-omni-video",
+          "stage": "review:attempt-2",
+          "argsHash": "4ba846aeef1f0290",
+          "at": 1789744382447,
+          "latencyMs": 7219,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "1cdbc5d1-edb9-4aeb-839b-66047ad99bca",
+          "capability": "gemini-text",
+          "stage": "distill:attempt-2",
+          "argsHash": "4d58da4b97f335df",
+          "at": 1789744389682,
+          "latencyMs": 5178,
+          "ok": true,
+          "costUSD": 0.0001,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 1,
+          "warnings": []
+        }
+      ]
+    }
+  ],
+  "sources": [],
+  "seals": [],
+  "inheritedLessonIds": []
+}

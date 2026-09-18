@@ -1,0 +1,2257 @@
+{
+  "id": "b05ae4b8e655",
+  "title": "Time's Embrace",
+  "createdAt": 1789742881169,
+  "updatedAt": 1789743419495,
+  "agentLabel": "studio-a",
+  "brief": {
+    "goal": "A three-shot product film for a brushed-brass desk clock on a dark walnut surface.",
+    "audience": "Design-literate buyers browsing a homepage",
+    "styleNote": "Low warm key light from the left, deep shadow, cool neutral fill, shallow depth of field.",
+    "criteria": [
+      {
+        "index": 0,
+        "body": "The brushed-brass clock is unmistakably the hero of every frame"
+      },
+      {
+        "index": 1,
+        "body": "The lighting, palette and surface stay identical across all three shots"
+      },
+      {
+        "index": 2,
+        "body": "The clock face reads as the same object in every shot"
+      }
+    ],
+    "avoid": [
+      "on-screen text or logos",
+      "harsh specular blowout"
+    ],
+    "shotCount": 3,
+    "shotSeconds": 6,
+    "aspectRatio": "16:9",
+    "targetScore": 8,
+    "narration": false,
+    "music": false
+  },
+  "canonVersion": 3,
+  "constraints": [
+    {
+      "id": "4446ad3e09b0",
+      "kind": "subject",
+      "body": "The primary subject in every frame is a brushed-brass desk clock.",
+      "weight": 1,
+      "authoredBy": "studio-a",
+      "createdAt": 1789742881169
+    },
+    {
+      "id": "10b53170470c",
+      "kind": "subject",
+      "body": "A dark walnut surface is visible in every frame, serving as the base for the clock.",
+      "weight": 0.9,
+      "authoredBy": "studio-a",
+      "createdAt": 1789742881169
+    },
+    {
+      "id": "aee471f88fa9",
+      "kind": "style",
+      "body": "A low key light originates from the left side of the frame.",
+      "weight": 0.9,
+      "authoredBy": "studio-a",
+      "createdAt": 1789742881169
+    },
+    {
+      "id": "1cf4c0633e1d",
+      "kind": "style",
+      "body": "The key light creates a warm tone.",
+      "weight": 0.9,
+      "authoredBy": "studio-a",
+      "createdAt": 1789742881169
+    },
+    {
+      "id": "fc0bece7891b",
+      "kind": "style",
+      "body": "Deep shadows are prominently featured, contributing to the overall mood.",
+      "weight": 0.9,
+      "authoredBy": "studio-a",
+      "createdAt": 1789742881169
+    },
+    {
+      "id": "7eef1cb8e69c",
+      "kind": "style",
+      "body": "A cool neutral fill light is used to soften shadows without removing depth.",
+      "weight": 0.8,
+      "authoredBy": "studio-a",
+      "createdAt": 1789742881169
+    },
+    {
+      "id": "06757c5b5f41",
+      "kind": "style",
+      "body": "A shallow depth of field is consistently maintained across all shots, isolating the clock.",
+      "weight": 0.9,
+      "authoredBy": "studio-a",
+      "createdAt": 1789742881169
+    },
+    {
+      "id": "7543b13b140f",
+      "kind": "avoid",
+      "body": "No on-screen text or logos are present.",
+      "weight": 1,
+      "authoredBy": "studio-a",
+      "createdAt": 1789742881169
+    },
+    {
+      "id": "74f76f6d04ef",
+      "kind": "avoid",
+      "body": "No harsh specular blowout is visible on the brushed brass or any other surface.",
+      "weight": 0.9,
+      "authoredBy": "studio-a",
+      "createdAt": 1789742881169
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l1-2d47e5ed38",
+      "kind": "knownFailure",
+      "body": "Ensure the lighting setup, including key light position, intensity, and fill light temperature, remains identical across all three shots to maintain consistent shadows and surface tone.",
+      "status": "accepted",
+      "confidence": 0.8,
+      "learnedFromAttempt": 1,
+      "criterionIndex": 1,
+      "curatedBy": "cli",
+      "curatedAt": 1789743128372
+    },
+    {
+      "id": "l1-3954cdd0d6",
+      "kind": "knownFailure",
+      "body": "Depict the clock face with the same design, color, and hand configuration in every shot to reinforce product identity.",
+      "status": "accepted",
+      "confidence": 0.8,
+      "learnedFromAttempt": 1,
+      "criterionIndex": 2,
+      "curatedBy": "cli",
+      "curatedAt": 1789743128372
+    },
+    {
+      "id": "l1-3b37046d30",
+      "kind": "successfulPattern",
+      "body": "Maintain a shallow depth of field, with the brushed-brass clock always in sharp focus as the hero of the frame.",
+      "status": "accepted",
+      "confidence": 0.9,
+      "learnedFromAttempt": 1,
+      "criterionIndex": 0,
+      "curatedBy": "cli",
+      "curatedAt": 1789743128372
+    },
+    {
+      "id": "l1-2ccdb5998f",
+      "kind": "styleAnchor",
+      "body": "Utilize a low, warm key light from the left, casting deep shadows, and balance with a cool, neutral fill light.",
+      "status": "accepted",
+      "confidence": 0.9,
+      "learnedFromAttempt": 1,
+      "curatedBy": "cli",
+      "curatedAt": 1789743128372
+    },
+    {
+      "id": "l2-7804e3ce44",
+      "kind": "constraint",
+      "body": "Maintain a consistent dark walnut surface texture and color across all shots, ensuring no variation in wood grain or smoothness.",
+      "status": "proposed",
+      "confidence": 0.9,
+      "learnedFromAttempt": 2,
+      "criterionIndex": 1
+    },
+    {
+      "id": "l2-6159d70753",
+      "kind": "knownFailure",
+      "body": "Prohibit any on-screen text, brand names, or logos from appearing on the clock face or anywhere else within the frame.",
+      "status": "proposed",
+      "confidence": 1,
+      "learnedFromAttempt": 2,
+      "criterionIndex": 2
+    },
+    {
+      "id": "l2-df5cdc4ce6",
+      "kind": "knownFailure",
+      "body": "Ensure the clock face maintains a consistent design, including numeral style (e.g., exclusively Roman or exclusively Arabic), color, and any decorative elements, identical in every shot.",
+      "status": "proposed",
+      "confidence": 1,
+      "learnedFromAttempt": 2,
+      "criterionIndex": 2
+    },
+    {
+      "id": "l2-2d4450ab13",
+      "kind": "constraint",
+      "body": "Adhere strictly to the established lighting setup: low warm key light from the left, deep shadow, and cool neutral fill, avoiding any shifts towards bright, sunlit, or high-contrast black lighting conditions.",
+      "status": "proposed",
+      "confidence": 0.9,
+      "learnedFromAttempt": 2,
+      "criterionIndex": 1
+    }
+  ],
+  "runs": [
+    {
+      "attempt": 1,
+      "startedAt": 1789742887094,
+      "finishedAt": 1789743106376,
+      "stage": "COMPLETE",
+      "memoryWithheld": false,
+      "canonVersion": 1,
+      "basePrompt": {
+        "text": "A three-shot product film for a brushed-brass desk clock on a dark walnut surface. Low warm key light from the left, deep shadow, cool neutral fill, shallow depth of field. Avoid: No on-screen text or logos are present. The primary subject in every frame is a brushed-brass desk clock. A dark walnut surface is visible in every frame, serving as the base for the clock. Deep shadows are prominently featured, contributing to the overall mood. The key light creates a warm tone. A low key light originates from the left side of the frame. A shallow depth of field is consistently maintained across all shots, isolating the clock. Avoid: No harsh specular blowout is visible on the brushed brass or any other surface. A cool neutral fill light is used to soften shadows without removing depth. Avoid: on-screen text or logos Avoid: harsh specular blowout",
+        "clauses": [
+          {
+            "index": 0,
+            "body": "A three-shot product film for a brushed-brass desk clock on a dark walnut surface.",
+            "role": "goal",
+            "sourceKind": "brief"
+          },
+          {
+            "index": 1,
+            "body": "Low warm key light from the left, deep shadow, cool neutral fill, shallow depth of field.",
+            "role": "style",
+            "sourceKind": "brief"
+          },
+          {
+            "index": 2,
+            "body": "Avoid: No on-screen text or logos are present.",
+            "role": "avoid",
+            "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/6bab1d5cce9b13af1f7c",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/6bab1d5cce9b13af1f7c"
+          },
+          {
+            "index": 3,
+            "body": "The primary subject in every frame is a brushed-brass desk clock.",
+            "role": "subject",
+            "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/c4c8c25b45af28f866fb",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/c4c8c25b45af28f866fb"
+          },
+          {
+            "index": 4,
+            "body": "A dark walnut surface is visible in every frame, serving as the base for the clock.",
+            "role": "subject",
+            "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/1bdd164c482920a17e51",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/1bdd164c482920a17e51"
+          },
+          {
+            "index": 5,
+            "body": "Deep shadows are prominently featured, contributing to the overall mood.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/715384645c09d54086e0",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/715384645c09d54086e0"
+          },
+          {
+            "index": 6,
+            "body": "The key light creates a warm tone.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/767fd1fd94ab46019125",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/767fd1fd94ab46019125"
+          },
+          {
+            "index": 7,
+            "body": "A low key light originates from the left side of the frame.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/ac9bbaf72d9201bbfb0b",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/ac9bbaf72d9201bbfb0b"
+          },
+          {
+            "index": 8,
+            "body": "A shallow depth of field is consistently maintained across all shots, isolating the clock.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/be639aab4d95e6e3065a",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/be639aab4d95e6e3065a"
+          },
+          {
+            "index": 9,
+            "body": "Avoid: No harsh specular blowout is visible on the brushed brass or any other surface.",
+            "role": "avoid",
+            "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/fb05b4a7423a15bf8dd8",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/fb05b4a7423a15bf8dd8"
+          },
+          {
+            "index": 10,
+            "body": "A cool neutral fill light is used to soften shadows without removing depth.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/4213f77d3b39aa2033e0",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/4213f77d3b39aa2033e0"
+          },
+          {
+            "index": 11,
+            "body": "Avoid: on-screen text or logos",
+            "role": "avoid",
+            "sourceKind": "brief"
+          },
+          {
+            "index": 12,
+            "body": "Avoid: harsh specular blowout",
+            "role": "avoid",
+            "sourceKind": "brief"
+          }
+        ],
+        "memoryClauseCount": 0,
+        "promptHash": "8d5ecb92eaf301c4358cddff060cbb942c1f088cadde2a304c2568bc87c8376e"
+      },
+      "shots": [
+        {
+          "index": 0,
+          "intent": "Introduce the clock's form and material, emphasizing its elegant simplicity.",
+          "prompt": {
+            "text": "Close-up, eye-level shot of a brushed-brass desk clock, slightly angled to the right, sitting on a dark walnut surface. Low, warm key light from the left creates deep shadows on the right side of the clock and surface. Cool neutral fill subtly illuminates the shadowed areas, maintaining texture. Shallow depth of field blurs the background. Focus on the clock's left side. Low warm key light from the left, deep shadow, cool neutral fill, shallow depth of field. Avoid: No on-screen text or logos are present. The primary subject in every frame is a brushed-brass desk clock. A dark walnut surface is visible in every frame, serving as the base for the clock. Deep shadows are prominently featured, contributing to the overall mood. The key light creates a warm tone. A low key light originates from the left side of the frame. A shallow depth of field is consistently maintained across all shots, isolating the clock. Avoid: No harsh specular blowout is visible on the brushed brass or any other surface. A cool neutral fill light is used to soften shadows without removing depth. Avoid: on-screen text or logos Avoid: harsh specular blowout",
+            "clauses": [
+              {
+                "index": 0,
+                "body": "Close-up, eye-level shot of a brushed-brass desk clock, slightly angled to the right, sitting on a dark walnut surface. Low, warm key light from the left creates deep shadows on the right side of the clock and surface. Cool neutral fill subtly illuminates the shadowed areas, maintaining texture. Shallow depth of field blurs the background. Focus on the clock's left side.",
+                "role": "goal",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 1,
+                "body": "Low warm key light from the left, deep shadow, cool neutral fill, shallow depth of field.",
+                "role": "style",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 2,
+                "body": "Avoid: No on-screen text or logos are present.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/6bab1d5cce9b13af1f7c",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/6bab1d5cce9b13af1f7c"
+              },
+              {
+                "index": 3,
+                "body": "The primary subject in every frame is a brushed-brass desk clock.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/c4c8c25b45af28f866fb",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/c4c8c25b45af28f866fb"
+              },
+              {
+                "index": 4,
+                "body": "A dark walnut surface is visible in every frame, serving as the base for the clock.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/1bdd164c482920a17e51",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/1bdd164c482920a17e51"
+              },
+              {
+                "index": 5,
+                "body": "Deep shadows are prominently featured, contributing to the overall mood.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/715384645c09d54086e0",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/715384645c09d54086e0"
+              },
+              {
+                "index": 6,
+                "body": "The key light creates a warm tone.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/767fd1fd94ab46019125",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/767fd1fd94ab46019125"
+              },
+              {
+                "index": 7,
+                "body": "A low key light originates from the left side of the frame.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/ac9bbaf72d9201bbfb0b",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/ac9bbaf72d9201bbfb0b"
+              },
+              {
+                "index": 8,
+                "body": "A shallow depth of field is consistently maintained across all shots, isolating the clock.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/be639aab4d95e6e3065a",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/be639aab4d95e6e3065a"
+              },
+              {
+                "index": 9,
+                "body": "Avoid: No harsh specular blowout is visible on the brushed brass or any other surface.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/fb05b4a7423a15bf8dd8",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/fb05b4a7423a15bf8dd8"
+              },
+              {
+                "index": 10,
+                "body": "A cool neutral fill light is used to soften shadows without removing depth.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/4213f77d3b39aa2033e0",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/4213f77d3b39aa2033e0"
+              },
+              {
+                "index": 11,
+                "body": "Avoid: on-screen text or logos",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 12,
+                "body": "Avoid: harsh specular blowout",
+                "role": "avoid",
+                "sourceKind": "brief"
+              }
+            ],
+            "memoryClauseCount": 0,
+            "promptHash": "32d14a436d20906f412f8d8a69dc0ecda42a7ff2927c7218b879c8c389e11364"
+          },
+          "motionPrompt": "slow push in, slightly arcing left",
+          "keyframeUrl": "/seed/511421999367b98e.jpg",
+          "videoUrl": "/seed/a599cf407df5b5d4.mp4",
+          "capability": "ltx-25-i2v-fast",
+          "costUSD": 0,
+          "review": {
+            "score": 9,
+            "passed": true,
+            "summary": "The clock's elegant simplicity and material are clearly showcased without distraction.",
+            "findings": [
+              {
+                "index": 0,
+                "body": "Hero object clearly dominates all frames",
+                "polarity": "positive"
+              },
+              {
+                "index": 1,
+                "body": "Lighting and palette are consistent and sophisticated",
+                "polarity": "positive"
+              },
+              {
+                "index": 2,
+                "body": "Clock face reads as the same object throughout",
+                "polarity": "positive"
+              },
+              {
+                "index": 3,
+                "body": "No issues found",
+                "polarity": "negative"
+              }
+            ],
+            "verdicts": [
+              {
+                "index": 0,
+                "met": true,
+                "note": "Clock is the central, unchanging focus in all shots"
+              },
+              {
+                "index": 1,
+                "met": true,
+                "note": "Consistent warm lighting, dark background, and wooden surface across frames"
+              },
+              {
+                "index": 2,
+                "met": true,
+                "note": "Clock face, hands, and numerals remain identical in appearance and position"
+              },
+              {
+                "index": 0,
+                "met": false,
+                "note": "Not applicable (hero status maintained)"
+              },
+              {
+                "index": 1,
+                "met": false,
+                "note": "Not applicable (lighting/palette stable)"
+              },
+              {
+                "index": 2,
+                "met": false,
+                "note": "Not applicable (object identity preserved)"
+              }
+            ],
+            "costUSD": 0.0128,
+            "capability": "nemotron-omni-video"
+          },
+          "attempts": 1,
+          "status": "passed"
+        },
+        {
+          "index": 1,
+          "intent": "Highlight the clock's intricate details and craftsmanship through a shift in perspective.",
+          "prompt": {
+            "text": "Medium shot, slightly above eye-level, looking down at the brushed-brass desk clock centered on the dark walnut surface. The warm key light from the left accentuates the top edge and face of the clock, casting deep shadows behind it. Cool neutral fill reveals subtle details in the shadowed areas. Shallow depth of field, focused on the clock's face. Low warm key light from the left, deep shadow, cool neutral fill, shallow depth of field. Avoid: No on-screen text or logos are present. The primary subject in every frame is a brushed-brass desk clock. A dark walnut surface is visible in every frame, serving as the base for the clock. Deep shadows are prominently featured, contributing to the overall mood. The key light creates a warm tone. A low key light originates from the left side of the frame. A shallow depth of field is consistently maintained across all shots, isolating the clock. Avoid: No harsh specular blowout is visible on the brushed brass or any other surface. A cool neutral fill light is used to soften shadows without removing depth. Avoid: on-screen text or logos Avoid: harsh specular blowout",
+            "clauses": [
+              {
+                "index": 0,
+                "body": "Medium shot, slightly above eye-level, looking down at the brushed-brass desk clock centered on the dark walnut surface. The warm key light from the left accentuates the top edge and face of the clock, casting deep shadows behind it. Cool neutral fill reveals subtle details in the shadowed areas. Shallow depth of field, focused on the clock's face.",
+                "role": "goal",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 1,
+                "body": "Low warm key light from the left, deep shadow, cool neutral fill, shallow depth of field.",
+                "role": "style",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 2,
+                "body": "Avoid: No on-screen text or logos are present.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/6bab1d5cce9b13af1f7c",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/6bab1d5cce9b13af1f7c"
+              },
+              {
+                "index": 3,
+                "body": "The primary subject in every frame is a brushed-brass desk clock.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/c4c8c25b45af28f866fb",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/c4c8c25b45af28f866fb"
+              },
+              {
+                "index": 4,
+                "body": "A dark walnut surface is visible in every frame, serving as the base for the clock.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/1bdd164c482920a17e51",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/1bdd164c482920a17e51"
+              },
+              {
+                "index": 5,
+                "body": "Deep shadows are prominently featured, contributing to the overall mood.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/715384645c09d54086e0",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/715384645c09d54086e0"
+              },
+              {
+                "index": 6,
+                "body": "The key light creates a warm tone.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/767fd1fd94ab46019125",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/767fd1fd94ab46019125"
+              },
+              {
+                "index": 7,
+                "body": "A low key light originates from the left side of the frame.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/ac9bbaf72d9201bbfb0b",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/ac9bbaf72d9201bbfb0b"
+              },
+              {
+                "index": 8,
+                "body": "A shallow depth of field is consistently maintained across all shots, isolating the clock.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/be639aab4d95e6e3065a",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/be639aab4d95e6e3065a"
+              },
+              {
+                "index": 9,
+                "body": "Avoid: No harsh specular blowout is visible on the brushed brass or any other surface.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/fb05b4a7423a15bf8dd8",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/fb05b4a7423a15bf8dd8"
+              },
+              {
+                "index": 10,
+                "body": "A cool neutral fill light is used to soften shadows without removing depth.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/4213f77d3b39aa2033e0",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/4213f77d3b39aa2033e0"
+              },
+              {
+                "index": 11,
+                "body": "Avoid: on-screen text or logos",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 12,
+                "body": "Avoid: harsh specular blowout",
+                "role": "avoid",
+                "sourceKind": "brief"
+              }
+            ],
+            "memoryClauseCount": 0,
+            "promptHash": "3b8df425c40377bc329975b5db335fcb8d52d4afeec18c90e2c9cfde6957db95"
+          },
+          "motionPrompt": "subtle pan right, tilt down",
+          "keyframeUrl": "/seed/239a1b427aa0d14d.jpg",
+          "videoUrl": "/seed/4e38f43738bbbd7c.mp4",
+          "capability": "ltx-25-i2v-fast",
+          "costUSD": 0,
+          "review": {
+            "score": 9,
+            "passed": true,
+            "summary": "The clock is the unchanging hero across three subtly shifting perspectives with consistent lighting and surface, meeting all criteria and scoring ready-to-ship quality.",
+            "findings": [
+              {
+                "index": 0,
+                "body": "Hero object remains consistently prominent",
+                "polarity": "positive"
+              },
+              {
+                "index": 1,
+                "body": "Seamless lighting and surface continuity",
+                "polarity": "positive"
+              },
+              {
+                "index": 2,
+                "body": "Clear, unambiguous object identity",
+                "polarity": "positive"
+              },
+              {
+                "index": 3,
+                "body": "None",
+                "polarity": "negative"
+              }
+            ],
+            "verdicts": [
+              {
+                "index": 0,
+                "met": true,
+                "note": "Brushed-brass clock is the sole focal object in every frame, dominating composition without competition"
+              },
+              {
+                "index": 1,
+                "met": true,
+                "note": "Warm, directional lighting and dark wood surface remain visually identical across all shots, with no color or texture shifts"
+              },
+              {
+                "index": 2,
+                "met": true,
+                "note": "Clock face details (brand, numerals, hands) remain identical and readable in all perspectives, confirming same object"
+              }
+            ],
+            "costUSD": 0.0128,
+            "capability": "nemotron-omni-video"
+          },
+          "attempts": 2,
+          "status": "passed"
+        },
+        {
+          "index": 2,
+          "intent": "Conclude with a striking composition that reaffirms the clock's presence and the warm, luxurious mood.",
+          "prompt": {
+            "text": "Low-angle shot of the brushed-brass desk clock from the right, positioned on the dark walnut surface. The warm key light from the left dramatically illuminates the clock's left side and part of its face, creating long, deep shadows stretching to the right. Cool neutral fill prevents complete blackness in the deepest shadows. Shallow depth of field, focused on the clock's front-facing surface. Low warm key light from the left, deep shadow, cool neutral fill, shallow depth of field. Avoid: No on-screen text or logos are present. The primary subject in every frame is a brushed-brass desk clock. A dark walnut surface is visible in every frame, serving as the base for the clock. Deep shadows are prominently featured, contributing to the overall mood. The key light creates a warm tone. A low key light originates from the left side of the frame. A shallow depth of field is consistently maintained across all shots, isolating the clock. Avoid: No harsh specular blowout is visible on the brushed brass or any other surface. A cool neutral fill light is used to soften shadows without removing depth. Avoid: on-screen text or logos Avoid: harsh specular blowout",
+            "clauses": [
+              {
+                "index": 0,
+                "body": "Low-angle shot of the brushed-brass desk clock from the right, positioned on the dark walnut surface. The warm key light from the left dramatically illuminates the clock's left side and part of its face, creating long, deep shadows stretching to the right. Cool neutral fill prevents complete blackness in the deepest shadows. Shallow depth of field, focused on the clock's front-facing surface.",
+                "role": "goal",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 1,
+                "body": "Low warm key light from the left, deep shadow, cool neutral fill, shallow depth of field.",
+                "role": "style",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 2,
+                "body": "Avoid: No on-screen text or logos are present.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/6bab1d5cce9b13af1f7c",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/6bab1d5cce9b13af1f7c"
+              },
+              {
+                "index": 3,
+                "body": "The primary subject in every frame is a brushed-brass desk clock.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/c4c8c25b45af28f866fb",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/c4c8c25b45af28f866fb"
+              },
+              {
+                "index": 4,
+                "body": "A dark walnut surface is visible in every frame, serving as the base for the clock.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/1bdd164c482920a17e51",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/1bdd164c482920a17e51"
+              },
+              {
+                "index": 5,
+                "body": "Deep shadows are prominently featured, contributing to the overall mood.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/715384645c09d54086e0",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/715384645c09d54086e0"
+              },
+              {
+                "index": 6,
+                "body": "The key light creates a warm tone.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/767fd1fd94ab46019125",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/767fd1fd94ab46019125"
+              },
+              {
+                "index": 7,
+                "body": "A low key light originates from the left side of the frame.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/ac9bbaf72d9201bbfb0b",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/ac9bbaf72d9201bbfb0b"
+              },
+              {
+                "index": 8,
+                "body": "A shallow depth of field is consistently maintained across all shots, isolating the clock.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/be639aab4d95e6e3065a",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/be639aab4d95e6e3065a"
+              },
+              {
+                "index": 9,
+                "body": "Avoid: No harsh specular blowout is visible on the brushed brass or any other surface.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/fb05b4a7423a15bf8dd8",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/fb05b4a7423a15bf8dd8"
+              },
+              {
+                "index": 10,
+                "body": "A cool neutral fill light is used to soften shadows without removing depth.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/4213f77d3b39aa2033e0",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/4213f77d3b39aa2033e0"
+              },
+              {
+                "index": 11,
+                "body": "Avoid: on-screen text or logos",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 12,
+                "body": "Avoid: harsh specular blowout",
+                "role": "avoid",
+                "sourceKind": "brief"
+              }
+            ],
+            "memoryClauseCount": 0,
+            "promptHash": "0daa3bb0997b821e17465f570051de1a83b3fca6f41634df887a5d89abef589e"
+          },
+          "motionPrompt": "slow dolly out, slight rotate counter-clockwise",
+          "keyframeUrl": "/seed/e4f2d270d7a0a312.jpg",
+          "videoUrl": "/seed/812494b1695a99e4.mp4",
+          "capability": "ltx-25-i2v-fast",
+          "costUSD": 0,
+          "review": {
+            "score": 8,
+            "passed": true,
+            "summary": "The clock is the clear hero with consistent lighting and appearance across all shots, though the final shot introduces a new surface.",
+            "findings": [
+              {
+                "index": 0,
+                "body": "Hero object (clock) is unmistakably emphasized",
+                "polarity": "positive"
+              },
+              {
+                "index": 1,
+                "body": "Warm, luxurious mood maintained with consistent lighting",
+                "polarity": "positive"
+              },
+              {
+                "index": 2,
+                "body": "Surface changes in final shot (wooden drawer vs. dark surface)",
+                "polarity": "negative",
+                "criterionIndex": 1
+              }
+            ],
+            "verdicts": [
+              {
+                "index": 0,
+                "met": true,
+                "note": "The brushed-brass clock is the central focus in all frames."
+              },
+              {
+                "index": 1,
+                "met": false,
+                "note": "The final shot reveals a wooden drawer with different surface texture, breaking the identical surface rule."
+              },
+              {
+                "index": 2,
+                "met": true,
+                "note": "The clock face is consistent in appearance and reads the same across all shots."
+              }
+            ],
+            "costUSD": 0.0128,
+            "capability": "nemotron-omni-video"
+          },
+          "attempts": 1,
+          "status": "passed"
+        }
+      ],
+      "cutUrl": "/seed/8ca581744f5386a6.mp4",
+      "review": {
+        "score": 7,
+        "passed": false,
+        "summary": "The clock is the hero but inconsistent lighting and faces undermine brand continuity.",
+        "findings": [
+          {
+            "index": 0,
+            "body": "Strong visual focus on clock as product",
+            "polarity": "positive"
+          },
+          {
+            "index": 1,
+            "body": "Inconsistent lighting and color palette across shots",
+            "polarity": "negative",
+            "criterionIndex": 1
+          },
+          {
+            "index": 2,
+            "body": "Multiple clock face designs create confusion about product identity",
+            "polarity": "negative",
+            "criterionIndex": 2
+          }
+        ],
+        "verdicts": [
+          {
+            "index": 0,
+            "met": true,
+            "note": "Brushed-brass clock dominates each frame"
+          },
+          {
+            "index": 1,
+            "met": false,
+            "note": "Lighting shifts from bright to dark to side-lit, changing shadows and surface tone"
+          },
+          {
+            "index": 2,
+            "met": false,
+            "note": "Clock face alternates between brushed silver, white with red hands, and black dials, breaking object identity"
+          }
+        ],
+        "costUSD": 0.0128,
+        "capability": "nemotron-omni-video"
+      },
+      "lessonIds": [
+        "l1-2d47e5ed38",
+        "l1-3954cdd0d6",
+        "l1-3b37046d30",
+        "l1-2ccdb5998f"
+      ],
+      "costUSD": 2.3451,
+      "calls": [
+        {
+          "id": "3d9a518d-6cac-406a-b532-37d453dfab96",
+          "capability": "gemini-text",
+          "stage": "intake",
+          "argsHash": "3fe942d44a7eb30a",
+          "at": 1789742877007,
+          "latencyMs": 4159,
+          "ok": true,
+          "costUSD": 0.0001,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 1,
+          "warnings": []
+        },
+        {
+          "id": "f7b5759d-8ce3-4e1f-bc2c-875789795c04",
+          "capability": "gemini-text",
+          "stage": "plan:attempt-1",
+          "argsHash": "5027e5a6c3ef9b3f",
+          "at": 1789742887112,
+          "latencyMs": 6004,
+          "ok": true,
+          "costUSD": 0.0001,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 1,
+          "warnings": []
+        },
+        {
+          "id": "b89e82d0-4145-4927-a3f3-35121e9aa9ec",
+          "capability": "flux-schnell",
+          "stage": "keyframe:1.0",
+          "argsHash": "cd51f9d16cc67be3",
+          "at": 1789742893124,
+          "latencyMs": 5980,
+          "ok": true,
+          "costUSD": 0.0032,
+          "costUnitKind": "megapixel",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly83eTRmbHpwdWxndjRjbzZyLnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS91cGxvYWRzLzE3ODk3NDI4OTc1NjAtM2N0bWthLmpwZWc.3b0bbcf9dafc31f6/1789742897560-3ctmka.jpeg",
+          "warnings": []
+        },
+        {
+          "id": "0e3221dd-0044-4c2e-b035-8b1d0dee2b1b",
+          "capability": "ltx-25-i2v-fast",
+          "stage": "animate:1.0",
+          "argsHash": "cf81540d9f1b2152",
+          "at": 1789742899105,
+          "latencyMs": 32072,
+          "ok": true,
+          "costUSD": 0.567,
+          "costUnitKind": "second",
+          "costUnits": 6,
+          "jobId": "mjob_4dfe776d0e63",
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly92M2IuZmFsLm1lZGlhL2ZpbGVzL2IvMGFhYWVlNTIvWlUyRW96QWpRU3gydnktbGJEalFpX3Z0dDZRMXcwLm1wNA.cea98c7cef8d5aaa/ZU2EozAjQSx2vy-lbDjQi_vtt6Q1w0.mp4",
+          "warnings": [
+            {
+              "kind": "warning",
+              "message": "A durable copy was requested but none was recorded — the URL returned inherits the provider's lifetime. Retry the copy with upload({ source_url: <the url> })."
+            }
+          ]
+        },
+        {
+          "id": "15bcb4da-69d2-4893-9d92-682ff50aca08",
+          "capability": "nemotron-omni-video",
+          "stage": "review:1.0",
+          "argsHash": "450ddd89d10b4e71",
+          "at": 1789742931178,
+          "latencyMs": 5599,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "32dc381b-47af-4060-956a-b02cb05c0e15",
+          "capability": "flux-schnell",
+          "stage": "keyframe:1.1",
+          "argsHash": "4855083d60bcf5f8",
+          "at": 1789742936788,
+          "latencyMs": 5775,
+          "ok": true,
+          "costUSD": 0.0032,
+          "costUnitKind": "megapixel",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly83eTRmbHpwdWxndjRjbzZyLnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS91cGxvYWRzLzE3ODk3NDI5NDE4NDUtczh6Z3owLmpwZWc.e55dfc388e394b01/1789742941845-s8zgz0.jpeg",
+          "warnings": []
+        },
+        {
+          "id": "ea461a0f-653f-4519-8367-77d6b5d22436",
+          "capability": "ltx-25-i2v-fast",
+          "stage": "animate:1.1",
+          "argsHash": "9feef33b2dbb3648",
+          "at": 1789742942564,
+          "latencyMs": 37889,
+          "ok": true,
+          "costUSD": 0.567,
+          "costUnitKind": "second",
+          "costUnits": 6,
+          "jobId": "mjob_72cfcee8104c",
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly92M2IuZmFsLm1lZGlhL2ZpbGVzL2IvMGFhYWVlNTYvWVJheEktUTYydnU4b0VDR1RKbzNiX0RhMTcwa2hYLm1wNA.26a3d9e96ed24143/YRaxI-Q62vu8oECGTJo3b_Da170khX.mp4",
+          "warnings": [
+            {
+              "kind": "warning",
+              "message": "A durable copy was requested but none was recorded — the URL returned inherits the provider's lifetime. Retry the copy with upload({ source_url: <the url> })."
+            }
+          ]
+        },
+        {
+          "id": "3dbcfe7f-cf3c-470a-8342-7b9eddb562c8",
+          "capability": "nemotron-omni-video",
+          "stage": "review:1.1",
+          "argsHash": "0454388aa6ebe37f",
+          "at": 1789742980453,
+          "latencyMs": 6277,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "6a3354cc-86c3-4961-9f82-5328f2e71010",
+          "capability": "gemini-text",
+          "stage": "review:1.1:structure",
+          "argsHash": "6af735345f292d28",
+          "at": 1789742986730,
+          "latencyMs": 3899,
+          "ok": true,
+          "costUSD": 0.0001,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 1,
+          "warnings": []
+        },
+        {
+          "id": "a6937016-97b9-4fc1-a96d-2fb8ccec41e9",
+          "capability": "flux-schnell",
+          "stage": "keyframe:1.1",
+          "argsHash": "293ed8f799361fad",
+          "at": 1789742990630,
+          "latencyMs": 5221,
+          "ok": true,
+          "costUSD": 0.0032,
+          "costUnitKind": "megapixel",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly83eTRmbHpwdWxndjRjbzZyLnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS91cGxvYWRzLzE3ODk3NDI5OTUxNjAtdmdvOTFhLmpwZWc.78c973fd9c07eb5e/1789742995160-vgo91a.jpeg",
+          "warnings": []
+        },
+        {
+          "id": "81d2883a-b1b6-4b27-9583-979b41f8aed6",
+          "capability": "ltx-25-i2v-fast",
+          "stage": "animate:1.1",
+          "argsHash": "e812d6986be7ce47",
+          "at": 1789742995851,
+          "latencyMs": 31803,
+          "ok": true,
+          "costUSD": 0.567,
+          "costUnitKind": "second",
+          "costUnits": 6,
+          "jobId": "mjob_b1f02f80316c",
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly92M2IuZmFsLm1lZGlhL2ZpbGVzL2IvMGFhYWVlNWMvLVAzUndLaFZqN2o0dzVocXJONEEzX21oUjlMVGNjLm1wNA.132ab172173470af/-P3RwKhVj7j4w5hqrN4A3_mhR9LTcc.mp4",
+          "warnings": [
+            {
+              "kind": "warning",
+              "message": "A durable copy was requested but none was recorded — the URL returned inherits the provider's lifetime. Retry the copy with upload({ source_url: <the url> })."
+            }
+          ]
+        },
+        {
+          "id": "db08f731-b838-42e8-b360-797a42ff8298",
+          "capability": "nemotron-omni-video",
+          "stage": "review:1.1",
+          "argsHash": "ab0e5e724f24987e",
+          "at": 1789743027654,
+          "latencyMs": 6492,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "41917a1b-937e-46c1-baeb-9be5fa7a4f08",
+          "capability": "flux-schnell",
+          "stage": "keyframe:1.2",
+          "argsHash": "50e3d8fa95278df2",
+          "at": 1789743034157,
+          "latencyMs": 5032,
+          "ok": true,
+          "costUSD": 0.0032,
+          "costUnitKind": "megapixel",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly83eTRmbHpwdWxndjRjbzZyLnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS91cGxvYWRzLzE3ODk3NDMwMzgzOTktdjN0OTZ2LmpwZWc.1e1f3e2137f08e3d/1789743038399-v3t96v.jpeg",
+          "warnings": []
+        },
+        {
+          "id": "d37c93f2-aa77-4996-8e0e-9a3d52ba5bec",
+          "capability": "ltx-25-i2v-fast",
+          "stage": "animate:1.2",
+          "argsHash": "3f9e1da93e100bb2",
+          "at": 1789743039189,
+          "latencyMs": 43201,
+          "ok": true,
+          "costUSD": 0.567,
+          "costUnitKind": "second",
+          "costUnits": 6,
+          "jobId": "mjob_b2a8ce02a808",
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly92M2IuZmFsLm1lZGlhL2ZpbGVzL2IvMGFhYWVlNjAvZG9XWmg2QkRHU05rb0twZ2lVVHRKX2puMUROU1NOLm1wNA.022f1e5b659678c2/doWZh6BDGSNkoKpgiUTtJ_jn1DNSSN.mp4",
+          "warnings": [
+            {
+              "kind": "warning",
+              "message": "A durable copy was requested but none was recorded — the URL returned inherits the provider's lifetime. Retry the copy with upload({ source_url: <the url> })."
+            }
+          ]
+        },
+        {
+          "id": "cd514e2c-dcfe-4697-bc8f-c4cc76d507b3",
+          "capability": "nemotron-omni-video",
+          "stage": "review:1.2",
+          "argsHash": "d367b2ee70ff8c02",
+          "at": 1789743082390,
+          "latencyMs": 6185,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "d66f0354-35e2-4752-8706-1ebe18c8e6e9",
+          "capability": "ffmpeg-concat",
+          "stage": "concat:attempt-1",
+          "argsHash": "519a835e5040a9fe",
+          "at": 1789743088593,
+          "latencyMs": 6854,
+          "ok": true,
+          "costUSD": 0,
+          "costUnitKind": "call",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3N0b3J5Ym9hcmQtdXBsb2Fkcy90b29sLW91dHB1dHMvMTc4OTc0MzA5NDA1My04YWVkYzU3YWE1ODc0NzNiOWNkMGEzMDhjOTFhZjE2Ni5tcDQ.de77c1603dbd6a0c/1789743094053-8aedc57aa587473b9cd0a308c91af166.mp4",
+          "warnings": []
+        },
+        {
+          "id": "2e8c4ef5-a147-4b76-ac88-a58f6ce80780",
+          "capability": "nemotron-omni-video",
+          "stage": "review:attempt-1",
+          "argsHash": "ce11e7bdad4fdf3c",
+          "at": 1789743095456,
+          "latencyMs": 5889,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "8830d455-6c49-4517-9d2c-e7782fc3b874",
+          "capability": "gemini-text",
+          "stage": "distill:attempt-1",
+          "argsHash": "fa71b3974cd07694",
+          "at": 1789743101358,
+          "latencyMs": 5005,
+          "ok": true,
+          "costUSD": 0.0001,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 1,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "attempt": 2,
+      "startedAt": 1789743215675,
+      "finishedAt": 1789743419493,
+      "stage": "COMPLETE",
+      "memoryWithheld": false,
+      "canonVersion": 3,
+      "basePrompt": {
+        "text": "A three-shot product film for a brushed-brass desk clock on a dark walnut surface. Low warm key light from the left, deep shadow, cool neutral fill, shallow depth of field. The primary subject in every frame is a brushed-brass desk clock. Avoid: No on-screen text or logos are present. Deep shadows are prominently featured, contributing to the overall mood. Avoid: No harsh specular blowout is visible on the brushed brass or any other surface. A dark walnut surface is visible in every frame, serving as the base for the clock. The key light creates a warm tone. A low key light originates from the left side of the frame. A shallow depth of field is consistently maintained across all shots, isolating the clock. A cool neutral fill light is used to soften shadows without removing depth. Utilize a low, warm key light from the left, casting deep shadows, and balance with a cool, neutral fill light. Maintain a shallow depth of field, with the brushed-brass clock always in sharp focus as the hero of the frame. Avoid: Ensure the lighting setup, including key light position, intensity, and fill light temperature, remains identical across all three shots to maintain consistent shadows and surface tone. Avoid: Depict the clock face with the same design, color, and hand configuration in every shot to reinforce product identity. Avoid: on-screen text or logos Avoid: harsh specular blowout",
+        "clauses": [
+          {
+            "index": 0,
+            "body": "A three-shot product film for a brushed-brass desk clock on a dark walnut surface.",
+            "role": "goal",
+            "sourceKind": "brief"
+          },
+          {
+            "index": 1,
+            "body": "Low warm key light from the left, deep shadow, cool neutral fill, shallow depth of field.",
+            "role": "style",
+            "sourceKind": "brief"
+          },
+          {
+            "index": 2,
+            "body": "The primary subject in every frame is a brushed-brass desk clock.",
+            "role": "subject",
+            "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/c4c8c25b45af28f866fb",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/c4c8c25b45af28f866fb"
+          },
+          {
+            "index": 3,
+            "body": "Avoid: No on-screen text or logos are present.",
+            "role": "avoid",
+            "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/6bab1d5cce9b13af1f7c",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/6bab1d5cce9b13af1f7c"
+          },
+          {
+            "index": 4,
+            "body": "Deep shadows are prominently featured, contributing to the overall mood.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/715384645c09d54086e0",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/715384645c09d54086e0"
+          },
+          {
+            "index": 5,
+            "body": "Avoid: No harsh specular blowout is visible on the brushed brass or any other surface.",
+            "role": "avoid",
+            "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/fb05b4a7423a15bf8dd8",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/fb05b4a7423a15bf8dd8"
+          },
+          {
+            "index": 6,
+            "body": "A dark walnut surface is visible in every frame, serving as the base for the clock.",
+            "role": "subject",
+            "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/1bdd164c482920a17e51",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/1bdd164c482920a17e51"
+          },
+          {
+            "index": 7,
+            "body": "The key light creates a warm tone.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/767fd1fd94ab46019125",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/767fd1fd94ab46019125"
+          },
+          {
+            "index": 8,
+            "body": "A low key light originates from the left side of the frame.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/ac9bbaf72d9201bbfb0b",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/ac9bbaf72d9201bbfb0b"
+          },
+          {
+            "index": 9,
+            "body": "A shallow depth of field is consistently maintained across all shots, isolating the clock.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/be639aab4d95e6e3065a",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/be639aab4d95e6e3065a"
+          },
+          {
+            "index": 10,
+            "body": "A cool neutral fill light is used to soften shadows without removing depth.",
+            "role": "style",
+            "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/4213f77d3b39aa2033e0",
+            "sourceKind": "constraint",
+            "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/4213f77d3b39aa2033e0"
+          },
+          {
+            "index": 11,
+            "body": "Utilize a low, warm key light from the left, casting deep shadows, and balance with a cool, neutral fill light.",
+            "role": "lesson",
+            "sourceId": "https://stele.studio/g/lesson/b05ae4b8e655/1/37979",
+            "sourceKind": "lesson",
+            "sourceAttempt": 1,
+            "sourceIri": "https://stele.studio/g/lesson/b05ae4b8e655/1/37979",
+            "originProjectId": "b05ae4b8e655"
+          },
+          {
+            "index": 12,
+            "body": "Maintain a shallow depth of field, with the brushed-brass clock always in sharp focus as the hero of the frame.",
+            "role": "lesson",
+            "sourceId": "https://stele.studio/g/lesson/b05ae4b8e655/1/72170",
+            "sourceKind": "lesson",
+            "sourceAttempt": 1,
+            "criterionIndex": 0,
+            "sourceIri": "https://stele.studio/g/lesson/b05ae4b8e655/1/72170",
+            "originProjectId": "b05ae4b8e655"
+          },
+          {
+            "index": 13,
+            "body": "Avoid: Ensure the lighting setup, including key light position, intensity, and fill light temperature, remains identical across all three shots to maintain consistent shadows and surface tone.",
+            "role": "avoid",
+            "sourceId": "https://stele.studio/g/lesson/b05ae4b8e655/1/55793",
+            "sourceKind": "lesson",
+            "sourceAttempt": 1,
+            "criterionIndex": 1,
+            "sourceIri": "https://stele.studio/g/lesson/b05ae4b8e655/1/55793",
+            "originProjectId": "b05ae4b8e655"
+          },
+          {
+            "index": 14,
+            "body": "Avoid: Depict the clock face with the same design, color, and hand configuration in every shot to reinforce product identity.",
+            "role": "avoid",
+            "sourceId": "https://stele.studio/g/lesson/b05ae4b8e655/1/8396",
+            "sourceKind": "lesson",
+            "sourceAttempt": 1,
+            "criterionIndex": 2,
+            "sourceIri": "https://stele.studio/g/lesson/b05ae4b8e655/1/8396",
+            "originProjectId": "b05ae4b8e655"
+          },
+          {
+            "index": 15,
+            "body": "Avoid: on-screen text or logos",
+            "role": "avoid",
+            "sourceKind": "brief"
+          },
+          {
+            "index": 16,
+            "body": "Avoid: harsh specular blowout",
+            "role": "avoid",
+            "sourceKind": "brief"
+          }
+        ],
+        "memoryClauseCount": 4,
+        "promptHash": "05dbbfdf6a02a37deb7ac5fe358f9ec1f892977c0f227fcb6e71a38b5a80863d"
+      },
+      "shots": [
+        {
+          "index": 0,
+          "intent": "To introduce the clock as a refined object, highlighting its material quality and the subtle play of light on its surface.",
+          "prompt": {
+            "text": "A close-up of the brushed-brass desk clock, ¾ profile, facing right, showcasing the texture of the brass under the warm key light from the left, creating a deep shadow behind it on the dark walnut surface. Shallow depth of field, with the clock in sharp focus and the background softly blurred. Low warm key light from the left, deep shadow, cool neutral fill, shallow depth of field. The primary subject in every frame is a brushed-brass desk clock. Avoid: No on-screen text or logos are present. Deep shadows are prominently featured, contributing to the overall mood. Avoid: No harsh specular blowout is visible on the brushed brass or any other surface. A dark walnut surface is visible in every frame, serving as the base for the clock. The key light creates a warm tone. A low key light originates from the left side of the frame. A shallow depth of field is consistently maintained across all shots, isolating the clock. A cool neutral fill light is used to soften shadows without removing depth. Utilize a low, warm key light from the left, casting deep shadows, and balance with a cool, neutral fill light. Maintain a shallow depth of field, with the brushed-brass clock always in sharp focus as the hero of the frame. Avoid: Ensure the lighting setup, including key light position, intensity, and fill light temperature, remains identical across all three shots to maintain consistent shadows and surface tone. Avoid: Depict the clock face with the same design, color, and hand configuration in every shot to reinforce product identity. Avoid: on-screen text or logos Avoid: harsh specular blowout",
+            "clauses": [
+              {
+                "index": 0,
+                "body": "A close-up of the brushed-brass desk clock, ¾ profile, facing right, showcasing the texture of the brass under the warm key light from the left, creating a deep shadow behind it on the dark walnut surface. Shallow depth of field, with the clock in sharp focus and the background softly blurred.",
+                "role": "goal",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 1,
+                "body": "Low warm key light from the left, deep shadow, cool neutral fill, shallow depth of field.",
+                "role": "style",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 2,
+                "body": "The primary subject in every frame is a brushed-brass desk clock.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/c4c8c25b45af28f866fb",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/c4c8c25b45af28f866fb"
+              },
+              {
+                "index": 3,
+                "body": "Avoid: No on-screen text or logos are present.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/6bab1d5cce9b13af1f7c",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/6bab1d5cce9b13af1f7c"
+              },
+              {
+                "index": 4,
+                "body": "Deep shadows are prominently featured, contributing to the overall mood.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/715384645c09d54086e0",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/715384645c09d54086e0"
+              },
+              {
+                "index": 5,
+                "body": "Avoid: No harsh specular blowout is visible on the brushed brass or any other surface.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/fb05b4a7423a15bf8dd8",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/fb05b4a7423a15bf8dd8"
+              },
+              {
+                "index": 6,
+                "body": "A dark walnut surface is visible in every frame, serving as the base for the clock.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/1bdd164c482920a17e51",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/1bdd164c482920a17e51"
+              },
+              {
+                "index": 7,
+                "body": "The key light creates a warm tone.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/767fd1fd94ab46019125",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/767fd1fd94ab46019125"
+              },
+              {
+                "index": 8,
+                "body": "A low key light originates from the left side of the frame.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/ac9bbaf72d9201bbfb0b",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/ac9bbaf72d9201bbfb0b"
+              },
+              {
+                "index": 9,
+                "body": "A shallow depth of field is consistently maintained across all shots, isolating the clock.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/be639aab4d95e6e3065a",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/be639aab4d95e6e3065a"
+              },
+              {
+                "index": 10,
+                "body": "A cool neutral fill light is used to soften shadows without removing depth.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/4213f77d3b39aa2033e0",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/4213f77d3b39aa2033e0"
+              },
+              {
+                "index": 11,
+                "body": "Utilize a low, warm key light from the left, casting deep shadows, and balance with a cool, neutral fill light.",
+                "role": "lesson",
+                "sourceId": "https://stele.studio/g/lesson/b05ae4b8e655/1/37979",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "sourceIri": "https://stele.studio/g/lesson/b05ae4b8e655/1/37979",
+                "originProjectId": "b05ae4b8e655"
+              },
+              {
+                "index": 12,
+                "body": "Maintain a shallow depth of field, with the brushed-brass clock always in sharp focus as the hero of the frame.",
+                "role": "lesson",
+                "sourceId": "https://stele.studio/g/lesson/b05ae4b8e655/1/72170",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "criterionIndex": 0,
+                "sourceIri": "https://stele.studio/g/lesson/b05ae4b8e655/1/72170",
+                "originProjectId": "b05ae4b8e655"
+              },
+              {
+                "index": 13,
+                "body": "Avoid: Ensure the lighting setup, including key light position, intensity, and fill light temperature, remains identical across all three shots to maintain consistent shadows and surface tone.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/lesson/b05ae4b8e655/1/55793",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "criterionIndex": 1,
+                "sourceIri": "https://stele.studio/g/lesson/b05ae4b8e655/1/55793",
+                "originProjectId": "b05ae4b8e655"
+              },
+              {
+                "index": 14,
+                "body": "Avoid: Depict the clock face with the same design, color, and hand configuration in every shot to reinforce product identity.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/lesson/b05ae4b8e655/1/8396",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "criterionIndex": 2,
+                "sourceIri": "https://stele.studio/g/lesson/b05ae4b8e655/1/8396",
+                "originProjectId": "b05ae4b8e655"
+              },
+              {
+                "index": 15,
+                "body": "Avoid: on-screen text or logos",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 16,
+                "body": "Avoid: harsh specular blowout",
+                "role": "avoid",
+                "sourceKind": "brief"
+              }
+            ],
+            "memoryClauseCount": 4,
+            "promptHash": "7cb3807b2592af97705e60d715e1eeeee904569e57c699819a6835085f1cc328"
+          },
+          "motionPrompt": "Slow, smooth push-in towards the clock's face.",
+          "keyframeUrl": "/seed/30869cf0e186119b.jpg",
+          "videoUrl": "/seed/535375a59317d92d.mp4",
+          "capability": "ltx-25-i2v-fast",
+          "costUSD": 0,
+          "review": {
+            "score": 9,
+            "passed": true,
+            "summary": "The clock is presented as a refined object with consistent lighting and clear focus on material quality.",
+            "findings": [
+              {
+                "index": 0,
+                "body": "Hero object clearly established",
+                "polarity": "positive"
+              },
+              {
+                "index": 1,
+                "body": "Consistent lighting and material presentation",
+                "polarity": "positive"
+              },
+              {
+                "index": 2,
+                "body": "Sharp focus on clock face details",
+                "polarity": "positive"
+              }
+            ],
+            "verdicts": [
+              {
+                "index": 0,
+                "met": true,
+                "note": "The brushed-brass clock is the unmistakable hero in all frames"
+              },
+              {
+                "index": 1,
+                "met": true,
+                "note": "Lighting, palette, and surface remain consistent across shots"
+              },
+              {
+                "index": 2,
+                "met": true,
+                "note": "Clock face is clearly the same object in every shot"
+              }
+            ],
+            "costUSD": 0.0128,
+            "capability": "nemotron-omni-video"
+          },
+          "attempts": 1,
+          "status": "passed"
+        },
+        {
+          "index": 1,
+          "intent": "To reveal the clock's elegant form and its precise detailing from a new perspective.",
+          "prompt": {
+            "text": "A slightly wider shot than the previous, focusing on the clock’s full body, still ¾ profile facing right, positioned centrally on the dark walnut surface. The key light from the left casts a more defined shadow, and the cool fill subtly highlights the opposite edge. Shallow depth of field, with the clock sharply rendered against a soft background. Low warm key light from the left, deep shadow, cool neutral fill, shallow depth of field. The primary subject in every frame is a brushed-brass desk clock. Avoid: No on-screen text or logos are present. Deep shadows are prominently featured, contributing to the overall mood. Avoid: No harsh specular blowout is visible on the brushed brass or any other surface. A dark walnut surface is visible in every frame, serving as the base for the clock. The key light creates a warm tone. A low key light originates from the left side of the frame. A shallow depth of field is consistently maintained across all shots, isolating the clock. A cool neutral fill light is used to soften shadows without removing depth. Utilize a low, warm key light from the left, casting deep shadows, and balance with a cool, neutral fill light. Maintain a shallow depth of field, with the brushed-brass clock always in sharp focus as the hero of the frame. Avoid: Ensure the lighting setup, including key light position, intensity, and fill light temperature, remains identical across all three shots to maintain consistent shadows and surface tone. Avoid: Depict the clock face with the same design, color, and hand configuration in every shot to reinforce product identity. Avoid: on-screen text or logos Avoid: harsh specular blowout",
+            "clauses": [
+              {
+                "index": 0,
+                "body": "A slightly wider shot than the previous, focusing on the clock’s full body, still ¾ profile facing right, positioned centrally on the dark walnut surface. The key light from the left casts a more defined shadow, and the cool fill subtly highlights the opposite edge. Shallow depth of field, with the clock sharply rendered against a soft background.",
+                "role": "goal",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 1,
+                "body": "Low warm key light from the left, deep shadow, cool neutral fill, shallow depth of field.",
+                "role": "style",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 2,
+                "body": "The primary subject in every frame is a brushed-brass desk clock.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/c4c8c25b45af28f866fb",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/c4c8c25b45af28f866fb"
+              },
+              {
+                "index": 3,
+                "body": "Avoid: No on-screen text or logos are present.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/6bab1d5cce9b13af1f7c",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/6bab1d5cce9b13af1f7c"
+              },
+              {
+                "index": 4,
+                "body": "Deep shadows are prominently featured, contributing to the overall mood.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/715384645c09d54086e0",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/715384645c09d54086e0"
+              },
+              {
+                "index": 5,
+                "body": "Avoid: No harsh specular blowout is visible on the brushed brass or any other surface.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/fb05b4a7423a15bf8dd8",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/fb05b4a7423a15bf8dd8"
+              },
+              {
+                "index": 6,
+                "body": "A dark walnut surface is visible in every frame, serving as the base for the clock.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/1bdd164c482920a17e51",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/1bdd164c482920a17e51"
+              },
+              {
+                "index": 7,
+                "body": "The key light creates a warm tone.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/767fd1fd94ab46019125",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/767fd1fd94ab46019125"
+              },
+              {
+                "index": 8,
+                "body": "A low key light originates from the left side of the frame.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/ac9bbaf72d9201bbfb0b",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/ac9bbaf72d9201bbfb0b"
+              },
+              {
+                "index": 9,
+                "body": "A shallow depth of field is consistently maintained across all shots, isolating the clock.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/be639aab4d95e6e3065a",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/be639aab4d95e6e3065a"
+              },
+              {
+                "index": 10,
+                "body": "A cool neutral fill light is used to soften shadows without removing depth.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/4213f77d3b39aa2033e0",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/4213f77d3b39aa2033e0"
+              },
+              {
+                "index": 11,
+                "body": "Utilize a low, warm key light from the left, casting deep shadows, and balance with a cool, neutral fill light.",
+                "role": "lesson",
+                "sourceId": "https://stele.studio/g/lesson/b05ae4b8e655/1/37979",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "sourceIri": "https://stele.studio/g/lesson/b05ae4b8e655/1/37979",
+                "originProjectId": "b05ae4b8e655"
+              },
+              {
+                "index": 12,
+                "body": "Maintain a shallow depth of field, with the brushed-brass clock always in sharp focus as the hero of the frame.",
+                "role": "lesson",
+                "sourceId": "https://stele.studio/g/lesson/b05ae4b8e655/1/72170",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "criterionIndex": 0,
+                "sourceIri": "https://stele.studio/g/lesson/b05ae4b8e655/1/72170",
+                "originProjectId": "b05ae4b8e655"
+              },
+              {
+                "index": 13,
+                "body": "Avoid: Ensure the lighting setup, including key light position, intensity, and fill light temperature, remains identical across all three shots to maintain consistent shadows and surface tone.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/lesson/b05ae4b8e655/1/55793",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "criterionIndex": 1,
+                "sourceIri": "https://stele.studio/g/lesson/b05ae4b8e655/1/55793",
+                "originProjectId": "b05ae4b8e655"
+              },
+              {
+                "index": 14,
+                "body": "Avoid: Depict the clock face with the same design, color, and hand configuration in every shot to reinforce product identity.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/lesson/b05ae4b8e655/1/8396",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "criterionIndex": 2,
+                "sourceIri": "https://stele.studio/g/lesson/b05ae4b8e655/1/8396",
+                "originProjectId": "b05ae4b8e655"
+              },
+              {
+                "index": 15,
+                "body": "Avoid: on-screen text or logos",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 16,
+                "body": "Avoid: harsh specular blowout",
+                "role": "avoid",
+                "sourceKind": "brief"
+              }
+            ],
+            "memoryClauseCount": 4,
+            "promptHash": "98c673e0b9dbc99a464e16285992dd87f7729d949fa2558221702d44011e1c4c"
+          },
+          "motionPrompt": "Subtle, slow orbit from right to left around the clock.",
+          "keyframeUrl": "/seed/6c84009f39205261.jpg",
+          "videoUrl": "/seed/b15957c51c6a632d.mp4",
+          "capability": "ltx-25-i2v-fast",
+          "costUSD": 0,
+          "review": {
+            "score": 8,
+            "passed": true,
+            "summary": "The clock's elegant form and precise detailing are revealed from a new perspective with consistent lighting, palette, and surface across all three shots, maintaining the clock face as the same object.",
+            "findings": [
+              {
+                "index": 0,
+                "body": "Clear focus on the clock as the main subject",
+                "polarity": "positive"
+              },
+              {
+                "index": 1,
+                "body": "Consistent lighting and color palette",
+                "polarity": "positive"
+              },
+              {
+                "index": 2,
+                "body": "Stable and clear camera movement",
+                "polarity": "positive"
+              },
+              {
+                "index": 3,
+                "body": "No significant problems detected",
+                "polarity": "negative"
+              }
+            ],
+            "verdicts": [
+              {
+                "index": 0,
+                "met": true,
+                "note": "The brushed-brass clock is unmistakably the hero of every frame"
+              },
+              {
+                "index": 1,
+                "met": true,
+                "note": "The lighting, palette and surface stay identical across all three shots"
+              },
+              {
+                "index": 2,
+                "met": true,
+                "note": "The clock face reads as the same object in every shot"
+              },
+              {
+                "index": 0,
+                "met": true,
+                "note": "The brushed-brass clock is unmistakably the hero of every frame"
+              },
+              {
+                "index": 1,
+                "met": true,
+                "note": "The lighting, palette and surface stay identical across all three shots"
+              },
+              {
+                "index": 2,
+                "met": true,
+                "note": "The clock face reads as the same object in every shot"
+              }
+            ],
+            "costUSD": 0.0128,
+            "capability": "nemotron-omni-video"
+          },
+          "attempts": 1,
+          "status": "passed"
+        },
+        {
+          "index": 2,
+          "intent": "To conclude with an intimate view of the clock's face, emphasizing its design and functionality within the established mood.",
+          "prompt": {
+            "text": "An even closer shot, directly on the clock's face, slightly angled to the right, filling most of the frame. The warm key light from the left emphasizes the subtle brushing on the brass bezel and the cool fill maintains visibility of the clock hands. Shallow depth of field, with the clock face in crisp focus and the surrounding dark walnut softly blurred. Low warm key light from the left, deep shadow, cool neutral fill, shallow depth of field. The primary subject in every frame is a brushed-brass desk clock. Avoid: No on-screen text or logos are present. Deep shadows are prominently featured, contributing to the overall mood. Avoid: No harsh specular blowout is visible on the brushed brass or any other surface. A dark walnut surface is visible in every frame, serving as the base for the clock. The key light creates a warm tone. A low key light originates from the left side of the frame. A shallow depth of field is consistently maintained across all shots, isolating the clock. A cool neutral fill light is used to soften shadows without removing depth. Utilize a low, warm key light from the left, casting deep shadows, and balance with a cool, neutral fill light. Maintain a shallow depth of field, with the brushed-brass clock always in sharp focus as the hero of the frame. Avoid: Ensure the lighting setup, including key light position, intensity, and fill light temperature, remains identical across all three shots to maintain consistent shadows and surface tone. Avoid: Depict the clock face with the same design, color, and hand configuration in every shot to reinforce product identity. Avoid: on-screen text or logos Avoid: harsh specular blowout",
+            "clauses": [
+              {
+                "index": 0,
+                "body": "An even closer shot, directly on the clock's face, slightly angled to the right, filling most of the frame. The warm key light from the left emphasizes the subtle brushing on the brass bezel and the cool fill maintains visibility of the clock hands. Shallow depth of field, with the clock face in crisp focus and the surrounding dark walnut softly blurred.",
+                "role": "goal",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 1,
+                "body": "Low warm key light from the left, deep shadow, cool neutral fill, shallow depth of field.",
+                "role": "style",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 2,
+                "body": "The primary subject in every frame is a brushed-brass desk clock.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/c4c8c25b45af28f866fb",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/c4c8c25b45af28f866fb"
+              },
+              {
+                "index": 3,
+                "body": "Avoid: No on-screen text or logos are present.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/6bab1d5cce9b13af1f7c",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/6bab1d5cce9b13af1f7c"
+              },
+              {
+                "index": 4,
+                "body": "Deep shadows are prominently featured, contributing to the overall mood.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/715384645c09d54086e0",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/715384645c09d54086e0"
+              },
+              {
+                "index": 5,
+                "body": "Avoid: No harsh specular blowout is visible on the brushed brass or any other surface.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/fb05b4a7423a15bf8dd8",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/fb05b4a7423a15bf8dd8"
+              },
+              {
+                "index": 6,
+                "body": "A dark walnut surface is visible in every frame, serving as the base for the clock.",
+                "role": "subject",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/1bdd164c482920a17e51",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/1bdd164c482920a17e51"
+              },
+              {
+                "index": 7,
+                "body": "The key light creates a warm tone.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/767fd1fd94ab46019125",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/767fd1fd94ab46019125"
+              },
+              {
+                "index": 8,
+                "body": "A low key light originates from the left side of the frame.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/ac9bbaf72d9201bbfb0b",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/ac9bbaf72d9201bbfb0b"
+              },
+              {
+                "index": 9,
+                "body": "A shallow depth of field is consistently maintained across all shots, isolating the clock.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/be639aab4d95e6e3065a",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/be639aab4d95e6e3065a"
+              },
+              {
+                "index": 10,
+                "body": "A cool neutral fill light is used to soften shadows without removing depth.",
+                "role": "style",
+                "sourceId": "https://stele.studio/g/constraint/b05ae4b8e655/4213f77d3b39aa2033e0",
+                "sourceKind": "constraint",
+                "sourceIri": "https://stele.studio/g/constraint/b05ae4b8e655/4213f77d3b39aa2033e0"
+              },
+              {
+                "index": 11,
+                "body": "Utilize a low, warm key light from the left, casting deep shadows, and balance with a cool, neutral fill light.",
+                "role": "lesson",
+                "sourceId": "https://stele.studio/g/lesson/b05ae4b8e655/1/37979",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "sourceIri": "https://stele.studio/g/lesson/b05ae4b8e655/1/37979",
+                "originProjectId": "b05ae4b8e655"
+              },
+              {
+                "index": 12,
+                "body": "Maintain a shallow depth of field, with the brushed-brass clock always in sharp focus as the hero of the frame.",
+                "role": "lesson",
+                "sourceId": "https://stele.studio/g/lesson/b05ae4b8e655/1/72170",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "criterionIndex": 0,
+                "sourceIri": "https://stele.studio/g/lesson/b05ae4b8e655/1/72170",
+                "originProjectId": "b05ae4b8e655"
+              },
+              {
+                "index": 13,
+                "body": "Avoid: Ensure the lighting setup, including key light position, intensity, and fill light temperature, remains identical across all three shots to maintain consistent shadows and surface tone.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/lesson/b05ae4b8e655/1/55793",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "criterionIndex": 1,
+                "sourceIri": "https://stele.studio/g/lesson/b05ae4b8e655/1/55793",
+                "originProjectId": "b05ae4b8e655"
+              },
+              {
+                "index": 14,
+                "body": "Avoid: Depict the clock face with the same design, color, and hand configuration in every shot to reinforce product identity.",
+                "role": "avoid",
+                "sourceId": "https://stele.studio/g/lesson/b05ae4b8e655/1/8396",
+                "sourceKind": "lesson",
+                "sourceAttempt": 1,
+                "criterionIndex": 2,
+                "sourceIri": "https://stele.studio/g/lesson/b05ae4b8e655/1/8396",
+                "originProjectId": "b05ae4b8e655"
+              },
+              {
+                "index": 15,
+                "body": "Avoid: on-screen text or logos",
+                "role": "avoid",
+                "sourceKind": "brief"
+              },
+              {
+                "index": 16,
+                "body": "Avoid: harsh specular blowout",
+                "role": "avoid",
+                "sourceKind": "brief"
+              }
+            ],
+            "memoryClauseCount": 4,
+            "promptHash": "9c8e6e34e0ed682e31fc731bb35867bf2f1f217ff47c7e08a93d105a975ff6c3"
+          },
+          "motionPrompt": "Very slow, gentle pull-back, revealing more of the clock's base.",
+          "keyframeUrl": "/seed/a1815471e6f3ba45.jpg",
+          "videoUrl": "/seed/9456fd1bb3841ce0.mp4",
+          "capability": "ltx-25-i2v-fast",
+          "costUSD": 0,
+          "review": {
+            "score": 8,
+            "passed": true,
+            "summary": "The clock is the hero, lighting is consistent, and the face reads as the same object in all shots, though slight motion blur exists.",
+            "findings": [
+              {
+                "index": 0,
+                "body": "Hero element clearly defined",
+                "polarity": "positive"
+              },
+              {
+                "index": 1,
+                "body": "Consistent lighting and color",
+                "polarity": "positive"
+              },
+              {
+                "index": 2,
+                "body": "Same object across frames",
+                "polarity": "positive"
+              },
+              {
+                "index": 3,
+                "body": "Slight motion blur on the second frame",
+                "polarity": "negative",
+                "criterionIndex": 0
+              }
+            ],
+            "verdicts": [
+              {
+                "index": 0,
+                "met": true,
+                "note": "Brushed-brass clock dominates every frame"
+              },
+              {
+                "index": 1,
+                "met": true,
+                "note": "Lighting, palette, and surface remain identical across shots"
+              },
+              {
+                "index": 2,
+                "met": true,
+                "note": "Clock face is the same object in all shots"
+              },
+              {
+                "index": 0,
+                "met": true,
+                "note": "Hero element is unmistakably the clock"
+              },
+              {
+                "index": 1,
+                "met": true,
+                "note": "Lighting, palette and surface stay identical"
+              },
+              {
+                "index": 2,
+                "met": true,
+                "note": "Clock face reads as the same object"
+              },
+              {
+                "index": 0,
+                "met": false,
+                "note": "None"
+              },
+              {
+                "index": 1,
+                "met": false,
+                "note": "None"
+              },
+              {
+                "index": 2,
+                "met": false,
+                "note": "None"
+              },
+              {
+                "index": 0,
+                "met": false,
+                "note": "No on-screen text or logos present"
+              },
+              {
+                "index": 1,
+                "met": false,
+                "note": "No harsh specular blowout"
+              },
+              {
+                "index": 0,
+                "met": false,
+                "note": "None"
+              },
+              {
+                "index": 1,
+                "met": false,
+                "note": "None"
+              },
+              {
+                "index": 2,
+                "met": false,
+                "note": "None"
+              }
+            ],
+            "costUSD": 0.0128,
+            "capability": "nemotron-omni-video"
+          },
+          "attempts": 2,
+          "status": "passed"
+        }
+      ],
+      "cutUrl": "/seed/45c3e51bf1d4667e.mp4",
+      "review": {
+        "score": 5,
+        "passed": false,
+        "summary": "The clock is the hero in every shot, but lighting and face designs vary significantly, breaking consistency.",
+        "findings": [
+          {
+            "index": 0,
+            "body": "Hero product is consistently central and well-lit",
+            "polarity": "positive"
+          },
+          {
+            "index": 1,
+            "body": "Inconsistent lighting across shots (dark, bright, high-contrast)",
+            "polarity": "negative",
+            "criterionIndex": 1
+          },
+          {
+            "index": 2,
+            "body": "Changing clock face designs (Roman vs Arabic numerals, different colors, brand name visible)",
+            "polarity": "negative",
+            "criterionIndex": 2
+          },
+          {
+            "index": 3,
+            "body": "Varying surface textures and materials (wood grain vs smooth walnut)",
+            "polarity": "negative",
+            "criterionIndex": 1
+          },
+          {
+            "index": 4,
+            "body": "Violation of 'no on-screen text or logos' rule with 'BRAINEZZ' visible",
+            "polarity": "negative"
+          }
+        ],
+        "verdicts": [
+          {
+            "index": 0,
+            "met": true,
+            "note": "Clock is the clear focus in all three shots."
+          },
+          {
+            "index": 1,
+            "met": false,
+            "note": "Lighting shifts from dark/bronze to bright/sunlit to high-contrast black, and the surface changes from wood to walnut to dark wood."
+          },
+          {
+            "index": 2,
+            "met": false,
+            "note": "The clock face changes from black with Roman numerals to white with Arabic numerals, and the brand name 'BRAINEZZ' appears on one, violating text/logo rules and identity consistency."
+          }
+        ],
+        "costUSD": 0.0128,
+        "capability": "nemotron-omni-video"
+      },
+      "lessonIds": [
+        "l2-7804e3ce44",
+        "l2-6159d70753",
+        "l2-df5cdc4ce6",
+        "l2-2d4450ab13"
+      ],
+      "costUSD": 2.3449999999999998,
+      "calls": [
+        {
+          "id": "f272a0cf-12a4-4c13-8432-55f1166746c2",
+          "capability": "gemini-text",
+          "stage": "plan:attempt-2",
+          "argsHash": "d9aa6afe1abbf300",
+          "at": 1789743215695,
+          "latencyMs": 7365,
+          "ok": true,
+          "costUSD": 0.0001,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 1,
+          "warnings": []
+        },
+        {
+          "id": "a4e78e0f-05b8-4ab7-be74-208e00bc42d0",
+          "capability": "flux-schnell",
+          "stage": "keyframe:2.0",
+          "argsHash": "96868d7c8ee999d3",
+          "at": 1789743223072,
+          "latencyMs": 527,
+          "ok": true,
+          "costUSD": 0.0032,
+          "costUnitKind": "megapixel",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly83eTRmbHpwdWxndjRjbzZyLnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS91cGxvYWRzLzE3ODk3NDMxNDg4NDYtbzVmZGsxLmpwZWc.34d4ec732ef3dcb9/1789743148846-o5fdk1.jpeg",
+          "warnings": []
+        },
+        {
+          "id": "8530d79a-9a67-4a70-a30c-ee062c4e06c0",
+          "capability": "ltx-25-i2v-fast",
+          "stage": "animate:2.0",
+          "argsHash": "5d9c1ea752a713e4",
+          "at": 1789743223600,
+          "latencyMs": 31417,
+          "ok": true,
+          "costUSD": 0.567,
+          "costUnitKind": "second",
+          "costUnits": 6,
+          "jobId": "mjob_2017fb07ebd0",
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly92M2IuZmFsLm1lZGlhL2ZpbGVzL2IvMGFhYWVlNzIvMW9mNnJkaG5MRmZZMkFSdW9kUEZiX1FObnVqRFpHLm1wNA.13a2c31bfc1e22c5/1of6rdhnLFfY2ARuodPFb_QNnujDZG.mp4",
+          "warnings": [
+            {
+              "kind": "warning",
+              "message": "A durable copy was requested but none was recorded — the URL returned inherits the provider's lifetime. Retry the copy with upload({ source_url: <the url> })."
+            }
+          ]
+        },
+        {
+          "id": "ffc2e155-b923-45eb-8147-c9d21aa404f3",
+          "capability": "nemotron-omni-video",
+          "stage": "review:2.0",
+          "argsHash": "c2cdf884be7fe3c8",
+          "at": 1789743255018,
+          "latencyMs": 7097,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "5f9dbddd-92e0-4f9b-89f2-74a6572b6a32",
+          "capability": "flux-schnell",
+          "stage": "keyframe:2.1",
+          "argsHash": "2f52e758c912774f",
+          "at": 1789743262122,
+          "latencyMs": 6310,
+          "ok": true,
+          "costUSD": 0.0032,
+          "costUnitKind": "megapixel",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly83eTRmbHpwdWxndjRjbzZyLnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS91cGxvYWRzLzE3ODk3NDMyNjc2OTgtN2xiangyLmpwZWc.0898184082602d96/1789743267698-7lbjx2.jpeg",
+          "warnings": []
+        },
+        {
+          "id": "5382af6b-68ec-48cb-a20c-22c0d4c9c5b7",
+          "capability": "ltx-25-i2v-fast",
+          "stage": "animate:2.1",
+          "argsHash": "85e73146a32cd249",
+          "at": 1789743268432,
+          "latencyMs": 38219,
+          "ok": true,
+          "costUSD": 0.567,
+          "costUnitKind": "second",
+          "costUnits": 6,
+          "jobId": "mjob_060341a7a19a",
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly92M2IuZmFsLm1lZGlhL2ZpbGVzL2IvMGFhYWVlNzcvbjZWNTBoVmFJeEtiTUh4VFAxcUwwX3VLWEZoMjYzLm1wNA.98b11385d5416153/n6V50hVaIxKbMHxTP1qL0_uKXFh263.mp4",
+          "warnings": [
+            {
+              "kind": "warning",
+              "message": "A durable copy was requested but none was recorded — the URL returned inherits the provider's lifetime. Retry the copy with upload({ source_url: <the url> })."
+            }
+          ]
+        },
+        {
+          "id": "b2411699-0b01-4fcf-a076-b830d64cd125",
+          "capability": "nemotron-omni-video",
+          "stage": "review:2.1",
+          "argsHash": "806e5c29adaf9ff5",
+          "at": 1789743306651,
+          "latencyMs": 6581,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "e9a0bf4f-b29b-46a1-8628-42431b7f5e97",
+          "capability": "flux-schnell",
+          "stage": "keyframe:2.2",
+          "argsHash": "819acd87c1895332",
+          "at": 1789743313243,
+          "latencyMs": 7060,
+          "ok": true,
+          "costUSD": 0.0032,
+          "costUnitKind": "megapixel",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly83eTRmbHpwdWxndjRjbzZyLnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS91cGxvYWRzLzE3ODk3NDMzMTk1MTgteTlrMmQyLmpwZWc.461b88779140d1d6/1789743319518-y9k2d2.jpeg",
+          "warnings": []
+        },
+        {
+          "id": "bd742731-3910-478b-aa85-dcc0edddd5d1",
+          "capability": "ltx-25-i2v-fast",
+          "stage": "animate:2.2",
+          "argsHash": "b1a1440466a9e775",
+          "at": 1789743320304,
+          "latencyMs": 31955,
+          "ok": true,
+          "costUSD": 0.567,
+          "costUnitKind": "second",
+          "costUnits": 6,
+          "jobId": "mjob_ec7635f75f95",
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly92M2IuZmFsLm1lZGlhL2ZpbGVzL2IvMGFhYWVlN2MvX01MejZoZDZOX1AzRzdySUl1S1J4X3NzVzZNQmZULm1wNA.3f114c1d7d70fbf1/_MLz6hd6N_P3G7rIIuKRx_ssW6MBfT.mp4",
+          "warnings": [
+            {
+              "kind": "warning",
+              "message": "A durable copy was requested but none was recorded — the URL returned inherits the provider's lifetime. Retry the copy with upload({ source_url: <the url> })."
+            }
+          ]
+        },
+        {
+          "id": "6f33afdc-6054-4f62-9351-3870685b54f3",
+          "capability": "nemotron-omni-video",
+          "stage": "review:2.2",
+          "argsHash": "d155c220556bca32",
+          "at": 1789743352259,
+          "latencyMs": 5877,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "60c7ed4d-52cb-4d9d-956a-f660caf78993",
+          "capability": "flux-schnell",
+          "stage": "keyframe:2.2",
+          "argsHash": "606ca5ecefeb317a",
+          "at": 1789743358137,
+          "latencyMs": 5706,
+          "ok": true,
+          "costUSD": 0.0032,
+          "costUnitKind": "megapixel",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly83eTRmbHpwdWxndjRjbzZyLnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS91cGxvYWRzLzE3ODk3NDMzNjMwNzctaXppazNsLmpwZWc.70df01a6f46d9538/1789743363077-izik3l.jpeg",
+          "warnings": []
+        },
+        {
+          "id": "27a7223e-303d-486c-a627-42b66633fa50",
+          "capability": "ltx-25-i2v-fast",
+          "stage": "animate:2.2",
+          "argsHash": "460010506d09ca52",
+          "at": 1789743363843,
+          "latencyMs": 31958,
+          "ok": true,
+          "costUSD": 0.567,
+          "costUnitKind": "second",
+          "costUnits": 6,
+          "jobId": "mjob_344d1e287153",
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly92M2IuZmFsLm1lZGlhL2ZpbGVzL2IvMGFhYWVlODEvV2YwVDAzbHFZcDVxSkFYZTVmMy1rX3lORlpORkg1Lm1wNA.b0ccd780aaaab758/Wf0T03lqYp5qJAXe5f3-k_yNFZNFH5.mp4",
+          "warnings": [
+            {
+              "kind": "warning",
+              "message": "A durable copy was requested but none was recorded — the URL returned inherits the provider's lifetime. Retry the copy with upload({ source_url: <the url> })."
+            }
+          ]
+        },
+        {
+          "id": "f0cd4d9a-c0ab-4749-bb32-8e4c73772bf2",
+          "capability": "nemotron-omni-video",
+          "stage": "review:2.2",
+          "argsHash": "69f66c4d4df73f63",
+          "at": 1789743395801,
+          "latencyMs": 6258,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "8f27f3a4-73d6-4f54-9a79-3e4a68317a47",
+          "capability": "ffmpeg-concat",
+          "stage": "concat:attempt-2",
+          "argsHash": "2faa044dd7fd91d3",
+          "at": 1789743402076,
+          "latencyMs": 5624,
+          "ok": true,
+          "costUSD": 0,
+          "costUnitKind": "call",
+          "costUnits": 1,
+          "outputUrl": "https://agent.livepeer.org/a/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3N0b3J5Ym9hcmQtdXBsb2Fkcy90b29sLW91dHB1dHMvMTc4OTc0MzQwNjU4OC1iYTVmYzMwN2NjNmU0MmRjODg5YjlmNTMwZGM0YTNhNi5tcDQ.4c9263a831f42dea/1789743406588-ba5fc307cc6e42dc889b9f530dc4a3a6.mp4",
+          "warnings": []
+        },
+        {
+          "id": "4d4694d8-c0df-42af-b27a-9a5d02fe4479",
+          "capability": "nemotron-omni-video",
+          "stage": "review:attempt-2",
+          "argsHash": "8b86e222b7b456db",
+          "at": 1789743407711,
+          "latencyMs": 7070,
+          "ok": true,
+          "costUSD": 0.0128,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 2.024,
+          "warnings": []
+        },
+        {
+          "id": "07fb2802-a84f-4323-aad8-dd92747a7c5c",
+          "capability": "gemini-text",
+          "stage": "distill:attempt-2",
+          "argsHash": "de47e1f10f75c3b9",
+          "at": 1789743414794,
+          "latencyMs": 4685,
+          "ok": true,
+          "costUSD": 0.0001,
+          "costUnitKind": "1000_tokens",
+          "costUnits": 1,
+          "warnings": []
+        }
+      ]
+    }
+  ],
+  "sources": [],
+  "seals": [],
+  "inheritedLessonIds": []
+}

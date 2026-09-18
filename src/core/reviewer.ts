@@ -108,7 +108,7 @@ export async function reviewVideo(options: ReviewOptions): Promise<Review> {
  * contradicts it, and quietly promoting a flagged criterion to "met" is the failure mode that
  * matters — it would let a production claim it passed a test a reviewer had just failed it on.
  */
-function collapseVerdicts(
+export function collapseVerdicts(
   raw: Array<{ index: number; met: boolean; note: string }>,
   brief: Brief
 ): CriterionVerdict[] {
