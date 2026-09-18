@@ -1,0 +1,385 @@
+import { z } from "zod";
+import { LivepeerAgent, LivepeerError, type RunResult } from "./mcp-client";
+
+/**
+ * Which capability does which job.
+ *
+ * Every name here was read off `describe_capability` on the live network and then actually run,
+ * so the parameter shapes below are the ones the provider declares rather than the ones that look
+ * plausible. The surface does not fuzzy-match: a name is a contract, and sending a parameter a
+ * capability does not declare gets it silently dropped (the network says so in `warnings`, which
+ * this client keeps). Re-verify with `npm run probe` before changing anything in this file.
+ */
+export const CAPABILITY = {
+  /** Reasoning. Cheap and quick enough to sit inside a loop: ~$0.0001/call, p50 2.1s. */
+  reason: "gemini-text",
+  /** Pulls readable text off a public page, so a claim in a script can carry its source. */
+  ground: "obscura-extract-text",
+  /** Keyframes. Prompt-only — it declares no aspect_ratio, whatever the examples elsewhere suggest. */
+  keyframe: "flux-schnell",
+  /** Animates a keyframe. Conditioning each shot on a still is what holds a look together. */
+  animate: "ltx-25-i2v-fast",
+  /** Text-to-video, for shots with no keyframe to anchor them. */
+  shot: "ltx-25-t2v-fast",
+  /** The review gate. Genuinely watches the clip and returns text. */
+  review: "nemotron-omni-video",
+  narrate: "inworld-tts",
+  music: "sonilo-v2m",
+  concat: "ffmpeg-concat",
+  mux: "ffmpeg-mux",
+  audioMix: "ffmpeg-audio-mix",
+  reframe: "ffmpeg-reframe",
+} as const;
+
+/** Video is the only slow stage; everything else answers inside a few seconds. */
+const TIMEOUT = {
+  reason: 60,
+  ground: 45,
+  keyframe: 60,
+  video: 300,
+  review: 120,
+  audio: 60,
+  edit: 60,
+} as const;
+
+/** ltx-2.5 takes discrete durations only; anything else is rejected or silently coerced. */
+export const SHOT_DURATIONS = [6, 8, 10, 12, 14, 16, 18, 20] as const;
+
+export function snapDuration(seconds: number): number {
+  return SHOT_DURATIONS.reduce((best, d) =>
+    Math.abs(d - seconds) < Math.abs(best - seconds) ? d : best
+  );
+}
+
+// ---------------------------------------------------------------- structured reasoning
+
+export class ReasoningError extends Error {}
+
+/**
+ * Ask the network to reason, and get back a value that matches `schema`.
+ *
+ * `gemini-text` returns prose, so the JSON has to be found in it and validated. A model that
+ * returns the wrong shape gets exactly one more attempt — with the validation error quoted back to
+ * it, which fixes the common cases (a missing field, a number sent as a string). A second failure
+ * is a real failure and is raised rather than smoothed over: every downstream stage relies on the
+ * shape of what it receives, so a half-parsed object would surface as damage somewhere further on.
+ */
+export async function think<T>(
+  agent: LivepeerAgent,
+  stage: string,
+  prompt: string,
+  schema: z.ZodType<T>
+): Promise<{ value: T; costUSD: number; raw: string }> {
+  const instruction = `${prompt}\n\nReturn ONLY a single JSON value. No prose, no explanation, no markdown fence.`;
+  let cost = 0;
+  let lastRaw = "";
+  let lastError = "";
+
+  for (let attempt = 0; attempt < 2; attempt++) {
+    const result = await agent.run({
+      capability: CAPABILITY.reason,
+      stage,
+      prompt:
+        attempt === 0
+          ? instruction
+          : `${instruction}\n\nYour previous reply could not be used. It failed validation with:\n${lastError}\n\nPrevious reply:\n${lastRaw.slice(0, 1500)}\n\nReturn corrected JSON.`,
+      timeout: TIMEOUT.reason,
+    });
+    cost += result.costUSD;
+
+    if (!result.ok || !result.text) {
+      lastError = result.error ?? "the capability returned no text";
+      continue;
+    }
+
+    lastRaw = result.text;
+    const candidate = extractJson(result.text);
+    if (!candidate) {
+      lastError = "no JSON value could be found in the reply";
+      continue;
+    }
+
+    const parsed = schema.safeParse(candidate);
+    if (parsed.success) return { value: parsed.data, costUSD: cost, raw: lastRaw };
+    lastError = parsed.error.issues.map((i) => `${i.path.join(".") || "(root)"}: ${i.message}`).join("; ");
+  }
+
+  throw new ReasoningError(`${stage}: could not obtain a valid response — ${lastError}`);
+}
+
+/**
+ * Recover a JSON value from a model reply.
+ *
+ * Handles the three things models actually do: answer with clean JSON, wrap it in a markdown fence,
+ * or bury it in a sentence. The brace-matching scan is string-aware so a `}` inside a quoted value
+ * doesn't truncate the object — which is common here, since findings are free text.
+ */
+export function extractJson(text: string): unknown {
+  const fenced = text.match(/```(?:json)?\s*([\s\S]*?)```/);
+  const body = (fenced?.[1] ?? text).trim();
+
+  try {
+    return JSON.parse(body);
+  } catch {
+    // Fall through to scanning.
+  }
+
+  for (const [open, close] of [
+    ["{", "}"],
+    ["[", "]"],
+  ] as const) {
+    const start = body.indexOf(open);
+    if (start === -1) continue;
+
+    let depth = 0;
+    let inString = false;
+    let escaped = false;
+    for (let i = start; i < body.length; i++) {
+      const char = body[i];
+      if (escaped) {
+        escaped = false;
+        continue;
+      }
+      if (char === "\\") {
+        escaped = true;
+        continue;
+      }
+      if (char === '"') {
+        inString = !inString;
+        continue;
+      }
+      if (inString) continue;
+
+      if (char === open) depth++;
+      else if (char === close) {
+        depth--;
+        if (depth === 0) {
+          try {
+            return JSON.parse(body.slice(start, i + 1));
+          } catch {
+            break;
+          }
+        }
+      }
+    }
+  }
+  return undefined;
+}
+
+// ---------------------------------------------------------------- media stages
+
+export interface MediaOutput {
+  url: string;
+  costUSD: number;
+  capability: string;
+  latencyMs: number;
+}
+
+export async function makeKeyframe(
+  agent: LivepeerAgent,
+  stage: string,
+  prompt: string,
+  idempotencyKey?: string
+): Promise<MediaOutput> {
+  const result = await agent.runOrThrow({
+    capability: CAPABILITY.keyframe,
+    stage,
+    prompt,
+    timeout: TIMEOUT.keyframe,
+    // A keyframe is referenced by the production record, so it needs a URL that outlives the run.
+    persist: true,
+    idempotencyKey,
+  });
+  return asMedia(result, CAPABILITY.keyframe);
+}
+
+export async function animateKeyframe(
+  agent: LivepeerAgent,
+  stage: string,
+  prompt: string,
+  keyframeUrl: string,
+  durationSeconds: number,
+  idempotencyKey?: string
+): Promise<MediaOutput> {
+  const result = await agent.runOrThrow({
+    capability: CAPABILITY.animate,
+    stage,
+    prompt,
+    sourceUrl: keyframeUrl,
+    inputs: { duration: snapDuration(durationSeconds), resolution: "720p" },
+    timeout: TIMEOUT.video,
+    async: true,
+    persist: true,
+    idempotencyKey,
+  });
+  return asMedia(result, CAPABILITY.animate);
+}
+
+export async function renderShot(
+  agent: LivepeerAgent,
+  stage: string,
+  prompt: string,
+  durationSeconds: number,
+  idempotencyKey?: string
+): Promise<MediaOutput> {
+  const result = await agent.runOrThrow({
+    capability: CAPABILITY.shot,
+    stage,
+    prompt,
+    inputs: { duration: snapDuration(durationSeconds), resolution: "720p" },
+    timeout: TIMEOUT.video,
+    async: true,
+    persist: true,
+    idempotencyKey,
+  });
+  return asMedia(result, CAPABILITY.shot);
+}
+
+/**
+ * Show a rendered clip to a model that can watch it, and get back what it saw.
+ *
+ * This is the difference between reviewing a production and reviewing a description of one. The
+ * caller supplies the rubric; the returned text is parsed by the reviewer, not here.
+ */
+export async function watchVideo(
+  agent: LivepeerAgent,
+  stage: string,
+  videoUrl: string,
+  rubric: string
+): Promise<{ text: string; costUSD: number }> {
+  const result = await agent.runOrThrow({
+    capability: CAPABILITY.review,
+    stage,
+    prompt: rubric,
+    inputs: { video_url: videoUrl },
+    timeout: TIMEOUT.review,
+  });
+  return { text: result.text ?? "", costUSD: result.costUSD };
+}
+
+export async function narrate(
+  agent: LivepeerAgent,
+  stage: string,
+  script: string
+): Promise<MediaOutput> {
+  const result = await agent.runOrThrow({
+    capability: CAPABILITY.narrate,
+    stage,
+    prompt: script,
+    timeout: TIMEOUT.audio,
+    persist: true,
+  });
+  return asMedia(result, CAPABILITY.narrate);
+}
+
+export async function scoreMusic(
+  agent: LivepeerAgent,
+  stage: string,
+  brief: string,
+  videoUrl: string
+): Promise<MediaOutput> {
+  const result = await agent.runOrThrow({
+    capability: CAPABILITY.music,
+    stage,
+    prompt: brief,
+    sourceUrl: videoUrl,
+    timeout: TIMEOUT.audio,
+    persist: true,
+  });
+  return asMedia(result, CAPABILITY.music);
+}
+
+export async function concatClips(
+  agent: LivepeerAgent,
+  stage: string,
+  clips: string[]
+): Promise<MediaOutput> {
+  const result = await agent.runOrThrow({
+    capability: CAPABILITY.concat,
+    stage,
+    inputs: { clips },
+    timeout: TIMEOUT.edit,
+    persist: true,
+  });
+  return asMedia(result, CAPABILITY.concat);
+}
+
+/** Lays one audio track onto one clip and returns video. Not to be confused with `ffmpeg-audio-mix`. */
+export async function muxAudio(
+  agent: LivepeerAgent,
+  stage: string,
+  videoUrl: string,
+  audioUrl: string
+): Promise<MediaOutput> {
+  const result = await agent.runOrThrow({
+    capability: CAPABILITY.mux,
+    stage,
+    inputs: { video_url: videoUrl, audio_url: audioUrl },
+    timeout: TIMEOUT.edit,
+    persist: true,
+  });
+  return asMedia(result, CAPABILITY.mux);
+}
+
+/** Mixes several audio tracks down to one. Returns audio, not video. */
+export async function mixTracks(
+  agent: LivepeerAgent,
+  stage: string,
+  tracks: string[]
+): Promise<MediaOutput> {
+  const result = await agent.runOrThrow({
+    capability: CAPABILITY.audioMix,
+    stage,
+    inputs: { tracks },
+    timeout: TIMEOUT.edit,
+    persist: true,
+  });
+  return asMedia(result, CAPABILITY.audioMix);
+}
+
+export async function reframe(
+  agent: LivepeerAgent,
+  stage: string,
+  videoUrl: string,
+  aspectRatio: string
+): Promise<MediaOutput> {
+  const result = await agent.runOrThrow({
+    capability: CAPABILITY.reframe,
+    stage,
+    inputs: { video_url: videoUrl, aspect_ratio: aspectRatio },
+    timeout: TIMEOUT.edit,
+    persist: true,
+  });
+  return asMedia(result, CAPABILITY.reframe);
+}
+
+/** Reads a public page so a scripted claim can carry the URL it came from. */
+export async function groundFromUrl(
+  agent: LivepeerAgent,
+  stage: string,
+  url: string
+): Promise<{ text: string; costUSD: number; ok: boolean }> {
+  const result = await agent.run({
+    capability: CAPABILITY.ground,
+    stage,
+    inputs: { url },
+    timeout: TIMEOUT.ground,
+  });
+  return { text: result.text ?? "", costUSD: result.costUSD, ok: result.ok };
+}
+
+function asMedia(result: RunResult, capability: string): MediaOutput {
+  if (!result.url) {
+    throw new LivepeerError(
+      `${capability} reported success but returned no output URL.`,
+      capability,
+      result.call
+    );
+  }
+  return {
+    url: result.url,
+    costUSD: result.costUSD,
+    capability,
+    latencyMs: result.call.latencyMs,
+  };
+}
