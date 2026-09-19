@@ -148,7 +148,11 @@ export function StudioConsole({
 
       {running || events.length > 0 ? <RunLog events={events} running={running} /> : null}
 
-      <nav className="mt-8 flex gap-1 border-b border-basalt-800">
+      {/* `scroll-mt` because the header is sticky: anything scrolled to the top of the viewport by
+          the browser, whether by an anchor, by focus, or by a script, lands underneath it. The tabs
+          are the worst place for that to happen, since what covers them is the site navigation and
+          a click meant for a tab becomes a click on a link to somewhere else. */}
+      <nav className="mt-8 flex scroll-mt-24 gap-1 border-b border-basalt-800">
         {(
           [
             ["production", "Production"],
