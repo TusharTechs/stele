@@ -9,7 +9,7 @@
 
 *Livepeer Agent Hackathon 2026 — **Track 2: Livepeer Agent + OriginTrail DKG***
 
-**[Watch the demo, 2 min 52](https://youtu.be/ajfEWku-Rmw)** &nbsp;·&nbsp; **[Open the live record](https://stele-record.vercel.app)** &nbsp;·&nbsp; [The evidence](#evidence) &nbsp;·&nbsp; [What the knowledge actually does](#track-2-what-the-knowledge-actually-does) &nbsp;·&nbsp; [Run it yourself](#run-it) &nbsp;·&nbsp; [Limitations](#limitations)
+**[Watch the demo](https://youtu.be/ajfEWku-Rmw)** &nbsp;·&nbsp; **[Open the live record](https://stele-record.vercel.app)** &nbsp;·&nbsp; [The evidence](#evidence) &nbsp;·&nbsp; [What the knowledge actually does](#track-2-what-the-knowledge-actually-does) &nbsp;·&nbsp; [Run it yourself](#run-it) &nbsp;·&nbsp; [Limitations](#limitations)
 
 </div>
 
@@ -342,17 +342,35 @@ The prompt compiler, reading that node: **19 clauses, 4 learned** in the normal 
 
 ## Run it
 
-**Nothing installed, no keys** — real SPARQL over an in-process RDF store, real media on keyless
-demo credits:
+**Node 22.13 or newer. Nothing else.** No API key, no account, no environment file, no database,
+and nothing to install beyond the dependencies. Windows, macOS and Linux are all fine: every script
+is plain Node, the knowledge store in the default mode is an in-process WebAssembly build of
+oxigraph, and the only native tools the project uses, FFmpeg among them, run on Livepeer rather than
+on your machine.
 
 ```bash
-git clone https://github.com/TusharTechs/stele.git && cd stele
+git clone https://github.com/TusharTechs/stele.git
+cd stele
 npm install
 npm run dev
 ```
 
-Open <http://localhost:3210>. Write a brief, press **Run first attempt**, accept a lesson or two in
-the **Canon** tab, then run again.
+On Windows, run those in **PowerShell, Command Prompt, or WSL**; all three work. Then open
+<http://localhost:3210>.
+
+| | |
+|---|---|
+| **Node** | 22.13.0 or newer, which `package.json` enforces. `node --version` to check, [nodejs.org](https://nodejs.org) to install. |
+| **Disk** | About 560MB once installed: 49MB of repo, most of it the demo footage that ships so the studio is not empty on first run, and roughly 510MB of dependencies. |
+| **Network** | Outbound HTTPS to `agent.livepeer.org`. Nothing listens except the dev server on port 3210. |
+| **Ports** | 3210 for `npm run dev`. `npm start` reads `PORT`, so a host that assigns one is handled. |
+
+The six demo productions load themselves before the dev server starts, so the first thing you see is
+finished work rather than an empty studio.
+
+Write a brief, press **Run first attempt**, accept a lesson or two in the **Canon** tab, then run
+again. A three shot attempt takes three to five minutes and costs about $1.76, charged to Livepeer's
+keyless demo allowance rather than to you.
 
 > The in-process store runs the *same SPARQL* as the real thing, so the loop is genuine. It is
 > **not** evidence of a DKG integration, and the app says so on every page and in `/api/health`.
@@ -383,12 +401,26 @@ npm run run:cli -- --project <id> --accept         # accept every lesson, then r
 npm run run:cli -- --project <id> --control        # the control condition
 ```
 
-**Verify the capability claims yourself**, no account needed:
+**Verify the capability claims yourself**, no account needed. Open
+<http://localhost:3210/api/health> in a browser for the resolved stores and a live probe of the
+network, and read [`src/livepeer/capabilities.ts`](src/livepeer/capabilities.ts) for the capability
+map and [`src/livepeer/mcp-client.ts`](src/livepeer/mcp-client.ts) for the single endpoint every
+call goes through.
+
+From a terminal, if you prefer:
 
 ```bash
-grep -rn "agent.livepeer.org" src/livepeer/     # the one endpoint
-grep -rn "CAPABILITY = {" -A 20 src/livepeer/capabilities.ts
-curl -s localhost:3210/api/health | jq          # resolved stores, live probe
+npm run typecheck && npm run lint && npm test
+```
+
+```bash
+# macOS or Linux
+grep -rn "agent.livepeer.org" src/livepeer/
+```
+
+```powershell
+# Windows PowerShell
+Select-String -Path src\livepeer\*.ts -Pattern "agent.livepeer.org"
 ```
 
 ## Limitations
@@ -446,7 +478,7 @@ to redo it.
 
 ## The demo
 
-**[Watch it here](https://youtu.be/ajfEWku-Rmw)** — 2 minutes 52 seconds.
+**[Watch it here](https://youtu.be/ajfEWku-Rmw)**
 
 Recorded against an instance running on a live OriginTrail Edge Node, which is what the badge in the
 header of every frame reports. That matters, because the hosted copy below cannot reach a DKG node
@@ -469,7 +501,8 @@ feature. A render takes minutes against a serverless function timeout, writes pr
 and talks to a knowledge store on localhost. None of those survive a serverless host.
 
 ```bash
-git clone https://github.com/TusharTechs/stele.git && cd stele
+git clone https://github.com/TusharTechs/stele.git
+cd stele
 npm install
 npm run dev
 ```

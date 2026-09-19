@@ -209,12 +209,3 @@ export function extendForShot(base: CompiledPrompt, shot: ShotPlan): CompiledPro
   };
 }
 
-/** A short, human-readable account of what the graph contributed. Used in the run header. */
-export function describeMemory(prompt: CompiledPrompt): string {
-  const total = prompt.clauses.length;
-  const fromMemory = prompt.memoryClauseCount;
-  if (fromMemory === 0) return `${total} clauses, none from learned knowledge`;
-  const attempts = [...new Set(prompt.clauses.map((c) => c.sourceAttempt).filter((a): a is number => a !== undefined))];
-  const origin = attempts.length ? ` learned in attempt ${attempts.sort((a, b) => a - b).join(", ")}` : "";
-  return `${total} clauses, ${fromMemory} from learned knowledge${origin}`;
-}

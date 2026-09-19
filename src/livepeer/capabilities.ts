@@ -275,26 +275,6 @@ export async function animateKeyframe(
   return asMedia(result, CAPABILITY.animate);
 }
 
-export async function renderShot(
-  agent: LivepeerAgent,
-  stage: string,
-  prompt: string,
-  durationSeconds: number,
-  idempotencyKey?: string
-): Promise<MediaOutput> {
-  const result = await agent.runOrThrow({
-    capability: CAPABILITY.shot,
-    stage,
-    prompt,
-    inputs: { duration: snapDuration(durationSeconds), resolution: "720p" },
-    timeout: TIMEOUT.video,
-    async: true,
-    persist: true,
-    idempotencyKey,
-  });
-  return asMedia(result, CAPABILITY.shot);
-}
-
 /**
  * Show a rendered clip to a model that can watch it, and get back what it saw.
  *

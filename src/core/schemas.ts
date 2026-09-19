@@ -271,10 +271,3 @@ export const ProjectSchema = z.object({
 });
 export type Project = z.infer<typeof ProjectSchema>;
 
-export function latestRun(project: Project): Run | undefined {
-  return project.runs.at(-1);
-}
-
-export function scoredRuns(project: Project): Run[] {
-  return project.runs.filter((run) => run.review !== undefined);
-}

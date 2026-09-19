@@ -1,4 +1,3 @@
-import crypto from "node:crypto";
 import { z } from "zod";
 import { LivepeerAgent, livepeer, type LivepeerCall } from "@/livepeer/mcp-client";
 import {
@@ -657,6 +656,3 @@ function short(error: unknown): string {
   return safeText(error instanceof Error ? error.message : String(error), 160);
 }
 
-export function newRunId(): string {
-  return crypto.randomBytes(4).toString("hex");
-}

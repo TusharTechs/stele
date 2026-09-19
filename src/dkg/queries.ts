@@ -87,30 +87,6 @@ ORDER BY DESC(?confidence)
 LIMIT ${limit}`;
 }
 
-/**
- * Where every clause of a run's prompt came from.
- *
- * This backs the "Why this prompt" panel. The workshop for this track made the point that a higher
- * score does not by itself show that memory caused the improvement — you have to look at the
- * knowledge the next prompt actually used. These rows are that look, resolved through the graph
- * rather than read off application state.
- */
-export function clauseProvenance(projectId: string, attempt: number): string {
-  return `${SPARQL_PREFIXES}
-SELECT ?clause ?order ?body ?role ?sourceKind ?derivedFrom ?fromAttempt ?criterion ?sourceBody
-WHERE {
-  ${iri.run(projectId, attempt)} st:usedClause ?clause .
-  ?clause st:clauseOrder ?order ;
-          st:body ?body ;
-          st:clauseRole ?role ;
-          st:sourceKind ?sourceKind .
-  OPTIONAL { ?clause st:derivedFrom ?derivedFrom . OPTIONAL { ?derivedFrom st:body ?sourceBody } }
-  OPTIONAL { ?clause st:fromAttempt ?fromAttempt }
-  OPTIONAL { ?clause st:addressesCriterion ?criterion }
-}
-ORDER BY ?order`;
-}
-
 /** Every attempt with its score and whether memory was in play — the data behind the comparison. */
 export function runHistory(projectId: string): string {
   return `${SPARQL_PREFIXES}
