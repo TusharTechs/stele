@@ -27,7 +27,15 @@ const SURFACES = [
   { href: "/ledger", label: "Ledger" },
 ] as const;
 
-export function SiteNav({ mode, overHero = false }: { mode: DkgMode; overHero?: boolean }) {
+export function SiteNav({
+  mode,
+  hosted = false,
+  overHero = false,
+}: {
+  mode: DkgMode;
+  hosted?: boolean;
+  overHero?: boolean;
+}) {
   const pathname = usePathname();
   // Over footage the bar starts invisible and earns its background by scrolling. A solid rule
   // across the top of a hero cuts the frame in half and is the single thing that makes a cinematic
@@ -78,7 +86,7 @@ export function SiteNav({ mode, overHero = false }: { mode: DkgMode; overHero?: 
         </nav>
 
         <div className="ml-auto flex shrink-0 items-center gap-3 sm:gap-4">
-          <StoreIndicator mode={mode} />
+          <StoreIndicator mode={mode} hosted={hosted} />
 
           <Link
             href="/studio"
@@ -177,7 +185,7 @@ function NavLink({ href, active, children }: { href: string; active: boolean; ch
  *
  * It links to the full report for the same reason. A status claim nobody can open is decoration.
  */
-function StoreIndicator({ mode }: { mode: DkgMode }) {
+function StoreIndicator({ mode, hosted }: { mode: DkgMode; hosted: boolean }) {
   const [reachable, setReachable] = useState<boolean | undefined>(undefined);
 
   useEffect(() => {
@@ -211,13 +219,18 @@ function StoreIndicator({ mode }: { mode: DkgMode }) {
         ? "bg-bronze-400"
         : "bg-bone-500";
 
+  // On the hosted copy the local store is the expected state, not a missing piece. Saying "no DKG
+  // node is configured" there reads as a fault in the project rather than a property of serverless
+  // hosting, which is the opposite of what this indicator is for.
   const title = down
     ? `This instance is configured for ${mode === "network" ? "the DKG testnet" : "a DKG edge node"}, but the node did not answer. Nothing here is being written to it right now.`
     : mode === "network"
       ? "Knowledge is written to the OriginTrail DKG and anchored on chain. Open the full report."
       : mode === "edge"
         ? "Knowledge is written to an OriginTrail Edge Node and shared with peers, without a chain publish. Open the full report."
-        : "No DKG node is configured, so knowledge lives in an in-process RDF store. Real SPARQL, but not the DKG. Open the full report.";
+        : hosted
+          ? "A DKG node cannot be reached from a serverless host, so this hosted copy reads from an in-process RDF store. Same ontology, same SPARQL. Clone the repo and point STELE_DKG at an edge node to see the DKG path. Open the full report."
+          : "No DKG node is configured, so knowledge lives in an in-process RDF store. Real SPARQL, but not the DKG. Open the full report.";
 
   return (
     <a

@@ -14,7 +14,7 @@ export default async function StudioPage() {
     <>
       <SiteHeader />
       <main className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
-        <div className="grid gap-10 lg:grid-cols-[1fr_360px]">
+        <div className="grid gap-10 lg:grid-cols-[1fr_400px]">
           <section>
             <SectionTitle hint={`${projects.length} project${projects.length === 1 ? "" : "s"}`}>
               Productions

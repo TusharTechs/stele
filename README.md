@@ -9,9 +9,23 @@
 
 *Livepeer Agent Hackathon 2026 — **Track 2: Livepeer Agent + OriginTrail DKG***
 
+**[Open the live demo](https://stele-record.vercel.app)** &nbsp;·&nbsp; [The evidence](#evidence) &nbsp;·&nbsp; [What the knowledge actually does](#track-2-what-the-knowledge-actually-does) &nbsp;·&nbsp; [Run it yourself](#run-it) &nbsp;·&nbsp; [Limitations](#limitations)
+
 </div>
 
+| Go straight to | |
+|---|---|
+| **The claim, shown** | [A prompt compiled from the graph, clause by clause](#1-the-prompt-is-compiled-from-the-graph-and-every-clause-knows-where-it-came-from) |
+| **The claim, tested** | [A control run with memory withheld](#the-control) &nbsp;·&nbsp; [An experiment that failed, and what it changed](#the-experiment-that-failed-and-what-it-taught) |
+| **Knowledge moving between agents** | [Measured across a project boundary](#knowledge-crossing-a-project-boundary-measured) |
+| **Checkable, not assertable** | [Every record re-derived from scratch](#3-every-production-leaves-a-record-someone-else-can-check) |
+| **The DKG, and what is real** | [Running against a live edge node](#the-dkg-node) &nbsp;·&nbsp; [What never reaches the graph](#what-never-reaches-the-graph) |
+| **Livepeer Agent** | [Every capability, and what each one does](#how-livepeer-agent-is-used) |
+| **Reproduce it** | [Setup from a clean clone](#run-it) &nbsp;·&nbsp; [Live instance health](https://stele-record.vercel.app/api/health) |
+
 ---
+
+<sup>The hosted demo is the record, read only: it can show you everything six productions learned, but a render writes to disk and talks to a DKG node, so producing a film means [running it locally](#run-it). The header on every page states which knowledge store that instance resolved to, and links to the report.</sup>
 
 <img src="docs/shots/gallery.png" alt="A grid of rendered frames, each labelled with the capability, attempt and score behind it" />
 
@@ -69,7 +83,7 @@ Two things in that diagram carry the argument: **the canon is read before every 
 only by a human**, and **everything the loop does lands in the ledger**, which is what the production
 record and the seal are built from.
 
-## Track 2 — what the knowledge actually does
+## Track 2: what the knowledge actually does
 
 The hackathon asks whether verifiable knowledge *materially improves* the application. Three
 specific answers, each checkable.

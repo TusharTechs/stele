@@ -1,5 +1,6 @@
 import { SiteNav } from "./SiteNav";
 import { resolveDkgMode } from "@/dkg/client";
+import { isReadOnly } from "@/core/deploy";
 
 /**
  * The header, resolved on the server.
@@ -21,7 +22,7 @@ export function SiteHeader({
 }) {
   return (
     <>
-      <SiteNav mode={resolveDkgMode()} overHero={overHero} />
+      <SiteNav mode={resolveDkgMode()} hosted={isReadOnly()} overHero={overHero} />
       {children}
     </>
   );
