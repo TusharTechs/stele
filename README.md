@@ -443,28 +443,43 @@ persists before the next begins, so an interrupted run re-enters where it stoppe
 to redo it.
 
 
-## Running the hosted demo
+## The hosted copy, and the real thing
 
-The deployed site is a read-only copy of this record. Every page that reads works: the productions,
-the canon, the gallery, the comparison between two films, and the ledger of what each call cost.
-Nothing that writes works, and it says so rather than pretending: a render takes minutes against a
-serverless function timeout, writes project files to disk, and talks to a DKG node on localhost.
-Producing a film means cloning this repo.
+Two ways in, doing different jobs.
 
-A deployment needs three things set, and no more:
+**[stele-record.vercel.app](https://stele-record.vercel.app)** is the record, read only. Every page
+that reads works: six productions, the canon behind them, the gallery, the comparison between two
+films, the ledger of what each call cost, and a verification panel that re-derives every claim. It
+loads instantly and nothing there can be changed.
 
-| Variable | Value | Why |
+**Making a film means running it yourself**, and that is a deliberate property rather than a missing
+feature. A render takes minutes against a serverless function timeout, writes project files to disk,
+and talks to a knowledge store on localhost. None of those survive a serverless host.
+
+```bash
+git clone https://github.com/TusharTechs/stele.git && cd stele
+npm install
+npm run dev
+```
+
+That is the whole setup. **No environment file is needed and no key is required**: the studio runs
+on Livepeer's keyless demo allowance, so pressing **Run first attempt** renders, reviews and scores
+a real film without an account. One 3-shot attempt costs about **$1.76** of metered network spend
+against an allowance capped per address, so there is room for several before it runs out.
+
+Everything below is optional, and only matters for the two things the default cannot do.
+
+| Variable | Set it to | What it changes |
 |---|---|---|
-| `STELE_READ_ONLY` | `1` | Disables the controls that cannot work, with an explanation in place of a dead button. Detected automatically on Vercel, so this is belt and braces. |
-| `STELE_DKG` | `file` | There is no DKG node reachable from a serverless host. The in-process store runs the same SPARQL, and the header says **local RDF store** rather than claiming a node. |
-| `STELE_PUBLIC_URL` | the deployment origin | Used for the URLs burned onto a film and printed in a record. |
+| `LIVEPEER_API_KEY` | a key from [agent.livepeer.org](https://agent.livepeer.org/get-started.html) | Lifts the keyless allowance cap. Nothing else. The capabilities and prices are identical either way. |
+| `STELE_DKG` | `edge` | Knowledge is written to a real OriginTrail Edge Node instead of the in-process store. This is the Track 2 path, and the header changes from **local RDF store** to **DKG · edge node**. Needs the node installed and running, see [Run it](#run-it). |
+| `STELE_DKG` | `network` | The same, plus sealing a production to Verifiable Memory for a UAL. Needs gas in the node's operational wallet. |
+| `STELE_RUN_BUDGET_USD` | a number | Ceiling for one attempt. A stage that would cross it stops the run rather than spending through. Defaults to 8. |
+| `STELE_READ_ONLY` | `1` | Disables everything that writes, with an explanation in place of a dead button. Detected automatically on Vercel; set it by hand anywhere else you want a read-only copy. |
 
-Leave `LIVEPEER_API_KEY` and every `DKG_*` variable unset. Nothing on the hosted copy spends money
-or writes to the graph, so a key there would only be a key sitting somewhere it is not needed.
-
-The demo projects travel with the build: `prebuild` loads them out of `demo/` and `next.config.ts`
-traces them into the server bundle. Without both, the deploy is a technically correct site with no
-productions in it.
+The in-process default is real SPARQL over the same ontology, so the learning loop is genuine
+without any of this. It is **not** evidence of a DKG integration, and the app says so on every page
+and in `/api/health`.
 
 ## License
 
