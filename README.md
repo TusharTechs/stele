@@ -21,6 +21,8 @@
 | **Checkable, not assertable** | [Every record re-derived from scratch](#3-every-production-leaves-a-record-someone-else-can-check) |
 | **The DKG, and what is real** | [Running against a live edge node](#the-dkg-node) &nbsp;·&nbsp; [What never reaches the graph](#what-never-reaches-the-graph) |
 | **Livepeer Agent** | [Every capability, and what each one does](#how-livepeer-agent-is-used) |
+| **The Knowledge Asset** | [Create, retrieve and verify, end to end](#the-knowledge-asset-end-to-end) |
+| **Where it could go** | [What is missing, and what it would take](#where-this-goes) |
 | **Reproduce it** | [Setup from a clean clone](#run-it) &nbsp;·&nbsp; [Live instance health](https://stele-record.vercel.app/api/health) |
 | **See it running** | [The demo video](https://youtu.be/ajfEWku-Rmw), recorded against a live OriginTrail Edge Node |
 
@@ -144,6 +146,62 @@ criterion it addresses, and who accepted it.
 <img src="docs/shots/compare.png" alt="Two productions on parallel rails, with filled nodes where a rule steers that side" />
 
 <sup>Knowledge crossing a boundary. A row spanning both rails is a rule steering both films; a row reaching one is unique to it. Three came from *Indigo Hearth*, and two of those reached *Iron Still* by way of a third production, *Time&rsquo;s Embrace*.</sup>
+
+### The Knowledge Asset, end to end
+
+The track asks for the asset and its create, retrieve and verify path. All three, in one place.
+
+**The asset.** Two per project, both RDF, both cumulative across attempts. Named by content so a
+rewrite is a new asset rather than a silent edit of an old one:
+
+```
+stele-<projectId>-canon-<sha256[0:10]>        the rules that steer the next render
+stele-<projectId>-run-ledger-<sha256[0:10]>   what every attempt did, cost and hashed
+```
+
+**Create.** [`src/dkg/serialize.ts`](src/dkg/serialize.ts) turns project state into Turtle, every
+literal passes [`src/dkg/redact.ts`](src/dkg/redact.ts), and
+[`src/dkg/client.ts`](src/dkg/client.ts) writes it through the node's own CLI. `--share` is what
+promotes it from the node's private Working Memory into Shared Working Memory, where peers on the
+context graph can read it:
+
+```bash
+dkg ka create  stele-<id>-canon-<digest> -c <context-graph> --input-file canon.ttl --share
+dkg ka status  stele-<id>-canon-<digest> -c <context-graph> --json
+```
+
+Re-running is safe: an existing asset is written and finalised instead, and the CLI is the write
+path specifically because `--share` is not exposed anywhere else.
+
+**Retrieve.** Reads are SPARQL against the running node, not the CLI, because `dkg query` renders a
+formatted table with no `--json` and parsing it returns zero rows that look exactly like an empty
+graph. `includeSharedMemory` is the flag that makes another agent's shared lessons visible here, and
+it is the mechanism behind cross-project inheritance:
+
+```bash
+curl -s http://127.0.0.1:9200/api/query \
+  -H "authorization: Bearer $(cat ~/.dkg/auth.token)" \
+  -H "content-type: application/json" \
+  -d '{"sparql":"SELECT ?s ?p ?o WHERE { ?s ?p ?o } LIMIT 20",
+       "contextGraphId":"<context-graph>","includeSharedMemory":true}'
+```
+
+Every query the product runs is in [`src/dkg/queries.ts`](src/dkg/queries.ts), and the studio's
+**Knowledge graph** tab will run any of them, or one you write, against your own node.
+
+**Verify.** Open any production record and press **Run the checks**. Four checks, each re-derived
+from scratch rather than read back from application state, and each printing the command that
+reproduces it without this app:
+
+| Check | How it is re-derived |
+|---|---|
+| The prompt matches the knowledge recorded against it | `sha256(clauses.map(c => c.body).join(" "))`, recomputed from the clause list on the page |
+| The knowledge graph holds this attempt | A SPARQL `SELECT` against the node for that run's score, prompt hash and memory clause count |
+| The cut is the file that was recorded | `curl -s <cutUrl> \| shasum -a 256` against the stored digest |
+| The record is anchored on a chain | `dkg ka query <ual>` |
+
+The fourth reports **not applicable** on this instance rather than passing, because nothing here has
+been sealed to Verifiable Memory. See [Limitations](#limitations).
 
 ### What is local, what is shared, what is published
 
@@ -449,6 +507,37 @@ Stated plainly, because a reader should be able to tell a working path from a pl
   local studio, not a deployed service.
 - **Narration and score are mutually exclusive.** `ffmpeg-mux` replaces a clip's audio rather than
   mixing into it, so laying both down would silently discard the narration.
+
+## Where this goes
+
+The loop works and the knowledge crosses projects. What it is not yet is a thing other people can
+rely on, and the gap is specific rather than vague.
+
+**Seal for real.** Everything for Verifiable Memory is written and wired. It needs gas in the
+operational wallet and one successful `dkg ka publish`, after which `/record/<id>` resolves for
+someone with no access to the machine that made the film. That single step converts the strongest
+claim here from implemented to demonstrated, and it is the first thing to do.
+
+**Generalise a rule as it crosses a boundary.** Today an inherited lesson arrives in the vocabulary
+of the film that proved it, saying "deep indigo glaze" while steering a kettle. The principle
+transfers and the criteria pass, but a rule that abstracted itself on the way over would transfer
+further and to more distant work. This is a distillation problem, not an infrastructure one, and the
+graph already carries everything needed to attempt it.
+
+**A canon worth subscribing to.** Shared Working Memory already lets one studio read another's
+accepted rules. The missing piece is social rather than technical: a way to follow a canon, see what
+it has proved and at what cost, and take rules from it without taking all of them. A house style
+somebody else maintains and you inherit is a more interesting object than a folder of prompts, and
+it is the version of this that could matter beyond one machine.
+
+**Reviewers you can disagree with.** One model's score steers the loop today. Two reviewers that
+disagree is more useful information than one that is confident, and the verdict schema already
+stores per-criterion judgements, so recording several and surfacing the disagreement is additive
+rather than a rewrite.
+
+**The honest boring work.** Authentication before this is ever hosted with a key attached, a spend
+ceiling per day rather than per attempt, and resumable runs so a dropped connection does not cost a
+render. None of it is interesting and all of it is required before anyone else's money is involved.
 
 ## How it is built
 
