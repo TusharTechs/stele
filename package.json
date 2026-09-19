@@ -11,7 +11,7 @@
     "predev": "tsx scripts/seed.mts --load", "dev": "next dev --port 3210",
     "prebuild": "tsx scripts/seed.mts --load",
     "build": "next build",
-    "start": "next start --port 3210",
+    "start": "next start --port ${PORT:-3210}",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "test": "tsx --test tests/*.test.mts",
