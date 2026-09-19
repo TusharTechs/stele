@@ -9,7 +9,7 @@
 
 *Livepeer Agent Hackathon 2026 — **Track 2: Livepeer Agent + OriginTrail DKG***
 
-**[Open the live demo](https://stele-record.vercel.app)** &nbsp;·&nbsp; [The evidence](#evidence) &nbsp;·&nbsp; [What the knowledge actually does](#track-2-what-the-knowledge-actually-does) &nbsp;·&nbsp; [Run it yourself](#run-it) &nbsp;·&nbsp; [Limitations](#limitations)
+**[Watch the demo, 2 min 52](https://youtu.be/ajfEWku-Rmw)** &nbsp;·&nbsp; **[Open the live record](https://stele-record.vercel.app)** &nbsp;·&nbsp; [The evidence](#evidence) &nbsp;·&nbsp; [What the knowledge actually does](#track-2-what-the-knowledge-actually-does) &nbsp;·&nbsp; [Run it yourself](#run-it) &nbsp;·&nbsp; [Limitations](#limitations)
 
 </div>
 
@@ -22,6 +22,7 @@
 | **The DKG, and what is real** | [Running against a live edge node](#the-dkg-node) &nbsp;·&nbsp; [What never reaches the graph](#what-never-reaches-the-graph) |
 | **Livepeer Agent** | [Every capability, and what each one does](#how-livepeer-agent-is-used) |
 | **Reproduce it** | [Setup from a clean clone](#run-it) &nbsp;·&nbsp; [Live instance health](https://stele-record.vercel.app/api/health) |
+| **See it running** | [The demo video](https://youtu.be/ajfEWku-Rmw), recorded against a live OriginTrail Edge Node |
 
 ---
 
@@ -442,6 +443,17 @@ Runs as a persistent Node process, not serverless: a video render takes minutes 
 persists before the next begins, so an interrupted run re-enters where it stopped rather than paying
 to redo it.
 
+
+## The demo
+
+**[Watch it here](https://youtu.be/ajfEWku-Rmw)** — 2 minutes 52 seconds.
+
+Recorded against an instance running on a live OriginTrail Edge Node, which is what the badge in the
+header of every frame reports. That matters, because the hosted copy below cannot reach a DKG node
+and says so; the video is where the Track 2 path is visible without installing the node yourself.
+
+The narration was synthesised by `inworld-tts` on Livepeer, which seemed like the right way to voice
+a submission about the network it runs on.
 
 ## The hosted copy, and the real thing
 
